@@ -1,0 +1,12 @@
+import static java.nio.file.Files.readAllBytes;
+import static java.nio.file.Paths.get;
+
+public class AccelerometerData {
+
+	public static void main(String[] args) {
+
+		String content = new String(readAllBytes(get("test.txt")));
+
+	}
+
+}
