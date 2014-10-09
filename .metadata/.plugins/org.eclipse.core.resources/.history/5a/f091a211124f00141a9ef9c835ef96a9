@@ -1,9 +1,0 @@
-public class AccelerometerData {
-
-	public static void main(String[] args) {
-
-		String content = new String(readAllBytes(get("test.txt")));
-
-	}
-
-}

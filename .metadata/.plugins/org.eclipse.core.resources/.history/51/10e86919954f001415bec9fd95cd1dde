@@ -1,0 +1,107 @@
+import static java.nio.file.Files.readAllBytes;
+import static java.nio.file.Paths.get;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+
+import javax.swing.JFrame;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.DefaultXYDataset;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+public class AccelerometerData {
+
+	public static void main(String[] args) throws IOException {
+		
+		String filename = "log1.txt";
+
+		// zet de inhoud van het logbestand in een string
+		String s = new String(readAllBytes(get("src/data/"+filename)));
+		
+		// maak hiervan een JSON object in Java
+		JSONObject obj = (JSONObject) JSONValue.parse(s);
+		JSONArray measurements = (JSONArray) obj.get("measurements");
+		
+		// maak een array van alle gegevens
+		int NUM_VALUES = measurements.size();
+		double[][] xValues = new double[2][NUM_VALUES];
+		double[][] yValues = new double[2][NUM_VALUES];
+		double[][] zValues = new double[2][NUM_VALUES];
+		Iterator<JSONObject> iterator = measurements.iterator();
+		int i=0;
+		while(iterator.hasNext()) {
+			JSONObject m = iterator.next();
+			long timestamp = (long) m.get("timestamp");
+			double r = (double) m.get("r");
+			double x = (double) m.get("x");
+			double y = (double) m.get("y");
+			double z = (double) m.get("z");
+			xValues[0][i] = timestamp;
+			yValues[0][i] = timestamp;
+			zValues[0][i] = timestamp;
+			xValues[1][i] = x;
+			yValues[1][i] = y;
+			zValues[1][i] = z;
+			i++;
+		}
+
+		DefaultXYDataset dataset = new DefaultXYDataset();
+		dataset.addSeries("x", xValues);
+		dataset.addSeries("y", yValues);
+		dataset.addSeries("z", zValues);
+
+	      // Create the chart
+	      JFreeChart chart = ChartFactory.createXYLineChart(
+	         "Sine / Cosine Curves", // The chart title
+	         "X", // x axis label
+	         "Y", // y axis label
+	         dataset, // The dataset for the chart
+	         PlotOrientation.VERTICAL,
+	         true, // Is a legend required?
+	         false, // Use tooltips
+	         false // Configure chart to generate URLs?
+	      );
+
+	/*
+	      DefaultCategoryDataset catDataset = new DefaultCategoryDataset();
+	      for (int i=0; i<NUM_VALUES; i++)
+	      {
+	         catDataset.addValue(sineValues[1][i], "Sine", ""+sineValues[0][i]);
+	         catDataset.addValue(cosineValues[1][i], "Cosine", ""+cosineValues[0][i]);
+	      }
+
+	      // Create the chart
+	      JFreeChart chart = ChartFactory.createBarChart(
+	         "Sine / Cosine Curves", // The chart title
+	         "X", // x axis label
+	         "Y", // y axis label
+	         catDataset, // The dataset for the chart
+	         PlotOrientation.VERTICAL,
+	         true, // Is a legend required?
+	         false, // Use tooltips
+	         false // Configure chart to generate URLs?
+	      );
+	*/
+
+	      // save it to a file
+	      File imageFile = new File("sine-cosine.png");
+	      ChartUtilities.saveChartAsPNG(imageFile, chart, 500, 300);
+
+	      // display it on the screen
+	      JFrame frame = new XYChartExample();
+	      frame.getContentPane().add(new ChartPanel(chart));
+	      frame.setSize(700, 500);
+	      frame.setVisible(true);
+	      frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+	      
+	}
+
+}
