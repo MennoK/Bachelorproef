@@ -21,7 +21,7 @@ public class AccelerometerData extends JFrame {
 
 	public static void main(String[] args) throws IOException {
 		
-		String filename = "trap-af.log";
+		String filename = "draai-links.log";
 
 		// zet de inhoud van het logbestand in een string
 		String s = new String(readAllBytes(get("src/data/"+filename)));

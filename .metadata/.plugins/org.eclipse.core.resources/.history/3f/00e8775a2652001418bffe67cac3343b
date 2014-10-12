@@ -21,7 +21,7 @@ public class AccelerometerData extends JFrame {
 
 	public static void main(String[] args) throws IOException {
 		
-		String filename = "trap-af.log";
+		String filename = "trap-op.log";
 
 		// zet de inhoud van het logbestand in een string
 		String s = new String(readAllBytes(get("src/data/"+filename)));
@@ -31,14 +31,13 @@ public class AccelerometerData extends JFrame {
 		JSONArray measurements = (JSONArray) obj.get("measurements");
 		
 		// maak arrays van alle gegevens
-		int MAX_VALUES = 50 * 20; // maximaal 20 seconden plotten (anders is grafiek niet meer goed leesbaar)
-		int NUM_VALUES = Math.min(measurements.size(), MAX_VALUES);
+		int NUM_VALUES = measurements.size();
 		double[][] xValues = new double[2][NUM_VALUES];
 		double[][] yValues = new double[2][NUM_VALUES];
 		double[][] zValues = new double[2][NUM_VALUES];
 		Iterator<JSONObject> iterator = measurements.iterator();
 		int i=0;
-		while(iterator.hasNext() && i < MAX_VALUES) {
+		while(iterator.hasNext()) {
 			JSONObject m = iterator.next();
 			double x = (double) m.get("x");
 			double y = (double) m.get("y");
