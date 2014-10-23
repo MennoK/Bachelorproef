@@ -21,7 +21,7 @@ public class AccelerometerData extends JFrame {
 
 	public static void main(String[] args) throws IOException {
 		
-		String filename = "zonder-g/lopen.txt";
+		String filename = "zonder-g/wandelen.txt";
 
 		// zet de inhoud van het logbestand in een string
 		String s = new String(readAllBytes(get("src/data/"+filename)));
@@ -69,7 +69,7 @@ public class AccelerometerData extends JFrame {
 	    );
 
 	    // opslaan als afbeelding
-	    File imageFile = new File("lopen-zonder-g.png");
+	    File imageFile = new File("wandelen-zonder-g.png");
 	    ChartUtilities.saveChartAsPNG(imageFile, chart, 1000, 350);
 
 	    // tonen in venster
