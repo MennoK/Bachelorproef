@@ -1,0 +1,23 @@
+A) Data toevoegen
+
+    1. Voor afzonderlijke activiteiten:
+	
+       Locatie:      ActivityRecognition/data/single
+       Bestandsnaam: [activiteit-naam]_[nummer]_[a/m]_[l/r]_[datum+tijd].log
+	                      [activiteit-naam]: zoals te vinden in model.Activity
+                          [a/m]:             Arne of Menno
+                          [l/r]:             linker- of rechterbroekzak
+                          
+       Voor elke log-bestand is er ook een bijhorend txt-bestand met de volgende structuur:
+       
+       start:[start timestamp van de activiteit]
+       end:[eind timestamp van de activiteit]
+       set:[training of test]
+		
+    2. Voor sequenties:
+	
+       TODO
+       
+B) Model opstellen
+
+    1. Voor 1 acti
