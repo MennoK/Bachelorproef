@@ -1,0 +1,12 @@
+package model;
+
+public enum Activity {
+	
+	Activity(int id, String nameEN, String nameNL) {
+		this.id = id;
+	}
+	
+	public final int id;
+	public final String nameEN, nameNL;
+
+}

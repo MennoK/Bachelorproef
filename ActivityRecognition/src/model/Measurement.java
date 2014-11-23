@@ -10,6 +10,9 @@ public class Measurement {
 	}
 
 	public long timestamp;
-	public double x, y, z;
+	public double r, x, y, z;
+	public double q1,qy2,q3,q4;
+	public double p;
+	public double a;
 	
 }

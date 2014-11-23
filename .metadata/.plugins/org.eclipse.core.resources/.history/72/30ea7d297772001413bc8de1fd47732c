@@ -1,0 +1,8 @@
+package model;
+
+public class Measurement {
+
+	public long timestamp;
+	public double x, y, z;
+	
+}

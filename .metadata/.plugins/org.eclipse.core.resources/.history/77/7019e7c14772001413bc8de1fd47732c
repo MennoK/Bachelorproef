@@ -1,0 +1,14 @@
+Hoe .log-bestanden toevoegen?
+
+	1. Voor 1 activiteit:
+	
+		Toevoegen aan map ActivityRecognition/data,
+		met als bestandsnaam: [activiteit-naam]-[a/m]-[l/r]-[nummer].log
+		
+			[activiteit-naam]: 	zoals te vinden in model.Activity
+			[a/m]:				Arne of Menno
+			[l/r]:				linker- of rechterbroekzak
+		
+	2. Voor meerdere activiteiten:
+	
+		TODO

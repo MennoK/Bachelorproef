@@ -1,0 +1,16 @@
+package model;
+
+public enum Activity {
+	
+	WALKING(1, "walking", "wandelen");
+	
+	Activity(int id, String nameEN, String nameNL) {
+		this.id = id;
+		this.nameEN = nameEN;
+		this.nameNL = nameNL;
+	}
+	
+	public final int id;
+	public final String nameEN, nameNL;
+
+}

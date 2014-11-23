@@ -1,0 +1,9 @@
+package model;
+
+public enum Activity {
+	
+	Activity(int id, String name, String nameNL) {
+		
+	}
+
+}

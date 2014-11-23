@@ -1,0 +1,7 @@
+Hoe .log-bestanden toevoegen?
+
+	1. Naamgeving:
+	
+		[activiteit-naam]-[a/m]-[l/r]-[nummer].log
+		
+		[activiteit-naam]: zoals te vinden in enum model.Activity

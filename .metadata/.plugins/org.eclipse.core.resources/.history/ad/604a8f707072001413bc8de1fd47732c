@@ -1,0 +1,15 @@
+A) Hoe .log-bestanden toevoegen?
+
+    1. Voor 1 activiteit:
+	
+       Locatie:      ActivityRecognition/data
+       Bestandsnaam: [activiteit-naam]-[a/m]-[l/r]-[nummer].log
+	                      [activiteit-naam]: zoals te vinden in model.Activity
+                          [a/m]:             Arne of Menno
+                          [l/r]:             linker- of rechterbroekzak
+		
+    2. Voor meerdere activiteiten:
+	
+       TODO
+       
+B) Hoe het model opstellen?
