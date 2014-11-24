@@ -12,7 +12,8 @@ public enum Activity {
 	STAAN,
 	LIFT,
 	TREIN,
-	ZITTEN;
+	ZITTEN,
+	LIGGEN;
 	// TODO: dit lijstje aanvullen
 
 }

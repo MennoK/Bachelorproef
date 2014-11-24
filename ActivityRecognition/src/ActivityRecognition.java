@@ -168,9 +168,25 @@ public class ActivityRecognition {
 		while(iterator.hasNext()) {
 			JSONObject m = iterator.next();
 			long timestamp = (long) m.get("timestamp");
-			double x = (double) m.get("x");
-			double y = (double) m.get("y");
-			double z = (double) m.get("z");
+			Double x, y, z;
+			try {
+				x = (Double) m.get("x");
+			}
+			catch (Exception e) {
+				x = 0.0;
+			}
+			try {
+				y = (Double) m.get("y");
+			}
+			catch (Exception e) {
+				y = 0.0;
+			}
+			try {
+				z = (Double) m.get("z");
+			}
+			catch (Exception e) {
+				z = 0.0;
+			}
 			Measurement measurement = new Measurement(timestamp, x, y, z);
 			result[i] = measurement;
 			i++;
