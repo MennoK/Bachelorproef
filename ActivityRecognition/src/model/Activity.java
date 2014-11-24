@@ -7,7 +7,12 @@ public enum Activity {
 	TRAPOP,
 	TRAPAF,
 	FIETSEN,
-	TANDENPOETSEN;
+	TANDENPOETSEN,
+	SPRINGEN,
+	STAAN,
+	LIFT,
+	TREIN,
+	ZITTEN;
 	// TODO: dit lijstje aanvullen
 
 }

@@ -14,6 +14,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -26,6 +27,9 @@ import java.util.regex.Pattern;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.TrueFileFilter;
 
 import model.Activity;
 import model.Measurement;
@@ -50,7 +54,7 @@ public class ActivityRecognition {
 		
 		/* STAP 1: lees alle .log-bestanden in, met bijhorende .txt-bestanden */
 		
-		String[] logFiles = findFileNames("data/single", "log");
+		String[] logFiles = findFileNames("Data", "log");
 		
 		System.out.println("Ingelezen logs: (activiteit, nummer, persoon, kant, datum+tijd, start, einde, set, bestandsnaam)");
 		
@@ -58,23 +62,25 @@ public class ActivityRecognition {
 		ArrayList<File> csvFilesTest = new ArrayList<>();
 		
 		for (String logFile : logFiles) {
+			
 						
 			// lees alle measurements in .log-bestand in
-			Measurement[] allMeasurements = getMeasurements("data/single/"+logFile);
+			Measurement[] allMeasurements = getMeasurements("Data/" + logFile);
 			
 			// verder zullen we alleen die measurements bijhouden die tussen start en end liggen
 			LinkedList<Measurement> measurements = new LinkedList<>();
 			
 			// haal activiteit naam, persoon, kant en datum+tijd uit bestandsnaam
-			Pattern p = Pattern.compile("([a-z]*)([0-9]*)_([a-z]*)_(l|r)_([0-9]*).log");
+			Pattern p = Pattern.compile("([a-zA-Z ]+)/([a-z]*)([0-9]*)_([a-z]*)_(l|r)_([0-9]*).log");
 			Matcher m = p.matcher(logFile);
 			if(m.matches()) {
 				
-				String activityName = m.group(1);
-				String number = m.group(2);
-				String person = m.group(3);
-				String side = m.group(4);
-				String datetime = m.group(5);
+				String folder = m.group(1);
+				String activityName = m.group(2);
+				String number = m.group(3);
+				String person = m.group(4);
+				String side = m.group(5);
+				String datetime = m.group(6);
 				Activity activity = Activity.valueOf(activityName.toUpperCase());
 				
 				// haal start en einde uit bijhorende .txt-bestand
@@ -82,7 +88,7 @@ public class ActivityRecognition {
 				String end = "";
 				String set = "";
 				try {
-					String meta = readFile("data/single/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".txt").replace("\n", "").replace("\r", "");
+					String meta = readFile("Data/"+folder+"/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".txt").replace("\n", "").replace("\r", "");
 					Pattern q = Pattern.compile("start:([0-9]+)end:([0-9]+)set:(training|test)");
 					Matcher l = q.matcher(meta);
 					if(l.matches()) {
@@ -97,7 +103,7 @@ public class ActivityRecognition {
 					end = Long.toString(allMeasurements[allMeasurements.length-1].timestamp);
 					set = "training";
 					String text = "start:"+start+"\n"+"end:"+end+"\n"+"set:"+set;
-					writeToFile("data/single/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".txt", text);
+					writeToFile("Data/"+folder+"/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".txt", text);
 				}
 				
 				// laat weten welke .log-bestanden zijn ingelezen
@@ -109,22 +115,22 @@ public class ActivityRecognition {
 				}
 				
 				// maak nieuw .log-bestand zonder overbodige measurements
-				makeShorterLogFile("data/single/"+logFile,
-						"temp/data/single/"+logFile,
+				makeShorterLogFile("Data/"+logFile,
+						"Data/"+logFile+"2",
 						start, end, activity.toString());
 				
 				// STAP 2: visualiseer + maak .csv bestand met features
 				
 				try {
-					Runtime.getRuntime().exec("java -jar MotionFingerprint.jar --plot data/single/pdf/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".pdf temp/data/single/"+logFile);
-					Runtime.getRuntime().exec("java -jar MotionFingerprint.jar --features data/single/csv/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".csv temp/data/single/"+logFile);
+					Runtime.getRuntime().exec("java -jar MotionFingerprint.jar --plot Pre-processing/Grafieken/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".pdf Data/"+logFile+"2");
+					Runtime.getRuntime().exec("java -jar MotionFingerprint.jar --features Pre-processing/CSV/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".csv Data/"+logFile+"2");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 				if (set.equals("training"))
-					csvFilesTraining.add(new File("data/single/csv/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".csv"));
+					csvFilesTraining.add(new File("Pre-processing/CSV/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".csv"));
 				else
-					csvFilesTest.add(new File("data/single/csv/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".csvv"));
+					csvFilesTest.add(new File("Pre-processing/CSV/"+activityName+number+"_"+person+"_"+side+"_"+datetime+".csv"));
 				
 			}
 			
@@ -137,10 +143,10 @@ public class ActivityRecognition {
 		// STAP 3: maak training-set.csv en test-set.csv
 	
 		if (csvFilesTraining.size() > 0)
-			mergeCsvFiles(csvFilesTraining, "data/single/weka/training-set.csv");
+			mergeCsvFiles(csvFilesTraining, "training-set.csv");
 		
 		if (csvFilesTest.size() > 0)
-			mergeCsvFiles(csvFilesTest, "data/single/weka/test-set.csv");
+			mergeCsvFiles(csvFilesTest, "test-set.csv");
 
 			
 	}
@@ -222,14 +228,38 @@ public class ActivityRecognition {
     	         public boolean accept(File dir, String filename) { return filename.endsWith("."+extension); }
     	});
     	
+    	String[] names = dir.list();
+
+    	
     	String[] fileNames = new String[files.length];
     	
     	for (int i = 0; i < files.length; i++)
     		fileNames[i] = files[i].getName();
     	
+    	for(String name : names)
+    	{
+    	    if (new File(dirName + "/" + name).isDirectory())
+    	    {
+    	        String[] subFiles = findFileNames(dirName + "/" + name, extension);
+    	        for (int i=0; i < subFiles.length; i++)
+    	        	subFiles[i] = name + "/" + subFiles[i];
+    	        String[] fileNamesCopy = Arrays.copyOf(fileNames, fileNames.length);
+    	        fileNames = concat(fileNamesCopy, subFiles);
+    	    }
+    	}
+    	
+    	
     	return fileNames;
-
     }
+	
+	public static String[] concat(String[] A, String[] B) {
+		   int aLen = A.length;
+		   int bLen = B.length;
+		   String[] C= new String[aLen+bLen];
+		   System.arraycopy(A, 0, C, 0, aLen);
+		   System.arraycopy(B, 0, C, aLen, bLen);
+		   return C;
+		}
 	
 	public static void writeToFile(String path, String text) throws IOException {
 		File file = new File(path);
