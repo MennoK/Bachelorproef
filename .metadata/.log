@@ -741,3 +741,178 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.core.resources 2 10035 2014-11-24 17:10:34.359
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2014-11-25 19:17:57.351 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.7.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2014-11-25 19:19:16.997
+!MESSAGE Could not create view: 'org.eclipse.mylyn.tasks.ui.views.tasks'.
+
+!ENTRY org.eclipse.team.core 4 0 2014-11-25 19:19:18.083
+!MESSAGE Could not instantiate provider org.eclipse.egit.core.GitProvider for project ActivityRecognition.
+!STACK 1
+org.eclipse.team.core.TeamException: Could not instantiate provider org.eclipse.egit.core.GitProvider for project ActivityRecognition.
+	at org.eclipse.team.core.RepositoryProvider.mapNewProvider(RepositoryProvider.java:165)
+	at org.eclipse.team.core.RepositoryProvider.mapExistingProvider(RepositoryProvider.java:235)
+	at org.eclipse.team.core.RepositoryProvider.getProvider(RepositoryProvider.java:507)
+	at org.eclipse.team.internal.core.TeamHookDispatcher.getProvider(TeamHookDispatcher.java:97)
+	at org.eclipse.team.internal.core.TeamHookDispatcher.getRuleFactory(TeamHookDispatcher.java:105)
+	at org.eclipse.core.internal.resources.Rules.factoryFor(Rules.java:93)
+	at org.eclipse.core.internal.resources.Rules.modifyRule(Rules.java:145)
+	at org.eclipse.core.internal.resources.Project.touch(Project.java:1401)
+	at org.eclipse.jdt.internal.core.SetContainerOperation.executeOperation(SetContainerOperation.java:115)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:793)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:1881)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3128)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:2691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:2855)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:1960)
+	at org.eclipse.jdt.internal.core.JavaProject.buildStructure(JavaProject.java:463)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:258)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:518)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:255)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:241)
+	at org.eclipse.jdt.internal.core.JavaProject.getJavaProjectElementInfo(JavaProject.java:1640)
+	at org.eclipse.jdt.internal.core.JavaProject.newNameLookup(JavaProject.java:2327)
+	at org.eclipse.jdt.internal.core.SearchableEnvironment.<init>(SearchableEnvironment.java:59)
+	at org.eclipse.jdt.internal.core.SearchableEnvironment.<init>(SearchableEnvironment.java:66)
+	at org.eclipse.jdt.internal.core.CancelableNameEnvironment.<init>(CancelableNameEnvironment.java:26)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:176)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:269)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:190)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:89)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1247)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:178)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:114)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:136)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:406)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+!SUBENTRY 1 org.eclipse.team.core 4 0 2014-11-25 19:19:18.084
+!MESSAGE Could not instantiate provider org.eclipse.egit.core.GitProvider for project ActivityRecognition.
+
+!ENTRY org.eclipse.ui 4 0 2014-11-25 19:19:18.407
+!MESSAGE Problems occurred restoring workbench.
+!SUBENTRY 1 unknown 0 0 2014-11-25 19:19:18.407
+!MESSAGE OK
+!SUBENTRY 1 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 1 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 1 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.ui 4 0 2014-11-25 19:19:18.408
+!MESSAGE Unable to restore perspective: Workspace - Java.
+!SUBENTRY 2 org.eclipse.ui 0 0 2014-11-25 19:19:18.408
+!MESSAGE Problems occurred restoring perspective.
+!SUBENTRY 3 org.eclipse.ui 0 0 2014-11-25 19:19:18.408
+!MESSAGE 
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2014-11-25 19:19:18.408
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.ui 4 4 2014-11-25 19:19:18.409
+!MESSAGE Could not create view: org.eclipse.mylyn.tasks.ui.views.tasks
+!STACK 1
+org.eclipse.ui.PartInitException: Could not create view: org.eclipse.mylyn.tasks.ui.views.tasks
+	at org.eclipse.ui.internal.ViewFactory.createView(ViewFactory.java:158)
+	at org.eclipse.ui.internal.Perspective.createReferences(Perspective.java:1249)
+	at org.eclipse.ui.internal.FastViewManager.restoreState(FastViewManager.java:925)
+	at org.eclipse.ui.internal.Perspective.restoreState(Perspective.java:1363)
+	at org.eclipse.ui.internal.WorkbenchPage.restoreState(WorkbenchPage.java:3345)
+	at org.eclipse.ui.internal.WorkbenchWindow.restoreState(WorkbenchWindow.java:2232)
+	at org.eclipse.ui.internal.Workbench.doRestoreState(Workbench.java:3687)
+	at org.eclipse.ui.internal.Workbench.access$32(Workbench.java:3629)
+	at org.eclipse.ui.internal.Workbench$60.run(Workbench.java:2329)
+	at org.eclipse.ui.internal.Workbench.runStartupWithProgress(Workbench.java:2026)
+	at org.eclipse.ui.internal.Workbench.restoreState(Workbench.java:2327)
+	at org.eclipse.ui.internal.Workbench.access$30(Workbench.java:2298)
+	at org.eclipse.ui.internal.Workbench$54.run(Workbench.java:2144)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.restoreState(Workbench.java:2088)
+	at org.eclipse.ui.internal.WorkbenchConfigurer.restoreState(WorkbenchConfigurer.java:183)
+	at org.eclipse.ui.application.WorkbenchAdvisor$1.run(WorkbenchAdvisor.java:781)
+!SUBENTRY 3 org.eclipse.ui 4 0 2014-11-25 19:19:18.409
+!MESSAGE Could not create view: org.eclipse.mylyn.tasks.ui.views.tasks
+!SUBENTRY 2 org.eclipse.ui 4 0 2014-11-25 19:19:18.409
+!MESSAGE Could not find view: org.eclipse.mylyn.tasks.ui.views.tasks
+!SUBENTRY 1 unknown 0 0 2014-11-25 19:19:18.409
+!MESSAGE OK
+
+!ENTRY org.eclipse.ui 4 0 2014-11-25 19:28:08.706
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: 12
+	at org.eclipse.jdt.internal.ui.dialogs.OptionalMessageDialog.buttonPressed(OptionalMessageDialog.java:116)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:624)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1276)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3562)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3186)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.jface.dialogs.MessageDialog.open(MessageDialog.java:334)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.informUserAboutEmptyDefaultCategory(ContentAssistProcessor.java:608)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.getDefaultCategories(ContentAssistProcessor.java:509)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.getCategoryIteration(ContentAssistProcessor.java:496)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.setCategoryIteration(ContentAssistProcessor.java:491)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor.access$3(ContentAssistProcessor.java:490)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor$CompletionListener.assistSessionStarted(ContentAssistProcessor.java:116)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.fireSessionBeginEvent(ContentAssistant.java:2221)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.prepareToShowCompletions(ContentAssistant.java:1696)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.access$6(ContentAssistant.java:1687)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.run(ContentAssistant.java:376)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3537)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3189)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
