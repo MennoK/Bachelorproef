@@ -10,7 +10,13 @@ public enum Activity {
 	TANDENPOETSEN,
 	ZITTEN,
 	LIGGEN,
-	STAAN;
+	STAAN,
+	SPRINGEN,
+	LIFTD,
+	LIFTU,
+	SITUP,
+	PUSHUP;
+	
 	// TODO: dit lijstje aanvullen
 
 }
