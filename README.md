@@ -14,7 +14,7 @@ Begeleiders: Wannes Meert en Leander Schietgat
 
 ### Deel 1: afzonderlijke activiteiten
 
-In het eerste deel maken we een model voor de verschillende activiteiten afzonderlijk te kunnen
+In het eerste deel maken we een model om de verschillende activiteiten afzonderlijk te kunnen
 herkennen. De activiteiten zijn:
 
 * Wandelen
