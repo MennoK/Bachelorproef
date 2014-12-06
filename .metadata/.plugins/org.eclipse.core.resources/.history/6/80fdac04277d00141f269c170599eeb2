@@ -22,6 +22,8 @@ import org.json.simple.JSONValue;
 
 public class ActivityRecognition {
 	
+	// TODO: readme.txt maken + jar-bestand op GitHub zetten
+	
 	public String path = "";
 	
 	@Command(description="Kies een log-bestand waaraan je wil werken")
