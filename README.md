@@ -1,14 +1,9 @@
 Bachelorproef: bewegingen herkennen met een smartphone
 ========================================
 
-```
-Arne De Brabandere
-Menno Keustermans
+door Arne De Brabandere en Menno Keustermans
 
-Begeleiders:
-Wannes Meert
-Leander Schietgat
-```
+Begeleiders: Wannes Meert en Leander Schietgat
 
 ## Probleemstelling
 
