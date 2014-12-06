@@ -8,7 +8,7 @@ Begeleiders: Wannes Meert en Leander Schietgat
 ## Probleemstelling
 
 > Welke machine learning techniek is het nauwkeurigst om een sequentie van verschillende
-> activiteiten correct te classificeren
+> activiteiten correct te classificeren?
 
 *Sequenties van activiteiten = verschillende activiteiten na elkaar, eventueel met "ruis" ertussen*
 
@@ -33,3 +33,11 @@ Nadat we een goed model hebben voor de afzonderlijke activiteiten, zullen we dit
 sequenties van activiteiten te classificeren.
 
 ## Planning
+
+* Week van 8/12
+    * Nieuwe metingen knippen
+    * Modellen maken met nieuwe metingen
+    * Ook HMM's uitproberen?
+
+* Week van 15/12
+    * Model voor afzonderlijke afzonderlijke activiteiten
