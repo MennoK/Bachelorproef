@@ -1,7 +1,7 @@
-Bachelorproef: wetenschappelijke vorming
+Bachelorproef: bewegingen herkennen met een smartphone
 ========================================
 
-door Arne De Brabandere en Menno Keustermans
+```Arne De Brabandere en Menno Keustermans
 
 ## Probleemstelling
 
