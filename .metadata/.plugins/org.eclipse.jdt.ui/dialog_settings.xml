@@ -10,6 +10,35 @@
 		<item value="true" key="EmptyDefaultAssistCategory"/>
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
+	</section>
+	<section name="FatJarPackageWizard">
+		<item value="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="ActivityRecognition - ActivityRecognition" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="/home/arnedebrabandere/GitHub/Bachelorproef" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
+		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="/home/arnedebrabandere/GitHub/Bachelorproef.xml"/>
+			<item value=".xml"/>
+		</list>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item value="400" key="height"/>
+		<item value="600" key="width"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item value="0" key="index"/>
+	</section>
+	<section name="NewPackageWizardPage">
+		<item value="false" key="create_package_info_java"/>
+	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="true" key="group_libraries"/>
 		<item value="false" key="linkWithEditor"/>
@@ -26,6 +55,7 @@
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
+<<<<<<< HEAD
 	<section name="BuildPathsPropertyPage">
 		<item value="3" key="pageIndex"/>
 	</section>
@@ -35,6 +65,10 @@
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 	</section>
+=======
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+	</section>
+>>>>>>> c4ee111357af6443699ae513627b11202312713e
 	<section name="RenameInformationPopup">
 	</section>
 	<section name="NewClassWizardPage">
@@ -42,6 +76,7 @@
 		<item value="true" key="create_unimplemented"/>
 		<item value="true" key="create_main"/>
 	</section>
+<<<<<<< HEAD
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="ClasspathContainerSelectionPage">
@@ -50,4 +85,6 @@
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>
 	</section>
+=======
+>>>>>>> c4ee111357af6443699ae513627b11202312713e
 </section>

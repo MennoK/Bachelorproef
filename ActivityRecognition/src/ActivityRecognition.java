@@ -6,6 +6,7 @@ import asg.cliche.ShellFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -22,24 +23,44 @@ import org.json.simple.JSONValue;
 
 public class ActivityRecognition {
 	
-	// TODO: readme.txt maken + jar-bestand op GitHub zetten
-	
 	public String path = "";
 	
 	@Command(description="Kies een log-bestand waaraan je wil werken")
 	public String log(@Param(name="path", description="Pad naar log-bestand") String path) {
 		File logFile = new File(path);
-		if (! logFile.exists())
-			return "Log-bestand niet gevonden";
+		if (! logFile.exists()) {
+			String folder = folder(path);
+			String start = file(path);
+			File[] matches = startsWith(folder, start);
+			if (matches.length > 1)
+				return "Meerdere log-bestanden beginnen met '"+start+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				logFile = matches[0];
+				path = logFile.getPath();
+			}
+			else
+				return "Log-bestand niet gevonden";
+		}
 		this.path = path;
 		return "Huidig log-bestand: "+path;
 	}
 	
 	@Command(description="Plot een opgegeven log-bestand in een PDF-bestand")
-	public String plot(@Param(name="path", description="Pad naar log-bestand") String path) {
+	public static String plot(@Param(name="path", description="Pad naar log-bestand") String path) {
 		File logFile = new File(path);
-		if (! logFile.exists())
-			return "Log-bestand niet gevonden";
+		if (! logFile.exists()) {
+			String folder = folder(path);
+			String start = file(path);
+			File[] matches = startsWith(folder, start);
+			if (matches.length > 1)
+				return "Meerdere log-bestanden beginnen met '"+start+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				logFile = matches[0];
+				path = logFile.getPath();
+			}
+			else
+				return "Log-bestand niet gevonden";
+		}
 		String pathPDF = path.substring(0, path.length() - 4) + ".pdf";
 		System.out.println("PDF maken...");
 		try {
@@ -69,12 +90,23 @@ public class ActivityRecognition {
 	}
 
 	@Command(description="Knip het opgegeven log-bestand van [start] tot [end]")
-	public String cut(@Param(name="path", description="Pad naar log-bestand") String path,
+	public static String cut(@Param(name="path", description="Pad naar log-bestand") String path,
 						@Param(name="start", description="Starttijd in seconden") double start,
 						@Param(name="end", description="Eindtijd in seconden") double end) {
 		File logFile = new File(path);
-		if (! logFile.exists())
-			return "Log-bestand niet gevonden";
+		if (! logFile.exists()) {
+			String folder = folder(path);
+			String start2 = file(path);
+			File[] matches = startsWith(folder, start2);
+			if (matches.length > 1)
+				return "Meerdere log-bestanden beginnen met '"+start2+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				logFile = matches[0];
+				path = logFile.getPath();
+			}
+			else
+				return "Log-bestand niet gevonden";
+		}
 		String pathNEW = path.substring(0, path.length() - 4) + ".cut.log";
 		System.out.println("Log-bestand knippen...");
 		try {
@@ -103,9 +135,32 @@ public class ActivityRecognition {
 	}
 	
 	public static void main(String[] args) throws IOException {
-    	ShellFactory.createConsoleShell("ActivityRecognition",
+		if (args.length > 0) {
+			if (args[0].equals("plot") && args.length == 2) {
+				String print = plot(args[1]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("cut") && args.length == 4) {
+				String print = cut(args[1], Double.parseDouble(args[2]), Double.parseDouble(args[3]));
+				System.out.println(print);
+			}
+			else if (args[0].equals("getlabel") && args.length == 2) {
+				String print = getlabel(args[1]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("setlabel") && args.length == 3) {
+				String print = setlabel(args[1], args[2]);
+				System.out.println(print);
+			}
+			else {
+				System.out.println("Commando niet begrepen...");
+			}
+		}
+		else {
+			ShellFactory.createConsoleShell("ActivityRecognition",
     									"ActivityRecognition",
     									new ActivityRecognition()).commandLoop();
+		}
 	}
     
 	public static void makeShorterLogFile(String pathIN, String pathOUT, double start, double end) throws IOException {
@@ -148,7 +203,21 @@ public class ActivityRecognition {
 	}
 	
 	@Command(description="Toon het label van het opgegeven log-bestand")
-	public String getlabel(@Param(name="path", description="Pad naar log-bestand") String path) {
+	public static String getlabel(@Param(name="path", description="Pad naar log-bestand") String path) {
+		File logFile = new File(path);
+		if (! logFile.exists()) {
+			String folder = folder(path);
+			String start2 = file(path);
+			File[] matches = startsWith(folder, start2);
+			if (matches.length > 1)
+				return "Meerdere log-bestanden beginnen met '"+start2+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				logFile = matches[0];
+				path = logFile.getPath();
+			}
+			else
+				return "Log-bestand niet gevonden";
+		}
 		// zet de inhoud van het logbestand in een string
 		String s;
 		try {
@@ -178,8 +247,22 @@ public class ActivityRecognition {
 	}
 	
 	@Command(description="Verander het label van het opgegeven log-bestand")
-	public String setlabel(@Param(name="path", description="Pad naar log-bestand") String path,
+	public static String setlabel(@Param(name="path", description="Pad naar log-bestand") String path,
 							@Param(name="label", description="Nieuw label") String label) {
+		File logFile = new File(path);
+		if (! logFile.exists()) {
+			String folder = folder(path);
+			String start2 = file(path);
+			File[] matches = startsWith(folder, start2);
+			if (matches.length > 1)
+				return "Meerdere log-bestanden beginnen met '"+start2+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				logFile = matches[0];
+				path = logFile.getPath();
+			}
+			else
+				return "Log-bestand niet gevonden";
+		}
 		// zet de inhoud van het logbestand in een string
 		String s;
 		try {
@@ -259,6 +342,35 @@ public class ActivityRecognition {
 	/** @pre n > 0 */
 	public static int length(long n) {
 		return (int) (Math.log10(n)+1);
+	}
+	
+	public static String folder(String path) {
+		if (null != path && path.length() > 0 ) {
+			int endIndex = path.lastIndexOf("/");
+			if (endIndex != -1) {
+				path = path.substring(0, endIndex); // not forgot to put check if(endIndex != -1)
+			}
+		}
+		else
+			return "";
+		return path;
+	}
+	
+	public static String file(String path) {
+		if (! path.contains("/"))
+			return path;
+		else
+			return path.substring(path.lastIndexOf("/") + 1);
+	}
+	
+	public static File[] startsWith(String folder, final String start) {
+		File dir = new File(folder);
+		File[] foundFiles = dir.listFiles(new FilenameFilter() {
+		    public boolean accept(File dir, String name) {
+		        return name.startsWith(start) && name.endsWith(".log") && (! name.endsWith(".cut.log"));
+		    }
+		});
+		return foundFiles;
 	}
 	
 }
