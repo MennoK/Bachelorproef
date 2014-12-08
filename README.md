@@ -35,12 +35,13 @@ sequenties van activiteiten te classificeren.
 ## Planning
 
 * Week van 8/12
+    * Data opmeten
     * Nieuwe metingen knippen
-    * Modellen maken met nieuwe metingen
-    * Ook HMM's uitproberen?
 
 * Week van 15/12
-    * Model voor afzonderlijke afzonderlijke activiteiten
+    * Modellen maken voor afzonderlijke activiteiten
+       * Classifiers
+       * HMM's?
 
 ## Verslag
 
