@@ -140,7 +140,7 @@ public class ActivityRecognition {
 				String print = plot(args[1]);
 				System.out.println(print);
 			}
-			else if (args[0].equals("cut") && args.length == 4) {
+			else if (args[0].equals("cut") && args.length == 3) {
 				String print = cut(args[1], Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 				System.out.println(print);
 			}

@@ -90,7 +90,7 @@ public class ActivityRecognition {
 	}
 
 	@Command(description="Knip het opgegeven log-bestand van [start] tot [end]")
-	public static String cut(@Param(name="path", description="Pad naar log-bestand") String path,
+	public String cut(@Param(name="path", description="Pad naar log-bestand") String path,
 						@Param(name="start", description="Starttijd in seconden") double start,
 						@Param(name="end", description="Eindtijd in seconden") double end) {
 		File logFile = new File(path);
@@ -137,23 +137,7 @@ public class ActivityRecognition {
 	public static void main(String[] args) throws IOException {
 		if (args.length > 0) {
 			if (args[0].equals("plot") && args.length == 2) {
-				String print = plot(args[1]);
-				System.out.println(print);
-			}
-			else if (args[0].equals("cut") && args.length == 4) {
-				String print = cut(args[1], Double.parseDouble(args[2]), Double.parseDouble(args[3]));
-				System.out.println(print);
-			}
-			else if (args[0].equals("getlabel") && args.length == 2) {
-				String print = getlabel(args[1]);
-				System.out.println(print);
-			}
-			else if (args[0].equals("setlabel") && args.length == 3) {
-				String print = setlabel(args[1], args[2]);
-				System.out.println(print);
-			}
-			else {
-				System.out.println("Commando niet begrepen...");
+				System.out.println(plot(args[1]));
 			}
 		}
 		else {
@@ -203,7 +187,7 @@ public class ActivityRecognition {
 	}
 	
 	@Command(description="Toon het label van het opgegeven log-bestand")
-	public static String getlabel(@Param(name="path", description="Pad naar log-bestand") String path) {
+	public String getlabel(@Param(name="path", description="Pad naar log-bestand") String path) {
 		File logFile = new File(path);
 		if (! logFile.exists()) {
 			String folder = folder(path);
@@ -247,7 +231,7 @@ public class ActivityRecognition {
 	}
 	
 	@Command(description="Verander het label van het opgegeven log-bestand")
-	public static String setlabel(@Param(name="path", description="Pad naar log-bestand") String path,
+	public String setlabel(@Param(name="path", description="Pad naar log-bestand") String path,
 							@Param(name="label", description="Nieuw label") String label) {
 		File logFile = new File(path);
 		if (! logFile.exists()) {

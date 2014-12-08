@@ -140,7 +140,7 @@ public class ActivityRecognition {
 				String print = plot(args[1]);
 				System.out.println(print);
 			}
-			else if (args[0].equals("cut") && args.length == 4) {
+			else if (args[0].equals("cut") && args.length == 3) {
 				String print = cut(args[1], Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 				System.out.println(print);
 			}
@@ -367,7 +367,7 @@ public class ActivityRecognition {
 		File dir = new File(folder);
 		File[] foundFiles = dir.listFiles(new FilenameFilter() {
 		    public boolean accept(File dir, String name) {
-		        return name.startsWith(start) && name.endsWith(".log") && (! name.endsWith(".cut.log"));
+		        return name.startsWith(start);
 		    }
 		});
 		return foundFiles;
