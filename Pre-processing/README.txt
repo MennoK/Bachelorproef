@@ -1,7 +1,7 @@
 Aantal logs van elke activiteit
 
                    Arne          Menno
-Nietsdoen           6             5
+Nietsdoen           9             10             
 Wandelen            10            10
 Trap op             6             4
 Trap af             6             4
