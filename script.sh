@@ -2,7 +2,7 @@
 #Script
 
 
-for dir in ./Data2/Nietsdoen/*.log
+for dir in ./Data2/Trapaf/*.log
 do
  name=$(basename "$dir")	
 
