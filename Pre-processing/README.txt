@@ -4,7 +4,7 @@ Aantal logs van elke activiteit
 Nietsdoen           9             10             
 Wandelen            10            10
 Trap op             10            9
-Trap af             8             9
+Trap af             9             8
 Springen            4             9
 Tandenpoetsen       6             10
 Lopen               
