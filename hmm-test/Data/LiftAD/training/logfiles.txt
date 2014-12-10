@@ -1,0 +1,12 @@
+Data/LiftAD/training/liftad5_m_r_20141204153436.cut.log
+Data/LiftAD/training/liftad4_m_r_20141204154858.cut.log
+Data/LiftAD/training/liftad1_a_l_20141124173425.cut.log
+Data/LiftAD/training/liftad3_m_r_20141204154809.cut.log
+Data/LiftAD/training/liftad1_m_r_20141204153750.cut.log
+Data/LiftAD/training/liftad2_a_l_20141204153753.cut.log
+Data/LiftAD/training/liftad2_m_r_20141204153840.cut.log
+Data/LiftAD/training/liftad6_m_r_20141204153533.cut.log
+Data/LiftAD/training/liftad6_a_r_20141204154655.cut.log
+Data/LiftAD/training/liftad5_a_r_20141204154859.cut.log
+Data/LiftAD/training/liftad3_a_l_20141204153841.cut.log
+Data/LiftAD/training/liftad4_a_r_20141204154811.cut.log
