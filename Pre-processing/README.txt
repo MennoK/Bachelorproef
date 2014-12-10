@@ -10,6 +10,6 @@ Tandenpoetsen       6             10
 Lopen               
 Lift omlaag              
 Lift omhoog     
-Fietsen
+Fietsen		    10		  6
 Push up
 Sit up
