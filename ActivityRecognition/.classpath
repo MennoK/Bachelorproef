@@ -2,9 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry exported="true" kind="lib" path="/home/arnedebrabandere/Documenten/Workspace bachelorproef (offline)/ActivityRecognition/asg.cliche-110413.jar"/>
-	<classpathentry exported="true" kind="lib" path="/home/arnedebrabandere/Documenten/Workspace bachelorproef (offline)/ActivityRecognition/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition2/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/home/menno/Downloads/asg.cliche-110413.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/MotionFingerprint.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/asg.cliche-110413.jar"/>
+	<classpathentry kind="lib" path="/home/menno/weka-3-6-11/weka.jar"/>
+	<classpathentry kind="lib" path="/home/menno/weka-3-6-11/weka-src.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
