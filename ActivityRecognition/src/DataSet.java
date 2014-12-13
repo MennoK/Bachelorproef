@@ -1,6 +1,9 @@
+import java.io.File;
+
 import org.apache.commons.io.FilenameUtils;
 
 import weka.core.Instances;
+import weka.core.converters.CSVLoader;
 import weka.core.converters.ConverterUtils.DataSource;
 
 /**
@@ -25,11 +28,12 @@ public class DataSet {
 	
 	public DataSet(String path) {
 		this.path = path;
-		this.name = FilenameUtils.removeExtension(path);
-		DataSource source;
+		this.name = FilenameUtils.removeExtension(FilenameUtils.getName(path));
 		try {
-			source = new DataSource(path);
-			this.instances = source.getDataSet();
+			CSVLoader csv = new CSVLoader();
+			csv.setFile(new File(path));
+			this.instances = csv.getDataSet();
+			this.instances.setClassIndex(this.instances.numAttributes() - 1);
 		} catch (Exception e) {
 			System.out.println("CSV-bestand niet gevonden: "+path);
 		}

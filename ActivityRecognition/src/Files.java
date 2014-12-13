@@ -58,7 +58,7 @@ public class Files {
 			writer.println(content);
 			writer.close();
 		} catch (Exception e) {
-			System.out.println("Fout met schrijven naar bestand");
+			System.out.println("Fout met schrijven naar bestand: "+path);
 		}
 	}
 	
@@ -66,7 +66,7 @@ public class Files {
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(path, true)))) {
 		    out.println("the text");
 		}catch (IOException e) {
-			System.out.println("Fout met toevoegen aan bestand");
+			System.out.println("Fout met toevoegen aan bestand: "+path);
 		}
 	}
 	

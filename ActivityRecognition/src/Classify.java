@@ -8,8 +8,8 @@ public class Classify {
 	
 	/**
 	 * Maak een model met een gegeven methode voor de trainingset en voer cross-validatie uit.
-	 * <br>Maak ook een bestand met de samenvatting: <b>Resultaten/Crossvalidatie/[trainingset]/[methode].[folds]folds.txt</b>
-	 * <br>en een bestand met alleen de confusion matrix: <b>Resultaten/Crossvalidatie/[trainingset]/[methode].[folds]folds.confusionmatrix.txt</b>
+	 * <br>Maak ook een bestand met de samenvatting: <b>Resultaten/Crossvalidatie/[trainingset]-[methode-[folds]folds.txt</b>
+	 * <br>en een bestand met alleen de confusion matrix: <b>Resultaten/Crossvalidatie/[trainingset]-[methode]-[folds]folds.confusionmatrix.txt</b>
 	 * <br>Ook het csv-bestand <b>Resultaten/crossvalidatie.csv</b> wordt geupdatet.
 	 * <br><i>Opmerking: dit wordt alleen uitgevoerd als deze bestanden nog niet bestaan!</i>
 	 * 
@@ -26,8 +26,8 @@ public class Classify {
 	public static double classify_crossvalidation(Method method, DataSet trainingSet, int folds) {
 		
 		// controleer of deze validatie al eens gedaan is
-		if (Files.exists("Resultaten/Crossvalidatie/"+trainingSet.name+"/"+method.getName()+"."+folds+"folds.txt")
-				&& Files.exists("Resultaten/Crossvalidatie/"+trainingSet.name+"/"+method.getName()+"."+folds+"folds.confusionmatrix.txt"))
+		if (Files.exists("Resultaten/Crossvalidatie/"+trainingSet.name+"-"+method.name()+"-"+folds+"folds.txt")
+				&& Files.exists("Resultaten/Crossvalidatie/"+trainingSet.name+"-"+method.name()+"-"+folds+"folds.confusionmatrix.txt"))
 			return -2;
 		
 		// haal de instances op
@@ -47,16 +47,18 @@ public class Classify {
 			String summary = eval.toSummaryString();
 			
 			// schrijf samenvatting weg
-			Files.writeFile("Resultaten/Crossvalidatie/"+trainingSet.name+"/"+method.getName()+"."+folds+"folds.txt", summary);
+			Files.writeFile("Resultaten/Crossvalidatie/"+trainingSet.name+"-"+method.name()+"-"+folds+"folds.txt", summary);
 			// schrijf confusion matrix weg
-			Files.writeFile("Resultaten/Crossvalidatie/"+trainingSet.name+"/"+method.getName()+"."+folds+"folds.confusionmatrix.txt", confusionMatrix);
+			Files.writeFile("Resultaten/Crossvalidatie/"+trainingSet.name+"-"+method.name()+"-"+folds+"folds.confusionmatrix.txt", confusionMatrix);
 			// update Resultaten/crossvalidatie.csv
-			Files.appendToFile("Resultaten/crossvalidatie.csv",trainingSet.name+","+method.getName()+","+folds+","+accuracy);
+			Files.appendToFile("Resultaten/crossvalidatie.csv",trainingSet.name+","+method.name()+","+folds+","+accuracy);
 			
 			// geeft accuracy terug
 			return accuracy;
 			
 		} catch (Exception e) {
+			System.out.println("Fout met crossvalidatie van "+trainingSet.name+" met methode "+method.name());
+			e.printStackTrace(System.out);
 			return -1;
 		}
 	}

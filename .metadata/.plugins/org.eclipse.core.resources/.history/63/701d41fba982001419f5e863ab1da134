@@ -1,7 +1,0 @@
-public class Classify {
-		
-	public String classify(Method method, Instances train, Instances test) {
-		return "";
-	}
-	
-}

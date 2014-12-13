@@ -1,7 +1,0 @@
-public class Classify {
-		
-	public String classify(Method method, String CSVtraining, String CSVtest) {
-		return "";
-	}
-	
-}

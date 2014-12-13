@@ -1,6 +1,7 @@
 import org.apache.commons.lang3.StringUtils;
 
 import weka.classifiers.Classifier;
+import weka.classifiers.trees.J48;
 
 /**
  * Alle methodes met verschillende opties opgesomd in een 'enum'
@@ -62,15 +63,16 @@ public enum Method {
 	private Classifier getClassifier() {
 		Object classifier = null;
 		try {
-			classifier = Class.forName(this.getName()).newInstance();
+			System.out.println("proberen classifier object aan te maken..."); // debug
+			// classifier = Class.forName(this.getName()).newInstance(); TODO: dit werkt niet, maar de lijn hieronder wel...
+			classifier = new J48();
+			System.out.println("gelukt, maar toch nog eens naar de code kijken (Method.java, bij 'TODO')"); // debug
 			// stel de opties in
 			((Classifier) classifier).setOptions(this.options);
 		}
 		catch (Exception e) {
 			System.out.println("Fout met het maken van de classifier van "+this.name());
 		}
-		if (classifier == null)
-			System.out.println("Fout met het maken van de classifier van "+this.name());
 		return (Classifier) classifier;
 	}
 	
