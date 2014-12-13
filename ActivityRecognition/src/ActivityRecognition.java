@@ -12,6 +12,7 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Paths;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
@@ -49,11 +50,34 @@ public class ActivityRecognition {
 		}
 	}
 	
-	public String evaluatemodels() { // TODO    door Arne
-		// voor elke setting
-			// haal features op voor training set + test set
-			// pas alle methodes uit Classify.java toe op verschillende waardes voor options
-		return "";
+	/**
+	 * Evalueer de modellen voor de verchillende training sets met cross-validatie of training/test set.
+	 * <br><b>Cross-validatie:</b> met k=10 en k=20 folds
+	 * 
+	 * @param 	type
+	 * 			Type validatie: 'cross' of 'training-test'
+	 */
+	@Command(description="Evalueer de modellen voor de verchillende training sets met cross-validatie of training/test set.")
+	public String evaluate(@Param(name="type", description="Type validatie: 'cross' of 'training-test'") String type) {
+		if (type.equals("cross")) {
+			// cross-validatie
+			List<File> trainingSets = Files.getAllFilesWithExtensionInDirectory("Trainingsets", "csv");
+			for (File file : trainingSets) {
+				DataSet trainingSet = new DataSet(file.getPath());
+				System.out.println("Bezig met cross-validatie voor "+trainingSet.name+" ...");
+				// k = 10
+				Classify.classifyAll_crossvalidation(trainingSet, 10);
+				// k = 20
+				Classify.classifyAll_crossvalidation(trainingSet, 20);
+			}
+			return "Done";
+		}
+		else if (type.equals("training-test")) {
+			// TODO (Arne)
+			// training/test set validatie
+			return "";
+		}
+		return "Type van validatie moet ofwel 'cross' of 'training-test' zijn.";
 	}
 	
 	public String features() { // TODO   door Menno

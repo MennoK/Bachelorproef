@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
+import java.util.List;
 
 import org.apache.commons.io.*;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -32,6 +33,12 @@ public class Files {
 			return path;
 		else
 			return path.substring(path.lastIndexOf("/") + 1);
+	}
+	
+	static List<File> getAllFilesWithExtensionInDirectory(String path, String... extensions) {
+		File dir = new File(path);
+		List<File> files = (List<File>) FileUtils.listFiles(dir, extensions, true);
+		return files;
 	}
 
 	static File[] startsWith(String folder, final String start) {
