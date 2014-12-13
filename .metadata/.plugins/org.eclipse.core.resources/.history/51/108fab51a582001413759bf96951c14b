@@ -1,0 +1,6 @@
+/**
+ * Alle methodes met verschillende opties opgesomd in een 'enum'
+ */
+public enum Method {
+
+}

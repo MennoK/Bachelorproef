@@ -1,0 +1,10 @@
+/**
+ * Enum van alle methodes die we testen
+ */
+public enum Methods {
+
+	J48_1;
+	
+	Met
+	
+}

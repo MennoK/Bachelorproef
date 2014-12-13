@@ -1,0 +1,14 @@
+/**
+ * Alle methodes met verschillende opties opgesomd in een 'enum'
+ */
+public enum Method {
+	
+	J48();
+
+	Method(String... options) {
+		this.options = options;
+	}
+	
+	public final String[] options;
+	
+}

@@ -1,0 +1,16 @@
+import weka.core.Instances;
+
+public class Classify {
+	
+	public String classify(Method method, int folds, DataSet trainingSet, DataSet testSet) {
+		Instances training = trainingSet.instances;
+		Instances test = testSet.instances;
+		// train classifier
+		Classifier cls = method.getClassifier();
+		cls.buildClassifier(train);
+		Evaluation eval = new Evaluation(newData);
+		 eval.crossValidateModel(tree, newData, 10, new Random(1));
+		return "";
+	}
+	
+}

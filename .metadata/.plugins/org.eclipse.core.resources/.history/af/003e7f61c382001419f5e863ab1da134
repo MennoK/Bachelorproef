@@ -1,0 +1,18 @@
+import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
+import weka.core.Instances;
+
+public class Classify {
+	
+	public String classify_crossvalidation(Method method, int folds, DataSet trainingSet, int folds) {
+		// haal de instances op
+		Instances training = trainingSet.instances;
+		// train classifier
+		Classifier cls = method.classifier;
+		cls.buildClassifier(training);
+		Evaluation eval = new Evaluation(training);
+		eval.crossValidateModel(cls, training, 10, new Random(1));
+		return "";
+	}
+	
+}

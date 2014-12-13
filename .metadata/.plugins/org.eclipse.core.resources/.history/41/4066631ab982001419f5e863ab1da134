@@ -1,0 +1,9 @@
+import weka.core.Instances;
+
+public class Classify {
+	
+	public String classify(Method method, int folds, Instances train, Instances test) {
+		return "";
+	}
+	
+}

@@ -1,0 +1,29 @@
+/**
+ * Alle methodes met verschillende opties opgesomd in een 'enum'
+ */
+public enum Method {
+	
+	// vorm: [naam]_[nummer]
+	// 			met [naam] de naam van de classifier zoals in Weka!
+	
+	J48_1("-C 0.25", "-M 2"),
+		// default = pruned met confidence factor 0.25, min. 2 obj. per blad
+	J48_2("-C 0.5", "-M 2"),
+		// hogere confidence factor: 0.5 (http://ww.samdrazin.com/classes/een548/project2report.pdf, figuur 4)
+	J48_3(),
+		//
+	J48_4("-U", "-M 2");
+		// unpruned
+
+	Method(String... options) {
+		this.options = options;
+	}
+	
+	public final String[] options;
+	
+	public String getClassifier() {
+		String name = this.name();
+		return StringUtils.substringBefore(name, "_");
+	}
+	
+}

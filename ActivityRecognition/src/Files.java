@@ -1,5 +1,11 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 
 import org.apache.commons.io.*;
@@ -36,6 +42,30 @@ public class Files {
 		    }
 		});
 		return foundFiles;
+	}
+	
+	static void writeFile(String path, String content) {
+		PrintWriter writer;
+		try {
+			writer = new PrintWriter(path, "UTF-8");
+			writer.println(content);
+			writer.close();
+		} catch (Exception e) {
+			System.out.println("Fout met schrijven naar bestand");
+		}
+	}
+	
+	static void appendToFile(String path, String content) {
+		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(path, true)))) {
+		    out.println("the text");
+		}catch (IOException e) {
+			System.out.println("Fout met toevoegen aan bestand");
+		}
+	}
+	
+	static boolean exists(String filename) {
+		File f = new File(filename);
+		return f.exists() && !f.isDirectory();
 	}
 
 	/*public File[] allFiles(String folder) {

@@ -1,0 +1,25 @@
+import weka.core.Instances;
+import weka.core.converters.ConverterUtils.DataSource;
+
+/**
+ * Een DataSet is een verzameling objecten met waardes voor features en een activiteit als label
+ */
+public class DataSet {
+	
+	/**
+	 * Pad naar het CSV-bestand
+	 */
+	public final String fileName;
+	
+	/**
+	 * Instances (weka.core.Instances) van de DataSet
+	 */
+	public final Instances instances;
+	
+	public DataSet(String fileName) {
+		this.fileName = fileName;
+		DataSource source = new DataSource();
+		this.instances = 
+	}
+
+}

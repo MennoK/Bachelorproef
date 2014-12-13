@@ -1,0 +1,37 @@
+import java.util.Random;
+
+import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
+import weka.classifiers.evaluation.output.prediction;
+import weka.core.Instances;
+
+public class Classify {
+	
+	/**
+	 * Maak een model met een gegeven methode voor de trainingset en voer cross-validatie uit.
+	 * 
+	 * @param 	method
+	 * 			De methode die moet gebruikt worden
+	 * @param 	trainingSet
+	 * 			De training-set gebruikt voor het model EN voor de cross-validatie.
+	 * @param 	folds
+	 * 			Het aantal folds voor cross-validatie
+	 */
+	public AbstractOutput classify_crossvalidation(Method method, DataSet trainingSet, int folds) {
+		// haal de instances op
+		Instances training = trainingSet.instances;
+		// train classifier
+		Classifier cls = method.classifier;
+		try {
+			cls.buildClassifier(training);
+			Evaluation eval = new Evaluation(training);
+			eval.crossValidateModel(cls, training, folds, new Random(1));
+			// haal de resultaten van de evaluatie op
+			
+		} catch (Exception e) {
+			return "Fout met classify_crossvalidation";
+		}
+		return "Fout met classify_crossvalidation";
+	}
+	
+}

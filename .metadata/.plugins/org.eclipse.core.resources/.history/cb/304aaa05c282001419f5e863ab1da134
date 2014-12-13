@@ -1,0 +1,20 @@
+/**
+ * Een DataSet is een verzameling objecten met waardes voor features en een activiteit als label
+ */
+public class DataSet {
+	
+	/**
+	 * Bestandsnaam van het bijhorende CSV-bestand.
+	 */
+	public final String fileName;
+	
+	/**
+	 * Bijhorende Instances (weka.core.Instances van de DataSet
+	 */
+	public final Instances instances;
+	
+	public DataSet(String fileName) {
+		this.fileName = fileName;
+	}
+
+}
