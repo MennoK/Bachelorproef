@@ -64,7 +64,7 @@ public class Files {
 	
 	static void appendToFile(String path, String content) {
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(path, true)))) {
-		    out.println("the text");
+		    out.println(content);
 		}catch (IOException e) {
 			System.out.println("Fout met toevoegen aan bestand: "+path);
 		}

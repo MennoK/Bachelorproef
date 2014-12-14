@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import org.apache.commons.lang3.StringUtils;
 
 import weka.classifiers.Classifier;
@@ -31,11 +33,6 @@ public enum Method {
 	 * Opties voor de methode
 	 */
 	public final String[] options;
-	
-	/**
-	 * Classifier-object (weka.classifiers.Classifier) voor de methode
-	 */
-	public final Classifier classifier;
 
 	Method(String options) {
 		String[] optionsArray = null;
@@ -46,9 +43,6 @@ public enum Method {
 			optionsArray = null;
 		}
 		this.options = optionsArray;
-		// Maak een Classifier object aan voor de methode (weka.classifiers.Classifier).
-		// en stel ook de opties in.
-		this.classifier = getClassifier();
 	}
 	
 	/**
@@ -60,20 +54,22 @@ public enum Method {
 		return StringUtils.substringBefore(name, "_");
 	}
 	
-	private Classifier getClassifier() {
-		Object classifier = null;
+	public Classifier getClassifier() {
+		Classifier classifier = null;
 		try {
 			System.out.println("proberen classifier object aan te maken..."); // debug
 			// classifier = Class.forName(this.getName()).newInstance(); TODO: dit werkt niet, maar de lijn hieronder wel...
 			classifier = new J48();
 			System.out.println("gelukt, maar toch nog eens naar de code kijken (Method.java, bij 'TODO')"); // debug
 			// stel de opties in
-			((Classifier) classifier).setOptions(this.options);
+			System.out.print("Opties instellen: ");
+			System.out.println(StringUtils.join(this.options, ","));
+			classifier.setOptions(Arrays.copyOf(this.options, this.options.length));
 		}
 		catch (Exception e) {
 			System.out.println("Fout met het maken van de classifier van "+this.name());
 		}
-		return (Classifier) classifier;
+		return classifier;
 	}
 	
 }

@@ -51,6 +51,10 @@ public class ActivityRecognition {
 				String print = combineTraining(args[1]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("evaluate") && args.length == 2) {
+				String print = evaluate(args[1]);
+				System.out.println(print);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}
@@ -70,10 +74,10 @@ public class ActivityRecognition {
 	 * 			Type validatie: 'cross' of 'training-test'
 	 */
 	@Command(description="Evalueer de modellen voor de verchillende training sets met cross-validatie of training/test set.")
-	public String evaluate(@Param(name="type", description="Type validatie: 'cross' of 'training-test'") String type) {
+	public static String evaluate(@Param(name="type", description="Type validatie: 'cross' of 'training-test'") String type) {
 		if (type.equals("cross")) {
 			// cross-validatie
-			List<File> trainingSets = Files.getAllFilesWithExtensionInDirectory("Trainingsets", "csv");
+			List<File> trainingSets = Files.getAllFilesWithExtensionInDirectory("TrainingSets", "csv");
 			for (File file : trainingSets) {
 				DataSet trainingSet = new DataSet(file.getPath());
 				System.out.println("Bezig met cross-validatie voor "+trainingSet.name+" ...");

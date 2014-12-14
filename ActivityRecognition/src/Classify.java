@@ -32,7 +32,7 @@ public class Classify {
 		
 		// haal de instances op
 		Instances training = trainingSet.instances;
-		Classifier cls = method.classifier;
+		Classifier cls = method.getClassifier();
 		
 		try {
 			
