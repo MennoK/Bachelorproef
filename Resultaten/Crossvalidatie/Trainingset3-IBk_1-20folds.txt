@@ -1,0 +1,10 @@
+
+Correctly Classified Instances          69               73.4043 %
+Incorrectly Classified Instances        25               26.5957 %
+Kappa statistic                          0.6807
+Mean absolute error                      0.1006
+Root mean squared error                  0.2892
+Relative absolute error                 36.1212 %
+Root relative squared error             77.3997 %
+Total Number of Instances               94     
+

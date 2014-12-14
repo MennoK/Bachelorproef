@@ -1,0 +1,10 @@
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f   <-- classified as
+ 12  0  1  1  0  0 |  a = Tandenpoetsen
+  0 11  1  1  1  2 |  b = Trapop
+  1  1 11  1  0  2 |  c = Wandelen
+  3  1  0 10  2  0 |  d = LiftAD
+  1  0  0  3 12  0 |  e = LiftAU
+  1  4  1  1  0  9 |  f = Trapaf
+

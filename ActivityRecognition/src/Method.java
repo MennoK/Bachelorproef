@@ -3,7 +3,11 @@ import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 
 import weka.classifiers.Classifier;
-import weka.classifiers.trees.J48;
+import weka.classifiers.bayes.*;
+import weka.classifiers.functions.*;
+import weka.classifiers.lazy.*;
+import weka.classifiers.rules.*;
+import weka.classifiers.trees.*;
 
 /**
  * Alle methodes met verschillende opties opgesomd in een 'enum'
@@ -11,23 +15,59 @@ import weka.classifiers.trees.J48;
 public enum Method {
 	
 	/**
-	 * J48: default = pruned met confidence factor 0.25, min. 2 obj. per blad
+	 * Beslissingsbomen: default
 	 */
 	J48_1("-C 0.25 -M 2"),
 	
 	/**
-	 * J48: hogere confidence factor: 0.5 (http://ww.samdrazin.com/classes/een548/project2report.pdf, figuur 4), min. 2 obj. per blad
+	 * Beslissingsbomen: hogere confidence factor: 0.2 (http://ww.samdrazin.com/classes/een548/project2report.pdf, figuur 4)
 	 */
-	J48_2("-C 0.5 -M 2"),
+	J48_2A("-C 0.2 -M 2"),
 	
-	/** 
-	 * J48: ...
-	 */
-	J48_3(""),
 	/**
-	 * J48: unpruned, min. 2 obj. per blad
+	 * Beslissingsbomen: hogere confidence factor: 0.5 (http://ww.samdrazin.com/classes/een548/project2report.pdf, figuur 4)
 	 */
-	J48_4("-U -M 2");
+	J48_2B("-C 0.5 -M 2"),
+	
+	/**
+	 * Beslissingsbomen: unpruned, min. 2 obj. per blad
+	 */
+	J48_3("-U -M 2"),
+	
+	/**
+	 * Naive Bayes
+	 */
+	NaiveBayes(""),
+	
+	/**
+	 * k-Nearest Neighbours: default (k=1 buren)
+	 */
+	IBk_1("-K 1 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\"\""),
+	
+	/**
+	 * k-Nearest Neighbours: k=2 buren
+	 */
+	IBk_2A("-K 2 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\"\""),
+	
+	/**
+	 * k-Nearest Neighbours: k=5 buren
+	 */
+	IBk_2B("-K 5 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\"\""),
+	
+	/**
+	 * Support Vector Machines: default
+	 */
+	LibSVM_1("-S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1"),
+	
+	/**
+	 * Support Vector Machines: hogere waarde voor -G: 0.01 (gamma parameter van RBF-kernel, wat dat ook zou mogen betekenen?? http://weka.wikispaces.com/Optimizing+parameters)
+	 */
+	LibSVM_2("-S 0 -K 2 -D 3 -G 0.01 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1"),
+	
+	/**
+	 * Decision Tables: default
+	 */
+	DecisionTable_1("-X 1 -S \"weka.attributeSelection.BestFirst -D 1 -N 5\"");
 	
 	/**
 	 * Opties voor de methode
@@ -57,19 +97,33 @@ public enum Method {
 	public Classifier getClassifier() {
 		Classifier classifier = null;
 		try {
-			System.out.println("proberen classifier object aan te maken..."); // debug
-			// classifier = Class.forName(this.getName()).newInstance(); TODO: dit werkt niet, maar de lijn hieronder wel...
-			classifier = new J48();
-			System.out.println("gelukt, maar toch nog eens naar de code kijken (Method.java, bij 'TODO')"); // debug
+			classifier = classifier(this.getName());
 			// stel de opties in
-			System.out.print("Opties instellen: ");
-			System.out.println(StringUtils.join(this.options, ","));
+			//  System.out.print("Opties instellen: ");
+			//  System.out.println(StringUtils.join(this.options, ","));
 			classifier.setOptions(Arrays.copyOf(this.options, this.options.length));
 		}
 		catch (Exception e) {
 			System.out.println("Fout met het maken van de classifier van "+this.name());
 		}
 		return classifier;
+	}
+	
+	private static Classifier classifier(String name) {
+		switch (name) {
+			case "J48":
+				return new J48();
+			case "NaiveBayes":
+				return new NaiveBayes();
+			case "IBk":
+				return new IBk();
+			case "LibSVM":
+				return new LibSVM();
+			case "DecisionTable":
+				return new DecisionTable();
+		}
+		System.out.println("Classifier "+name+" kon niet aangemaakt worden. Nog toevoegen bij methode classifier in Method.java?");
+		return null;
 	}
 	
 }
