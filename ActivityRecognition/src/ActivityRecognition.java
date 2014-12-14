@@ -39,6 +39,18 @@ public class ActivityRecognition {
 				String print = setlabel(args[1], args[2]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("features") && args.length == 3) {
+				String print = features(args[1],args[2]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("allfeatures") && args.length == 3) {
+				String print = featuresAll(args[1], args[2]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("combineTraining") && args.length == 2) {
+				String print = combineTraining(args[1]);
+				System.out.println(print);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}
@@ -80,10 +92,121 @@ public class ActivityRecognition {
 		return "Type van validatie moet ofwel 'cross' of 'training-test' zijn.";
 	}
 	
-	public String features() { // TODO   door Menno
-		// voor alle setting bestanden: berekend features van training set + test set
-		// (dus voor elk log-bestand: (naam).setting1.features.csv (1 keer gemaakt worden) en voor elke setting: trainingset.setting1.csv (altijd veranderen) enz
-		return "";
+	/**
+	 *  Command: java -jar ActivityRecognition.jar features [pad naar log-bestand] [pad naar settings]
+	 *  
+	 *  Berekend de features van een opgegeven log-bestand met meegegeven settings.json-bestand
+	 * 
+	 * @param path		: pad naar log-bestand
+	 * @param settings 	: pad naar settings-bestand
+	 */
+
+	@Command(description="Berekend de features van een opgegeven log-bestand met een settings.json")
+	public static String features(@Param(name="path", description="Pad naar log-bestand") String path,
+			@Param(name="settings", description="Pad naar settings.json bestand") String settings) { 
+
+		File logFile = new File(path);
+		File settingsFile = new File(settings);
+
+		if (! logFile.exists()) {
+			String folder = Files.folder(path);
+			String start2 = Files.file(path);
+			File[] matches = Files.startsWith(folder, start2);
+			if (matches.length > 1)
+				return "Meerdere log-bestanden beginnen met '"+start2+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				logFile = matches[0];
+				path = logFile.getPath();
+			}
+			else
+				return "Log-bestand niet gevonden";
+		}
+
+		if (! settingsFile.exists()) {
+			String folder = Files.folder(settings);
+			String start2 = Files.file(settings);
+			File[] matches = Files.startsWith(folder, start2);
+			if (matches.length > 1)
+				return "Meerdere setting-bestanden beginnen met '"+start2+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				settingsFile = matches[0];
+				settings = settingsFile.getPath();
+			}
+			else
+				return "Settings-bestand niet gevonden";
+		}
+
+
+		String folder = Files.folder(path);
+		String[] parts = folder.split("/"); 
+		String label = parts[2];
+		setlabel(path,label);
+
+		return Features.settingsFeatures(path,settings);
+	}
+
+	/**
+	 * 
+	 * Command: java -jar ActivityRecognition.jar allfeatures [pad naar log-folder] [pad naar settings]
+	 * 			voorbeeld : ... allfeatures ./Data/LiftAU/Training-set/ ./Settings/
+	 * 
+	 * Berekend de features van alle log-bestanden in een meegegeven folder voor alle settings
+	 * in de meegegeven settings-folder, vervolgens worden alle csv-bestanden van de bijhorende settings
+	 * gecombineerd.
+	 * 
+	 * @param path	   : pad naar log-folder
+	 * @param settings : pad naar settings-folder
+	 */
+	
+	@Command(description="Berekend de features van alle log-bestanden met alle verschillende settings")
+	public static String featuresAll(@Param(name="path", description="Pad naar folder") String path,
+			@Param(name="settings", description="Pad naar settings") String settings) throws IOException{
+		
+		File logfolder = new File(path);
+		File settingsfolder = new File(settings);
+		File csvfolder = new File(path);
+		
+		// haal alle logfiles van de meegegeven folder op + zet juiste label
+		File[] listOfLogs = Files.getLogsFromFolder(logfolder);
+		if (listOfLogs.length == 0)
+			return "Er zijn geen log-files in de meegegeven folder.";
+		
+		for(File log : listOfLogs){
+			String folder = Files.folder(log.toString());
+			String[] parts = folder.split("/"); 
+			String label = parts[2];
+			setlabel(log.toString(),label);
+		}
+		
+		// haal alle settings op
+		File[] listOfSettings = Files.getSettingsFromFolder(settingsfolder);
+		if (listOfSettings.length == 0)
+			return "De meegegeven settings-folder is leeg";
+		
+		//Bereken de features en exporteer de csv-bestanden naar dezelfde folder als log-bestanden
+		System.out.println("Features worden berekend...");
+		System.out.println(Features.features(listOfLogs, listOfSettings));
+
+		//Haal alle csvs op
+		File[] listOfCsv = Files.getCsvFromFolder(csvfolder);
+		
+		//Combineer csvs per activiteit
+		System.out.println("Csv bestanden worden gecombineerd");
+		return Features.combineDataSets(listOfCsv, listOfSettings);		
+	}
+	
+	/**
+	 * Combineert alle trainingsets in een folder 
+	 * 
+	 * @param path
+	 */
+	public static String combineTraining(@Param(name="path", description="Pad naar folder met trainingsets") String path) throws IOException{
+	
+		//Haal alle csvs-bestanden op 
+		File csvfolder = new File(path);
+		File[] listOfCsv = Files.getCsvFromFolder(csvfolder);
+		
+		return Features.combineTrainingSets(listOfCsv);
 	}
 	
 	/** PRE-PROCESSING */
