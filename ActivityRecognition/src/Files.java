@@ -74,6 +74,36 @@ public class Files {
 		File f = new File(filename);
 		return f.exists() && !f.isDirectory();
 	}
+	
+	static File[] getLogsFromFolder(File folder){
+		File[] listOfLogs;
+		FilenameFilter logFilter = new FilenameFilter() {
+			public boolean accept(File dir, String name) {
+				return name.toLowerCase().endsWith(".log");
+			}
+		};
+		return listOfLogs = folder.listFiles(logFilter);
+	}
+	
+	static File[] getSettingsFromFolder(File folder){
+		File[] listofSettings;
+		FilenameFilter settingsFilter = new FilenameFilter() {
+			public boolean accept(File dir, String name) {
+				return name.toLowerCase().endsWith(".json");
+			}
+		};
+		return listofSettings = folder.listFiles(settingsFilter);
+	}
+
+	static File[] getCsvFromFolder(File folder){
+		File[] listofCsv;
+		FilenameFilter csvFilter = new FilenameFilter() {
+			public boolean accept(File dir, String name) {
+				return name.toLowerCase().endsWith(".csv");
+			}
+		};
+		return listofCsv = folder.listFiles(csvFilter);
+	}
 
 	/*public File[] allFiles(String folder) {
 		File dir = new File(folder);
