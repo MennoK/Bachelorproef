@@ -7,7 +7,7 @@ Hiervoor zullen we voor de volgende parameters verschillende waarden nemen, vari
 1. nb_fft_features
      * L: 10
      * D: 20
-    * H: 40
+     * H: 40
 
 2. nb_fft_peaks
 	* L: 0.10
