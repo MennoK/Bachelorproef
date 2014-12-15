@@ -45,6 +45,10 @@ sequenties van activiteiten te classificeren.
 
 ## Verslag
 
+* Week van 8/12
+    * ActivityRecognition uitgebreid om op verschillende manieren features te berekenen en verschillende methodes (met variërende waardes voor parameters) uit te voeren.
+    * Deze verschillende methodes geëvalueerd met de huidige metingen als training set. Dit hebben we gedaan met crossvalidatie voor 10 en 20 folds. We hebben telkens de accuracy en de confusion matrix laten berekenen.
+
 * Week van 1/12
     * Presentatie: probleemstelling
     * Data opgemeten
