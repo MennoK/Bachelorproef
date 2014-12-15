@@ -44,11 +44,11 @@ nb_dwt_features |          10 | 5    | 20  | 10 | 5
  
  ---
 
- Parameter |Setting 6 | Setting 7 | Setting 8 | Setting 9 | Setting 10
-:-----------|------------|:------------|:------------|:------------|:------------
- nb_fft_features|        10 |     40|40|40|20     
- nb_fft_peaks   |      0.50 |    0.25|0.10|0.50|0.25  
- wavelet_type   |        haar |     haar  | haar|haar|haar    
-nb_dwt_features |          20 |      10 |    5|20|5
- nb_wpd_features|       20 |    10   | 5|20 | 20
+ Parameter |Setting 6 | Setting 7 | Setting 8 | Setting 9 | Setting 10 | Setting 11 (HMM's)
+:-----------|------------|:------------|:------------|:------------|:------------|:------------
+ nb_fft_features|        10 |     40|40|40|20|20     
+ nb_fft_peaks   |      0.50 |    0.25|0.10|0.50|0.25|0.25 
+ wavelet_type   |        haar |     haar  | haar|haar|haar  | haar  
+nb_dwt_features |          20 |      10 |    5|20|5 | 10
+ nb_wpd_features|       20 |    10   | 5|20 | 20 | 10
  
