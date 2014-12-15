@@ -26,6 +26,7 @@ java -jar MotionFingerprint.jar --hmm model_LiftAU.jahmm Data/LiftAU/training/li
 
     5. Verander in de .jahmm modellen alle ',' naar '.' om (dus geen getallen als 1,23 maar wel 1.23)
         (anders geeft stap 6 een error)
+       En zorg er ook voor dat er nergens meer E-5 of E-4 staat, maar dat 1.23E-4 geschreven wordt als 0.000123
 
     6. Bereken features van de log-bestanden, gebruik makende van:
 

@@ -67,6 +67,15 @@ public class ActivityRecognition {
 	}
 	
 	/**
+	 * Maak HMM model voor een activiteit.
+	 */
+	@Command(description="Maak HMM model voor een activiteit")
+	public static String makehmms(@Param(name="activitity", description="Activiteit naam") String activity) {
+		MotionFingerprint.command("--hmm HMMs/"+activity+".jahmm "+Files.logFilesFromActivity(activity));
+		return "HMM model voor "+activity+" gemaakt";
+	}
+	
+	/**
 	 * Evalueer de modellen voor de verchillende training sets met cross-validatie of training/test set.
 	 * <br><b>Cross-validatie:</b> met k=10 en k=20 folds
 	 * 

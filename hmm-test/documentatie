@@ -12,7 +12,7 @@ Gedaan:
 
             gebruik het logfiles.txt bestand voor het volgende commando
 
-            java -jar MotionFingerprint.jar --hmm model_[activiteit-naam].hmm [alle log-files na elkaar gescheiden met spatie]
+            java -jar MotionFingerprint.jar --hmm model_[activiteit-naam].jahmm [alle log-files na elkaar gescheiden met spatie]
 
             in dit geval:
 

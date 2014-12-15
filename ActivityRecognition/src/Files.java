@@ -40,6 +40,15 @@ public class Files {
 		List<File> files = (List<File>) FileUtils.listFiles(dir, extensions, true);
 		return files;
 	}
+	
+	static String logFilesFromActivity(String activity) {
+		List<File> files = getAllFilesWithExtensionInDirectory("Data/"+activity+"/Training-set", "log");
+		String result = "";
+		for (File file : files) {
+			result += file.getPath() + " ";
+		}
+		return result;
+	}
 
 	static File[] startsWith(String folder, final String start) {
 		File dir = new File(folder);
