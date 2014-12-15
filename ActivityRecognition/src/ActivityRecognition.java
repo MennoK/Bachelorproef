@@ -55,6 +55,10 @@ public class ActivityRecognition {
 				String print = evaluate(args[1]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("makehmms") && args.length == 2) {
+				String print = makehmms(args[1]);
+				System.out.println(print);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}
@@ -67,11 +71,14 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 * Maak HMM model voor een activiteit.
+	 * Maak HMM model voor een activiteit voor de logs in de map Validatie-set.
+	 * 
+	 * @param	activity
+	 * 			De activiteit naam
 	 */
-	@Command(description="Maak HMM model voor een activiteit")
+	@Command(description="Maak HMM model voor een activiteit voor de logs in de map Validatie-set.")
 	public static String makehmms(@Param(name="activitity", description="Activiteit naam") String activity) {
-		MotionFingerprint.command("--hmm HMMs/"+activity+".jahmm "+Files.logFilesFromActivity(activity));
+		MotionFingerprint.command("--hmm HMMs/"+activity+".jahmm "+Files.logFilesValFromActivity(activity));
 		return "HMM model voor "+activity+" gemaakt";
 	}
 	

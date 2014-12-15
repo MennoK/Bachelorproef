@@ -62,12 +62,11 @@ public enum Method {
 	/**
 	 * Support Vector Machines: hogere waarde voor -G: 0.01 (gamma parameter van RBF-kernel, wat dat ook zou mogen betekenen?? http://weka.wikispaces.com/Optimizing+parameters)
 	 */
-	LibSVM_2("-S 0 -K 2 -D 3 -G 0.01 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1"),
+	LibSVM_2("-S 0 -K 2 -D 3 -G 0.01 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1");
 	
 	/**
-	 * Decision Tables: default
+	 * Randomforests ...
 	 */
-	DecisionTable_1("-X 1 -S \"weka.attributeSelection.BestFirst -D 1 -N 5\"");
 	
 	/**
 	 * Opties voor de methode

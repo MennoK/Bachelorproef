@@ -15,5 +15,5 @@
   "hmm_states" : 10,
   "hmm_learn_iterations" : 100,
   "hmm_files" : [ ],
-  "cli_args" : [ "--hmm", "HMMs/Trapop.jahmm", "Data/Trapop/Training-set/trapop5_a_r_20141123131200.cut.log", "Data/Trapop/Training-set/trapop8_m_l_20141204160555.cut.log", "Data/Trapop/Training-set/trapop2_a_l_2.log", "Data/Trapop/Training-set/trapop1_a_l_2.log", "Data/Trapop/Training-set/trapop1_a_r_2.log", "Data/Trapop/Training-set/trapop4_m_l_2.log", "Data/Trapop/Training-set/trapop6_m_r_20141204154336.cut.log", "Data/Trapop/Training-set/trapop7_a_r_20141204160611.cut.log", "Data/Trapop/Training-set/trapop3_a_r_2.log", "Data/Trapop/Training-set/trapop3_m_r_2.log", "Data/Trapop/Training-set/trapop5_m_l_2.log", "Data/Trapop/Training-set/trapop2_m_r_2.log", "Data/Trapop/Training-set/trapop8_a_r_20141204160642.cut.log", "Data/Trapop/Training-set/trapop4_a_r_2.log", "Data/Trapop/Training-set/trapop6_a_l_20141204155033.cut.log", "Data/Trapop/Training-set/trapop7_m_l_20141204155034.cut.log" ]
+  "cli_args" : [ "--hmm", "HMMs/Trapop.jahmm", "Data/Trapop/Validatie-set/trapop9_a_r_20141204154337.cut.log", "Data/Trapop/Validatie-set/trapop10_a_r_20141123131222.cut.log", "Data/Trapop/Validatie-set/trapop9_m_l_20141204160634.cut.log" ]
 }

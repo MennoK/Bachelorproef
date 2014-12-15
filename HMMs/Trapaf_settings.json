@@ -15,5 +15,5 @@
   "hmm_states" : 10,
   "hmm_learn_iterations" : 100,
   "hmm_files" : [ ],
-  "cli_args" : [ "--hmm", "HMMs/Trapaf.jahmm", "Data/Trapaf/Training-set/trapaf7_m_l_20141204160720.cut.log", "Data/Trapaf/Training-set/trapaf6_m_l_20141204155108.cut.log", "Data/Trapaf/Training-set/trapaf1_m_r_2.log", "Data/Trapaf/Training-set/trapaf5_a_l_20141123131250.cut.log", "Data/Trapaf/Training-set/trapaf3_a_l_2.log", "Data/Trapaf/Training-set/trapaf5_m_l_2.log", "Data/Trapaf/Training-set/trapaf2_m_r_2.log", "Data/Trapaf/Training-set/trapaf1_a_l_2.log", "Data/Trapaf/Training-set/trapaf7_a_l_20141204160819.cut.log", "Data/Trapaf/Training-set/trapaf8_m_l_20141204160757.cut.log", "Data/Trapaf/Training-set/trapaf2_a_l_2.log", "Data/Trapaf/Training-set/trapaf8_a_l_20141204155108.cut.log", "Data/Trapaf/Training-set/trapaf6_a_l_20141123131313.cut.log", "Data/Trapaf/Training-set/trapaf1_a_r_2.log", "Data/Trapaf/Training-set/trapaf4_a_l_2.log", "Data/Trapaf/Training-set/trapaf4_m_l_2.log" ]
+  "cli_args" : [ "--hmm", "HMMs/Trapaf.jahmm", "Data/Trapaf/Validatie-set/trapaf9_a_r_20141204160736.cut.log" ]
 }

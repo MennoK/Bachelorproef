@@ -41,8 +41,12 @@ public class Files {
 		return files;
 	}
 	
-	static String logFilesFromActivity(String activity) {
-		List<File> files = getAllFilesWithExtensionInDirectory("Data/"+activity+"/Training-set", "log");
+	/**
+	 * Geef alle log-files van een activiteit in de Validatie-set map.
+	 * @result	String van alle padnamen gescheiden door spaties
+	 */
+	static String logFilesValFromActivity(String activity) {
+		List<File> files = getAllFilesWithExtensionInDirectory("Data/"+activity+"/Validatie-set", "log");
 		String result = "";
 		for (File file : files) {
 			result += file.getPath() + " ";
