@@ -6,8 +6,11 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.commons.io.*;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -116,6 +119,10 @@ public class Files {
 			}
 		};
 		return listofCsv = folder.listFiles(csvFilter);
+	}
+	
+	static String readFile(String path) throws IOException {
+		return new Scanner( new File(path) ).useDelimiter("\\A").next();
 	}
 
 	/*public File[] allFiles(String folder) {

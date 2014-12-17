@@ -43,7 +43,7 @@ public class ActivityRecognition {
 				String print = features(args[1],args[2]);
 				System.out.println(print);
 			}
-			else if (args[0].equals("allfeatures") && args.length == 3) {
+			else if (args[0].equals("featuresAll") && args.length == 3) {
 				String print = featuresAll(args[1], args[2]);
 				System.out.println(print);
 			}
@@ -55,8 +55,8 @@ public class ActivityRecognition {
 				String print = evaluate(args[1]);
 				System.out.println(print);
 			}
-			else if (args[0].equals("makehmms") && args.length == 2) {
-				String print = makehmms(args[1]);
+			else if (args[0].equals("makehmm") && args.length == 2) {
+				String print = makehmm(args[1]);
 				System.out.println(print);
 			}
 			else {
@@ -71,15 +71,19 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 * Maak HMM model voor een activiteit voor de logs in de map Validatie-set.
+	 * Maak HMM model voor een activiteit voor de logs in de map <b>Validatie-set</b>.
 	 * 
 	 * @param	activity
 	 * 			De activiteit naam
 	 */
 	@Command(description="Maak HMM model voor een activiteit voor de logs in de map Validatie-set.")
-	public static String makehmms(@Param(name="activitity", description="Activiteit naam") String activity) {
+	public static String makehmm(@Param(name="activitity", description="Activiteit naam") String activity) {
+		System.out.println("HMM maken met MotionFingerprint...");
 		MotionFingerprint.command("--hmm HMMs/"+activity+".jahmm "+Files.logFilesValFromActivity(activity));
-		return "HMM model voor "+activity+" gemaakt";
+		// HMM in de juiste vorm zetten
+		System.out.println("HMM in de juiste vorm zetten...");
+		HelperFunctions.hmm("HMMs/"+activity+".jahmm");
+		return "HMM model voor "+activity+" gemaakt: HMMs/"+activity+".jahmm";
 	}
 	
 	/**
@@ -113,17 +117,17 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 *  Command: java -jar ActivityRecognition.jar features [pad naar log-bestand] [pad naar settings]
-	 *  
-	 *  Berekend de features van een opgegeven log-bestand met meegegeven settings.json-bestand
+	 * Berekend de features van een opgegeven log-bestand met settings.json bestand
 	 * 
-	 * @param path		: pad naar log-bestand
-	 * @param settings 	: pad naar settings-bestand
+	 * @param 	path
+	 * 			Pad naar log-bestand (voorbeeld: ./Data/LiftAD/Training-set/liftad1_a_l_20141124173425.cut.log)
+	 * @param 	settings
+	 * 			Pad naar settings.json bestand (voorbeeld: ./Settings/settings1.json)
 	 */
 
-	@Command(description="Berekend de features van een opgegeven log-bestand met een settings.json")
-	public static String features(@Param(name="path", description="Pad naar log-bestand") String path,
-			@Param(name="settings", description="Pad naar settings.json bestand") String settings) { 
+	@Command(description="Berekend de features van een opgegeven log-bestand met settings.json bestand")
+	public static String features(@Param(name="path", description="Pad naar log-bestand (begint met ./)") String path,
+			@Param(name="settings", description="Pad naar settings.json bestand (begint met ./)") String settings) { 
 
 		File logFile = new File(path);
 		File settingsFile = new File(settings);
@@ -166,21 +170,19 @@ public class ActivityRecognition {
 	}
 
 	/**
-	 * 
-	 * Command: java -jar ActivityRecognition.jar allfeatures [pad naar log-folder] [pad naar settings]
-	 * 			voorbeeld : ... allfeatures ./Data/LiftAU/Training-set/ ./Settings/
-	 * 
 	 * Berekend de features van alle log-bestanden in een meegegeven folder voor alle settings
 	 * in de meegegeven settings-folder, vervolgens worden alle csv-bestanden van de bijhorende settings
 	 * gecombineerd.
 	 * 
-	 * @param path	   : pad naar log-folder
-	 * @param settings : pad naar settings-folder
+	 * @param 	path
+	 * 			Pad naar log-folder (voorbeeld: ./Data/LiftAD/Training-set/)
+	 * @param 	settings
+	 * 			Pad naar settings-folder (voorbeeld: ./Settings/)
 	 */
 	
-	@Command(description="Berekend de features van alle log-bestanden met alle verschillende settings")
-	public static String featuresAll(@Param(name="path", description="Pad naar folder") String path,
-			@Param(name="settings", description="Pad naar settings") String settings) throws IOException{
+	@Command(description="Berekend de features van alle log-bestanden in een meegegeven folder voor alle settings in de meegegeven settings-folder, vervolgens worden alle csv-bestanden van de bijhorende settings gecombineerd.")
+	public static String featuresAll(@Param(name="path", description="Pad naar log-folder (begint met ./ en eindigt met /)") String path,
+			@Param(name="settings", description="Pad naar settings-folder (begint met ./ en eindigt met /)") String settings) throws IOException{
 		
 		File logfolder = new File(path);
 		File settingsfolder = new File(settings);
@@ -216,10 +218,12 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 * Combineert alle trainingsets in een folder 
+	 * Combineer alle CSV files in een folder
 	 * 
-	 * @param path
+	 * @param 	path
+	 * 			Pad naar folder met trainingsets
 	 */
+	@Command(description="Combineer alle CSV files in een folder")
 	public static String combineTraining(@Param(name="path", description="Pad naar folder met trainingsets") String path) throws IOException{
 	
 		//Haal alle csvs-bestanden op 

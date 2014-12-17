@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -58,6 +60,44 @@ public class HelperFunctions {
 	/** @pre n > 0 */
 	static int length(long n) {
 		return (int) (Math.log10(n)+1);
+	}
+	
+	/**
+	 * Zet een .jahmm-bestand in de juiste vorm.
+	 * @param 	path
+	 * 			Pad naar bestand
+	 */
+	static void hmm(String path) {
+		try {
+			
+			// lees bestand in
+			String hmmfile = Files.readFile(path);
+			
+			// vervang alle getallen 1.23456E-7 naar de juiste vorm
+			
+			Pattern p = Pattern.compile("([0-9]+.[0-9]+E(\\+|\\-)*[0-9]+)");
+		    Matcher m = p.matcher(hmmfile);
+
+		    StringBuffer sb = new StringBuffer();
+
+		    while(m.find()) {
+		        m.appendReplacement(sb, doubleFormat(m.group(0)));
+		    }
+
+		    m.appendTail(sb);
+			
+			// schrijf weg
+			Files.writeFile(path,sb.toString());
+			
+		} catch (IOException e) {
+			System.out.println("Fout: .jahmm-bestand niet gevonden.");
+		}
+	}
+	
+	static String doubleFormat(String number) {
+		double x = Double.parseDouble(number);
+		String withComma = String.format("%.20f", x);
+		return withComma.replace(",",".");
 	}
 
 }

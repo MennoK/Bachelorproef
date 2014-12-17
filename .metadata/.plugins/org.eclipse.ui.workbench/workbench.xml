@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="31" version="2.0">
+<workbench progressCount="32" version="2.0">
 <workbenchAdvisor/>
 <window height="876" maximized="true" width="1375" x="65" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -44,9 +44,9 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityRecognition.java" partName="ActivityRecognition.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/ActivityRecognition.java" title="ActivityRecognition.java" tooltip="ActivityRecognition/src/ActivityRecognition.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityRecognition.java" partName="ActivityRecognition.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/ActivityRecognition.java" title="ActivityRecognition.java" tooltip="ActivityRecognition/src/ActivityRecognition.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ActivityRecognition.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2481" selectionTopPixel="653"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1952" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Classify.java" partName="Classify.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Classify.java" title="Classify.java" tooltip="ActivityRecognition/src/Classify.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Classify.java"/>
@@ -62,7 +62,7 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Files.java" partName="Files.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Files.java" title="Files.java" tooltip="ActivityRecognition/src/Files.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Files.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1519" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1255" selectionTopPixel="198"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelperFunctions.java" partName="HelperFunctions.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/HelperFunctions.java" title="HelperFunctions.java" tooltip="ActivityRecognition/src/HelperFunctions.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/HelperFunctions.java"/>
@@ -70,11 +70,11 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MotionFingerprint.java" partName="MotionFingerprint.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/MotionFingerprint.java" title="MotionFingerprint.java" tooltip="ActivityRecognition/src/MotionFingerprint.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/MotionFingerprint.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="173" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" partName="Method.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Method.java" title="Method.java" tooltip="ActivityRecognition/src/Method.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" partName="Method.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Method.java" title="Method.java" tooltip="ActivityRecognition/src/Method.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Method.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1267" selectionTopPixel="1481"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1839" selectionTopPixel="384"/>
 </editor>
 </editors>
 <views>
@@ -83,10 +83,6 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (37 items)"/>
-<category IMemento.internal.id="Errors"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="677" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -146,7 +142,7 @@
 </view>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -343,165 +339,161 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ActivityRecognition.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Classify.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/DataSet.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Features.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Method.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Files.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/HelperFunctions.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Method.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Features.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ActivityRecognition.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/MotionFingerprint.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Method.java"/>
 </editors>
-<item historyLabel="Features.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Features.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Classify.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DataSet.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Features.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Features.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Files.java" index="4">
-<position info="not_deleted" x="3372" y="0"/>
-</item>
-<item historyLabel="Files.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HelperFunctions.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HelperFunctions.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Method.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Method.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MotionFingerprint.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MotionFingerprint.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="2723" y="0"/>
-</item>
-<item historyLabel="Files.java" index="4">
-<position info="not_deleted" x="1519" y="0"/>
-</item>
-<item historyLabel="Features.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="692" y="0"/>
-</item>
-<item historyLabel="Classify.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Classify.java" index="1">
-<position info="not_deleted" x="1581" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="719" y="0"/>
-</item>
-<item historyLabel="MotionFingerprint.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="2481" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="719" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="1638" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="1639" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="1701" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="1775" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="1727" y="6"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="2990" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="3008" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="3046" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="3274" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="3366" y="0"/>
-</item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="2588" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="2589" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="1848" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3097" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3071" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3086" y="10"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3134" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3115" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3130" y="3"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="1055" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="1055" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3177" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3236" y="0"/>
 </item>
-<item historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3176" y="0"/>
 </item>
-<item active="true" historyLabel="Method.java" index="8">
+<item historyLabel="Method.java" index="0">
 <position info="not_deleted" x="3234" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1927" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1315" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1331" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1382" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1416" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1438" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1416" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1415" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1524" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1340" y="77"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1465" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1495" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1501" y="0"/>
+</item>
+<item historyLabel="Features.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2736" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1524" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2736" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2579" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2473" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2474" y="0"/>
+</item>
+<item historyLabel="MotionFingerprint.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2733" y="0"/>
+</item>
+<item historyLabel="MotionFingerprint.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2733" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2733" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1276" y="23"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2733" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2682" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="4214" y="0"/>
+</item>
+<item historyLabel="Method.java" index="0">
+<position info="not_deleted" x="1839" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2661" y="0"/>
+</item>
+<item historyLabel="Files.java" index="1">
+<position info="not_deleted" x="1255" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2661" y="0"/>
+</item>
+<item historyLabel="MotionFingerprint.java" index="4">
+<position info="not_deleted" x="173" y="0"/>
+</item>
+<item active="true" historyLabel="ActivityRecognition.java" index="3">
+<position info="not_deleted" x="2661" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -510,7 +502,6 @@
 <actionBarAdvisor/>
 <trimLayout>
 <trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="bottom"/>
 <trimItem IMemento.internal.id="right"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
