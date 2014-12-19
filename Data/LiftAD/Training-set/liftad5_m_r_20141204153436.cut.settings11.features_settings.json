@@ -14,6 +14,6 @@
   "f_co" : 4,
   "hmm_states" : 10,
   "hmm_learn_iterations" : 100,
-  "hmm_files" : [ "HMMs/Wandelen.jahmm", "HMMs/LiftAD.jahmm", "HMMs/LiftAU.jahmm", "HMMs/Tandenpoetsen.jahmm", "HMMs/Trapop.jahmm", "HMMs/Trapaf.jahmm" ],
+  "hmm_files" : [ "HMMs/10-100/Wandelen.jahmm", "HMMs/10-100/LiftAD.jahmm", "HMMs/10-100/LiftAU.jahmm", "HMMs/10-100/Tandenpoetsen.jahmm", "HMMs/10-100/Trapop.jahmm", "HMMs/10-100/Trapaf.jahmm" ],
   "cli_args" : [ "--settings", "./Settings/settings11.json", "--features", "./Data/LiftAD/Training-set/liftad5_m_r_20141204153436.cut.settings11.features.csv", "./Data/LiftAD/Training-set/liftad5_m_r_20141204153436.cut.log" ]
 }

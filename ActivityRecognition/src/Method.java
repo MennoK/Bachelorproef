@@ -62,11 +62,17 @@ public enum Method {
 	/**
 	 * Support Vector Machines: hogere waarde voor -G: 0.01 (gamma parameter van RBF-kernel, wat dat ook zou mogen betekenen?? http://weka.wikispaces.com/Optimizing+parameters)
 	 */
-	LibSVM_2("-S 0 -K 2 -D 3 -G 0.01 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1");
+	LibSVM_2("-S 0 -K 2 -D 3 -G 0.01 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -seed 1"),
 	
 	/**
-	 * Randomforests ...
+	 * Random forest: default (10 bomen)
 	 */
+	RandomForest_1("-I 10 -K 0 -S 1"),
+	
+	/**
+	 * Random forest: 20 bomen
+	 */
+	RandomForest_2("-I 20 -K 0 -S 1");
 	
 	/**
 	 * Opties voor de methode
@@ -120,6 +126,8 @@ public enum Method {
 				return new LibSVM();
 			case "DecisionTable":
 				return new DecisionTable();
+			case "RandomForest":
+				return new RandomForest();
 		}
 		System.out.println("Classifier "+name+" kon niet aangemaakt worden. Nog toevoegen bij methode classifier in Method.java?");
 		return null;

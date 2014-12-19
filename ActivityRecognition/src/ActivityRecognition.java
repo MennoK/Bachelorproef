@@ -59,6 +59,10 @@ public class ActivityRecognition {
 				String print = makehmm(args[1]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("makehmm") && args.length == 4) {
+				String print = makehmm(args[1],Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+				System.out.println(print);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}
@@ -71,19 +75,44 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 * Maak HMM model voor een activiteit voor de logs in de map <b>Validatie-set</b>.
+	 * Maak HMM model voor een activiteit voor de logs in de map <b>Validatie-set</b> met de default instellingen.
 	 * 
 	 * @param	activity
 	 * 			De activiteit naam
 	 */
-	@Command(description="Maak HMM model voor een activiteit voor de logs in de map Validatie-set.")
+	@Command(description="Maak HMM model voor een activiteit voor de logs in de map Validatie-set met de default instellingen.")
 	public static String makehmm(@Param(name="activitity", description="Activiteit naam") String activity) {
+		return makehmm(activity,10,100);
+	}
+	
+	/**
+	 * Maak HMM model voor een activiteit voor de logs in de map <b>Validatie-set</b>
+	 * met opgegeven aantal states en iteraties.
+	 * 
+	 * @param	activity
+	 * 			De activiteit naam
+	 * @param	states
+	 * 			Aantal states
+	 * @param	iterations
+	 * 			Aantal iteraties
+	 */
+	@Command(description="Maak HMM model voor een activiteit voor de logs in de map Validatie-set met opgegeven aantal states en iteraties.")
+	public static String makehmm(@Param(name="activitity", description="Activiteit naam") String activity,
+			@Param(name="states", description="Aantal states") int states,
+			@Param(name="iterations", description="Aantal iteraties") int iterations) {
 		System.out.println("HMM maken met MotionFingerprint...");
-		MotionFingerprint.command("--hmm HMMs/"+activity+".jahmm "+Files.logFilesValFromActivity(activity));
+		
+		// maak settings.json bestand
+		String settings = HelperFunctions.hmmsettings(states,iterations);
+		Files.writeFile("Temp/settings.json",settings);
+		
+		// bereken HMM model
+		MotionFingerprint.command("--settings Temp/settings.json --hmm HMMs/"+states+"-"+iterations+"/"+activity+".jahmm "+Files.logFilesValFromActivity(activity));
+		
 		// HMM in de juiste vorm zetten
 		System.out.println("HMM in de juiste vorm zetten...");
-		HelperFunctions.hmm("HMMs/"+activity+".jahmm");
-		return "HMM model voor "+activity+" gemaakt: HMMs/"+activity+".jahmm";
+		HelperFunctions.hmm("HMMs/"+states+"-"+iterations+"/"+activity+".jahmm");
+		return "HMM model voor "+activity+" gemaakt: HMMs/"+states+"-"+iterations+"/"+activity+".jahmm";
 	}
 	
 	/**

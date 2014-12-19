@@ -94,6 +94,42 @@ public class HelperFunctions {
 		}
 	}
 	
+	/**
+	 * Geef de inhoud van een settings.json bestand om HMM's te maken met een gegeven
+	 * aantal states en iterations.
+	 */
+	static String hmmsettings(int states, int iterations) {
+		Map settings = new LinkedHashMap();
+		
+		settings.put("window_seconds",-1);
+		settings.put("nb_fft_features",20);
+		settings.put("step_fft_features",0.25);
+		settings.put("nb_fft_peaks",4);
+		settings.put("window_fft_features",0.5);
+		settings.put("wavelet_type","haar");
+		settings.put("nb_dwt_features",10);
+		settings.put("nb_wpd_features",10);
+		settings.put("peak_wss",0.5);
+		settings.put("peak_mindev",1);
+		settings.put("geo_correct",true);
+		settings.put("ignore_q",false);
+		settings.put("f_co",4);
+		settings.put("hmm_states",states);
+		settings.put("hmm_learn_iterations",iterations);
+		settings.put("hmm_files", new JSONArray());
+		settings.put("cli_args", new JSONArray());
+		
+		StringWriter out = new StringWriter();
+		try {
+			JSONValue.writeJSONString(settings, out);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String jsonText = out.toString();
+	
+		return jsonText;
+	}
+	
 	static String doubleFormat(String number) {
 		double x = Double.parseDouble(number);
 		String withComma = String.format("%.20f", x);
