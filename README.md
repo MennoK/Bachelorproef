@@ -32,18 +32,12 @@ herkennen. De activiteiten zijn:
 Nadat we een goed model hebben voor de afzonderlijke activiteiten, zullen we dit gebruiken om
 sequenties van activiteiten te classificeren.
 
-## Planning
-
-* Week van 8/12
-    * Data opmeten
-    * Nieuwe metingen knippen
+## Verslag
 
 * Week van 15/12
-    * Modellen maken voor afzonderlijke activiteiten
-       * Classifiers
-       * HMM's?
-
-## Verslag
+    * Op verschillende manieren (verschillende instellingen voor MotionFingerprint tool) features berekend en zo verschillende training sets gemaakt.
+    * Voor elke training set verschillende methodes uitgetest (met behulp van Weka toolkit): beslissingsbomen (J48), Naive Bayes, k-Nearest Neighbors (IBk), Support Vector Machines (LibSVM) en RandomForest. Voor elk van deze methodes hebben we aan enkele parameters verschillende waarden gegeven.
+    * Evaluatie van de methodes gedaan met cross-validatie voor 10 en 20 folds. Resultaten zijn hier te vinden: https://github.com/MennoK/Bachelorproef/blob/master/Resultaten/crossvalidatie_resultaten2.pdf
 
 * Week van 8/12
     * ActivityRecognition uitgebreid om op verschillende manieren features te berekenen en verschillende methodes (met variërende waardes voor parameters) uit te voeren.
