@@ -34,10 +34,13 @@ sequenties van activiteiten te classificeren.
 
 ## Planning
 
-* Week van 9/2
-    * Sequenties van activiteiten opmeten en labelen (met .txt-bestanden). Het is de bedoeling om al deze metingen tegen het einde van deze week gedaan te hebben.
-    * Programma'tje schrijven om sequenties op te splitsen. (Hiermee hebben we meer metingen voor afzonderlijk activiteiten en kunnen we controleren of de .txt-bestanden voor de labels goed zijn.)
-    * Structuur poster
+* Sequenties van activiteiten opmeten en labelen (met .csv-bestanden). Het is de bedoeling om al deze metingen tegen    het einde van deze week gedaan te hebben.
+* Programma'tje schrijven:
+    * om sequenties van activiteiten te plotten (eerste 10s breed, om video en metingen te syncen)
+    * om sequenties op te splitsen met label-bestand
+    * om met behulp van een model (voor afzonderlijke activiteiten) een label-bestand te genereren (eerste met MotionFingerprint features voor windows berekenen en dan activiteit voor elke window bepalen met Weka)
+    * gegenereerd label-bestand vergelijken met zelf gemaakt label-bestand + accuraatheid berekenen
+* Structuur poster
 
 ## Verslag
 
