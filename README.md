@@ -32,6 +32,13 @@ herkennen. De activiteiten zijn:
 Nadat we een goed model hebben voor de afzonderlijke activiteiten, zullen we dit gebruiken om
 sequenties van activiteiten te classificeren.
 
+## Planning
+
+* Week van 9/2
+    * Sequenties van activiteiten opmeten en labelen (met .txt-bestanden). Het is de bedoeling om al deze metingen tegen het einde van deze week gedaan te hebben.
+    * Programma'tje schrijven om sequenties op te splitsen. (Hiermee hebben we meer metingen voor afzonderlijk activiteiten en kunnen we controleren of de .txt-bestanden voor de labels goed zijn.)
+    * Structuur poster
+
 ## Verslag
 
 * Week van 15/12
