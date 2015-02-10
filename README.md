@@ -34,13 +34,19 @@ sequenties van activiteiten te classificeren.
 
 ## Planning
 
+### Afzonderlijke activiteiten
+
+* Meer metingen gebruiken voor validatieset (voor HMM's) en trainingset.
+* Nauwkeurigere modellen genereren
+
+### Sequenties
+
 * Sequenties van activiteiten opmeten en labelen (met .csv-bestanden). Het is de bedoeling om al deze metingen tegen    het einde van deze week gedaan te hebben.
-* Programma'tje schrijven:
-    * om sequenties van activiteiten te plotten (eerste 10s breed, om video en metingen te syncen)
-    * om sequenties op te splitsen met label-bestand
-    * om met behulp van een model (voor afzonderlijke activiteiten) een label-bestand te genereren (eerste met MotionFingerprint features voor windows berekenen en dan activiteit voor elke window bepalen met Weka)
-    * gegenereerd label-bestand vergelijken met zelf gemaakt label-bestand + accuraatheid berekenen
-* Structuur poster
+* Programma schrijven om:
+    * sequenties van activiteiten te plotten (eerste 10s breed, om video en metingen te syncen)
+    * sequenties op te splitsen met label-bestand
+    * met behulp van een model (voor afzonderlijke activiteiten) een label-bestand te genereren (eerste met MotionFingerprint features voor windows berekenen en dan activiteit voor elke window bepalen met Weka)
+    * gegenereerd label-bestand te vergelijken met zelf gemaakt label-bestand + accuraatheid berekenen
 
 ## Verslag
 
