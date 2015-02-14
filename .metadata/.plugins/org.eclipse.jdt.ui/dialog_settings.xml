@@ -32,16 +32,16 @@
 			<item value=".xml"/>
 		</list>
 	</section>
-	<section name="NewClassWizardPage">
-		<item value="false" key="create_constructor"/>
-		<item value="true" key="create_unimplemented"/>
-		<item value="false" key="create_main"/>
-	</section>
-	<section name="quick_assist_proposal_size">
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
 	</section>
 	<section name="RenameInformationPopup">
 	</section>
-	<section name="org.eclipse.ltk.ui.refactoring.settings">
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="NewClassWizardPage">
+		<item value="false" key="create_constructor"/>
+		<item value="false" key="create_main"/>
+		<item value="true" key="create_unimplemented"/>
 	</section>
 	<section name="javadoc">
 		<item value="false" key="nodeprecatedlist"/>
@@ -65,16 +65,16 @@
 		<section name="projects">
 			<section name="ActivityRecognition">
 				<item value="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/doc" key="destdir"/>
-				<item value="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/javadoc.xml" key="antpath"/>
 				<item value="" key="href"/>
+				<item value="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/javadoc.xml" key="antpath"/>
 			</section>
 		</section>
 	</section>
 	<section name="JavadocWizardDialog">
 		<item value="700" key="DIALOG_WIDTH"/>
 		<item value="90" key="DIALOG_Y_ORIGIN"/>
-		<item value="678" key="DIALOG_HEIGHT"/>
 		<item value="577" key="DIALOG_X_ORIGIN"/>
+		<item value="678" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>

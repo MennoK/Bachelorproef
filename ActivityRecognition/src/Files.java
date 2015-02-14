@@ -124,6 +124,19 @@ public class Files {
 	static String readFile(String path) throws IOException {
 		return new Scanner( new File(path) ).useDelimiter("\\A").next();
 	}
+	
+	static boolean deleteFile(String path) {
+		try{
+    		File file = new File(path);
+    		if(file.delete()){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    	}catch(Exception e){
+    		return false;
+    	}
+	}
 
 	/*public File[] allFiles(String folder) {
 		File dir = new File(folder);

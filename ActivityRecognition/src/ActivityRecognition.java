@@ -27,6 +27,10 @@ public class ActivityRecognition {
 				String print = plot(args[1]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("plot") && args.length == 3) {
+				String print = plot(Double.parseDouble(args[1]),args[2]);
+				System.out.println(print);
+			}
 			else if (args[0].equals("cut") && args.length == 4) {
 				String print = cut(args[1], Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 				System.out.println(print);
@@ -340,6 +344,24 @@ public class ActivityRecognition {
 		}
 		return path+" werd geplot in: "+pathPDF;
 	}
+	
+	/**
+	 * Plot de eerste X seconden een opgegeven log-bestand in een PDF-bestand
+	 * @param	seconds
+	 * 			Het aantal seconden dat moet geplot worden
+	 * @param 	path
+	 * 			Pad naar log-bestand
+	 */
+	@Command(description="Plot de eerste X seconden een opgegeven log-bestand in een PDF-bestand")
+	public static String plot(@Param(name="seconds", description="Het aantal seconden dat moet geplot worden") double seconds,
+			@Param(name="path", description="Pad naar log-bestand") String path) {
+		double startTime = 0.0; // TODO: dit moet de starttijd (in s) van de meting zijn!
+		System.out.println(cut(path,startTime,startTime+seconds));
+		String pathNEW = path.substring(0, path.length() - 4) + ".cut.log";
+		System.out.println(plot(pathNEW));
+		Files.deleteFile(pathNEW);
+		return "";
+	}
 
 	/**
 	 * Knip het opgegeven log-bestand van [start] tot [end]
@@ -558,5 +580,5 @@ public class ActivityRecognition {
 		writer.close();
 		return "Label van "+path+" veranderd naar: "+label;
 	}
-	
+		
 }
