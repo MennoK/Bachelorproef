@@ -68,6 +68,8 @@ public class Files {
 	}
 	
 	static void writeFile(String path, String content) {
+		File dir = new File(new File(path).getParent());
+		dir.mkdirs();
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter(path, "UTF-8");

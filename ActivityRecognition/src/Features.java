@@ -46,7 +46,7 @@ public class Features {
 			String settingname = setting.getName().substring(0,setting.getName().indexOf(".json"));
 			String[] parts = csvs[0].toString().split("/");
 			String activity = parts[2];
-			String outputname = "trainingset_" + activity + "_" + settingname + ".csv";
+			String outputname = /*"trainingset_" + */ activity /* + "_" + settingname */ + ".csv";
 			
 			List<Path> pathsToCsv = new ArrayList<>();
 

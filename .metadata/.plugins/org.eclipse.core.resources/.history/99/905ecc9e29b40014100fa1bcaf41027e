@@ -1,0 +1,46 @@
+public class ExpSettings {
+	
+	public final static String location = "Experimenten/Settings"; // map waaronder alle resultaten bewaard worden
+
+	public static void main(String[] args) {
+		
+		final String defaultSettings = HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100);
+		
+		/* Hoe de FFT features berekenen? */
+		final String settings1 = HelperFunctions.settings(-1, 10, 0.5, 4, 1, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100); // minder en kleinere FFT bins + grotere stapgrootte
+		final String settings2 = HelperFunctions.settings(-1, 40, 0.125, 4, 0.25, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100); // meer en grotere FFT bins + grotere stapgrootte
+		// opmerking: aantale FFT bins en breedten en + stapgrootte hangen samen (anders wordt de Fourier-transformatie niet voor dezelfde frequenties berekend)
+		
+		/* Hoe de DWT features berekenen? */
+		final String settings3 = HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", 5, 10, 0.5, 1, true, false, 5, 10, 100); // minder DWT features
+		final String settings4 = HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", 5, 10, 0.5, 1, true, false, 20, 10, 100); // meer DWT features
+		final String settings5 = HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "daubechies4", 10, 10, 0.5, 1, true, false, 4, 10, 100); // "daubechies4" wavelet type
+		final String settings6 = HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "biorthogonal11", 10, 10, 0.5, 1, true, false, 4, 10, 100); // "biorthogonal11" wavelet type
+		
+		// alle verschillende settings
+		String[] settingss = { defaultSettings, settings1, settings2, settings3, settings4, settings5, settings6 };
+		
+		// activiteiten waarvoor features moeten berekend worden
+		String[] activities = { "Fietsen", 
+								"LiftAD", 
+								"LiftAU", 
+							//	"Lopen", 
+								"Nietsdoen",
+								"Springen", 
+							//	"Tandenpoetsen", 
+								"Trapaf", 
+								"Trapop", 
+								"Wandelen" };
+		
+		for (int i = 0; i < settingss.length; i++) {
+			
+			String settings = settingss[i];
+			Files.writeFile(location + "/Settings"+i+"settings.json", settings);
+			
+			
+			
+		}
+		
+	}
+
+}

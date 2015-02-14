@@ -67,6 +67,10 @@ public class ActivityRecognition {
 				String print = makehmm(args[1],Integer.parseInt(args[2]),Integer.parseInt(args[3]));
 				System.out.println(print);
 			}
+			else if (args[0]. equals("expsettings")) {
+				String[] args2 = { };
+				ExpSettings.main(args2);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}

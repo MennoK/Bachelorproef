@@ -130,6 +130,56 @@ public class HelperFunctions {
 		return jsonText;
 	}
 	
+	/**
+	 * Geef de inhoud van een settings.json bestand met opgegeven parameters.
+	 */
+	static String settings(int window_seconds,
+							int nb_fft_features,
+							double step_fft_features,
+							int nb_fft_peaks,
+							double window_fft_features,
+							String wavelet_type,
+							int nb_dwt_features,
+							int nb_wpd_features,
+							double peak_wss,
+							double peak_mindev,
+							boolean geo_correct,
+							boolean ignore_q,
+							double f_co,
+							int hmm_states,
+							int hmm_learn_iterations) {
+		
+		Map settings = new LinkedHashMap();
+		
+		settings.put("window_seconds",window_seconds);
+		settings.put("nb_fft_features",nb_fft_features);
+		settings.put("step_fft_features",step_fft_features);
+		settings.put("nb_fft_peaks",nb_fft_peaks);
+		settings.put("window_fft_features",window_fft_features);
+		settings.put("wavelet_type",wavelet_type);
+		settings.put("nb_dwt_features",nb_dwt_features);
+		settings.put("nb_wpd_features",nb_wpd_features);
+		settings.put("peak_wss",peak_wss);
+		settings.put("peak_mindev",peak_mindev);
+		settings.put("geo_correct",geo_correct);
+		settings.put("ignore_q",ignore_q);
+		settings.put("f_co",f_co);
+		settings.put("hmm_states",hmm_states);
+		settings.put("hmm_learn_iterations",hmm_learn_iterations);
+		settings.put("hmm_files", new JSONArray());
+		settings.put("cli_args", new JSONArray());
+		
+		StringWriter out = new StringWriter();
+		try {
+			JSONValue.writeJSONString(settings, out);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String jsonText = out.toString();
+	
+		return jsonText;
+	}
+	
 	static String doubleFormat(String number) {
 		double x = Double.parseDouble(number);
 		String withComma = String.format("%.20f", x);

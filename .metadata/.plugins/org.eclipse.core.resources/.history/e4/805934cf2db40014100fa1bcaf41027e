@@ -1,0 +1,54 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class ExpSettings {
+	
+	public final static String location = "Experimenten/Settings"; // map waaronder alle resultaten bewaard worden
+
+	public static void main(String[] args) {
+		
+		Map<String,String> settingss = new HashMap<>();
+		
+		settingss.put("_default", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100));
+		
+		/* Hoe de FFT features berekenen?
+		   (aantale FFT bins en breedten en + stapgrootte hangen samen (anders wordt de Fourier-transformatie niet voor dezelfde frequenties berekend)) */
+		for (double factor = 0.2; factor <= 2; factor += 0.2)
+			settingss.put("_fft_" + (int) factor*20, HelperFunctions.settings(-1, (int) factor*20, 0.25/factor, 4, 0.5/factor, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100));
+		for (double factor = 2; factor <= 4; factor += 1)
+			settingss.put("_fft_" + (int) factor*20, HelperFunctions.settings(-1, (int) factor*20, 0.25/factor, 4, 0.5/factor, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100));
+		
+		/* Hoe de DWT features berekenen? */
+		for (int n = 4; n <= 20; n += 2)
+			settingss.put("_dwt_" + n, HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", n, 10, 0.5, 1, true, false, 4, 10, 100));
+		settingss.put("_dwt_daubechies4", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "daubechies4", 10, 10, 0.5, 1, true, false, 4, 10, 100));
+		settingss.put("_dwt_biorthogonal11", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "biorthogonal11", 10, 10, 0.5, 1, true, false, 4, 10, 100));
+		
+		// activiteiten waarvoor features moeten berekend worden
+		String[] activities = { "Fietsen", 
+								"LiftAD", 
+								"LiftAU", 
+							//	"Lopen", 
+								"Nietsdoen",
+								"Springen", 
+							//	"Tandenpoetsen", 
+								"Trapaf", 
+								"Trapop", 
+								"Wandelen" };
+		
+		
+		Iterator it = settingss.entrySet().iterator();
+	    while (it.hasNext()) {
+	        Map.Entry pair = (Map.Entry)it.next();
+	        String i = (String) pair.getKey();
+	        String settings = (String) pair.getValue();
+	        
+	        Files.writeFile("../" + location + "/Settings"+i+"/settings.json", settings);
+	        
+	        it.remove();
+	    }
+		
+	}
+
+}
