@@ -64,6 +64,56 @@ public class Classify {
 	}
 	
 	/**
+	 * Maak een model met een gegeven methode voor de trainingset en voer cross-validatie uit.
+	 * 
+	 * @param 	method
+	 * 			De methode die moet gebruikt worden
+	 * @param 	trainingSet
+	 * 			De training-set gebruikt voor het model EN voor de cross-validatie
+	 * @param 	folds
+	 * 			Het aantal folds voor cross-validatie
+	 * @param	summaryOutputFile
+	 * 			Pad naar bestand met samenvatting van resultaten
+	 * @param	confMatrixOutputFile
+	 * 			Pad naar bestand met confusion matrix
+	 * @return	De accuracy van het model,
+	 * 			<br>of <b>-1</b> als er een fout opgetreden is.
+	 */
+	public static double classify_crossvalidation2(Method method, DataSet trainingSet, int folds,
+			String summaryOutputFile, String confMatrixOutputFile) {
+		
+		// haal de instances op
+		Instances training = trainingSet.instances;
+		Classifier cls = method.getClassifier();
+		
+		try {
+			
+			// classify + evaluate
+			cls.buildClassifier(training);
+			Evaluation eval = new Evaluation(training);
+			eval.crossValidateModel(cls, training, folds, new Random(1));
+			
+			// haal de resultaten van de evaluatie op
+			double accuracy = eval.pctCorrect();
+			String confusionMatrix = eval.toMatrixString();
+			String summary = eval.toSummaryString();
+			
+			// schrijf samenvatting weg
+			Files.writeFile(summaryOutputFile, summary);
+			// schrijf confusion matrix weg
+			Files.writeFile(confMatrixOutputFile, confusionMatrix);
+			
+			// geeft accuracy terug
+			return accuracy;
+			
+		} catch (Exception e) {
+			System.out.println("Fout met crossvalidatie van "+trainingSet.name+" met methode "+method.name());
+			e.printStackTrace(System.out);
+			return -1;
+		}
+	}
+	
+	/**
 	 * Voer voor elke methode in [enum] Method cross-validatie uit op de gegeven training-set.
 	 * 
 	 * @param 	trainingSet

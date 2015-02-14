@@ -3,10 +3,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import csvMerge.Record;
 
 public class Features {
 
@@ -48,15 +53,15 @@ public class Features {
 			String activity = parts[2];
 			String outputname = /*"trainingset_" + */ activity /* + "_" + settingname */ + ".csv";
 			
-			List<Path> pathsToCsv = new ArrayList<>();
+			List<File> pathsToCsv = new ArrayList<>();
 
 			for(File csv: csvs){
 				if(csv.toString().toLowerCase().contains(settingname.toLowerCase() + ".")){
-					pathsToCsv.add(csv.toPath());
+					pathsToCsv.add(csv);
 				}
 			}
 			Path output = Paths.get("./TrainingSets/" + outputname);
-			List<String> mergedLines = mergeFiles(pathsToCsv);
+			List<String> mergedLines = mergeFiles(pathsToCsv.toArray(new File[pathsToCsv.size()]));
 			Files.write(output, mergedLines, Charset.forName("UTF-8"));
 			
 		}
@@ -72,18 +77,18 @@ public class Features {
 		for(int i = 1; i <= 10; i++){
 			
 			String settingname = "settings" + i + ".";
-			List<Path> pathsToCsv = new ArrayList<>();
+			List<File> pathsToCsv = new ArrayList<>();
 
 			for(File csv: trainingcsvs){
 				if(csv.toString().toLowerCase().contains(settingname.toLowerCase())){
-					pathsToCsv.add(csv.toPath());
+					pathsToCsv.add(csv);
 				}
 			}
 			
 			String outputname = "Trainingset" + i + ".csv";
 			
 			Path output = Paths.get("./TrainingSets/" + outputname);
-			List<String> mergedLines = mergeFiles(pathsToCsv);
+			List<String> mergedLines = mergeFiles(pathsToCsv.toArray(new File[pathsToCsv.size()]));
 			Files.write(output, mergedLines, Charset.forName("UTF-8"));
 		}
 				
@@ -92,10 +97,85 @@ public class Features {
 	}
 	
 	/**
+	 * voor 1 settings bestand
+	 */
+	static String combineTrainingSets2(File[] trainingcsvs, String outputPath) throws IOException{	
+		List<Path> pathsToCsv = new ArrayList<>();
+
+		/*for(File csv: trainingcsvs){
+			pathsToCsv.add(csv.toPath());
+		}*/
+		
+		Path output = Paths.get(outputPath);
+		List<String> mergedLines = mergeFiles(trainingcsvs);
+		Files.write(output, mergedLines, Charset.forName("UTF-8"));
+				
+		return "Trainingsets zijn gecombineerd";
+	}
+	
+	/**
 	 * Combineert de lijnen van de csv-files
+	 * 
+	 * !! Soms niet dezelfde kolommen! (kan afhankelijk zijn van de lengte van de meting...)
+	 * Hier wordt daar wel rekening mee gehouden.
+	 * 
 	 * @param csvfiles
 	 */
-	static List<String> mergeFiles(List<Path> csvfiles) throws IOException {
+	static List<String> mergeFiles(File[] csvFiles) throws IOException {
+		List<Record> records = new ArrayList<Record>();
+		
+		Set<String> keyStore = new HashSet<>();
+
+		for (File file:csvFiles) {
+		  List<String> keys = getColumnsHeaders(file);
+		  keyStore.addAll(keys);
+		  List<String> lines = Files.readAllLines(file.toPath(), Charset.forName("UTF-8"));
+		  for (int i=1; i < lines.size(); i++) {
+			String line = lines.get(i);
+		    String[] values = line.split(",");
+		    Record record = new Record(file.getName()+i);  // as an example for id
+		    for (int j = 0; j < values.length; j++) {
+		      record.put(keys.get(j), values[j]);
+		    }
+		    records.add(record);
+		  }
+		}
+		
+		List<String> result = new ArrayList<String>();
+		
+		String firstLine = "";
+		for (String key : keyStore)
+			if (! key.equals("label"))
+				firstLine = firstLine + key + ",";
+		firstLine = firstLine + "label";
+		result.add(firstLine);
+		
+		for (Record record : records) {
+			String line = "";
+			for (String key : keyStore) {
+				if (! key.equals("label")) {
+					String value = record.get(key);
+					if (value == null)
+						line = line + "0,";
+					else
+						line = line + value + ",";
+				}
+			}
+			line = line + record.get("label");
+			result.add(line);
+		}
+		
+		return result;
+	}
+	
+	private static List<String> getColumnsHeaders(File file) throws IOException {
+		List<String> lines = Files.readAllLines(file.toPath(), Charset.forName("UTF-8"));
+		String firstLine = lines.get(0);
+		String[] headers = firstLine.split(",");
+		return new ArrayList<String>(Arrays.asList(headers));
+	}
+
+	private static List<String> mergeFilesOld(List<Path> csvfiles) throws IOException {
 		List<String> mergedLines = new ArrayList<> ();
 		for (Path p : csvfiles){
 			List<String> lines = Files.readAllLines(p, Charset.forName("UTF-8"));

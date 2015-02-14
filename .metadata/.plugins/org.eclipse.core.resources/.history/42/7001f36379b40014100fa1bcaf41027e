@@ -1,0 +1,15 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class TestMergeFiles {
+
+	@Test
+	public void test1() {
+		String csv1 = "x,y,z\n1,2,3";
+		String csv2 = "x,z,\n4,5";
+		String expected = "x,y,z\n1,2,3\n4,0,5";
+	}
+
+}

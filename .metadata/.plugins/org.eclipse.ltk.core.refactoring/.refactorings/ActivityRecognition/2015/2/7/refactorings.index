@@ -2,3 +2,6 @@
 1423900413822	Delete element
 1423900433515	Rename type 'Settings'
 1423907661058	Rename field 'location'
+1423932139548	Extract method 'calculateFeatures'
+1423932167942	Extract method 'makeSettingsFiles'
+1423934377589	Extract method 'evaluateMethod'

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
@@ -32,19 +33,29 @@ public class ExpSettings {
 		settingss.put("_dwt_biorthogonal11", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "biorthogonal11", 10, 10, 0.5, 1, true, false, 4, 10, 100));
 		
 		// activiteiten waarvoor features moeten berekend worden
-		String[] activities = { "Fietsen", 
+		String[] activities = { //"Fietsen", 
 								"LiftAD",
-								"LiftAU", 
+								"LiftAU"
 							//	"Lopen", 
-								"Nietsdoen",
-								"Springen", 
+							//	"Nietsdoen",
+							//	"Springen", 
 							//	"Tandenpoetsen", 
-								"Trapaf", 
-								"Trapop", 
-								"Wandelen"
+							//	"Trapaf", 
+							//	"Trapop", 
+							//	"Wandelen"
 								};
 		
 		// maak de settings bestanden		
+		makeSettingsFiles(settingss);
+	    
+	    // bereken features voor elke activiteit (training set + validatie set)
+		// + evalueer een methode (Random Forest) voor elke settings (m.b.v. training set)
+		Method method = Method.RandomForest_1;
+	    calculateFeatures(settingss, activities, method);
+		
+	}
+
+	private static void makeSettingsFiles(Map<String, String> settingss) {
 		Iterator it = settingss.entrySet().iterator();
 	    while (it.hasNext()) {
 	        Map.Entry pair = (Map.Entry)it.next();
@@ -55,9 +66,12 @@ public class ExpSettings {
 	        Files.writeFile("./Settings/"+"settings"+i+".json",settings);
 	        
 	    }
-	    
-	    // bereken features voor elke activiteit
-	    it = settingss.entrySet().iterator();
+	}
+
+	private static void calculateFeatures(Map<String, String> settingss,
+			String[] activities, Method method) throws IOException {
+		Iterator it;
+		it = settingss.entrySet().iterator();
 	    while (it.hasNext()) {
 	        Map.Entry pair = (Map.Entry)it.next();
 	        String i = (String) pair.getKey();
@@ -103,10 +117,28 @@ public class ExpSettings {
         	} catch (IOException e) {
         	    e.printStackTrace();
         	}
+        	
+        	// evalueer methode
+        	evaluateMethod(i, settings, method);
 	        
 	        
 	    }
-		
+	}
+	
+	private static void evaluateMethod(String i, String settings,
+			Method method) throws IOException {
+        // eerst de training sets van verschillende activiteiten mergen
+        List<File> trainingSetsList = Files.getAllFilesWithExtensionInDirectory(exp+"/Settings"+i+"/Training-sets/", "csv");
+        File[] trainingSets = trainingSetsList.toArray(new File[trainingSetsList.size()]);
+        Features.combineTrainingSets2(trainingSets, exp + "/Settings"+i+"/Training-set.csv");
+        
+        // dan de methode toepassen en resulaten bijhouden
+	    DataSet data = new DataSet(exp + "/Settings"+i+"/Training-set.csv");
+	    double accuracy = Classify.classify_crossvalidation2(method, data, 10,
+	    									exp + "/Settings"+i+"/Summary.txt",
+	    									exp + "/Settings"+i+"/ConfusionMatrix.txt");
+	    
+	    Files.writeFile(exp + "/Settings"+i+"/Accuracy.txt", Double.toString(accuracy));
 	}
 
 }
