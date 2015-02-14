@@ -1,0 +1,13 @@
+package experiments;
+
+public class Settings {
+	
+	public static String location = "Experimenten/Settings";
+
+	public static void main(String[] args) {
+		
+		
+		
+	}
+
+}

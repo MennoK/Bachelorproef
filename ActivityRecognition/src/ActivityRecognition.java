@@ -27,6 +27,10 @@ public class ActivityRecognition {
 				String print = plot(args[1]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("plot") && args.length == 3) {
+				String print = plot(Double.parseDouble(args[1]),args[2]);
+				System.out.println(print);
+			}
 			else if (args[0].equals("cut") && args.length == 4) {
 				String print = cut(args[1], Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 				System.out.println(print);
@@ -43,7 +47,7 @@ public class ActivityRecognition {
 				String print = features(args[1],args[2]);
 				System.out.println(print);
 			}
-			else if (args[0].equals("allfeatures") && args.length == 3) {
+			else if (args[0].equals("featuresAll") && args.length == 3) {
 				String print = featuresAll(args[1], args[2]);
 				System.out.println(print);
 			}
@@ -54,6 +58,18 @@ public class ActivityRecognition {
 			else if (args[0].equals("evaluate") && args.length == 2) {
 				String print = evaluate(args[1]);
 				System.out.println(print);
+			}
+			else if (args[0].equals("makehmm") && args.length == 2) {
+				String print = makehmm(args[1]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("makehmm") && args.length == 4) {
+				String print = makehmm(args[1],Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+				System.out.println(print);
+			}
+			else if (args[0]. equals("expsettings")) {
+				String[] args2 = { };
+				ExpSettings.main(args2);
 			}
 			else {
 				System.out.println("Commando niet begrepen...");
@@ -67,12 +83,44 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 * Maak HMM model voor een activiteit.
+	 * Maak HMM model voor een activiteit voor de logs in de map <b>Validatie-set</b> met de default instellingen.
+	 * 
+	 * @param	activity
+	 * 			De activiteit naam
 	 */
-	@Command(description="Maak HMM model voor een activiteit")
-	public static String makehmms(@Param(name="activitity", description="Activiteit naam") String activity) {
-		MotionFingerprint.command("--hmm HMMs/"+activity+".jahmm "+Files.logFilesFromActivity(activity));
-		return "HMM model voor "+activity+" gemaakt";
+	@Command(description="Maak HMM model voor een activiteit voor de logs in de map Validatie-set met de default instellingen.")
+	public static String makehmm(@Param(name="activitity", description="Activiteit naam") String activity) {
+		return makehmm(activity,10,100);
+	}
+	
+	/**
+	 * Maak HMM model voor een activiteit voor de logs in de map <b>Validatie-set</b>
+	 * met opgegeven aantal states en iteraties.
+	 * 
+	 * @param	activity
+	 * 			De activiteit naam
+	 * @param	states
+	 * 			Aantal states
+	 * @param	iterations
+	 * 			Aantal iteraties
+	 */
+	@Command(description="Maak HMM model voor een activiteit voor de logs in de map Validatie-set met opgegeven aantal states en iteraties.")
+	public static String makehmm(@Param(name="activitity", description="Activiteit naam") String activity,
+			@Param(name="states", description="Aantal states") int states,
+			@Param(name="iterations", description="Aantal iteraties") int iterations) {
+		System.out.println("HMM maken met MotionFingerprint...");
+		
+		// maak settings.json bestand
+		String settings = HelperFunctions.hmmsettings(states,iterations);
+		Files.writeFile("Temp/settings.json",settings);
+		
+		// bereken HMM model
+		MotionFingerprint.command("--settings Temp/settings.json --hmm HMMs/"+states+"-"+iterations+"/"+activity+".jahmm "+Files.logFilesValFromActivity(activity));
+		
+		// HMM in de juiste vorm zetten
+		System.out.println("HMM in de juiste vorm zetten...");
+		HelperFunctions.hmm("HMMs/"+states+"-"+iterations+"/"+activity+".jahmm");
+		return "HMM model voor "+activity+" gemaakt: HMMs/"+states+"-"+iterations+"/"+activity+".jahmm";
 	}
 	
 	/**
@@ -106,17 +154,17 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 *  Command: java -jar ActivityRecognition.jar features [pad naar log-bestand] [pad naar settings]
-	 *  
-	 *  Berekend de features van een opgegeven log-bestand met meegegeven settings.json-bestand
+	 * Berekend de features van een opgegeven log-bestand met settings.json bestand
 	 * 
-	 * @param path		: pad naar log-bestand
-	 * @param settings 	: pad naar settings-bestand
+	 * @param 	path
+	 * 			Pad naar log-bestand (voorbeeld: ./Data/LiftAD/Training-set/liftad1_a_l_20141124173425.cut.log)
+	 * @param 	settings
+	 * 			Pad naar settings.json bestand (voorbeeld: ./Settings/settings1.json)
 	 */
 
-	@Command(description="Berekend de features van een opgegeven log-bestand met een settings.json")
-	public static String features(@Param(name="path", description="Pad naar log-bestand") String path,
-			@Param(name="settings", description="Pad naar settings.json bestand") String settings) { 
+	@Command(description="Berekend de features van een opgegeven log-bestand met settings.json bestand")
+	public static String features(@Param(name="path", description="Pad naar log-bestand (begint met ./)") String path,
+			@Param(name="settings", description="Pad naar settings.json bestand (begint met ./)") String settings) { 
 
 		File logFile = new File(path);
 		File settingsFile = new File(settings);
@@ -159,21 +207,19 @@ public class ActivityRecognition {
 	}
 
 	/**
-	 * 
-	 * Command: java -jar ActivityRecognition.jar allfeatures [pad naar log-folder] [pad naar settings]
-	 * 			voorbeeld : ... allfeatures ./Data/LiftAU/Training-set/ ./Settings/
-	 * 
 	 * Berekend de features van alle log-bestanden in een meegegeven folder voor alle settings
 	 * in de meegegeven settings-folder, vervolgens worden alle csv-bestanden van de bijhorende settings
 	 * gecombineerd.
 	 * 
-	 * @param path	   : pad naar log-folder
-	 * @param settings : pad naar settings-folder
+	 * @param 	path
+	 * 			Pad naar log-folder (voorbeeld: ./Data/LiftAD/Training-set/)
+	 * @param 	settings
+	 * 			Pad naar settings-folder (voorbeeld: ./Settings/)
 	 */
 	
-	@Command(description="Berekend de features van alle log-bestanden met alle verschillende settings")
-	public static String featuresAll(@Param(name="path", description="Pad naar folder") String path,
-			@Param(name="settings", description="Pad naar settings") String settings) throws IOException{
+	@Command(description="Berekend de features van alle log-bestanden in een meegegeven folder voor alle settings in de meegegeven settings-folder, vervolgens worden alle csv-bestanden van de bijhorende settings gecombineerd.")
+	public static String featuresAll(@Param(name="path", description="Pad naar log-folder (begint met ./ en eindigt met /)") String path,
+			@Param(name="settings", description="Pad naar settings-folder (begint met ./ en eindigt met /)") String settings) throws IOException{
 		
 		File logfolder = new File(path);
 		File settingsfolder = new File(settings);
@@ -209,10 +255,12 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 * Combineert alle trainingsets in een folder 
+	 * Combineer alle CSV files in een folder
 	 * 
-	 * @param path
+	 * @param 	path
+	 * 			Pad naar folder met trainingsets
 	 */
+	@Command(description="Combineer alle CSV files in een folder")
 	public static String combineTraining(@Param(name="path", description="Pad naar folder met trainingsets") String path) throws IOException{
 	
 		//Haal alle csvs-bestanden op 
@@ -299,6 +347,24 @@ public class ActivityRecognition {
 			return path+" kon niet geplot worden";
 		}
 		return path+" werd geplot in: "+pathPDF;
+	}
+	
+	/**
+	 * Plot de eerste X seconden een opgegeven log-bestand in een PDF-bestand
+	 * @param	seconds
+	 * 			Het aantal seconden dat moet geplot worden
+	 * @param 	path
+	 * 			Pad naar log-bestand
+	 */
+	@Command(description="Plot de eerste X seconden een opgegeven log-bestand in een PDF-bestand")
+	public static String plot(@Param(name="seconds", description="Het aantal seconden dat moet geplot worden") double seconds,
+			@Param(name="path", description="Pad naar log-bestand") String path) {
+		double startTime = 0.0; // TODO: dit moet de starttijd (in s) van de meting zijn!
+		System.out.println(cut(path,startTime,startTime+seconds));
+		String pathNEW = path.substring(0, path.length() - 4) + ".cut.log";
+		System.out.println(plot(pathNEW));
+		Files.deleteFile(pathNEW);
+		return "";
 	}
 
 	/**
@@ -518,5 +584,5 @@ public class ActivityRecognition {
 		writer.close();
 		return "Label van "+path+" veranderd naar: "+label;
 	}
-	
+		
 }

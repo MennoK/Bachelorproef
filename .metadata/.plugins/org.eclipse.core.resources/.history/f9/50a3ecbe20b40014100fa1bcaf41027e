@@ -1,0 +1,19 @@
+public class ExpSettings {
+	
+	public final static String location = "Experimenten/Settings"; // map waaronder alle resultaten bewaard worden
+
+	public static void main(String[] args) {
+		
+		final String defaultSettings = HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100);
+		
+		final String settings1 = HelperFunctions.settings(-1, 10, 0.25, 4, 0.5, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100); // minder FFT features
+		final String settings2 = HelperFunctions.settings(-1, 40, 0.25, 4, 0.5, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100); // meer FFT features
+		
+		final String settings3 = HelperFunctions.settings(-1, 20, 0.1, 4, 0.5, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100); // kleinere step voor FFT features
+		final String settings4 = HelperFunctions.settings(-1, 20, 0.5, 4, 0.5, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100); // grotere step voor FFT features
+		
+				
+		
+	}
+
+}

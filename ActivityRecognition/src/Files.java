@@ -6,8 +6,11 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.commons.io.*;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -41,8 +44,12 @@ public class Files {
 		return files;
 	}
 	
-	static String logFilesFromActivity(String activity) {
-		List<File> files = getAllFilesWithExtensionInDirectory("Data/"+activity+"/Training-set", "log");
+	/**
+	 * Geef alle log-files van een activiteit in de Validatie-set map.
+	 * @result	String van alle padnamen gescheiden door spaties
+	 */
+	static String logFilesValFromActivity(String activity) {
+		List<File> files = getAllFilesWithExtensionInDirectory("Data/"+activity+"/Validatie-set", "log");
 		String result = "";
 		for (File file : files) {
 			result += file.getPath() + " ";
@@ -61,6 +68,8 @@ public class Files {
 	}
 	
 	static void writeFile(String path, String content) {
+		File dir = new File(new File(path).getParent());
+		dir.mkdirs();
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter(path, "UTF-8");
@@ -112,6 +121,23 @@ public class Files {
 			}
 		};
 		return listofCsv = folder.listFiles(csvFilter);
+	}
+	
+	static String readFile(String path) throws IOException {
+		return new Scanner( new File(path) ).useDelimiter("\\A").next();
+	}
+	
+	static boolean deleteFile(String path) {
+		try{
+    		File file = new File(path);
+    		if(file.delete()){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    	}catch(Exception e){
+    		return false;
+    	}
 	}
 
 	/*public File[] allFiles(String folder) {
