@@ -1,6 +1,0 @@
-/**
- * Een DataSet is een verzameling objecten met waardes voor features en een activiteit als label
- */
-public class DataSet {
-
-}
