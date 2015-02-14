@@ -1,15 +1,13 @@
 Aantal logs van elke activiteit
 
                    Arne          Menno
-Nietsdoen           9             10             
-Wandelen            10            10
-Trap op             10            9
-Trap af             9             8
-Springen            4             9
-Tandenpoetsen       6             10
+Nietsdoen           9             11             
+Wandelen            11            11
+Trap op             11            11
+Trap af             11            11
+Springen            4             11
+Tandenpoetsen       6             11
 Lopen               
-Lift omlaag              
-Lift omhoog     
-Fietsen		    10		  6
-Push up
-Sit up
+Lift omlaag         11     	  11
+Lift omhoog         11		  11	
+Fietsen		    10		  11

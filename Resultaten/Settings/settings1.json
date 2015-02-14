@@ -14,6 +14,10 @@
   "f_co" : 4,
   "hmm_states" : 10,
   "hmm_learn_iterations" : 100,
+<<<<<<< HEAD:Settings/settings11.json
+  "hmm_files" : [ "./HMMs/Wandelen.jahmm","./HMMs/LiftAD.jahmm","./HMMs/LiftAU.jahmm","./HMMs/Tandenpoetsen.jahmm","./HMMs/Trapop.jahmm","./HMMs/Trapaf.jahmm" ],
+=======
   "hmm_files" : [ ],
+>>>>>>> c35cfea92a0926947852ef7643ea1f511a4299bd:Resultaten/Settings/settings1.json
   "cli_args" : [ "--features", "settings1.json" ]
 }

@@ -35,14 +35,14 @@ public class ExpSettings {
 		// activiteiten waarvoor features moeten berekend worden
 		String[] activities = { //"Fietsen", 
 								"LiftAD",
-								"LiftAU"
+								"LiftAU",
 							//	"Lopen", 
-							//	"Nietsdoen",
-							//	"Springen", 
+								"Nietsdoen",
+								"Springen", 
 							//	"Tandenpoetsen", 
-							//	"Trapaf", 
-							//	"Trapop", 
-							//	"Wandelen"
+								"Trapaf", 
+								"Trapop", 
+								"Wandelen"
 								};
 		
 		// maak de settings bestanden		
