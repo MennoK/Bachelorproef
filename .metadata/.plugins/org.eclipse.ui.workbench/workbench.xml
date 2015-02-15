@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<workbench progressCount="30" version="2.0">
-=======
 <workbench progressCount="28" version="2.0">
->>>>>>> c35cfea92a0926947852ef7643ea1f511a4299bd
 <workbenchAdvisor/>
-<window height="971" width="1357" x="212" y="241">
+<window height="970" maximized="true" width="1351" x="1763" y="-4">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="26"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="144" y="30"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="142" y="26"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="80" y="26"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="106" y="26"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="116" y="30"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="114" y="26"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
 <coolItem id="org.scala-ide.sdt.core.toolbar" itemType="typeToolBarContribution" x="68" y="30"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="36" y="26"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
 <coolItem id="scala.texteditor.actionset" itemType="typeToolBarContribution" x="40" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="212" y="26"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -44,59 +40,100 @@
 <part id="5"/>
 <part id="6"/>
 <part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityRecognition.java" partName="ActivityRecognition.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/ActivityRecognition.java" title="ActivityRecognition.java" tooltip="ActivityRecognition/src/ActivityRecognition.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ActivityRecognition.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2144" selectionTopPixel="767"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2437" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Classify.java" partName="Classify.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Classify.java" title="Classify.java" tooltip="ActivityRecognition/src/Classify.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Classify.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1581" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="5" selectionOffset="2951" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DataSet.java" partName="DataSet.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/DataSet.java" title="DataSet.java" tooltip="ActivityRecognition/src/DataSet.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/DataSet.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Features.java" partName="Features.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/Features.java" title="Features.java" tooltip="ActivityRecognition/src/Features.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Features.java" partName="Features.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Features.java" title="Features.java" tooltip="ActivityRecognition/src/Features.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Features.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="287" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4031" selectionTopPixel="1895"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Files.java" partName="Files.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Files.java" title="Files.java" tooltip="ActivityRecognition/src/Files.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Files.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3559" selectionTopPixel="705"/>
+<editorState selectionHorizontalPixel="0" selectionLength="35" selectionOffset="1008" selectionTopPixel="671"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelperFunctions.java" partName="HelperFunctions.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/HelperFunctions.java" title="HelperFunctions.java" tooltip="ActivityRecognition/src/HelperFunctions.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/HelperFunctions.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4043" selectionTopPixel="1151"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4161" selectionTopPixel="2035"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MotionFingerprint.java" partName="MotionFingerprint.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/MotionFingerprint.java" title="MotionFingerprint.java" tooltip="ActivityRecognition/src/MotionFingerprint.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/MotionFingerprint.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="173" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" partName="Method.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/Method.java" title="Method.java" tooltip="ActivityRecognition/src/Method.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" partName="Method.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/Method.java" title="Method.java" tooltip="ActivityRecognition/src/Method.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Method.java"/>
-<<<<<<< HEAD
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1267" selectionTopPixel="1197"/>
-=======
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1839" selectionTopPixel="0"/>
->>>>>>> c35cfea92a0926947852ef7643ea1f511a4299bd
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="1857" selectionTopPixel="1236"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExpSettings.java" partName="ExpSettings.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/ExpSettings.java" title="ExpSettings.java" tooltip="ActivityRecognition/src/ExpSettings.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ExpSettings.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1989" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Record.java" partName="Record.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/csvMerge/Record.java" title="Record.java" tooltip="ActivityRecognition/src/csvMerge/Record.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/csvMerge/Record.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="395" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestMergeFiles.java" partName="TestMergeFiles.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/TestMergeFiles.java" title="TestMergeFiles.java" tooltip="ActivityRecognition/src/TestMergeFiles.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/TestMergeFiles.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="300" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
-<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
-<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+<view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Type Hierarchy">
+<viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" input="=ActivityRecognition/src&lt;{TestMergeFiles.java[TestMergeFiles" link_editors="0" mv_vertical_scroll="0" orientation="3" qualified_names="0" ratio="350" selection="=ActivityRecognition/src&lt;{TestMergeFiles.java[TestMergeFiles" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
+</view>
+<view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
+<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
+<child filterId="scala.tools.eclipse.javaelements.ScalaElementFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+</viewState>
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<<<<<<< HEAD
-=======
 <expanded>
+<category IMemento.internal.id="Errors"/>
 <category IMemento.internal.id="Warnings (59 items)"/>
+<category IMemento.internal.id="Warnings"/>
 </expanded>
->>>>>>> c35cfea92a0926947852ef7643ea1f511a4299bd
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="677" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -108,34 +145,9 @@
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
-<view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
-<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
-<customFilters userDefinedPatternsEnabled="false">
-<xmlDefinedFilters>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
-<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
-<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
-</xmlDefinedFilters>
-</customFilters>
-</viewState>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
 </view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
@@ -149,13 +161,14 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
-<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
-<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
-<viewState/>
+<view id="org.eclipse.jdt.junit.ResultView" partName="JUnit">
+<viewState failuresOnly="false" layout="1" orientation="2" ratio="500" scroll="false" time="true"/>
 </view>
-<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -239,6 +252,7 @@
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="scala.texteditor.actionset"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
 <show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
@@ -274,17 +288,19 @@
 <perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <perspective_action id="org.scala-ide.sdt.core.perspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
-<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<view id="org.eclipse.jdt.junit.ResultView"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
 <view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
 <view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.29987454"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2988741"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="right" orientation="256" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
@@ -298,12 +314,14 @@
 <info folder="true" part="left">
 <folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
-<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="Type Hierarchy"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
-<page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
@@ -317,7 +335,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.20225564" ratioLeft="269" ratioRight="1061" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.74923545" ratioLeft="735" ratioRight="246" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
@@ -335,7 +353,7 @@
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.49931973" ratioLeft="367" ratioRight="368" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1fbc5ecd">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
@@ -350,176 +368,162 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ActivityRecognition.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/HelperFunctions.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/HelperFunctions.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Features.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/TestMergeFiles.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Files.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Features.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Method.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Features.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/csvMerge/Record.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ExpSettings.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/MotionFingerprint.java"/>
 </editors>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2861" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4377" y="0"/>
 </item>
-<<<<<<< HEAD
-<item historyLabel="Classify.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-=======
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2861" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4408" y="0"/>
 </item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="2849" y="0"/>
->>>>>>> c35cfea92a0926947852ef7643ea1f511a4299bd
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4410" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2861" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4927" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2795" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4392" y="1"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2541" y="7"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4438" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2600" y="7"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4927" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2758" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4537" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4597" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4633" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4687" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4655" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4859" y="0"/>
+</item>
+<item historyLabel="Record.java" index="3">
+<position info="not_deleted" x="417" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4859" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4859" y="0"/>
+</item>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="656" y="0"/>
+</item>
+<item historyLabel="Record.java" index="3">
+<position info="not_deleted" x="395" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4859" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4783" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4808" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4851" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4946" y="0"/>
+</item>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="656" y="0"/>
+</item>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="656" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4946" y="0"/>
+</item>
+<item historyLabel="ExpSettings.java" index="4">
+<position info="not_deleted" x="3316" y="37"/>
+</item>
+<item historyLabel="Files.java" index="2">
+<position info="not_deleted" x="1008" y="35"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4946" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4497" y="0"/>
+</item>
+<item historyLabel="Features.java" index="0">
 <position/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2955" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position/>
 </item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="1950" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4720" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2955" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4902" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="2526" y="66"/>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="294" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="3124" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4902" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="3128" y="0"/>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="297" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="1">
-<position info="not_deleted" x="3087" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4902" y="0"/>
 </item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="1950" y="0"/>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="300" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3087" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4902" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3649" y="0"/>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="300" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3652" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4574" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3681" y="0"/>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="300" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3689" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4491" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3728" y="0"/>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="300" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3740" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4720" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3768" y="0"/>
+<item historyLabel="TestMergeFiles.java" index="1">
+<position info="not_deleted" x="300" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3786" y="0"/>
+<item historyLabel="Features.java" index="0">
+<position info="not_deleted" x="4031" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3813" y="0"/>
+<item historyLabel="MotionFingerprint.java" index="5">
+<position info="not_deleted" x="173" y="0"/>
 </item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3830" y="0"/>
-</item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3831" y="0"/>
-</item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="4022" y="0"/>
-</item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="3986" y="0"/>
-</item>
-<item historyLabel="HelperFunctions.java" index="2">
-<position info="not_deleted" x="4043" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="1950" y="0"/>
-</item>
-<item historyLabel="Files.java" index="3">
-<position info="not_deleted" x="3559" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3770" y="0"/>
-</item>
-<item historyLabel="Files.java" index="3">
-<position info="not_deleted" x="3559" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3770" y="0"/>
-</item>
-<item historyLabel="Files.java" index="3">
-<position info="not_deleted" x="3559" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3770" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3732" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3719" y="0"/>
-</item>
-<item historyLabel="Files.java" index="3">
-<position info="not_deleted" x="3559" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3719" y="0"/>
-</item>
-<item historyLabel="Files.java" index="3">
-<position info="not_deleted" x="3559" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3719" y="0"/>
-</item>
-<item historyLabel="Features.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3742" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="3852" y="0"/>
-</item>
-<item historyLabel="ActivityRecognition.java" index="0">
-<position info="not_deleted" x="2861" y="0"/>
-</item>
-<<<<<<< HEAD
-<item historyLabel="Method.java" index="8">
-<position info="not_deleted" x="3234" y="0"/>
-=======
-<item active="true" historyLabel="Method.java" index="5">
-<position info="not_deleted" x="1839" y="0"/>
->>>>>>> c35cfea92a0926947852ef7643ea1f511a4299bd
-</item>
-<item active="true" historyLabel="Features.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
+<item active="true" historyLabel="ExpSettings.java" index="4">
+<position info="not_deleted" x="3316" y="37"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -527,12 +531,15 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
 <trimArea IMemento.internal.id="131072">
 <trimItem IMemento.internal.id="right"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
@@ -543,6 +550,15 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestMergeFiles.java" tooltip="ActivityRecognition/src/TestMergeFiles.java">
+<persistable path="/ActivityRecognition/src/TestMergeFiles.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Record.java" tooltip="ActivityRecognition/src/csvMerge/Record.java">
+<persistable path="/ActivityRecognition/src/csvMerge/Record.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Settings.java" tooltip="ActivityRecognition/src/experiments/Settings.java">
+<persistable path="/ActivityRecognition/src/experiments/Settings.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" tooltip="ActivityRecognition/src/Method.java">
 <persistable path="/ActivityRecognition/src/Method.java"/>
 </file>
@@ -578,9 +594,6 @@
 </file>
 <file factoryID="org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name=".project" tooltip="/home/menno/Documents/Bachelorproef/MotionFingerprint.jar/.project">
 <persistable element="=ActivityRecognition/\/home\/menno\/Documents\/Bachelorproef\/MotionFingerprint.jar" path=".project"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="readme.txt" tooltip="ActivityRecognition/readme.txt">
-<persistable path="/ActivityRecognition/readme.txt"/>
 </file>
 </mruList>
 </workbench>
