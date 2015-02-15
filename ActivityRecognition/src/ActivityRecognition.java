@@ -71,6 +71,14 @@ public class ActivityRecognition {
 				String[] args2 = { };
 				ExpSettings.main(args2);
 			}
+			else if (args[0]. equals("expfeatureset")) {
+				String[] args2 = { };
+				ExpFeatureSet.main(args2);
+			}
+			else if (args[0]. equals("expmethod")) {
+				String[] args2 = { };
+				ExpMethod.main(args2);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}
