@@ -36,10 +36,10 @@ public class ExpSettings {
 		String[] activities = { //"Fietsen", 
 								"LiftAD",
 								"LiftAU",
-							//	"Lopen", 
+								"Lopen", 
 								"Nietsdoen",
-								"Springen", 
-							//	"Tandenpoetsen", 
+							//	"Springen", 
+								"Tandenpoetsen", 
 								"Trapaf", 
 								"Trapop", 
 								"Wandelen"

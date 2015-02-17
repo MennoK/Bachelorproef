@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,7 @@ public class ActivityRecognition {
 				String print = combineTraining(args[1]);
 				System.out.println(print);
 			}
+	
 			else if (args[0].equals("evaluate") && args.length == 2) {
 				String print = evaluate(args[1]);
 				System.out.println(print);
@@ -262,6 +264,7 @@ public class ActivityRecognition {
 		return Features.combineDataSets(listOfCsv, listOfSettings);		
 	}
 	
+
 	/**
 	 * Combineer alle CSV files in een folder
 	 * 
@@ -277,6 +280,8 @@ public class ActivityRecognition {
 		
 		return Features.combineTrainingSets(listOfCsv);
 	}
+
+	
 	
 	/** PRE-PROCESSING */
 	
