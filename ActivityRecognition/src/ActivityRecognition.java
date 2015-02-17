@@ -69,9 +69,17 @@ public class ActivityRecognition {
 				String print = makehmm(args[1],Integer.parseInt(args[2]),Integer.parseInt(args[3]));
 				System.out.println(print);
 			}
+			else if (args[0].equals("makehmmsettings") && args.length == 4) {
+				String print = makehmmsettings(args[1],Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+				System.out.println(print);
+			}
 			else if (args[0]. equals("expsettings")) {
 				String[] args2 = { };
 				ExpSettings.main(args2);
+			}
+			else if (args[0]. equals("expsettingshmms")) {
+				String[] args2 = { };
+				ExpSettingsHMMs.main(args2);
 			}
 			else if (args[0]. equals("expfeatureset")) {
 				String[] args2 = { };
@@ -122,18 +130,44 @@ public class ActivityRecognition {
 		
 		// maak settings.json bestand
 		String settings = HelperFunctions.hmmsettings(states,iterations);
-		Files.writeFile("HMMs/settings-"+activity+"-"+states+"-"+iterations+".json",settings);
+		Files.writeFile("HMMs/"+states+"-"+iterations+"/settings-"+activity+".json",settings);
 		
 		// bereken HMM model
-		MotionFingerprint.command("--settings HMMs/settings-"+activity+"-"+states+"-"+iterations+".json --hmm HMMs/model-"+activity+"-"+states+"-"+iterations+".jahmm "+Files.logFilesValFromActivity(activity));
+		MotionFingerprint.command("--settings HMMs/"+states+"-"+iterations+"/settings-"+activity+".json --hmm HMMs/"+states+"-"+iterations+"/model-"+activity+".jahmm "+Files.logFilesValFromActivity(activity));
 		
 		// HMM in de juiste vorm zetten
 		System.out.println("HMM in de juiste vorm zetten...");
-		HelperFunctions.hmm("HMMs/model-"+activity+"-"+states+"-"+iterations+".jahmm");
-		return "HMM model voor "+activity+" gemaakt: HMMs/model-"+activity+"-"+states+"-"+iterations+".jahmm";
+		HelperFunctions.hmm("HMMs/"+states+"-"+iterations+"/model-"+activity+".jahmm");
+		return "HMM model voor "+activity+" gemaakt: HMMs/"+states+"-"+iterations+"/model-"+activity+".jahmm";
 	}
-	
-	// TODO: methode makehmmsettings om settings bestand te maken met alle hmm modellen in een opgegeven map
+		
+	/**
+	 * Maak settings-bestand voor alle HMM bestanden in een opgegeven map.
+	 * 
+	 * @param	directory
+	 * 			Opgegeven map
+	 * @param	states
+	 * @param	iterations
+	 */
+	@Command(description="Maak settings-bestand voor alle HMM bestanden in een opgegeven map.")
+	public static String makehmmsettings(@Param(name="directory", description="Opgegeven map") String directory, int states, int iterations) {
+		
+		List<File> hmms = Files.getAllFilesWithExtensionInDirectory(directory, "jahmm");
+		
+		JSONArray hmm_files = new JSONArray();
+		for (File file : hmms) {
+			String hmm_file = directory + "/" + file.getName();
+			hmm_files.add(hmm_file);
+		}
+		
+		String settingsfile = HelperFunctions.settings2(-1, 12, 0.41666666666666663, 4, 0.8333333333333333, "haar", 10, 10, 0.5, 1.0, true, false, 4.0, states, iterations, hmm_files);
+		
+		String filename = "Experimenten/Settings-HMMs/"+states+"-"+iterations+"/settings.json";
+		
+		Files.writeFile(filename, settingsfile.replace("\\", ""));
+		
+		return "";
+	}
 	
 	/**
 	 * Evalueer de modellen voor de verchillende training sets met cross-validatie of training/test set.
@@ -158,7 +192,6 @@ public class ActivityRecognition {
 			return "Done";
 		}
 		else if (type.equals("training-test")) {
-			// TODO (Arne)
 			// training/test set validatie
 			return "";
 		}
