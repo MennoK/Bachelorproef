@@ -15,6 +15,8 @@ public class ExpFeatureSet {
 
 	public static void main(String[] args) throws IOException {
 		
+		
+		
 		// feature sets die moeten geëvalueerd worden
 		// = lijst van training set csv-bestanden in de map Experimenten/FeatureSets/Training-sets
 		String[] trainingSets = { 
@@ -35,5 +37,5 @@ public class ExpFeatureSet {
 	    
 		
 	}
-
+	
 }

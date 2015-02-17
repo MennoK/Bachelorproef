@@ -1,0 +1,19 @@
+{
+  "window_seconds" : -1,
+  "nb_fft_features" : 20,
+  "step_fft_features" : 0.25,
+  "nb_fft_peaks" : 4,
+  "window_fft_features" : 0.5,
+  "wavelet_type" : "haar",
+  "nb_dwt_features" : 10,
+  "nb_wpd_features" : 10,
+  "peak_wss" : 0.5,
+  "peak_mindev" : 1.0,
+  "geo_correct" : true,
+  "ignore_q" : false,
+  "f_co" : 4.0,
+  "hmm_states" : 10,
+  "hmm_learn_iterations" : 100,
+  "hmm_files" : [ ],
+  "cli_args" : [ "--settings", "./Experimenten/Settings-HMM's/Settings_default/settings.json", "--features", "./Data2/LiftAU/Training-set/liftau7_a_l_20141124140541.cut.settings.features.csv", "./Data2/LiftAU/Training-set/liftau7_a_l_20141124140541.cut.log" ]
+}

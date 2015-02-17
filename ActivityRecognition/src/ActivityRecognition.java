@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,7 @@ public class ActivityRecognition {
 				String print = combineTraining(args[1]);
 				System.out.println(print);
 			}
+	
 			else if (args[0].equals("evaluate") && args.length == 2) {
 				String print = evaluate(args[1]);
 				System.out.println(print);
@@ -120,16 +122,18 @@ public class ActivityRecognition {
 		
 		// maak settings.json bestand
 		String settings = HelperFunctions.hmmsettings(states,iterations);
-		Files.writeFile("Temp/settings.json",settings);
+		Files.writeFile("HMMs/settings-"+activity+"-"+states+"-"+iterations+".json",settings);
 		
 		// bereken HMM model
-		MotionFingerprint.command("--settings Temp/settings.json --hmm HMMs/"+states+"-"+iterations+"/"+activity+".jahmm "+Files.logFilesValFromActivity(activity));
+		MotionFingerprint.command("--settings HMMs/settings-"+activity+"-"+states+"-"+iterations+".json --hmm HMMs/model-"+activity+"-"+states+"-"+iterations+".jahmm "+Files.logFilesValFromActivity(activity));
 		
 		// HMM in de juiste vorm zetten
 		System.out.println("HMM in de juiste vorm zetten...");
-		HelperFunctions.hmm("HMMs/"+states+"-"+iterations+"/"+activity+".jahmm");
-		return "HMM model voor "+activity+" gemaakt: HMMs/"+states+"-"+iterations+"/"+activity+".jahmm";
+		HelperFunctions.hmm("HMMs/model-"+activity+"-"+states+"-"+iterations+".jahmm");
+		return "HMM model voor "+activity+" gemaakt: HMMs/model-"+activity+"-"+states+"-"+iterations+".jahmm";
 	}
+	
+	// TODO: methode makehmmsettings om settings bestand te maken met alle hmm modellen in een opgegeven map
 	
 	/**
 	 * Evalueer de modellen voor de verchillende training sets met cross-validatie of training/test set.
@@ -262,6 +266,7 @@ public class ActivityRecognition {
 		return Features.combineDataSets(listOfCsv, listOfSettings);		
 	}
 	
+
 	/**
 	 * Combineer alle CSV files in een folder
 	 * 
@@ -277,6 +282,8 @@ public class ActivityRecognition {
 		
 		return Features.combineTrainingSets(listOfCsv);
 	}
+
+	
 	
 	/** PRE-PROCESSING */
 	
