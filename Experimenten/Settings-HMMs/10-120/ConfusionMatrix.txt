@@ -1,0 +1,14 @@
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 15  0  1  0  0  0  0  0  0  0 |  a = LiftAD
+  0 15  0  0  0  0  0  1  0  0 |  b = Tandenpoetsen
+  3  0 13  0  0  0  0  0  0  0 |  c = LiftAU
+  0  0  0 16  0  0  0  0  0  0 |  d = Lopen
+  0  0  0  0 16  0  0  0  0  0 |  e = Trapaf
+  0  0  0  0  0 16  0  0  0  0 |  f = Springen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  1  0  0  0  0  0 15  0  0 |  h = Nietsdoen
+  0  0  0  0  0  0  0  0 16  0 |  i = Fietsen
+  0  0  0  0  2  0  1  0  1 12 |  j = Trapop
+

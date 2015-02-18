@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
@@ -138,6 +139,22 @@ public class Files {
     	}catch(Exception e){
     		return false;
     	}
+	}
+	
+	public static List<File> subDirectories(String dir) {
+		File file = new File(dir);
+		String[] names = file.list();
+		
+		List<File> result = new ArrayList<File>();
+
+		for(String name : names)
+		{
+		    if (new File(dir + "/" + name).isDirectory())
+		    {
+		        result.add(new File(dir + "/" + name));
+		    }
+		}
+		return result;
 	}
 
 	/*public File[] allFiles(String folder) {

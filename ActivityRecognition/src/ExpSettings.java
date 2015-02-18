@@ -10,8 +10,8 @@ import org.apache.commons.io.FileUtils;
 
 public class ExpSettings {
 	
-	public static String exp = "./Experimenten/Settings-HMM's"; // map waaronder alle resultaten bewaard worden
-	public static String data = "./Data2"; // map waaronder alle metingen staan
+	public static String exp = "./Experimenten/Settings"; // map waaronder alle resultaten bewaard worden
+	public static String data = "./Data"; // map waaronder alle metingen staan
 
 	public static void main(String[] args) throws IOException {
 		
@@ -22,20 +22,19 @@ public class ExpSettings {
 		
 		/* Hoe de FFT features berekenen?
 		   (aantale FFT bins en breedten en + stapgrootte hangen samen (anders wordt de Fourier-transformatie niet voor dezelfde frequenties berekend)) */
-		//for (double factor = 0.2; factor < 2; factor += 0.2)
-		//	settingss.put("_fft_" + (int) (Math.round(factor*20)), HelperFunctions.settings(-1, (int) (Math.round(factor*20)), 0.25/factor, 4, 0.5/factor, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100));
-		//for (double factor = 2; factor <= 4; factor += 1)
-		//	settingss.put("_fft_" + (int) (Math.round(factor*20)), HelperFunctions.settings(-1, (int) (Math.round(factor*20)), 0.25/factor, 4, 0.5/factor, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100));
+		for (double factor = 0.2; factor < 2; factor += 0.2)
+			settingss.put("_fft_" + (int) (Math.round(factor*20)), HelperFunctions.settings(-1, (int) (Math.round(factor*20)), 0.25/factor, 4, 0.5/factor, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100));
+		for (double factor = 2; factor <= 4; factor += 1)
+			settingss.put("_fft_" + (int) (Math.round(factor*20)), HelperFunctions.settings(-1, (int) (Math.round(factor*20)), 0.25/factor, 4, 0.5/factor, "haar", 10, 10, 0.5, 1, true, false, 4, 10, 100));
 		
 		/* Hoe de DWT features berekenen? */
-		/*for (int n = 4; n <= 20; n += 2)
+		for (int n = 4; n <= 20; n += 2)
 			settingss.put("_dwt_" + n, HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", n, 10, 0.5, 1, true, false, 4, 10, 100));
 		
 		settingss.put("_dwt_daubechies4", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "daubechies4", 10, 10, 0.5, 1, true, false, 4, 10, 100));
-		settingss.put("_dwt_biorthogonal11", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "biorthogonal11", 10, 10, 0.5, 1, true, false, 4, 10, 100));*/
+		settingss.put("_dwt_biorthogonal11", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "biorthogonal11", 10, 10, 0.5, 1, true, false, 4, 10, 100));
 		
-		// TODO : juiste settings bestanden kiezen!!!!
-		List<File> settingsFiles = Files.getAllFilesWithExtensionInDirectory("HMMs","json");
+		List<File> settingsFiles = Files.getAllFilesWithExtensionInDirectory(exp,"json");
 		
 		for (File file : settingsFiles) {
 			settingss.put(Files.file(file.getName()), Files.readFile(file.getAbsolutePath()));
