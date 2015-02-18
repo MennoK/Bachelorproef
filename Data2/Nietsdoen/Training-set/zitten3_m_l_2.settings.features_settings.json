@@ -1,10 +1,10 @@
 {
   "window_seconds" : -1,
-  "nb_fft_features" : 20,
-  "step_fft_features" : 0.25,
+  "nb_fft_features" : 12,
+  "step_fft_features" : 0.41666666666666663,
   "nb_fft_peaks" : 4,
-  "window_fft_features" : 0.5,
-  "wavelet_type" : "haar",
+  "window_fft_features" : 0.8333333333333333,
+  "wavelet_type" : "daubechies4",
   "nb_dwt_features" : 10,
   "nb_wpd_features" : 10,
   "peak_wss" : 0.5,
@@ -15,5 +15,5 @@
   "hmm_states" : 10,
   "hmm_learn_iterations" : 100,
   "hmm_files" : [ ],
-  "cli_args" : [ "--settings", "./Experimenten/Settings-HMM's/Settings_default/settings.json", "--features", "./Data2/Nietsdoen/Training-set/zitten3_m_l_2.settings.features.csv", "./Data2/Nietsdoen/Training-set/zitten3_m_l_2.log" ]
+  "cli_args" : [ "--settings", "./Experimenten/Settings-HMM's/Settings_fft_12/settings.json", "--features", "./Data2/Nietsdoen/Training-set/zitten3_m_l_2.settings.features.csv", "./Data2/Nietsdoen/Training-set/zitten3_m_l_2.log" ]
 }

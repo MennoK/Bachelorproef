@@ -5,7 +5,7 @@ Nietsdoen           11            11
 Wandelen            11            11
 Trap op             11            11
 Trap af             11            11
-Springen            4             11
+Springen            11            11
 Tandenpoetsen       11            11
 Lopen               11            11
 Lift omlaag         11            11

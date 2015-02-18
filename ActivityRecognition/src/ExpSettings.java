@@ -30,6 +30,7 @@ public class ExpSettings {
 		/* Hoe de DWT features berekenen? */
 		/*for (int n = 4; n <= 20; n += 2)
 			settingss.put("_dwt_" + n, HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "haar", n, 10, 0.5, 1, true, false, 4, 10, 100));
+		
 		settingss.put("_dwt_daubechies4", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "daubechies4", 10, 10, 0.5, 1, true, false, 4, 10, 100));
 		settingss.put("_dwt_biorthogonal11", HelperFunctions.settings(-1, 20, 0.25, 4, 0.5, "biorthogonal11", 10, 10, 0.5, 1, true, false, 4, 10, 100));*/
 		
@@ -150,3 +151,4 @@ public class ExpSettings {
 	}
 
 }
+
