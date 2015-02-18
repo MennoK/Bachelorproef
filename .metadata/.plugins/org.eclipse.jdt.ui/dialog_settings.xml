@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
+	<section name="OptionalMessageDialog.hide.">
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+=======
+>>>>>>> e422a7991a1ae9187a730d3815dabf31bcb608e8
 	<section name="FatJarPackageWizard">
 		<item value="/home/menno/Documents/Bachelorproef" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="/home/menno/Documents/Bachelorproef/ActivityRecognition.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
@@ -10,6 +19,7 @@
 			<item value="/home/menno/Documents/Bachelorproef/ActivityRecognition.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="/home/menno/Documents/Bachelorproef.xml"/>
 			<item value=".xml"/>
 		</list>
 	</section>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<workbench progressCount="26" version="2.0">
+=======
 <workbench progressCount="30" version="2.0">
+>>>>>>> e422a7991a1ae9187a730d3815dabf31bcb608e8
 <workbenchAdvisor/>
 <window height="761" maximized="true" width="1006" x="628" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -38,11 +42,15 @@
 </editorArea>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExpSettings.java" partName="ExpSettings.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/ExpSettings.java" title="ExpSettings.java" tooltip="ActivityRecognition/src/ExpSettings.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ExpSettings.java"/>
+<<<<<<< HEAD
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2413" selectionTopPixel="1109"/>
+=======
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityRecognition.java" partName="ActivityRecognition.java" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/src/ActivityRecognition.java" title="ActivityRecognition.java" tooltip="ActivityRecognition/src/ActivityRecognition.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ActivityRecognition.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="878"/>
+>>>>>>> e422a7991a1ae9187a730d3815dabf31bcb608e8
 </editor>
 </editors>
 <views>

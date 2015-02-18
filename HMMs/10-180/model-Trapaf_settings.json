@@ -1,0 +1,19 @@
+{
+  "window_seconds" : -1,
+  "nb_fft_features" : 20,
+  "step_fft_features" : 0.25,
+  "nb_fft_peaks" : 4,
+  "window_fft_features" : 0.5,
+  "wavelet_type" : "haar",
+  "nb_dwt_features" : 10,
+  "nb_wpd_features" : 10,
+  "peak_wss" : 0.5,
+  "peak_mindev" : 1,
+  "geo_correct" : true,
+  "ignore_q" : false,
+  "f_co" : 4,
+  "hmm_states" : 10,
+  "hmm_learn_iterations" : 180,
+  "hmm_files" : [ ],
+  "cli_args" : [ "--settings", "HMMs/10-180/settings-Trapaf.json", "--hmm", "HMMs/10-180/model-Trapaf.jahmm", "Data/Trapaf/Validatie-set/trapaf12_m_r_20150210155744.cut.log", "Data/Trapaf/Validatie-set/trapaf12_a_l_20150210155543.cut.log", "Data/Trapaf/Validatie-set/trapaf9_a_r_20141204160736.cut.log", "Data/Trapaf/Validatie-set/trapaf12_m_r_20150210155551.cut.log", "Data/Trapaf/Validatie-set/trapaf11_a_l_20150210155543.cut.log", "Data/Trapaf/Validatie-set/trapaf11_m_r_20150210155551.cut.log" ]
+}
