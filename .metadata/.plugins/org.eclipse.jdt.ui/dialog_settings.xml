@@ -4,6 +4,8 @@
 	</section>
 	<section name="completion_proposal_size">
 	</section>
+	<section name="JavaElementSearchActions">
+	</section>
 	<section name="FatJarPackageWizard">
 		<item value="/home/menno/Documents/Bachelorproef/ActivityRecognition.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="ActivityRecognition - ActivityRecognition" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
@@ -14,6 +16,7 @@
 			<item value="/home/menno/Documents/Bachelorproef/ActivityRecognition.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="/home/menno/Documents/Bachelorproef.xml"/>
 			<item value=".xml"/>
 		</list>
 	</section>

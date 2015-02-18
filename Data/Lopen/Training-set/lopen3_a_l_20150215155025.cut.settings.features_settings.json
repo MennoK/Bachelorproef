@@ -14,6 +14,6 @@
   "f_co" : 4.0,
   "hmm_states" : 10,
   "hmm_learn_iterations" : 120,
-  "hmm_files" : [ "HMMs/10-120/model-LiftAD.jahmm" ],
+  "hmm_files" : [ "HMMs/10-120/model-Wandelen.jahmm", "HMMs/10-120/model-Trapop.jahmm", "HMMs/10-120/model-Springen.jahmm", "HMMs/10-120/model-Lopen.jahmm", "HMMs/10-120/model-Fietsen.jahmm", "HMMs/10-120/model-Trapaf.jahmm", "HMMs/10-120/model-LiftAU.jahmm", "HMMs/10-120/model-Tandenpoetsen.jahmm", "HMMs/10-120/model-Nietsdoen.jahmm", "HMMs/10-120/model-LiftAD.jahmm" ],
   "cli_args" : [ "--settings", "./Experimenten/Settings-HMMs/10-120/settings.json", "--features", "./Data/Lopen/Training-set/lopen3_a_l_20150215155025.cut.settings.features.csv", "./Data/Lopen/Training-set/lopen3_a_l_20150215155025.cut.log" ]
 }
