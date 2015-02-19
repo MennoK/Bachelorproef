@@ -22,7 +22,8 @@ public class ExpMethod {
 								Method.J48_1,
 								Method.LibSVM_1,
 								Method.NaiveBayes,
-								Method.IBk_1
+								Method.IBk_1,
+								
 							};
 		
 		// gebruik 1 training set
