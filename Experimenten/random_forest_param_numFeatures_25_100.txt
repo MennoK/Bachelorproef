@@ -1,0 +1,70 @@
+
+Options: -P "K 25 100 76" -W weka.classifiers.trees.RandomForest 
+
+Cross-validated Parameter selection.
+Classifier: weka.classifiers.trees.RandomForest
+Cross-validation Parameter: '-K' ranged from 25.0 to 100.0 with 76.0 steps
+Classifier Options: -K 31 -I 10 -S 1
+
+Random forest of 10 trees, each constructed while considering 31 random features.
+Out of bag error: 0.125
+
+
+
+Time taken to build model: 60.64 seconds
+Time taken to test model on training data: 0.03 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         160              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.012 
+Root mean squared error                  0.0481
+Relative absolute error                  6.6667 %
+Root relative squared error             16.0295 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 16  0  0  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  0  0 16  0  0  0  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0 16  0  0  0  0  0 |  e = LiftAD
+  0  0  0  0  0 16  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  0  0  0 16  0  0 |  h = LiftAU
+  0  0  0  0  0  0  0  0 16  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         152               95      %
+Incorrectly Classified Instances         8                5      %
+Kappa statistic                          0.9444
+Mean absolute error                      0.0327
+Root mean squared error                  0.1028
+Relative absolute error                 18.1748 %
+Root relative squared error             34.2393 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 15  0  1  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  3  0 13  0  0  0  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0 16  0  0  0  0  0 |  e = LiftAD
+  0  0  0  0  0 16  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  2  0  0 14  0  0 |  h = LiftAU
+  0  0  0  2  0  0  0  0 14  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
