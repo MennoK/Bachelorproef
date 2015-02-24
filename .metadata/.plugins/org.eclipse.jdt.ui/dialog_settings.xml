@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
+	<item value="/home/menno" key="org.eclipse.jdt.ui.lastextjar"/>
+=======
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<item value="/home/menno/Documents/Bachelorproef/ActivityRecognition" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="3" key="TypeHierarchyViewPart.orientation"/>
@@ -32,6 +35,7 @@
 	</section>
 =======
 >>>>>>> 98d2541b3d84602ad0edb53d94290b9f582ff58b
+>>>>>>> 53445176088168dc153cbfdffa295e31ba359e2a
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
@@ -57,8 +61,23 @@
 			<item value=".xml"/>
 		</list>
 	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
+	</section>
+	<section name="NewClassWizardPage">
+		<item value="false" key="create_constructor"/>
+		<item value="true" key="create_unimplemented"/>
+		<item value="true" key="create_main"/>
+	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
+<<<<<<< HEAD
+	<section name="NewPackageWizardPage">
+		<item value="false" key="create_package_info_java"/>
+	</section>
+=======
 	<section name="javadoc">
 		<item value="false" key="nodeprecatedlist"/>
 		<item value="false" key="notree"/>
@@ -121,4 +140,5 @@
 		<item value="678" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
+>>>>>>> 53445176088168dc153cbfdffa295e31ba359e2a
 </section>

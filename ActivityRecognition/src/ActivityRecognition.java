@@ -77,10 +77,10 @@ public class ActivityRecognition {
 				String[] args2 = { };
 				ExpSettings.main(args2);
 			}
-			else if (args[0]. equals("expsettingshmms")) {
+			/*else if (args[0]. equals("expsettingshmms")) {
 				String[] args2 = { };
 				ExpSettingsHMMs.main(args2);
-			}
+			}*/
 			else if (args[0]. equals("expfeatureset")) {
 				String[] args2 = { };
 				ExpFeatureSet.main(args2);

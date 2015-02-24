@@ -1,3 +1,4 @@
 .metadata/
 .recommenders/
-ActivityRecognition/.classpath
+./ActivityRecognition/.classpath
+
