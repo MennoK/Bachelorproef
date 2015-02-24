@@ -1,0 +1,95 @@
+
+Options: -E weka.attributeSelection.InfoGainAttributeEval -S "weka.attributeSelection.Ranker -N 2" -W weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1 
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 135 label):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+2.369    23 z_e_stddev
+2.306   110 t_mean
+
+Selected attributes: 23,110 : 2
+
+
+Header of reduced data:
+@relation 'Training-set-weka.filters.unsupervised.attribute.Remove-V-R23,110,135'
+
+@attribute z_e_stddev numeric
+@attribute t_mean numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+
+
+Classifier Model
+Random forest of 10 trees, each constructed while considering 2 random features.
+Out of bag error: 0.2625
+
+
+
+Time taken to build model: 0.12 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         156               97.5    %
+Incorrectly Classified Instances         4                2.5    %
+Kappa statistic                          0.9722
+Mean absolute error                      0.021 
+Root mean squared error                  0.0788
+Relative absolute error                 11.6667 %
+Root relative squared error             26.2731 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 16  0  0  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  0  0 15  0  0  1  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0 16  0  0  0  0  0 |  e = LiftAD
+  1  0  1  0  0 14  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  1  0  0 15  0  0 |  h = LiftAU
+  0  0  0  0  0  0  0  0 16  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         112               70      %
+Incorrectly Classified Instances        48               30      %
+Kappa statistic                          0.6667
+Mean absolute error                      0.0694
+Root mean squared error                  0.2158
+Relative absolute error                 38.5    %
+Root relative squared error             71.8461 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 11  0  1  0  0  3  1  0  0  0 |  a = Trapaf
+  0 13  0  0  0  0  0  0  0  3 |  b = Lopen
+  2  0 10  0  0  3  1  0  0  0 |  c = Trapop
+  0  0  0 12  2  0  0  2  0  0 |  d = Tandenpoetsen
+  0  0  0  0 10  0  0  6  0  0 |  e = LiftAD
+  6  0  5  0  0  5  0  0  0  0 |  f = Fietsen
+  0  0  1  0  0  1 14  0  0  0 |  g = Wandelen
+  0  0  0  2  6  0  0  8  0  0 |  h = LiftAU
+  0  0  0  1  0  0  0  1 14  0 |  i = Nietsdoen
+  0  1  0  0  0  0  0  0  0 15 |  j = Springen
+

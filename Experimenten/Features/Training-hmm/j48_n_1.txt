@@ -1,0 +1,117 @@
+
+Options: -E weka.attributeSelection.InfoGainAttributeEval -S "weka.attributeSelection.Ranker -N 1" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 145 label):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+2.369    23 z_e_stddev
+
+Selected attributes: 23 : 1
+
+
+Header of reduced data:
+@relation 'Training-set-weka.filters.unsupervised.attribute.Remove-V-R23,145'
+
+@attribute z_e_stddev numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+z_e_stddev <= 0.059302
+|   z_e_stddev <= 0.018377
+|   |   z_e_stddev <= 0.000209: Nietsdoen (13.0)
+|   |   z_e_stddev > 0.000209: Tandenpoetsen (18.0/3.0)
+|   z_e_stddev > 0.018377
+|   |   z_e_stddev <= 0.021775: LiftAD (5.0)
+|   |   z_e_stddev > 0.021775
+|   |   |   z_e_stddev <= 0.055453: LiftAU (22.0/7.0)
+|   |   |   z_e_stddev > 0.055453: LiftAD (6.0/1.0)
+z_e_stddev > 0.059302
+|   z_e_stddev <= 28.121555
+|   |   z_e_stddev <= 12.060991: Trapop (27.0/13.0)
+|   |   z_e_stddev > 12.060991
+|   |   |   z_e_stddev <= 18.072551: Trapaf (26.0/16.0)
+|   |   |   z_e_stddev > 18.072551: Wandelen (11.0/1.0)
+|   z_e_stddev > 28.121555
+|   |   z_e_stddev <= 130.075998
+|   |   |   z_e_stddev <= 80.382668: Springen (10.0/2.0)
+|   |   |   z_e_stddev > 80.382668: Lopen (15.0/1.0)
+|   |   z_e_stddev > 130.075998: Springen (7.0)
+
+Number of Leaves  : 	11
+
+Size of the tree : 	21
+
+
+Time taken to build model: 0.11 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         116               72.5    %
+Incorrectly Classified Instances        44               27.5    %
+Kappa statistic                          0.6944
+Mean absolute error                      0.0723
+Root mean squared error                  0.1901
+Relative absolute error                 40.1739 %
+Root relative squared error             63.3829 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 10  0  6  0  0  0  0  0  0  0 |  a = Trapaf
+  0 14  0  0  0  0  0  0  0  2 |  b = Lopen
+  1  0 14  0  0  0  1  0  0  0 |  c = Trapop
+  0  0  0 15  0  0  0  1  0  0 |  d = Tandenpoetsen
+  0  0  0  0 10  0  0  6  0  0 |  e = LiftAD
+  9  0  7  0  0  0  0  0  0  0 |  f = Fietsen
+  6  0  0  0  0  0 10  0  0  0 |  g = Wandelen
+  0  0  0  0  1  0  0 15  0  0 |  h = LiftAU
+  0  0  0  3  0  0  0  0 13  0 |  i = Nietsdoen
+  0  1  0  0  0  0  0  0  0 15 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          91               56.875  %
+Incorrectly Classified Instances        69               43.125  %
+Kappa statistic                          0.5208
+Mean absolute error                      0.0944
+Root mean squared error                  0.2436
+Relative absolute error                 52.4012 %
+Root relative squared error             81.1073 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+  5  0  7  0  0  2  2  0  0  0 |  a = Trapaf
+  2 11  0  0  0  0  0  0  0  3 |  b = Lopen
+  2  0  9  0  0  4  1  0  0  0 |  c = Trapop
+  0  0  0 13  0  0  0  2  1  0 |  d = Tandenpoetsen
+  0  0  0  0  6  0  0 10  0  0 |  e = LiftAD
+  3  0  8  0  0  5  0  0  0  0 |  f = Fietsen
+  2  0  1  0  0  1 12  0  0  0 |  g = Wandelen
+  0  0  0  2  7  0  0  7  0  0 |  h = LiftAU
+  0  0  0  5  0  0  0  2  9  0 |  i = Nietsdoen
+  0  2  0  0  0  0  0  0  0 14 |  j = Springen
+

@@ -5,36 +5,70 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
 
+import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
+import weka.classifiers.meta.AttributeSelectedClassifier;
+import weka.core.Instances;
+
+/**
+ * Uitvoer: (exp)/accuracies.txt
+ */
 public class ExpFeatureSet {
 	
 	public static String exp = "./Experimenten/FeatureSet"; // map waaronder alle resultaten bewaard worden
-	public static String data = "./Data2"; // map waaronder alle metingen staan
+	public static String data = "./Experimenten/FeatureSet/data.csv"; // pad naar dataset (.csv)
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		
-		
-		
-		// feature sets die moeten geëvalueerd worden
-		// = lijst van training set csv-bestanden in de map Experimenten/FeatureSets/Training-sets
-		String[] trainingSets = { 
-									// "set1.csv", ...
-								};
+		// importeer data
+		DataSet dataset = new DataSet(data);
 		
 		// kies een methode
-		Method method = Method.RandomForest_1;
+		String method = "weka.classifiers.trees.J48 -- -C 0.25 -M 2";
+		// String method = "weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1";
 		
-		// evalueer methode voor elke training-set
-		for (String set : trainingSets) {
-			DataSet data = new DataSet(exp + "/Training-sets/"+set);
-		    double accuracy = Classify.classify_crossvalidation2(method, data, 10,
-		    									exp + "/Results/"+set+".summary.txt",
-		    									exp + "/Results/"+set+".confusionMatrix.txt");
-		    Files.writeFile(exp + "/Results/"+set+".accuracy.txt", Double.toString(accuracy));
+		// evalueer methode voor verschillende aantallen features met 10-fold cross-validatie
+		String accuracies = "";
+		for (int numFeatures = 2; numFeatures < 130; numFeatures += 2) {
+			
+		    double accuracy = 0.0;
+		    
+		    // cross-validatie
+			int seed = 5;
+			int folds = 10;
+			Random rand = new Random(seed);
+			Instances randData = new Instances(dataset.instances);
+			randData.randomize(rand);
+			//randData.stratify(folds);
+			
+			for (int n = 0; n < folds; n++) {
+				  Instances train = randData.trainCV(folds, n);
+				  Instances test = randData.testCV(folds, n);
+				 
+				  // pas attribute selectie toe en classificeer met gekozen methode voor numFeatures = het aantal features
+				  Classifier cls = new AttributeSelectedClassifier();
+				  String[] options = weka.core.Utils.splitOptions("-E \"weka.attributeSelection.InfoGainAttributeEval\" -S \"weka.attributeSelection.Ranker -N "+numFeatures+"\" -W "+method);
+				  cls.setOptions(options);
+				  cls.buildClassifier(train);
+				  
+				  Evaluation eval = new Evaluation(train);
+				  eval.evaluateModel(cls, test);
+				  
+				  double accuracy_fold = eval.pctCorrect();
+				  accuracy += accuracy_fold;
+				  
+			}
+			
+			accuracy /= folds;
+			accuracies += accuracy + "\n";
+		    
 		}
-	    
+		
+		Files.writeFile(exp + "/accuracies.txt", accuracies);
 		
 	}
 	

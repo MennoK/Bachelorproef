@@ -8,12 +8,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+
+import com.typesafe.config.ConfigException.Parse;
 
 
 public class HelperFunctions {
@@ -55,6 +58,26 @@ public class HelperFunctions {
 		PrintWriter writer = new PrintWriter(pathOUT, "UTF-8");
 		writer.println(jsonText);
 		writer.close();
+	}
+	
+	/**
+	 * Vraag de accuracy (van de cross-validatie) in een gegeven output txt-bestand op.
+	 * 
+	 * @param	filename
+	 * 			Pad naar output txt-bestand.
+	 * @return	Accuracy
+	 * 			(0 <= accuracy <= 1)
+	 * @throws 	IOException
+	 */
+	public static double getAccuracy(String filename) throws IOException {
+		String content = Files.readFile(filename);
+		String[] parts = content.split("=== Stratified cross-validation ===\n\nCorrectly Classified Instances");
+		content = parts[1].trim();
+		System.out.println(content);
+		Scanner scanner = new Scanner(content);
+		int instances = scanner.nextInt();
+		double accuracy = scanner.nextDouble() / 100;
+		return accuracy;
 	}
 
 	/** @pre n > 0 */

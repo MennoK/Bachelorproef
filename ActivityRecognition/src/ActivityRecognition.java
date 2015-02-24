@@ -22,7 +22,7 @@ import org.json.simple.JSONValue;
 
 public class ActivityRecognition {
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		if (args.length > 0) {
 			if (args[0].equals("plot") && args.length == 2) {
 				String print = plot(args[1]);

@@ -1,0 +1,351 @@
+
+Options: -E weka.attributeSelection.InfoGainAttributeEval -S "weka.attributeSelection.Ranker -N 130" -W weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1 
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 145 label):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 2.3695    23 z_e_stddev
+ 2.306     19 t_freq_m_0.00
+ 2.306    115 t_mean
+ 2.2319   134 z_hmm_model-Wandelen
+ 2.2267   119 xy_e_mean
+ 2.2267   133 xy_e_freq_m_0.00
+ 2.2229    52 z_e_mean
+ 2.2224   144 z_stddev
+ 2.207      2 xy_e_freq_m_1.25
+ 2.1963   143 z_hmm_model-Trapop
+ 2.1778    94 z_freq_m_0.83
+ 2.1731   116 t_stddev
+ 2.166     81 xy_e_freq_m_4.17
+ 2.166     86 z_hmm_model-Lopen
+ 2.1359    55 xy_e_freq_m_4.58
+ 2.1236    27 xy_e_stddev
+ 2.1192    51 z_hmm_model-Springen
+ 2.1086    45 z_hmm_model-Fietsen
+ 2.1072    36 z_peak_mean
+ 2.0893    47 xy_e_freq_m_2.50
+ 2.0874   122 z_hmm_model-Trapaf
+ 2.0777    25 xy_e_freq_m_1.67
+ 2.0773   123 z_freq_m_1.25
+ 2.0672   141 xy_e_freq_m_3.75
+ 2.0454   130 angle_mean
+ 1.9872   129 xy_e_freq_m_2.08
+ 1.9652    49 z_freq_m_1.67
+ 1.9357    20 z_freq_m_0.42
+ 1.9129    64 xy_e_freq_m_3.33
+ 1.8899   111 xy_e_freq_m_2.92
+ 1.8247    15 z_freq_m_2.50
+ 1.7856   103 z_freq_m_0.00
+ 1.737     22 t_freq_m_3.33
+ 1.699     84 z_freq_m_4.17
+ 1.6964    98 xy_e_freq_m_0.83
+ 1.6669   142 z_freq_m_2.08
+ 1.6566    56 xy_e_freq_m_0.42
+ 1.6348   137 angle_stddev
+ 1.633    105 z_freq_e_1.67
+ 1.6128   100 z_freq_e_2.50
+ 1.6114    42 t_freq_m_1.25
+ 1.6087     4 z_freq_m_4.58
+ 1.6044    29 t_freq_m_2.50
+ 1.6008   112 t_freq_m_2.92
+ 1.5853    34 z_freq_e_1.25
+ 1.578    101 t_freq_m_0.42
+ 1.5581   102 t_freq_m_4.58
+ 1.5383   113 t_freq_m_1.67
+ 1.5365     6 z_dwt_ar_-6
+ 1.5331    99 z_freq_m_3.33
+ 1.5265    88 t_freq_m_3.75
+ 1.5256    16 t_freq_m_4.17
+ 1.5203    31 z_peak_stddev
+ 1.5198    96 z_mean
+ 1.4903   127 t_freq_p2
+ 1.4864   124 t_freq_p1
+ 1.4619    40 mcr_z
+ 1.4574    11 z_dwt_ar_-5
+ 1.4381    43 zcr_z
+ 1.4332   136 z_freq_e_0.00
+ 1.4212   108 z_freq_m_2.92
+ 1.4178    68 z_freq_p1
+ 1.3892   131 t_freq_m_2.08
+ 1.386     69 z_dwt_avg_-0
+ 1.3818    62 z_dwt_avg_-7
+ 1.3703    33 mcr_t
+ 1.3559   110 t_freq_e_0.42
+ 1.3469    38 t_freq_m_0.83
+ 1.311      1 z_freq_e_2.08
+ 1.3083    77 z_dwt_norm_-7
+ 1.3078    73 z_peak_d_mean
+ 1.231     66 z_freq_p2
+ 1.2248    28 z_freq_m_3.75
+ 1.217     70 z_dwt_avg_-1
+ 1.2072   125 t_freq_p3
+ 1.1727   120 z_peak_d_stddev
+ 1.1718    85 z_freq_e_3.33
+ 1.1491    78 z_dwt_norm_-6
+ 1.1226    12 z_dwt_ar_-4
+ 1.116     58 z_freq_e_0.42
+ 1.0966    75 z_dwt_avg_-4
+ 1.0946    65 z_dwt_avg_-8
+ 1.0302     3 z_freq_e_2.92
+ 0.9994     8 z_dwt_ar_-8
+ 0.9943    10 z_dwt_ar_-2
+ 0.9915     9 z_dwt_ar_-3
+ 0.9611    17 z_dwt_ar_-1
+ 0.9593    59 z_dwt_avg_-5
+ 0.9549    18 z_freq_e_3.75
+ 0.953    121 z_kurt
+ 0.9403    60 z_dwt_avg_-6
+ 0.9402    79 z_dwt_norm_-5
+ 0.9137    54 t_freq_e_2.50
+ 0.9093    97 z_freq_e_0.83
+ 0.8701    74 z_dwt_avg_-3
+ 0.8693    82 z_dwt_norm_-9
+ 0.8475    67 z_dwt_avg_-9
+ 0.8277   106 t_freq_e_2.08
+ 0.815    140 t_freq_p4
+ 0.8089     5 z_dwt_ar_-7
+ 0.8089    76 z_dwt_norm_-8
+ 0.7658    50 t_freq_e_4.58
+ 0.6711    41 t_freq_e_1.67
+ 0.6345    87 z_dwt_norm_-4
+ 0.6029    21 xy_e_freq_e_0.42
+ 0.5923   109 t_freq_e_3.33
+ 0.5918    90 z_dwt_norm_-2
+ 0.5458    13 t_freq_e_3.75
+ 0.5434    26 z_hmm_model-Nietsdoen
+ 0.54       7 z_dwt_ar_-9
+ 0.5073    89 z_dwt_norm_-3
+ 0.4943    91 z_dwt_norm_-1
+ 0.4865    53 z_hmm_model-Tandenpoetsen
+ 0.4731   135 t_freq_e_2.92
+ 0.457    126 z_hmm_model-LiftAU
+ 0.4472    92 xy_e_freq_e_2.08
+ 0.4464    63 z_freq_p3
+ 0.4191   117 z_hmm_model-LiftAD
+ 0.406     57 corr_z_e_xy_e
+ 0.4045   139 xy_e_freq_e_2.50
+ 0.4017    44 t_freq_e_0.83
+ 0.4015    80 xy_e_freq_e_0.83
+ 0.374    118 t_freq_e_4.17
+ 0.3718    61 z_freq_p4
+ 0.3493    35 xy_e_freq_p1
+ 0.3345    39 z_freq_e_4.17
+ 0.3277    71 corr_z_xy_e
+ 0.3276   104 z_freq_e_4.58
+ 0.3262    14 z_dwt_ar_-0
+ 0.3262    83 z_dwt_norm_-0
+
+Selected attributes: 23,19,115,134,119,133,52,144,2,143,94,116,81,86,55,27,51,45,36,47,122,25,123,141,130,129,49,20,64,111,15,103,22,84,98,142,56,137,105,100,42,4,29,112,34,101,102,113,6,99,88,16,31,96,127,124,40,11,43,136,108,68,131,69,62,33,110,38,1,77,73,66,28,70,125,120,85,78,12,58,75,65,3,8,10,9,17,59,18,121,60,79,54,97,74,82,67,106,140,5,76,50,41,87,21,109,90,13,26,7,89,91,53,135,126,92,63,117,57,139,44,80,118,61,35,39,71,104,14,83 : 130
+
+
+Header of reduced data:
+@relation 'Training-set-weka.filters.unsupervised.attribute.Remove-V-R23,19,115,134,119,133,52,144,2,143,94,116,81,86,55,27,51,45,36,47,122,25,123,141,130,129,49,20,64,111,15,103,22,84,98,142,56,137,105,100,42,4,29,112,34,101-102,113,6,99,88,16,31,96,127,124,40,11,43,136,108,68,131,69,62,33,110,38,1,77,73,66,28,70,125,120,85,78,12,58,75,65,3,8,10,9,17,59,18,121,60,79,54,97,74,82,67,106,140,5,76,50,41,87,21,109,90,13,26,7,89,91,53,135,126,92,63,117,57,139,44,80,118,61,35,39,71,104,14,83,145'
+
+@attribute z_e_stddev numeric
+@attribute t_freq_m_0.00 numeric
+@attribute t_mean numeric
+@attribute z_hmm_model-Wandelen numeric
+@attribute xy_e_mean numeric
+@attribute xy_e_freq_m_0.00 numeric
+@attribute z_e_mean numeric
+@attribute z_stddev numeric
+@attribute xy_e_freq_m_1.25 numeric
+@attribute z_hmm_model-Trapop numeric
+@attribute z_freq_m_0.83 numeric
+@attribute t_stddev numeric
+@attribute xy_e_freq_m_4.17 numeric
+@attribute z_hmm_model-Lopen numeric
+@attribute xy_e_freq_m_4.58 numeric
+@attribute xy_e_stddev numeric
+@attribute z_hmm_model-Springen numeric
+@attribute z_hmm_model-Fietsen numeric
+@attribute z_peak_mean numeric
+@attribute xy_e_freq_m_2.50 numeric
+@attribute z_hmm_model-Trapaf numeric
+@attribute xy_e_freq_m_1.67 numeric
+@attribute z_freq_m_1.25 numeric
+@attribute xy_e_freq_m_3.75 numeric
+@attribute angle_mean numeric
+@attribute xy_e_freq_m_2.08 numeric
+@attribute z_freq_m_1.67 numeric
+@attribute z_freq_m_0.42 numeric
+@attribute xy_e_freq_m_3.33 numeric
+@attribute xy_e_freq_m_2.92 numeric
+@attribute z_freq_m_2.50 numeric
+@attribute z_freq_m_0.00 numeric
+@attribute t_freq_m_3.33 numeric
+@attribute z_freq_m_4.17 numeric
+@attribute xy_e_freq_m_0.83 numeric
+@attribute z_freq_m_2.08 numeric
+@attribute xy_e_freq_m_0.42 numeric
+@attribute angle_stddev numeric
+@attribute z_freq_e_1.67 numeric
+@attribute z_freq_e_2.50 numeric
+@attribute t_freq_m_1.25 numeric
+@attribute z_freq_m_4.58 numeric
+@attribute t_freq_m_2.50 numeric
+@attribute t_freq_m_2.92 numeric
+@attribute z_freq_e_1.25 numeric
+@attribute t_freq_m_0.42 numeric
+@attribute t_freq_m_4.58 numeric
+@attribute t_freq_m_1.67 numeric
+@attribute z_dwt_ar_-6 numeric
+@attribute z_freq_m_3.33 numeric
+@attribute t_freq_m_3.75 numeric
+@attribute t_freq_m_4.17 numeric
+@attribute z_peak_stddev numeric
+@attribute z_mean numeric
+@attribute t_freq_p2 numeric
+@attribute t_freq_p1 numeric
+@attribute mcr_z numeric
+@attribute z_dwt_ar_-5 numeric
+@attribute zcr_z numeric
+@attribute z_freq_e_0.00 numeric
+@attribute z_freq_m_2.92 numeric
+@attribute z_freq_p1 numeric
+@attribute t_freq_m_2.08 numeric
+@attribute z_dwt_avg_-0 numeric
+@attribute z_dwt_avg_-7 numeric
+@attribute mcr_t numeric
+@attribute t_freq_e_0.42 numeric
+@attribute t_freq_m_0.83 numeric
+@attribute z_freq_e_2.08 numeric
+@attribute z_dwt_norm_-7 numeric
+@attribute z_peak_d_mean numeric
+@attribute z_freq_p2 numeric
+@attribute z_freq_m_3.75 numeric
+@attribute z_dwt_avg_-1 numeric
+@attribute t_freq_p3 numeric
+@attribute z_peak_d_stddev numeric
+@attribute z_freq_e_3.33 numeric
+@attribute z_dwt_norm_-6 numeric
+@attribute z_dwt_ar_-4 numeric
+@attribute z_freq_e_0.42 numeric
+@attribute z_dwt_avg_-4 numeric
+@attribute z_dwt_avg_-8 numeric
+@attribute z_freq_e_2.92 numeric
+@attribute z_dwt_ar_-8 numeric
+@attribute z_dwt_ar_-2 numeric
+@attribute z_dwt_ar_-3 numeric
+@attribute z_dwt_ar_-1 numeric
+@attribute z_dwt_avg_-5 numeric
+@attribute z_freq_e_3.75 numeric
+@attribute z_kurt numeric
+@attribute z_dwt_avg_-6 numeric
+@attribute z_dwt_norm_-5 numeric
+@attribute t_freq_e_2.50 numeric
+@attribute z_freq_e_0.83 numeric
+@attribute z_dwt_avg_-3 numeric
+@attribute z_dwt_norm_-9 numeric
+@attribute z_dwt_avg_-9 numeric
+@attribute t_freq_e_2.08 numeric
+@attribute t_freq_p4 numeric
+@attribute z_dwt_ar_-7 numeric
+@attribute z_dwt_norm_-8 numeric
+@attribute t_freq_e_4.58 numeric
+@attribute t_freq_e_1.67 numeric
+@attribute z_dwt_norm_-4 numeric
+@attribute xy_e_freq_e_0.42 numeric
+@attribute t_freq_e_3.33 numeric
+@attribute z_dwt_norm_-2 numeric
+@attribute t_freq_e_3.75 numeric
+@attribute z_hmm_model-Nietsdoen numeric
+@attribute z_dwt_ar_-9 numeric
+@attribute z_dwt_norm_-3 numeric
+@attribute z_dwt_norm_-1 numeric
+@attribute z_hmm_model-Tandenpoetsen numeric
+@attribute t_freq_e_2.92 numeric
+@attribute z_hmm_model-LiftAU numeric
+@attribute xy_e_freq_e_2.08 numeric
+@attribute z_freq_p3 numeric
+@attribute z_hmm_model-LiftAD numeric
+@attribute corr_z_e_xy_e numeric
+@attribute xy_e_freq_e_2.50 numeric
+@attribute t_freq_e_0.83 numeric
+@attribute xy_e_freq_e_0.83 numeric
+@attribute t_freq_e_4.17 numeric
+@attribute z_freq_p4 numeric
+@attribute xy_e_freq_p1 numeric
+@attribute z_freq_e_4.17 numeric
+@attribute corr_z_xy_e numeric
+@attribute z_freq_e_4.58 numeric
+@attribute z_dwt_ar_-0 numeric
+@attribute z_dwt_norm_-0 numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+
+
+Classifier Model
+Random forest of 10 trees, each constructed while considering 8 random features.
+Out of bag error: 0.1563
+
+
+
+Time taken to build model: 0.14 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         159               99.375  %
+Incorrectly Classified Instances         1                0.625  %
+Kappa statistic                          0.9931
+Mean absolute error                      0.0154
+Root mean squared error                  0.0534
+Relative absolute error                  8.5417 %
+Root relative squared error             17.7951 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 16  0  0  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  1  0 15  0  0  0  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0 16  0  0  0  0  0 |  e = LiftAD
+  0  0  0  0  0 16  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  0  0  0 16  0  0 |  h = LiftAU
+  0  0  0  0  0  0  0  0 16  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         154               96.25   %
+Incorrectly Classified Instances         6                3.75   %
+Kappa statistic                          0.9583
+Mean absolute error                      0.0372
+Root mean squared error                  0.1104
+Relative absolute error                 20.6721 %
+Root relative squared error             36.7572 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 15  0  1  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  1  0 15  0  0  0  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0 16  0  0  0  0  0 |  e = LiftAD
+  0  0  0  0  0 16  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  3  0  0 13  0  0 |  h = LiftAU
+  0  0  0  1  0  0  0  0 15  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+

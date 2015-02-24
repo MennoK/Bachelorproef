@@ -1,0 +1,137 @@
+
+Options: -E weka.attributeSelection.InfoGainAttributeEval -S "weka.attributeSelection.Ranker -N 7" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 145 label):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+2.369    23 z_e_stddev
+2.306    19 t_freq_m_0.00
+2.306   115 t_mean
+2.232   134 z_hmm_model-Wandelen
+2.227   119 xy_e_mean
+2.227   133 xy_e_freq_m_0.00
+2.223    52 z_e_mean
+
+Selected attributes: 23,19,115,134,119,133,52 : 7
+
+
+Header of reduced data:
+@relation 'Training-set-weka.filters.unsupervised.attribute.Remove-V-R23,19,115,134,119,133,52,145'
+
+@attribute z_e_stddev numeric
+@attribute t_freq_m_0.00 numeric
+@attribute t_mean numeric
+@attribute z_hmm_model-Wandelen numeric
+@attribute xy_e_mean numeric
+@attribute xy_e_freq_m_0.00 numeric
+@attribute z_e_mean numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+z_e_mean <= 0.062103
+|   z_e_mean <= 0.012374
+|   |   xy_e_mean <= 0.008162: Nietsdoen (14.0)
+|   |   xy_e_mean > 0.008162: Tandenpoetsen (18.0/2.0)
+|   z_e_mean > 0.012374
+|   |   z_e_stddev <= 0.021775: LiftAD (5.0)
+|   |   z_e_stddev > 0.021775: LiftAU (27.0/11.0)
+z_e_mean > 0.062103
+|   z_e_stddev <= 28.121555
+|   |   xy_e_mean <= 13.286605
+|   |   |   z_hmm_model-Wandelen <= -1.844451
+|   |   |   |   z_e_mean <= 14.086021
+|   |   |   |   |   xy_e_mean <= 6.021313: Fietsen (13.0/1.0)
+|   |   |   |   |   xy_e_mean > 6.021313
+|   |   |   |   |   |   z_e_stddev <= 14.16715
+|   |   |   |   |   |   |   z_e_stddev <= 10.208806: Trapaf (3.0)
+|   |   |   |   |   |   |   z_e_stddev > 10.208806: Trapop (3.0/1.0)
+|   |   |   |   |   |   z_e_stddev > 14.16715: Fietsen (3.0)
+|   |   |   |   z_e_mean > 14.086021: Trapaf (9.0)
+|   |   |   z_hmm_model-Wandelen > -1.844451
+|   |   |   |   z_e_mean <= 7.474516: Trapop (11.0/1.0)
+|   |   |   |   z_e_mean > 7.474516
+|   |   |   |   |   z_e_stddev <= 10.313683: Trapaf (2.0)
+|   |   |   |   |   z_e_stddev > 10.313683: Trapop (4.0)
+|   |   xy_e_mean > 13.286605: Wandelen (16.0)
+|   z_e_stddev > 28.121555
+|   |   xy_e_mean <= 27.563269: Springen (16.0)
+|   |   xy_e_mean > 27.563269: Lopen (16.0)
+
+Number of Leaves  : 	15
+
+Size of the tree : 	29
+
+
+Time taken to build model: 0.15 seconds
+Time taken to test model on training data: 0.05 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         144               90      %
+Incorrectly Classified Instances        16               10      %
+Kappa statistic                          0.8889
+Mean absolute error                      0.027 
+Root mean squared error                  0.1162
+Relative absolute error                 14.9932 %
+Root relative squared error             38.7211 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 14  0  1  0  0  1  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  0  0 16  0  0  0  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0  5  0  0 11  0  0 |  e = LiftAD
+  0  0  1  0  0 15  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  0  0  0 16  0  0 |  h = LiftAU
+  0  0  0  2  0  0  0  0 14  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         124               77.5    %
+Incorrectly Classified Instances        36               22.5    %
+Kappa statistic                          0.75  
+Mean absolute error                      0.0471
+Root mean squared error                  0.194 
+Relative absolute error                 26.1584 %
+Root relative squared error             64.6032 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+  9  0  2  0  0  3  2  0  0  0 |  a = Trapaf
+  0 15  0  0  0  0  0  0  0  1 |  b = Lopen
+  0  0 12  0  0  2  2  0  0  0 |  c = Trapop
+  0  0  0 13  1  0  0  1  1  0 |  d = Tandenpoetsen
+  0  0  0  0 12  0  0  4  0  0 |  e = LiftAD
+  3  0  3  0  0 10  0  0  0  0 |  f = Fietsen
+  1  0  1  0  0  0 14  0  0  0 |  g = Wandelen
+  0  0  0  0  6  0  0 10  0  0 |  h = LiftAU
+  0  0  0  2  0  0  0  0 14  0 |  i = Nietsdoen
+  0  1  0  0  0  0  0  0  0 15 |  j = Springen
+
