@@ -15,12 +15,12 @@ import weka.classifiers.meta.AttributeSelectedClassifier;
 import weka.core.Instances;
 
 /**
- * Uitvoer: (exp)/accuracies.txt
+ * Uitvoer: (exp)/results.dat
  */
 public class ExpFeatureSet {
 	
-	public static String exp = "./Experimenten/FeatureSet"; // map waaronder alle resultaten bewaard worden
-	public static String data = "./Experimenten/FeatureSet/data.csv"; // pad naar dataset (.csv)
+	public static String exp = "./Experimenten/FeatureSet/InfoGain/RandomForest"; // map waaronder alle resultaten bewaard worden
+	public static String data = "./Experimenten/FeatureSet/data-allfeatures.csv"; // pad naar dataset (.csv)
 
 	public static void main(String[] args) throws Exception {
 		
@@ -28,12 +28,12 @@ public class ExpFeatureSet {
 		DataSet dataset = new DataSet(data);
 		
 		// kies een methode
-		String method = "weka.classifiers.trees.J48 -- -C 0.25 -M 2";
-		// String method = "weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1";
+		// String method = "weka.classifiers.trees.J48 -- -C 0.25 -M 2";
+		String method = "weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1";
 		
 		// evalueer methode voor verschillende aantallen features met 10-fold cross-validatie
-		String accuracies = "";
-		for (int numFeatures = 2; numFeatures < 130; numFeatures += 2) {
+		String output = "";
+		for (int numFeatures = 1; numFeatures <= 134; numFeatures += 1) {
 			
 		    double accuracy = 0.0;
 		    
@@ -51,7 +51,7 @@ public class ExpFeatureSet {
 				 
 				  // pas attribute selectie toe en classificeer met gekozen methode voor numFeatures = het aantal features
 				  Classifier cls = new AttributeSelectedClassifier();
-				  String[] options = weka.core.Utils.splitOptions("-E \"weka.attributeSelection.InfoGainAttributeEval\" -S \"weka.attributeSelection.Ranker -N "+numFeatures+"\" -W "+method);
+				  String[] options = weka.core.Utils.splitOptions("-x 2 -E \"weka.attributeSelection.InfoGainAttributeEval\" -S \"weka.attributeSelection.Ranker -N "+numFeatures+"\" -W "+method);
 				  cls.setOptions(options);
 				  cls.buildClassifier(train);
 				  
@@ -64,11 +64,11 @@ public class ExpFeatureSet {
 			}
 			
 			accuracy /= folds;
-			accuracies += accuracy + "\n";
+			output += numFeatures + " " + accuracy + "\n";
 		    
 		}
 		
-		Files.writeFile(exp + "/accuracies.txt", accuracies);
+		Files.writeFile(exp + "/results.dat", output);
 		
 	}
 	

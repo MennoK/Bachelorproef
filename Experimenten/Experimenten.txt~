@@ -1,0 +1,24 @@
+Experimenten:
+
+1) Feature selectie
+    - Met InfoGain ==> met dubbele cross-validatie
+    - Zelf features selecteren:
+        - Statistische parameters
+        - Fourier transformatie
+        - Wavelet transformatie
+        - HMM likelihoods      
+
+2) Parameters van methodes [kan met Weka GUI: multisearch-weka-package ==> gebruikt dubbele cross-validatie]
+    - RandomForest:
+        - aantal bomen = 20:20:200  # nog eens bekijken
+        - aantal features = 1:1:134 # nog eens bekijken
+    - Nog methodes
+
+3) Telkens 1 activiteit afzonderlijk (telkens met en zonder HMM's)
+
+4) Gelijkaardige activiteiten apart (telkens met en zonder HMM's)
+    - trap op en trap af (zonder al de rest)
+    - liftAD en liftAU (zonder al de rest)
+    - ... (na 3)
+
+Telkens accuracy als criterium gebruiken
