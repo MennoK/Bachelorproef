@@ -29,7 +29,8 @@ public class ExpFeatureSet {
 		
 		// kies een methode
 		// String method = "weka.classifiers.trees.J48 -- -C 0.25 -M 2";
-		String method = "weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1";
+		// String method = "weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1";
+		String method = "";
 		
 		// evalueer methode voor verschillende aantallen features met 10-fold cross-validatie
 		String output = "";
@@ -51,7 +52,8 @@ public class ExpFeatureSet {
 				 
 				  // pas attribute selectie toe en classificeer met gekozen methode voor numFeatures = het aantal features
 				  Classifier cls = new AttributeSelectedClassifier();
-				  String[] options = weka.core.Utils.splitOptions("-x 2 -E \"weka.attributeSelection.InfoGainAttributeEval\" -S \"weka.attributeSelection.Ranker -N "+numFeatures+"\" -W "+method);
+				  // String[] options = weka.core.Utils.splitOptions("-x 2 -E \"weka.attributeSelection.InfoGainAttributeEval\" -S \"weka.attributeSelection.Ranker -N "+numFeatures+"\" -W "+method);
+				  String[] options = weka.core.Utils.splitOptions("-x 2 ...");
 				  cls.setOptions(options);
 				  cls.buildClassifier(train);
 				  

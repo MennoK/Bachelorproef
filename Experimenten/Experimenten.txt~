@@ -2,11 +2,15 @@ Experimenten:
 
 1) Feature selectie
     - Met InfoGain ==> met dubbele cross-validatie
+      Voor verschillende methodes:
+        - Beslissingsbomen (J48)
+        - RandomForest
     - Zelf features selecteren:
         - Statistische parameters
         - Fourier transformatie
         - Wavelet transformatie
-        - HMM likelihoods      
+        - HMM likelihoods  
+==> Arne    
 
 2) Parameters van methodes [kan met Weka GUI: multisearch-weka-package ==> gebruikt dubbele cross-validatie]
     - RandomForest:
@@ -15,10 +19,15 @@ Experimenten:
     - Nog methodes
 
 3) Telkens 1 activiteit afzonderlijk (telkens met en zonder HMM's)
+==> Menno
 
 4) Gelijkaardige activiteiten apart (telkens met en zonder HMM's)
     - trap op en trap af (zonder al de rest)
     - liftAD en liftAU (zonder al de rest)
     - ... (na 3)
+==> Menno
+
+5) Voor verschillende methodes (met optimale parameters) - met en zonder HMM's
+==> Arne
 
 Telkens accuracy als criterium gebruiken
