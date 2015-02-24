@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="25" version="2.0">
+<workbench progressCount="26" version="2.0">
 <workbenchAdvisor/>
 <window height="764" maximized="true" width="1020" x="0" y="25">
 <fastViewData fastViewLocation="1024"/>
@@ -30,17 +30,32 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExpMethod.java" partName="ExpMethod.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/ExpMethod.java" title="ExpMethod.java" tooltip="ActivityRecognition/src/ExpMethod.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExpMethod.java" partName="ExpMethod.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/ExpMethod.java" title="ExpMethod.java" tooltip="ActivityRecognition/src/ExpMethod.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ExpMethod.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="792" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="1099" selectionOffset="246" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" partName="Method.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/Method.java" title="Method.java" tooltip="ActivityRecognition/src/Method.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" partName="Method.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/Method.java" title="Method.java" tooltip="ActivityRecognition/src/Method.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Method.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1514"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2602" selectionTopPixel="1514"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityRecognition.java" partName="ActivityRecognition.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/ActivityRecognition.java" title="ActivityRecognition.java" tooltip="ActivityRecognition/src/ActivityRecognition.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ActivityRecognition.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2930" selectionTopPixel="1072"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExpFeatureSet.java" partName="ExpFeatureSet.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/ExpFeatureSet.java" title="ExpFeatureSet.java" tooltip="ActivityRecognition/src/ExpFeatureSet.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/ExpFeatureSet.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="498" selectionTopPixel="52"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Classify.java" partName="Classify.java" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/src/Classify.java" title="Classify.java" tooltip="ActivityRecognition/src/Classify.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ActivityRecognition/src/Classify.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1467" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -64,7 +79,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.ui.resourcePerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -124,7 +139,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.25936884" ratioLeft="263" ratioRight="751" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.18648507" ratioLeft="356" ratioRight="1553" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.6589506" ratioLeft="427" ratioRight="221" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
@@ -154,6 +169,15 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ExpMethod.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Method.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ActivityRecognition.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Method.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ExpParameters.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ExpFeatureSet.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ExpFeatureSet.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/ExpParameters.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Classify.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/expParameters.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ActivityRecognition/src/Method.java"/>
 </editors>
 <item historyLabel="ExpMethod.java" index="0">
 <position info="not_deleted" x="734" y="0"/>
@@ -161,8 +185,71 @@
 <item historyLabel="Method.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="ExpMethod.java" index="0">
+<item historyLabel="ExpMethod.java" index="0">
 <position info="not_deleted" x="734" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="2">
+<position info="not_deleted" x="22253" y="0"/>
+</item>
+<item historyLabel="ActivityRecognition.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Method.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ExpParameters.java" index="4">
+<position info="not_deleted" x="29" y="0"/>
+</item>
+<item historyLabel="ExpFeatureSet.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ExpMethod.java" index="0">
+<position info="not_deleted" x="218" y="1130"/>
+</item>
+<item historyLabel="ExpParameters.java" index="4">
+<position info="not_deleted" x="388" y="0"/>
+</item>
+<item historyLabel="ExpMethod.java" index="0">
+<position info="not_deleted" x="218" y="1130"/>
+</item>
+<item historyLabel="ExpFeatureSet.java" index="6">
+<position info="not_deleted" x="498" y="0"/>
+</item>
+<item historyLabel="ExpParameters.java" index="7">
+<position info="not_deleted" x="69" y="0"/>
+</item>
+<item historyLabel="ExpMethod.java" index="0">
+<position info="not_deleted" x="246" y="1099"/>
+</item>
+<item historyLabel="ExpParameters.java" index="7">
+<position info="not_deleted" x="352" y="0"/>
+</item>
+<item historyLabel="ExpFeatureSet.java" index="6">
+<position info="not_deleted" x="498" y="0"/>
+</item>
+<item historyLabel="Classify.java" index="8">
+<position info="not_deleted" x="1467" y="0"/>
+</item>
+<item historyLabel="ExpParameters.java" index="7">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="Classify.java" index="8">
+<position info="not_deleted" x="1467" y="0"/>
+</item>
+<item historyLabel="ExpFeatureSet.java" index="6">
+<position info="not_deleted" x="498" y="0"/>
+</item>
+<item historyLabel="ExpParameters.java" index="7">
+<position info="not_deleted" x="357" y="0"/>
+</item>
+<item historyLabel="ExpFeatureSet.java" index="6">
+<position info="not_deleted" x="498" y="0"/>
+</item>
+<item historyLabel="expParameters.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="Method.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -182,6 +269,21 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="expParameters.java" tooltip="ActivityRecognition/src/expParameters.java">
+<persistable path="/ActivityRecognition/src/expParameters.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Classify.java" tooltip="ActivityRecognition/src/Classify.java">
+<persistable path="/ActivityRecognition/src/Classify.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExpParameters.java" tooltip="ActivityRecognition/src/ExpParameters.java">
+<persistable path="/ActivityRecognition/src/ExpParameters.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExpFeatureSet.java" tooltip="ActivityRecognition/src/ExpFeatureSet.java">
+<persistable path="/ActivityRecognition/src/ExpFeatureSet.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityRecognition.java" tooltip="ActivityRecognition/src/ActivityRecognition.java">
+<persistable path="/ActivityRecognition/src/ActivityRecognition.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" tooltip="ActivityRecognition/src/Method.java">
 <persistable path="/ActivityRecognition/src/Method.java"/>
 </file>
