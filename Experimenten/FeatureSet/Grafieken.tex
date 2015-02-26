@@ -1,29 +1,49 @@
-\documentclass{minimal}
+\documentclass[tightpage]{standalone}
+
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
+\usepackage{verbatim}
+\usepackage{helvet}
+\usepackage[eulergreek]{sansmath}
+\usepackage{varwidth}
 
 \begin{document}
 
-Vraag: hoeveel features zijn nodig om een redelijke accuraatheit (=90\% van de grootste accuraatheid) te behalen?
+
+%Vraag: hoeveel features zijn nodig om een redelijke accuraatheit (=90\% van de grootste accuraatheid) te behalen?
 
 % TODO : lijn waar accuraatheid == 90% van grootste accuraatheid
 
 \begin{tikzpicture}
   \begin{axis}[
+  		title=AllFeatures/InfoGain/RandomForest,
 		xlabel=Aantal features,
-		ylabel=Accuraatheid (\%)]
-    \addplot +[no markers, raw gnuplot] gnuplot {
+		ylabel=Accuraatheid (\%),
+		width=37cm,
+		height=30cm,
+		font=\sffamily\sansmath\Huge, % font = Arial, huge=20pt, Huge=24pt
+		xtick={0,10,...,140},
+		ytick={50,60,...,100}] 
+    \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "AllFeatures/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
   \end{axis}
 \end{tikzpicture}
 
+
+
 \begin{tikzpicture}
   \begin{axis}[
+  		title=Statistic/InfoGain/RandomForest,
 		xlabel=Aantal features,
-		ylabel=Accuraatheid (\%)]
-    \addplot +[no markers, raw gnuplot] gnuplot {
+		ylabel=Accuraatheid (\%),
+		width=37cm,
+		height=30cm,
+		font=\sffamily\sansmath\Huge, % font = Arial, huge=20pt, Huge=24pt
+		xtick={0,4,...,20},
+		ytick={50,60,...,100}] 
+    \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "Statistic/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
   \end{axis}
@@ -31,19 +51,15 @@ Vraag: hoeveel features zijn nodig om een redelijke accuraatheit (=90\% van de g
 
 \begin{tikzpicture}
   \begin{axis}[
+  		title=DWT/InfoGain/RandomForest,
 		xlabel=Aantal features,
-		ylabel=Accuraatheid (\%)]
-    \addplot +[no markers, raw gnuplot] gnuplot {
-        plot "FFT/InfoGain/RandomForest/results.dat" smooth sbezier;
-    };
-  \end{axis}
-\end{tikzpicture}
-
-\begin{tikzpicture}
-  \begin{axis}[
-		xlabel=Aantal features,
-		ylabel=Accuraatheid (\%)]
-    \addplot +[no markers, raw gnuplot] gnuplot {
+		ylabel=Accuraatheid (\%),
+		width=37cm,
+		height=30cm,
+		font=\sffamily\sansmath\Huge, % font = Arial, huge=20pt, Huge=24pt
+		xtick={0,6,...,30},
+		ytick={50,60,...,100}] 
+    \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "DWT/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
   \end{axis}
@@ -51,9 +67,31 @@ Vraag: hoeveel features zijn nodig om een redelijke accuraatheit (=90\% van de g
 
 \begin{tikzpicture}
   \begin{axis}[
+  		title=FFT/InfoGain/RandomForest,
 		xlabel=Aantal features,
-		ylabel=Accuraatheid (\%)]
-    \addplot +[no markers, raw gnuplot] gnuplot {
+		ylabel=Accuraatheid (\%),
+		width=37cm,
+		height=30cm,
+		font=\sffamily\sansmath\Huge, % font = Arial, huge=20pt, Huge=24pt
+		xtick={0,10,...,84},
+		ytick={50,60,...,100}] 
+    \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
+        plot "FFT/InfoGain/RandomForest/results.dat" smooth sbezier;
+    };
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+  		title=HMM/InfoGain/RandomForest,
+		xlabel=Aantal features,
+		ylabel=Accuraatheid (\%),
+		width=37cm,
+		height=30cm,
+		font=\sffamily\sansmath\Huge, % font = Arial, huge=20pt, Huge=24pt
+		xtick={0,2,...,10},
+		ytick={50,60,...,100}] 
+    \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "HMM/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
   \end{axis}
