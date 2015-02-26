@@ -1,0 +1,5 @@
+Experiment voor feature set gedaan
+Locatie van resultaten: ./Experimenten/FeatureSet/DWT/InfoGain/RandomForest/
+Gebruikte dataset: ./Experimenten/FeatureSet/data-dwt.csv
+Gebruikte methode: weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1
+Opties voor AttributeSelectedClassifier: -x 2 -E "weka.attributeSelection.InfoGainAttributeEval" -S "weka.attributeSelection.Ranker

@@ -1,0 +1,62 @@
+\documentclass{minimal}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+
+Vraag: hoeveel features zijn nodig om een redelijke accuraatheit (=90\% van de grootste accuraatheid) te behalen?
+
+% TODO : lijn waar accuraatheid == 90% van grootste accuraatheid
+
+\begin{tikzpicture}
+  \begin{axis}[
+		xlabel=Aantal features,
+		ylabel=Accuraatheid (\%)]
+    \addplot +[no markers, raw gnuplot] gnuplot {
+        plot "AllFeatures/InfoGain/RandomForest/results.dat" smooth sbezier;
+    };
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+		xlabel=Aantal features,
+		ylabel=Accuraatheid (\%)]
+    \addplot +[no markers, raw gnuplot] gnuplot {
+        plot "Statistic/InfoGain/RandomForest/results.dat" smooth sbezier;
+    };
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+		xlabel=Aantal features,
+		ylabel=Accuraatheid (\%)]
+    \addplot +[no markers, raw gnuplot] gnuplot {
+        plot "FFT/InfoGain/RandomForest/results.dat" smooth sbezier;
+    };
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+		xlabel=Aantal features,
+		ylabel=Accuraatheid (\%)]
+    \addplot +[no markers, raw gnuplot] gnuplot {
+        plot "DWT/InfoGain/RandomForest/results.dat" smooth sbezier;
+    };
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+		xlabel=Aantal features,
+		ylabel=Accuraatheid (\%)]
+    \addplot +[no markers, raw gnuplot] gnuplot {
+        plot "HMM/InfoGain/RandomForest/results.dat" smooth sbezier;
+    };
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}
