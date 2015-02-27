@@ -26,7 +26,7 @@
 		xtick={0,10,...,140},
 		ytick={50,60,...,100}] 
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
-        plot "AllFeatures/InfoGain/RandomForest/results.dat" smooth sbezier;
+        plot "AllFeatures/InfoGain/RandomForest/results.dat" smooth bezier 0;
     };
     \addplot[only marks] file {AllFeatures/InfoGain/RandomForest/results.dat};
   \end{axis}
@@ -45,9 +45,9 @@
 		xtick={0,4,...,20},
 		ytick={50,60,...,100}] 
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
-        plot "Statistic/InfoGain/RandomForest/results.dat" smooth sbezier;
+        plot "Statistic/InfoGain/J48/results.dat" smooth sbezier;
     };
-    \addplot[only marks] file {Statistic/InfoGain/RandomForest/results.dat};
+    \addplot[only marks] file {Statistic/InfoGain/J48/results.dat};
   \end{axis}
 \end{tikzpicture}
 
@@ -62,9 +62,9 @@
 		xtick={0,6,...,30},
 		ytick={50,60,...,100}] 
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
-        plot "DWT/InfoGain/RandomForest/results.dat" smooth sbezier;
+        plot "DWT/InfoGain/J48/results.dat" smooth sbezier;
     };
-    \addplot[only marks] file {DWT/InfoGain/RandomForest/results.dat};
+    \addplot[only marks] file {DWT/InfoGain/J48/results.dat};
   \end{axis}
 \end{tikzpicture}
 
@@ -79,9 +79,9 @@
 		xtick={0,10,...,84},
 		ytick={50,60,...,100}] 
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
-        plot "FFT/InfoGain/RandomForest/results.dat" smooth sbezier;
+        plot "FFT/InfoGain/J48/results.dat" smooth sbezier;
     };
-    \addplot[only marks] file {FFT/InfoGain/RandomForest/results.dat};
+    \addplot[only marks] file {FFT/InfoGain/J48/results.dat};
   \end{axis}
 \end{tikzpicture}
 
@@ -96,7 +96,7 @@
 		xtick={0,2,...,10},
 		ytick={50,60,...,100}] 
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
-        plot "HMM/InfoGain/RandomForest/results.dat" smooth sbezier;
+        plot "HMM/InfoGain/RandomForest/results.dat" smooth bezier 0;
     };
     \addplot[only marks] file {HMM/InfoGain/RandomForest/results.dat};
   \end{axis}
