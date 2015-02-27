@@ -28,6 +28,7 @@
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "AllFeatures/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
+    \addplot[only marks] file {AllFeatures/InfoGain/RandomForest/results.dat};
   \end{axis}
 \end{tikzpicture}
 
@@ -46,6 +47,7 @@
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "Statistic/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
+    \addplot[only marks] file {Statistic/InfoGain/RandomForest/results.dat};
   \end{axis}
 \end{tikzpicture}
 
@@ -62,6 +64,7 @@
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "DWT/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
+    \addplot[only marks] file {DWT/InfoGain/RandomForest/results.dat};
   \end{axis}
 \end{tikzpicture}
 
@@ -78,6 +81,7 @@
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "FFT/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
+    \addplot[only marks] file {FFT/InfoGain/RandomForest/results.dat};
   \end{axis}
 \end{tikzpicture}
 
@@ -94,6 +98,7 @@
     \addplot +[no markers, raw gnuplot, color=orange, line width=2mm] gnuplot {
         plot "HMM/InfoGain/RandomForest/results.dat" smooth sbezier;
     };
+    \addplot[only marks] file {HMM/InfoGain/RandomForest/results.dat};
   \end{axis}
 \end{tikzpicture}
 
