@@ -1,5 +1,5 @@
-J48 		87.5
 RandomForest 	93.75
+J48 		87.5
 IBk 		83.125
 NaiveBayes 	90.0
 LibSVM 		71.25
