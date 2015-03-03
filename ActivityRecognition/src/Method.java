@@ -72,7 +72,13 @@ public enum Method {
 	/**
 	 * Random forest: 20 bomen
 	 */
-	RandomForest_2("-I 20 -K 0 -S 1");
+	RandomForest_2("-I 20 -K 0 -S 1"),
+	
+	/**
+	 * K star: default
+	 */
+	KStar("-B 20");
+
 	
 	/**
 	 * Opties voor de methode

@@ -4,8 +4,8 @@
  15  0  1  0  0  0  0  0  0  0 |  a = Trapaf
   0 16  0  0  0  0  0  0  0  0 |  b = Lopen
   1  0 15  0  0  0  0  0  0  0 |  c = Trapop
-  0  0  0 13  0  0  0  0  3  0 |  d = Tandenpoetsen
-  0  0  0  0  8  0  0  8  0  0 |  e = LiftAD
+  0  0  0 15  0  0  0  0  1  0 |  d = Tandenpoetsen
+  0  0  0  0  7  0  0  9  0  0 |  e = LiftAD
   0  0  0  0  0 16  0  0  0  0 |  f = Fietsen
   0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
   0  0  0  0 11  0  0  5  0  0 |  h = LiftAU

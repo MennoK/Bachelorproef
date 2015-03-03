@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.7)  27 FEB 2015 10:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.10)  1 MAR 2015 15:40
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **Grafieken.tex
 (./Grafieken.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 28 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls
 Document Class: standalone 2012/09/15 v1.1b Class to compile TeX sub-files stan
 dalone
@@ -576,7 +576,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.9}).
 
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {AllFeatures/InfoGain/RandomForest/results.dat}
@@ -601,25 +601,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 32.
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {Statistic/InfoGain/J48/results.dat}
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {DWT/InfoGain/J48/results.dat}
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {FFT/InfoGain/J48/results.dat}
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {HMM/InfoGain/RandomForest/results.dat}
@@ -627,17 +627,17 @@ PGFPlots: reading {HMM/InfoGain/RandomForest/results.dat}
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Grafieken.aux) ) 
 Here is how much of TeX's memory you used:
- 18170 strings out of 494424
- 445162 string characters out of 6165346
- 704575 words of memory out of 5000000
- 21049 multiletter control sequences out of 15000+600000
+ 18170 strings out of 493304
+ 445162 string characters out of 6139870
+ 707293 words of memory out of 5000000
+ 21257 multiletter control sequences out of 15000+600000
  14775 words of font info for 37 fonts, out of 8000000 for 9000
- 372 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  63i,10n,94p,732b,1791s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/s
 hare/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-d
 ist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Grafieken.pdf (1 page, 39570 bytes).
+Output written on Grafieken.pdf (1 page, 39803 bytes).
 PDF statistics:
  16 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream
