@@ -645,9 +645,11 @@ public class ActivityRecognition {
 	}
 	
 	/**
-	 * Sorteer de kolommen van een csv-bestand in alfabetische volgorde.
+	 * Sorteer de kolommen van een csv-bestand in alfabetische volgorde (met "label" als laatste kolom).
+	 * 
 	 * @param 	path
-	 * 			Pad naar csv-bestand
+	 * 			Pad naar csv-bestand.
+	 * 			Er wordt verwacht dat in dit de laatste kolom de "label" kolom is.
 	 * @param 	newPath
 	 * 			Pad naar nieuw csv-bestand
 	 */
@@ -657,7 +659,7 @@ public class ActivityRecognition {
 		// bron: http://www.coderanch.com/t/609848/java/java/sorting-csv-file-fixing-column
 		
 		CSVReader reader = new CSVReader(new FileReader(path));
-        String [] nextLine,sortedNextLine;
+        String[] nextLine, sortedNextLine;
         List<String> columns = new ArrayList<String>();
         List<String> sortedColumns = new ArrayList<String>();
         Map<Integer,Integer> map = new HashMap<Integer,Integer>();
@@ -665,12 +667,15 @@ public class ActivityRecognition {
         if ((nextLine = reader.readNext()) != null) {
             int i = nextLine.length;
          
-            for(int j=0;j<i;j++){
+            for(int j=0;j<i-1;j++){
             columns.add(nextLine[j]);
             sortedColumns.add(nextLine[j]);
             }
              
             Collections.sort(sortedColumns);
+            
+            columns.add(nextLine[i-1]);
+            sortedColumns.add(nextLine[i-1]); // "label" kolom achteraan
         }
          
  
@@ -679,20 +684,13 @@ public class ActivityRecognition {
             String str = columns.get(i);
             map.put(i, sortedColumns.indexOf(str));
         }
-     
-        for(int i=0;i<map.size();i++){
-            //System.out.println(" key is :" + i + ", value is :" + map.get(i));
-        }
          
         CSVWriter writer = new CSVWriter(new FileWriter(newPath), ',',CSVWriter.NO_QUOTE_CHARACTER);
          
         sortedNextLine = new String[sortedColumns.size()];
-        //System.out.println(sortedNextLine.length);
-        //System.out.println(sortedNextLine[0] + "-" + sortedNextLine[1]);
          
         for(int k = 0; k < sortedColumns.size(); k++){
             sortedNextLine[k] = sortedColumns.get(k);
-            System.out.println(sortedNextLine[k]);
         }
  
         writer.writeNext(sortedNextLine);
