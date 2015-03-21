@@ -1,0 +1,11 @@
+#!/bin/sh
+
+export CLASSPATH=./weka.jar:$CLASSPATH
+
+java weka.core.converters.CSVLoader data-allfeatures.csv > data-allfeatures.arff
+
+java weka.core.converters.CSVLoader features.csv > features.arff
+
+java weka.filters.unsupervised.attribute.StringToWordVector -b -i data-allfeatures.arff -o data-allfeatures-std.arff -r features.arff -s features-std.arff
+
+java weka.filters.unsupervised.attribute.Standardize -b -i data-allfeatures.arff -o data-allfeatures-standardized.arff -r features.arff -s features-standardized.arff

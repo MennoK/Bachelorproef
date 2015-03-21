@@ -60,6 +60,39 @@ public class HelperFunctions {
 		writer.close();
 	}
 	
+static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMeasurements) throws IOException {
+		
+		// zet de inhoud van het logbestand in een string
+		String s = new String(readAllBytes(get(pathIN)));
+		
+		// maak hiervan een JSON object in Java
+		JSONObject obj = (JSONObject) JSONValue.parse(s);
+		JSONArray measurements = (JSONArray) obj.get("measurements");
+	
+		// itereer over alle measurements en bouw ondertussen het nieuwe json object op
+		Map preprocessed = new LinkedHashMap();
+		JSONArray measurementsPre = new JSONArray();
+		preprocessed.put("measurements", measurementsPre);
+		Iterator<JSONObject> iterator = measurements.iterator();
+		int count = 0;
+		while(iterator.hasNext() && count < nbMeasurements) {
+			JSONObject m = iterator.next();
+			measurementsPre.add(m);
+			count++;
+		}
+		preprocessed.put("has_gravity", obj.get("has_gravity"));
+		preprocessed.put("user", obj.get("user"));
+		preprocessed.put("notes", obj.get("notes"));
+		StringWriter out = new StringWriter();
+		JSONValue.writeJSONString(preprocessed, out);
+		String jsonText = out.toString();
+		
+		// schrijf weg naar nieuw bestand
+		PrintWriter writer = new PrintWriter(pathOUT, "UTF-8");
+		writer.println(jsonText);
+		writer.close();
+	}
+	
 	/**
 	 * Vraag de accuracy (van de cross-validatie) in een gegeven output txt-bestand op.
 	 * 

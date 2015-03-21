@@ -17,10 +17,19 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JFrame;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.DefaultXYDataset;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -37,6 +46,10 @@ public class ActivityRecognition {
 			}
 			else if (args[0].equals("plot") && args.length == 3) {
 				String print = plot(Double.parseDouble(args[1]),args[2]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("longplot") && args.length == 2) {
+				String print = longplot(args[1]);
 				System.out.println(print);
 			}
 			else if (args[0].equals("cut") && args.length == 4) {
@@ -418,12 +431,91 @@ public class ActivityRecognition {
 	@Command(description="Plot de eerste X seconden een opgegeven log-bestand in een PDF-bestand")
 	public static String plot(@Param(name="seconds", description="Het aantal seconden dat moet geplot worden") double seconds,
 			@Param(name="path", description="Pad naar log-bestand") String path) {
-		double startTime = 0.0; // TODO: dit moet de starttijd (in s) van de meting zijn!
-		System.out.println(cut(path,startTime,startTime+seconds));
+		//System.out.println(cut(path,0.0,startTime+seconds));
 		String pathNEW = path.substring(0, path.length() - 4) + ".cut.log";
-		System.out.println(plot(pathNEW));
-		Files.deleteFile(pathNEW);
-		return "";
+		try {
+			HelperFunctions.makeShorterLogFileFromStart(path, pathNEW, (int) seconds*50);
+		} catch (Exception e) {
+			return "Fout: kon log-bestand niet korter maken";
+		}
+		return plot(pathNEW);
+	}
+	
+	/**
+	 * Plot een opgegeven log-bestand in een lange plot
+	 * @param 	path
+	 * 			Pad naar log-bestand
+	 * @throws IOException 
+	 */
+	@Command(description="Plot een opgegeven log-bestand in een lange plot")
+	public static String longplot(@Param(name="path", description="Pad naar log-bestand") String path) throws IOException {
+		// zet de inhoud van het logbestand in een string
+		String s = new String(readAllBytes(get(path)));
+		
+		// maak hiervan een JSON object in Java
+		JSONObject obj = (JSONObject) JSONValue.parse(s);
+		JSONArray measurements = (JSONArray) obj.get("measurements");
+		
+		// maak arrays van alle gegevens
+		int NUM_VALUES = measurements.size();
+		double[][] zValues = new double[2][NUM_VALUES];
+		Iterator<JSONObject> iterator = measurements.iterator();
+		int i=0;
+		while(iterator.hasNext()) {
+			JSONObject m = iterator.next();
+			double x = (double) m.get("x");
+			double y = (double) m.get("y");
+			double z = (double) m.get("z");
+			zValues[0][i] = (long) m.get("timestamp");
+			zValues[1][i] = z;
+			i++;
+		}
+		
+		// timestamps in seconden...
+		double timestampfactor = timestampfactor((long) zValues[0][1], (long) zValues[0][zValues[0].length-1], NUM_VALUES);
+		for (int j=0; j < zValues[0].length; j++) {
+			zValues[0][j] *= timestampfactor;
+		}
+		
+		// gebruik die arrays voor een grafiek te maken met jFreeChart
+		DefaultXYDataset dataset = new DefaultXYDataset();
+		dataset.addSeries("z", zValues);
+	    JFreeChart chart = ChartFactory.createXYLineChart(
+	         "Accelerometer data (" + path + ")", // The chart title
+	         "Tijd (s)", // x axis label
+	         "Versnelling (m.s-2)", // y axis label
+	         dataset, // The dataset for the chart
+	         PlotOrientation.VERTICAL,
+	         true, // Is a legend required?
+	         false, // Use tooltips
+	         false // Configure chart to generate URLs?
+	    );
+
+	    // opslaan als afbeelding
+	    File imageFile = new File(path.substring(0, path.indexOf(".log")) + ".png");
+	    int width = NUM_VALUES;
+	    ChartUtilities.saveChartAsPNG(imageFile, chart, width, 400);
+
+	    // tonen in venster
+	    //JFrame frame = new XYChartExample();
+	    //frame.getContentPane().add(new ChartPanel(chart));
+	    //frame.setSize(NUM_VALUES, 350);
+	    //frame.setVisible(true);
+	    //frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+	    
+	    return "";
+	}
+	
+	private static double timestampfactor(long start, long end, int numValues) {
+		long diff = end - start;
+		double duration = numValues/50;
+		double factor = duration / diff;
+		int exp = 1;
+		while (! (factor > 0.5*Math.pow(10, exp))) {
+			exp--;
+		}
+		System.out.println("Factor: "+Math.pow(10, exp));
+		return Math.pow(10, exp);
 	}
 
 	/**
@@ -653,7 +745,7 @@ public class ActivityRecognition {
 	 * @param 	newPath
 	 * 			Pad naar nieuw csv-bestand
 	 */
-	@Command(description="Sorteert de kolommen van een csv-bestand in alfabetische volgorde.")
+	@Command(description="Sorteer de kolommen van een csv-bestand in alfabetische volgorde.")
 	public static String csvsort(@Param(name="path", description="Pad naar csv-bestand") String path, @Param(name="path", description="Pad naar nieuw csv-bestand") String newPath) throws IOException {
 		
 		// bron: http://www.coderanch.com/t/609848/java/java/sorting-csv-file-fixing-column
@@ -707,6 +799,68 @@ public class ActivityRecognition {
         reader.close();
 		
 		return "De kolommen van " + path + " werden gesorteerd en geschreven naar " + newPath;
+	}
+	
+	/**
+	 * Splits het opgegeven log-bestand op in tijdsvensters van een opgegeven lengte en overlapping
+	 * en bereken de features voor elk tijdsvenster.
+	 * Ook zal voor elk tijdsvenster het juiste label worden toegekend, die uit het csv-bestand bij het log-bestand hoort: [path]+".csv" // -> TODO !!!
+	 * 
+	 * @param 	path
+	 * 			Pad naar log-bestand
+	 * @param	settingsPath
+	 * 			Pad naar settings bestand om de features te berekenen
+	 * @param 	length
+	 * 			Lengte van tijdsvensters in seconden
+	 * @param 	overlap
+	 * 			Overlap van tijdsvensters (vb. 0.5)
+	 */
+	@Command
+	public static String split(@Param(name="path", description="Pad naar log-bestand") String path,
+			@Param(name="path", description="Pad naar settings-bestand om de features te berekenen") String settingsPath,
+			@Param(name="length", description="Lengte van tijdsvensters in seconden") int length,
+			@Param(name="overlap", description="Overlap van tijdsvensters (vb. 0.5)") double overlap) {
+		
+		String logName = Files.file(path).substring(0, Files.file(path).indexOf(".log"));
+		
+		// lees het settings-bestand in
+		String s;
+		try {
+			s = new String(readAllBytes(get(settingsPath)));
+		} catch (IOException e) {
+			return "Settings-bestand niet gevonden";
+		}
+		// maak hiervan een JSON object in Java
+		JSONObject settings = (JSONObject) JSONValue.parse(s);
+		
+		// maak een nieuw settings-bestand met dezelfde instellingen, behalve de window_seconds
+		String settings2 = HelperFunctions.settings2(
+				-1, // we gaan het opsplitsen in 
+				(int) settings.get("nb_fft_features"),
+				(double) settings.get("step_fft_features"),
+				(int) settings.get("nb_fft_peaks"),
+				(double) settings.get("window_fft_features"),
+				(String) settings.get("wavelet_type"),
+				(int) settings.get("nb_dwt_features"),
+				(int) settings.get("nb_wpd_features"),
+				(double) settings.get("peak_wss"),
+				(double) settings.get("peak_mindev"),
+				(boolean) settings.get("geo_correct"),
+				(boolean) settings.get("ignore_q"),
+				(double) settings.get("f_co"),
+				(int) settings.get("hmm_states"),
+				(int) settings.get("hmm_learn_iterations"),
+				(JSONArray) settings.get("hmm_files"));
+		
+		// maak een tijdelijk settings-bestand
+		Files.writeFile("Temp/"+logName+"/settings.json", settings2);
+		
+		// laat MotionFingerprint alle features berekenen voor elk tijdsvenster
+		// for (int i=0; i )
+
+		
+		return null;
+		
 	}
 		
 }
