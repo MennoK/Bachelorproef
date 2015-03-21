@@ -3,14 +3,19 @@ import static java.nio.file.Paths.get;
 import asg.cliche.Command;
 import asg.cliche.Param;
 import asg.cliche.ShellFactory;
+import au.com.bytecode.opencsv.CSVReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,6 +24,8 @@ import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+
+import com.opencsv.CSVWriter;
 
 public class ActivityRecognition {
 	
@@ -73,7 +80,7 @@ public class ActivityRecognition {
 				String print = makehmmsettings(args[1],Integer.parseInt(args[2]),Integer.parseInt(args[3]));
 				System.out.println(print);
 			}
-			else if (args[0]. equals("expsettings")) {
+			else if (args[0].equals("expsettings")) {
 				String[] args2 = { };
 				ExpSettings.main(args2);
 			}
@@ -81,13 +88,17 @@ public class ActivityRecognition {
 				String[] args2 = { };
 				ExpSettingsHMMs.main(args2);
 			}*/
-			else if (args[0]. equals("expfeatureset")) {
+			else if (args[0].equals("expfeatureset")) {
 				String[] args2 = { };
 				ExpFeatureSet.main(args2);
 			}
-			else if (args[0]. equals("expmethod")) {
+			else if (args[0].equals("expmethod")) {
 				String[] args2 = { };
 				ExpMethod.main(args2);
+			}
+			else if (args[0].equals("csvsort") && args.length == 3) {
+				String print = csvsort(args[1], args[2]);
+				System.out.println(print);
 			}
 			else {
 				System.out.println("Commando niet begrepen...");
@@ -631,6 +642,73 @@ public class ActivityRecognition {
 		writer.println(jsonText);
 		writer.close();
 		return "Label van "+path+" veranderd naar: "+label;
+	}
+	
+	/**
+	 * Sorteer de kolommen van een csv-bestand in alfabetische volgorde.
+	 * @param 	path
+	 * 			Pad naar csv-bestand
+	 * @param 	newPath
+	 * 			Pad naar nieuw csv-bestand
+	 */
+	@Command(description="Sorteert de kolommen van een csv-bestand in alfabetische volgorde.")
+	public static String csvsort(@Param(name="path", description="Pad naar csv-bestand") String path, @Param(name="path", description="Pad naar nieuw csv-bestand") String newPath) throws IOException {
+		
+		// bron: http://www.coderanch.com/t/609848/java/java/sorting-csv-file-fixing-column
+		
+		CSVReader reader = new CSVReader(new FileReader(path));
+        String [] nextLine,sortedNextLine;
+        List<String> columns = new ArrayList<String>();
+        List<String> sortedColumns = new ArrayList<String>();
+        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+         
+        if ((nextLine = reader.readNext()) != null) {
+            int i = nextLine.length;
+         
+            for(int j=0;j<i;j++){
+            columns.add(nextLine[j]);
+            sortedColumns.add(nextLine[j]);
+            }
+             
+            Collections.sort(sortedColumns);
+        }
+         
+ 
+         
+        for(int i=0;i<columns.size();i++){
+            String str = columns.get(i);
+            map.put(i, sortedColumns.indexOf(str));
+        }
+     
+        for(int i=0;i<map.size();i++){
+            //System.out.println(" key is :" + i + ", value is :" + map.get(i));
+        }
+         
+        CSVWriter writer = new CSVWriter(new FileWriter(newPath), ',',CSVWriter.NO_QUOTE_CHARACTER);
+         
+        sortedNextLine = new String[sortedColumns.size()];
+        //System.out.println(sortedNextLine.length);
+        //System.out.println(sortedNextLine[0] + "-" + sortedNextLine[1]);
+         
+        for(int k = 0; k < sortedColumns.size(); k++){
+            sortedNextLine[k] = sortedColumns.get(k);
+            System.out.println(sortedNextLine[k]);
+        }
+ 
+        writer.writeNext(sortedNextLine);
+         
+        while ((nextLine = reader.readNext()) != null) {
+            for(int count=0;count < nextLine.length ; count++){
+                String str = nextLine[count];
+                sortedNextLine[map.get(count)] = str;
+            }
+            writer.writeNext(sortedNextLine);
+        }
+         
+        writer.close();
+        reader.close();
+		
+		return "De kolommen van " + path + " werden gesorteerd en geschreven naar " + newPath;
 	}
 		
 }
