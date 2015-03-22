@@ -15,6 +15,7 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,6 +36,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 import com.opencsv.CSVWriter;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class ActivityRecognition {
 	
@@ -477,31 +479,43 @@ public class ActivityRecognition {
 			zValues[0][j] *= timestampfactor;
 		}
 		
-		// gebruik die arrays voor een grafiek te maken met jFreeChart
-		DefaultXYDataset dataset = new DefaultXYDataset();
-		dataset.addSeries("z", zValues);
-	    JFreeChart chart = ChartFactory.createXYLineChart(
-	         "Accelerometer data (" + path + ")", // The chart title
-	         "Tijd (s)", // x axis label
-	         "Versnelling (m.s-2)", // y axis label
-	         dataset, // The dataset for the chart
-	         PlotOrientation.VERTICAL,
-	         true, // Is a legend required?
-	         false, // Use tooltips
-	         false // Configure chart to generate URLs?
-	    );
-
-	    // opslaan als afbeelding
-	    File imageFile = new File(path.substring(0, path.indexOf(".log")) + ".png");
-	    int width = NUM_VALUES;
-	    ChartUtilities.saveChartAsPNG(imageFile, chart, width, 400);
-
-	    // tonen in venster
-	    //JFrame frame = new XYChartExample();
-	    //frame.getContentPane().add(new ChartPanel(chart));
-	    //frame.setSize(NUM_VALUES, 350);
-	    //frame.setVisible(true);
-	    //frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		int minuut = 1;
+		for (int n=0; n <= zValues[0].length; n+=60*50) { // per minuut een afbeelding maken
+			
+			double[][] values = new double[2][zValues[0].length];
+			values[0] = Arrays.copyOfRange(zValues[0], n, Math.min(zValues[0].length, n+60*50));
+			values[1] = Arrays.copyOfRange(zValues[1], n, Math.min(zValues[1].length, n+60*50));
+			
+		
+			// gebruik die arrays voor een grafiek te maken met jFreeChart
+			DefaultXYDataset dataset = new DefaultXYDataset();
+			dataset.addSeries("z", values);
+		    JFreeChart chart = ChartFactory.createXYLineChart(
+		         "Accelerometer data (" + path + ")", // The chart title
+		         "Tijd (s)", // x axis label
+		         "Versnelling (m.s-2)", // y axis label
+		         dataset, // The dataset for the chart
+		         PlotOrientation.VERTICAL,
+		         true, // Is a legend required?
+		         false, // Use tooltips
+		         false // Configure chart to generate URLs?
+		    );
+	
+		    // opslaan als afbeelding
+		    File imageFile = new File(path.substring(0, path.indexOf(".log")) + "-minuut"+minuut+".png");
+		    int width = (int) (values[0].length*2.5);
+		    ChartUtilities.saveChartAsPNG(imageFile, chart, width, 400);
+	
+		    // tonen in venster
+		    //JFrame frame = new XYChartExample();
+		    //frame.getContentPane().add(new ChartPanel(chart));
+		    //frame.setSize(NUM_VALUES, 350);
+		    //frame.setVisible(true);
+		    //frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		    
+		    minuut++;
+	    
+		}
 	    
 	    return "";
 	}
