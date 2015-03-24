@@ -460,6 +460,8 @@ public class ActivityRecognition {
 		
 		// maak arrays van alle gegevens
 		int NUM_VALUES = measurements.size();
+		double[][] xValues = new double[2][NUM_VALUES];
+		double[][] yValues = new double[2][NUM_VALUES];
 		double[][] zValues = new double[2][NUM_VALUES];
 		Iterator<JSONObject> iterator = measurements.iterator();
 		int i=0;
@@ -468,6 +470,10 @@ public class ActivityRecognition {
 			double x = (double) m.get("x");
 			double y = (double) m.get("y");
 			double z = (double) m.get("z");
+			xValues[0][i] = (long) m.get("timestamp");
+			xValues[1][i] = x;
+			yValues[0][i] = (long) m.get("timestamp");
+			yValues[1][i] = y;
 			zValues[0][i] = (long) m.get("timestamp");
 			zValues[1][i] = z;
 			i++;
@@ -476,20 +482,30 @@ public class ActivityRecognition {
 		// timestamps in seconden...
 		double timestampfactor = timestampfactor((long) zValues[0][1], (long) zValues[0][zValues[0].length-1], NUM_VALUES);
 		for (int j=0; j < zValues[0].length; j++) {
+			xValues[0][j] *= timestampfactor;
+			yValues[0][j] *= timestampfactor;
 			zValues[0][j] *= timestampfactor;
 		}
 		
 		int minuut = 1;
 		for (int n=0; n <= zValues[0].length; n+=60*50) { // per minuut een afbeelding maken
 			
-			double[][] values = new double[2][zValues[0].length];
-			values[0] = Arrays.copyOfRange(zValues[0], n, Math.min(zValues[0].length, n+60*50));
-			values[1] = Arrays.copyOfRange(zValues[1], n, Math.min(zValues[1].length, n+60*50));
+			double[][] xValues2 = new double[2][zValues[0].length];
+			xValues2[0] = Arrays.copyOfRange(xValues[0], n, Math.min(xValues[0].length, n+60*50));
+			xValues2[1] = Arrays.copyOfRange(xValues[1], n, Math.min(xValues[1].length, n+60*50));
+			double[][] yValues2 = new double[2][zValues[0].length];
+			yValues2[0] = Arrays.copyOfRange(yValues[0], n, Math.min(yValues[0].length, n+60*50));
+			yValues2[1] = Arrays.copyOfRange(yValues[1], n, Math.min(yValues[1].length, n+60*50));
+			double[][] zValues2 = new double[2][zValues[0].length];
+			zValues2[0] = Arrays.copyOfRange(zValues[0], n, Math.min(zValues[0].length, n+60*50));
+			zValues2[1] = Arrays.copyOfRange(zValues[1], n, Math.min(zValues[1].length, n+60*50));
 			
 		
 			// gebruik die arrays voor een grafiek te maken met jFreeChart
 			DefaultXYDataset dataset = new DefaultXYDataset();
-			dataset.addSeries("z", values);
+			dataset.addSeries("x", xValues2);
+			dataset.addSeries("y", yValues2);
+			dataset.addSeries("z", zValues2);
 		    JFreeChart chart = ChartFactory.createXYLineChart(
 		         "Accelerometer data (" + path + ")", // The chart title
 		         "Tijd (s)", // x axis label
@@ -503,7 +519,7 @@ public class ActivityRecognition {
 	
 		    // opslaan als afbeelding
 		    File imageFile = new File(path.substring(0, path.indexOf(".log")) + "-minuut"+minuut+".png");
-		    int width = (int) (values[0].length*2.5);
+		    int width = (int) (xValues2[0].length*2.5);
 		    ChartUtilities.saveChartAsPNG(imageFile, chart, width, 400);
 	
 		    // tonen in venster
@@ -528,7 +544,7 @@ public class ActivityRecognition {
 		while (! (factor > 0.5*Math.pow(10, exp))) {
 			exp--;
 		}
-		System.out.println("Factor: "+Math.pow(10, exp));
+		//System.out.println("Factor: "+Math.pow(10, exp));
 		return Math.pow(10, exp);
 	}
 
