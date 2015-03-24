@@ -1,51 +1,65 @@
 package sequences;
 
+import helpers.DataSet;
 import helpers.HelperFunctions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
 
+import weka.classifiers.Classifier;
 import weka.core.Instances;
 import weka.core.converters.CSVLoader;
 
 public class Sequence {
 	
 	public final String pathToLogFile;
+	public double windowSeconds, overlap;
 	
 	public final String name;
 	
-	public Instances instances;
+	public List<Window> windows;
 	
-	public Sequence(String pathToLogFile, double windowSeconds, double overlap) {
+	public Sequence(String pathToLogFile, double windowSeconds, double overlap, String pathToSettingsFile) throws Exception {
 		this.pathToLogFile = pathToLogFile;
+		this.windowSeconds = windowSeconds;
+		this.overlap = overlap;
 		this.name = FilenameUtils.removeExtension(FilenameUtils.getName(pathToLogFile));
-		
+		this.windows = split(pathToLogFile, windowSeconds, overlap, pathToSettingsFile);
 	}
 	
 	/**
-	 * opm: en geeft de bestandsnaam van het .csv-bestand met de features
-	 * @throws IOException 
+	 * Geeft het voorspelde label terug in de sequentie van (startTimeStamp) tot (startTimeStamp+0.5)
+	 * @param startTimeStamp		De starttijd in seconden
+	 * @param classifier			Classifier om de labels te voorspellen
+	 * @param noiseCutOff			Cut-off kans voor ruis: als grootste kans voor de labels < noiseCutoff, geef dan "Ruis" terug
 	 */
-	private String calculateFeatures(String pathToLogFile, double startSeconds, double endSeconds, String pathToSettingsFile) throws IOException {
-		String pathToShorterLogFile = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut.log";
-		String pathToCsv = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut.csv";
-		HelperFunctions.makeShorterLogFile(this.pathToLogFile, pathToShorterLogFile, startSeconds, endSeconds);
-		helpers.Features.settingsFeatures(pathToShorterLogFile, pathToSettingsFile);
-		return pathToCsv;
+	public String getPrediction(double startTimeStamp, Classifier classifier, double noiseCutOff) {
+		return null; // TODO
 	}
 	
-	private Instances getInstances(String pathToCsvFile, double windowSeconds, double overlap) {
-		try {
-			CSVLoader csv = new CSVLoader();
-			csv.setFile(new File(pathToLogFile));
-			this.instances = csv.getDataSet();
-			this.instances.setClassIndex(this.instances.numAttributes() - 1);
-		} catch (Exception e) {
-			System.out.println("Log-bestand niet gevonden: "+pathToLogFile);
+	/**
+	 * Knipt de sequentie in een lijst van tijdsvensters.
+	 */
+	private List<Window> split(String pathToLogFile, double windowSeconds, double overlap, String pathToSettingsFile) throws Exception {
+		List<Window> windows = new ArrayList<>();
+		double startSeconds = HelperFunctions.getStartTimestamp(pathToLogFile);
+		double endSeconds = startSeconds + windowSeconds;
+		// voeg alle windows tot en met de voorlaatste
+		while (endSeconds < HelperFunctions.getEndTimestamp(pathToLogFile)) {
+			// voeg het window toe
+			windows.add(new Window(pathToLogFile, startSeconds, endSeconds, pathToSettingsFile));
+			// update startSeconds en endSeconds
+			startSeconds = endSeconds - overlap * windowSeconds;
+			endSeconds = startSeconds + windowSeconds;
 		}
-		return null; // TODO
+		// voeg laatste window toe, is waarschijnlijk korter
+		endSeconds = HelperFunctions.getEndTimestamp(pathToLogFile);
+		windows.add(new Window(pathToLogFile, startSeconds, endSeconds, pathToSettingsFile));
+		return windows;
 	}
 
 }
