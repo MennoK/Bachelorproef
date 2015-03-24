@@ -1,4 +1,7 @@
+package test;
 import static org.junit.Assert.*;
+
+import helpers.HelperFunctions;
 
 import java.io.IOException;
 

@@ -1,4 +1,8 @@
+package test;
 import static org.junit.Assert.*;
+
+import helpers.Features;
+import helpers.Files;
 
 import java.io.File;
 import java.io.IOException;

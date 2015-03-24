@@ -1,3 +1,4 @@
+package helpers;
 import static java.nio.file.Files.readAllBytes;
 import static java.nio.file.Paths.get;
 
@@ -21,7 +22,7 @@ import com.typesafe.config.ConfigException.Parse;
 
 public class HelperFunctions {
 	
-	static void makeShorterLogFile(String pathIN, String pathOUT, double start, double end) throws IOException {
+	public static void makeShorterLogFile(String pathIN, String pathOUT, double start, double end) throws IOException {
 		
 		// zet de inhoud van het logbestand in een string
 		String s = new String(readAllBytes(get(pathIN)));
@@ -60,7 +61,7 @@ public class HelperFunctions {
 		writer.close();
 	}
 	
-static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMeasurements) throws IOException {
+	public static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMeasurements) throws IOException {
 		
 		// zet de inhoud van het logbestand in een string
 		String s = new String(readAllBytes(get(pathIN)));
@@ -123,7 +124,7 @@ static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMea
 	 * @param 	path
 	 * 			Pad naar bestand
 	 */
-	static void hmm(String path) {
+	public static void hmm(String path) {
 		try {
 			
 			// lees bestand in
@@ -154,7 +155,7 @@ static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMea
 	 * Geef de inhoud van een settings.json bestand om HMM's te maken met een gegeven
 	 * aantal states en iterations.
 	 */
-	static String hmmsettings(int states, int iterations) {
+	public static String hmmsettings(int states, int iterations) {
 		Map settings = new LinkedHashMap();
 		
 		settings.put("window_seconds",-1);
@@ -189,7 +190,7 @@ static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMea
 	/**
 	 * Geef de inhoud van een settings.json bestand met opgegeven parameters.
 	 */
-	static String settings(int window_seconds,
+	public static String settings(int window_seconds,
 							int nb_fft_features,
 							double step_fft_features,
 							int nb_fft_peaks,
@@ -239,7 +240,7 @@ static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMea
 	/**
 	 * Geef de inhoud van een settings.json bestand met opgegeven parameters met lijst van HMM files.
 	 */
-	static String settings2(int window_seconds,
+	public static String settings2(int window_seconds,
 							int nb_fft_features,
 							double step_fft_features,
 							int nb_fft_peaks,
@@ -289,10 +290,72 @@ static void makeShorterLogFileFromStart(String pathIN, String pathOUT, int nbMea
 	
 	
 	
-	static String doubleFormat(String number) {
+	public static String doubleFormat(String number) {
 		double x = Double.parseDouble(number);
 		String withComma = String.format("%.20f", x);
 		return withComma.replace(",",".");
+	}
+	
+	public static long getStartTimestamp(String path) throws IOException {
+		
+		// zet de inhoud van het logbestand in een string
+		String s = new String(readAllBytes(get(path)));
+		
+		// maak hiervan een JSON object in Java
+		JSONObject obj = (JSONObject) JSONValue.parse(s);
+		JSONArray measurements = (JSONArray) obj.get("measurements");
+		
+		return (long) ((Map) ((ArrayList) obj.get("measurements")).get(0)).get("timestamp");
+				
+	}
+	
+	public double getStartTime(String path) throws IOException {
+		return timestampfactor(getStartTimestamp(path),getEndTimestamp(path),getNumMeasurements(path)) * getStartTimestamp(path);
+	}
+	
+	
+	public static double timestampfactor(long start, long end, int numValues) {
+		long diff = end - start;
+		double duration = numValues/50;
+		double factor = duration / diff;
+		int exp = 1;
+		while (! (factor > 0.5*Math.pow(10, exp))) {
+			exp--;
+		}
+		//System.out.println("Factor: "+Math.pow(10, exp));
+		return Math.pow(10, exp);
+	}
+
+	public static long getEndTimestamp(String path) throws IOException {
+		
+		// zet de inhoud van het logbestand in een string
+		String s = new String(readAllBytes(get(path)));
+		
+		// maak hiervan een JSON object in Java
+		JSONObject obj = (JSONObject) JSONValue.parse(s);
+		JSONArray measurements = (JSONArray) obj.get("measurements");
+		
+		ArrayList list = (ArrayList) obj.get("measurements");
+		return (long) ((Map) list.get(list.size()-1)).get("timestamp");
+				
+	}
+	
+	public  double getEndTime(String path) throws IOException {
+		return timestampfactor(getStartTimestamp(path),getEndTimestamp(path),getNumMeasurements(path)) * getEndTimestamp(path);
+	}
+	
+	public int getNumMeasurements(String path) throws IOException {
+		
+		// zet de inhoud van het logbestand in een string
+		String s = new String(readAllBytes(get(path)));
+		
+		// maak hiervan een JSON object in Java
+		JSONObject obj = (JSONObject) JSONValue.parse(s);
+		JSONArray measurements = (JSONArray) obj.get("measurements");
+		
+		ArrayList list = (ArrayList) obj.get("measurements");
+		return list.size();
+				
 	}
 
 }

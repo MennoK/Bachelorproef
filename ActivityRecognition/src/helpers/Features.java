@@ -1,3 +1,5 @@
+package helpers;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,9 +18,9 @@ import csvMerge.Record;
 public class Features {
 
 	/**
-	 * Berekend de features van een log-bestand met settings.json bestand
+	 * Berekent de features van een log-bestand met settings.json bestand
 	 */
-	static String settingsFeatures(String pathLog, String pathSettings){
+	public static String settingsFeatures(String pathLog, String pathSettings){
 		String settingsname = pathSettings.substring(pathSettings.lastIndexOf("/")+1,pathSettings.lastIndexOf("."));
 		String csvPath = pathLog.substring(0,pathLog.lastIndexOf(".log")) + "." + settingsname + ".features.csv";
 		MotionFingerprint.command("--settings " + pathSettings + " --features "+ csvPath + " " + pathLog);
@@ -26,13 +28,13 @@ public class Features {
 	}
 
 	/**
-	 * Berekend de features van logs files uit een folder adhv verschillende
+	 * Berekent de features van logs files uit een folder adhv verschillende
 	 * settings bestanden
 	 * 
 	 * @param logs		: lijst met logs files
 	 * @param settings  : lijst met settings  files
 	 */
-	static String features(File[] logs, File[] settings) {
+	public static String features(File[] logs, File[] settings) {
 		for(File log : logs){
 			for(File setting : settings){
 				settingsFeatures(log.toString(),setting.toString());
@@ -45,7 +47,7 @@ public class Features {
 	 * Combineert de csv bestanden van dezelfde setting
 	 * @throws IOException 
 	 */
-	static String combineDataSets(File[] csvs, File[] settings) throws IOException{
+	public static String combineDataSets(File[] csvs, File[] settings) throws IOException{
 		for(File setting: settings){			
 		
 			String settingname = setting.getName().substring(0,setting.getName().indexOf(".json"));
@@ -72,7 +74,7 @@ public class Features {
 	 * 
 	 * @param trainingcsvs
 	 */
-	static String combineTrainingSets(File[] trainingcsvs) throws IOException{
+	public static String combineTrainingSets(File[] trainingcsvs) throws IOException{
 		
 		for(int i = 1; i <= 10; i++){
 			
@@ -99,7 +101,7 @@ public class Features {
 	/**
 	 * voor 1 settings bestand
 	 */
-	static String combineTrainingSets2(File[] trainingcsvs, String outputPath) throws IOException{	
+	public static String combineTrainingSets2(File[] trainingcsvs, String outputPath) throws IOException{	
 		List<Path> pathsToCsv = new ArrayList<>();
 
 		/*for(File csv: trainingcsvs){
@@ -121,7 +123,7 @@ public class Features {
 	 * 
 	 * @param csvfiles
 	 */
-	static List<String> mergeFiles(File[] csvFiles) throws IOException {
+	public static List<String> mergeFiles(File[] csvFiles) throws IOException {
 		List<Record> records = new ArrayList<Record>();
 		
 		Set<String> keyStore = new HashSet<>();

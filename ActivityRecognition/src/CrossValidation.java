@@ -1,3 +1,5 @@
+import helpers.Method;
+
 import java.util.Random;
 
 import weka.core.Instances;

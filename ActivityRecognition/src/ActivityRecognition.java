@@ -5,6 +5,13 @@ import asg.cliche.Param;
 import asg.cliche.ShellFactory;
 import au.com.bytecode.opencsv.CSVReader;
 
+import helpers.Classify;
+import helpers.Features;
+import helpers.Files;
+import helpers.HelperFunctions;
+import helpers.DataSet;
+import helpers.MotionFingerprint;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -37,6 +44,7 @@ import org.json.simple.JSONValue;
 
 import com.opencsv.CSVWriter;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 
 public class ActivityRecognition {
 	
@@ -480,7 +488,7 @@ public class ActivityRecognition {
 		}
 		
 		// timestamps in seconden...
-		double timestampfactor = timestampfactor((long) zValues[0][1], (long) zValues[0][zValues[0].length-1], NUM_VALUES);
+		double timestampfactor = HelperFunctions.timestampfactor((long) zValues[0][1], (long) zValues[0][zValues[0].length-1], NUM_VALUES);
 		for (int j=0; j < zValues[0].length; j++) {
 			xValues[0][j] *= timestampfactor;
 			yValues[0][j] *= timestampfactor;
@@ -536,18 +544,6 @@ public class ActivityRecognition {
 	    return "";
 	}
 	
-	private static double timestampfactor(long start, long end, int numValues) {
-		long diff = end - start;
-		double duration = numValues/50;
-		double factor = duration / diff;
-		int exp = 1;
-		while (! (factor > 0.5*Math.pow(10, exp))) {
-			exp--;
-		}
-		//System.out.println("Factor: "+Math.pow(10, exp));
-		return Math.pow(10, exp);
-	}
-
 	/**
 	 * Knip het opgegeven log-bestand van [start] tot [end]
 	 * @param 	path
@@ -865,7 +861,7 @@ public class ActivityRecognition {
 		
 		// maak een nieuw settings-bestand met dezelfde instellingen, behalve de window_seconds
 		String settings2 = HelperFunctions.settings2(
-				-1, // we gaan het opsplitsen in 
+				-1, // we gaan het opsplitsen in tijdsvensters zelf doen
 				(int) settings.get("nb_fft_features"),
 				(double) settings.get("step_fft_features"),
 				(int) settings.get("nb_fft_peaks"),

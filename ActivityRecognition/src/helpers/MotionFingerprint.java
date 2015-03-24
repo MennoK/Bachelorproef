@@ -1,3 +1,4 @@
+package helpers;
 public class MotionFingerprint {
 	
 	public static void command(String command) {
