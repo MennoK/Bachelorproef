@@ -19,6 +19,7 @@ import weka.core.converters.CSVLoader;
 public class Window {
 	
 	public Instance instance;
+	public double startSeconds, endSeconds;
 	
 	public Window(String pathToLogFile, double startSeconds, double endSeconds, String pathToSettingsFile) throws Exception {
 		// berekend de features
@@ -29,6 +30,9 @@ public class Window {
 		Instances instances = csv.getDataSet();
 		instances.setClassIndex(instances.numAttributes() - 1);
 		this.instance = instances.firstInstance();
+		// zet andere variabelen
+		this.startSeconds = startSeconds;
+		this.endSeconds = endSeconds;
 	}
 	
 	/**
@@ -58,6 +62,13 @@ public class Window {
 		double[] distribution = classifier.distributionForInstance(this.instance);
 		List<Double> distributionList = Arrays.asList(ArrayUtils.toObject(distribution));
         return Collections.max(distributionList);
+	}
+	
+	/**
+	 * Controleert of een gegeven timestamp in dit tijdsvenster ligt.
+	 */
+	public boolean containsTimestamp(double timestamp) {
+		return this.startSeconds <= timestamp && timestamp <= this.endSeconds;
 	}
 	
 

@@ -6,6 +6,7 @@ import helpers.HelperFunctions;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
@@ -33,12 +34,36 @@ public class Sequence {
 	
 	/**
 	 * Geeft het voorspelde label terug in de sequentie van (startTimeStamp) tot (startTimeStamp+0.5)
+	 * of "Ruis" indien grootste kans voor de labels <= noiseCutoff
 	 * @param startTimeStamp		De starttijd in seconden
 	 * @param classifier			Classifier om de labels te voorspellen
-	 * @param noiseCutOff			Cut-off kans voor ruis: als grootste kans voor de labels < noiseCutoff, geef dan "Ruis" terug
+	 * @param noiseCutoff			Cut-off kans voor ruis: als grootste kans voor de labels <= noiseCutoff, geef dan "Ruis" terug
 	 */
-	public String getPrediction(double startTimeStamp, Classifier classifier, double noiseCutOff) {
-		return null; // TODO
+	public String getPrediction(double startTimeStamp, Classifier classifier, double noiseCutoff) throws Exception {
+		
+		// hashmap met (label,kans) tupels met kans = max. over windows indien zelfde label meerdere keren voorkomt
+		HashMap<String,Double> labels = new HashMap<>();
+		for (Window window : windows) {
+			if (window.containsTimestamp(startTimeStamp) && window.containsTimestamp(startTimeStamp+0.5)) {
+				String label = window.getPredictedLabel(classifier);
+				double probability = window.getProbability(classifier);
+				if (! labels.containsKey(label) || labels.get(label) < probability ) {
+					labels.put(label, probability);
+				}
+			}
+		}
+		
+		// label met grootste kans in de hashmap teruggeven OF "Ruis" indien grootste kans voor de labels <= noiseCutoff
+		String prediction = "Ruis";
+		double probability = noiseCutoff;
+		for (String label : labels.keySet()) {
+			if (labels.get(label) > probability) {
+				prediction = label;
+				probability = labels.get(label);
+			}
+		}
+		
+		return prediction;
 	}
 	
 	/**
