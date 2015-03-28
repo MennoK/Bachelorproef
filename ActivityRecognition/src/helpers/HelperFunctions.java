@@ -340,7 +340,7 @@ public class HelperFunctions {
 				
 	}
 	
-	public  double getEndTime(String path) throws IOException {
+	public double getEndTime(String path) throws IOException {
 		return timestampfactor(getStartTimestamp(path),getEndTimestamp(path),getNumMeasurements(path)) * getEndTimestamp(path);
 	}
 	
