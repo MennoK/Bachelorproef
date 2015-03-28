@@ -1,0 +1,45 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.RandomForest -I 100 -K 0 -S 1 -num-slots 1
+Relation:     data-liftau
+Instances:    160
+Attributes:   135
+              [list of attributes omitted]
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Random forest of 100 trees, each constructed while considering 8 random features.
+Out of bag error: 0.0313
+
+
+
+Time taken to build model: 0.04 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         155               96.875  %
+Incorrectly Classified Instances         5                3.125  %
+Kappa statistic                          0.8106
+Mean absolute error                      0.0764
+Root mean squared error                  0.1737
+Relative absolute error                 41.4096 %
+Root relative squared error             57.8078 %
+Coverage of cases (0.95 level)         100      %
+Mean rel. region size (0.95 level)      60.9375 %
+Total Number of Instances              160     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.993    0.250    0.973      0.993    0.983      0.816    0.988     0.999     anders
+                 0.750    0.007    0.923      0.750    0.828      0.816    0.988     0.923     LiftAU
+Weighted Avg.    0.969    0.226    0.968      0.969    0.967      0.816    0.988     0.991     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 143   1 |   a = anders
+   4  12 |   b = LiftAU
+

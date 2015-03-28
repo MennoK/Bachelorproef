@@ -2,12 +2,18 @@ package helpers;
 import static java.nio.file.Files.readAllBytes;
 import static java.nio.file.Paths.get;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -17,6 +23,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import au.com.bytecode.opencsv.CSVReader;
+
+import com.opencsv.CSVWriter;
 import com.typesafe.config.ConfigException.Parse;
 
 
@@ -56,6 +65,7 @@ public class HelperFunctions {
 		String jsonText = out.toString();
 		
 		// schrijf weg naar nieuw bestand
+		Files.writeFile(pathOUT, "");
 		PrintWriter writer = new PrintWriter(pathOUT, "UTF-8");
 		writer.println(jsonText);
 		writer.close();
@@ -309,7 +319,7 @@ public class HelperFunctions {
 				
 	}
 	
-	public double getStartTime(String path) throws IOException {
+	public static double getStartTime(String path) throws IOException {
 		return timestampfactor(getStartTimestamp(path),getEndTimestamp(path),getNumMeasurements(path)) * getStartTimestamp(path);
 	}
 	
@@ -340,11 +350,11 @@ public class HelperFunctions {
 				
 	}
 	
-	public double getEndTime(String path) throws IOException {
+	public static double getEndTime(String path) throws IOException {
 		return timestampfactor(getStartTimestamp(path),getEndTimestamp(path),getNumMeasurements(path)) * getEndTimestamp(path);
 	}
 	
-	public int getNumMeasurements(String path) throws IOException {
+	public static int getNumMeasurements(String path) throws IOException {
 		
 		// zet de inhoud van het logbestand in een string
 		String s = new String(readAllBytes(get(path)));
@@ -356,6 +366,59 @@ public class HelperFunctions {
 		ArrayList list = (ArrayList) obj.get("measurements");
 		return list.size();
 				
+	}
+	
+	public static void sortCsv(String path, String newPath)
+			throws FileNotFoundException, IOException {
+		// bron: http://www.coderanch.com/t/609848/java/java/sorting-csv-file-fixing-column
+		
+		CSVReader reader = new CSVReader(new FileReader(path));
+        String[] nextLine, sortedNextLine;
+        List<String> columns = new ArrayList<String>();
+        List<String> sortedColumns = new ArrayList<String>();
+        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+         
+        if ((nextLine = reader.readNext()) != null) {
+            int i = nextLine.length;
+         
+            for(int j=0;j<i-1;j++){
+            columns.add(nextLine[j]);
+            sortedColumns.add(nextLine[j]);
+            }
+             
+            Collections.sort(sortedColumns);
+            
+            columns.add(nextLine[i-1]);
+            sortedColumns.add(nextLine[i-1]); // "label" kolom achteraan
+        }
+         
+ 
+         
+        for(int i=0;i<columns.size();i++){
+            String str = columns.get(i);
+            map.put(i, sortedColumns.indexOf(str));
+        }
+         
+        CSVWriter writer = new CSVWriter(new FileWriter(newPath), ',',CSVWriter.NO_QUOTE_CHARACTER);
+         
+        sortedNextLine = new String[sortedColumns.size()];
+         
+        for(int k = 0; k < sortedColumns.size(); k++){
+            sortedNextLine[k] = sortedColumns.get(k);
+        }
+ 
+        writer.writeNext(sortedNextLine);
+         
+        while ((nextLine = reader.readNext()) != null) {
+            for(int count=0;count < nextLine.length ; count++){
+                String str = nextLine[count];
+                sortedNextLine[map.get(count)] = str;
+            }
+            writer.writeNext(sortedNextLine);
+        }
+         
+        writer.close();
+        reader.close();
 	}
 
 }

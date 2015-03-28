@@ -25,14 +25,18 @@ public class SequenceEvaluator {
 	private String pathToLogFile;
 	private Instances instancesFromLabelCsv;
 	
+	private Sequence sequence;
+	private double noiseCutoff;
+	
 	private final static String FILE_HEADER = "Start,End,Label,Prediction";
 
-	public static void main(String[] args) throws Exception {
-		SequenceEvaluator sequenceEvaluator = new SequenceEvaluator("./Sequenties/Models/RandomForest.all-features.model", "./sequentie1_a_l_label.csv", "./sequentie1_a_l_20150210131904.log");
-		sequenceEvaluator.makePredictionsCsv();
-	}
+	/* public static void main(String[] args) throws Exception {
+		SequenceEvaluator sequenceEvaluator = new SequenceEvaluator("./Sequenties/Models/RandomForest.all-features.model", "./sequentie1_a_l_label.csv", "./sequentie1_a_l_20150210131904.log",
+				4.0, 0.25, "./Settings/settingssettings_hmm_10_120.json", 0.1);
+		sequenceEvaluator.makePredictionsCsv2();
+	}*/
 	
-	public SequenceEvaluator(String pathToModel, String pathToLabelCsv, String pathToLogFile) throws Exception {
+	public SequenceEvaluator(String pathToModel, String pathToLabelCsv, String pathToLogFile, double windowSize, double overlap, String pathToSettingsFile, double noiseCutoff) throws Exception {
 		this.classifier = (Classifier) weka.core.SerializationHelper.read(pathToModel);
 		this.pathToLabelCsv = pathToLabelCsv;
 		this.pathToLogFile = pathToLogFile;
@@ -41,12 +45,16 @@ public class SequenceEvaluator {
 		loader.setSource(new File(pathToLabelCsv));
 		this.instancesFromLabelCsv = loader.getDataSet();
 		
+		this.sequence = new Sequence(pathToLogFile, windowSize, overlap, pathToSettingsFile);
+		this.noiseCutoff = noiseCutoff;
+		
 	}
 
 	/**
 	 * @throws IOException 
 	 * 
 	 */
+	@Deprecated
 	public String makePredictionsCsv() throws IOException{
 		
 		//create csv file and writer with header
@@ -74,6 +82,37 @@ public class SequenceEvaluator {
 			newLine[1] = String.valueOf((i+5));
 			newLine[2] = getLabel(i, i+5);
 			newLine[3] = "";
+			
+			csvOutput.writeNext(newLine);
+		}
+		
+		csvOutput.close();
+		
+		return "Prediction csv made!";
+	}
+	
+	/**
+	 * 
+	 * @return
+	 * @throws Exception 
+	 */
+	public String makePredictionsCsv2() throws Exception{
+		
+		//create csv file and writer with header
+		CSVWriter csvOutput = new CSVWriter(new FileWriter("./predictioncsv.csv"));
+		String[] record = FILE_HEADER.split(",");
+		csvOutput.writeNext(record);
+				
+		double startTime = HelperFunctions.getStartTime(pathToLogFile);
+		double endTime = HelperFunctions.getEndTime(pathToLogFile);
+		double step = 0.5;
+		
+		for(double i = startTime; i <= endTime; i+=step){
+			String[] newLine = new String[4];
+			newLine[0] = String.valueOf(i);
+			newLine[1] = String.valueOf((i+step));
+			newLine[2] = getLabel(i, i+step);
+			newLine[3] = sequence.getPrediction(i, classifier, noiseCutoff);
 			
 			csvOutput.writeNext(newLine);
 		}

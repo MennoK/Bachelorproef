@@ -1,7 +1,6 @@
 package sequences;
 
-import helpers.DataSet;
-import helpers.HelperFunctions;
+import helpers.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,9 +41,11 @@ public class Window {
 	private String calculateFeatures(String pathToLogFile, double startSeconds, double endSeconds, String pathToSettingsFile) throws IOException {
 		String pathToShorterLogFile = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut.log";
 		String pathToCsv = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut.csv";
+		String pathToSortedCsv = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut-sorted.csv";
 		HelperFunctions.makeShorterLogFile(pathToLogFile, pathToShorterLogFile, startSeconds, endSeconds);
-		helpers.Features.settingsFeatures(pathToShorterLogFile, pathToSettingsFile);
-		return pathToCsv;
+		Features.settingsFeatures(pathToShorterLogFile, pathToSettingsFile);
+		HelperFunctions.sortCsv(pathToCsv, pathToSortedCsv);
+		return pathToSortedCsv;
 	}
 	
 	/**

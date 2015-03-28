@@ -42,6 +42,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import sequences.SequenceEvaluator;
+
 import com.opencsv.CSVWriter;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
@@ -121,6 +123,10 @@ public class ActivityRecognition {
 			}
 			else if (args[0].equals("csvsort") && args.length == 3) {
 				String print = csvsort(args[1], args[2]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("eval") && args.length == 8) {
+				String print = evaluateSequence(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]), args[6], Double.parseDouble(args[7]));
 				System.out.println(print);
 			}
 			else {
@@ -774,119 +780,29 @@ public class ActivityRecognition {
 	@Command(description="Sorteer de kolommen van een csv-bestand in alfabetische volgorde.")
 	public static String csvsort(@Param(name="path", description="Pad naar csv-bestand") String path, @Param(name="path", description="Pad naar nieuw csv-bestand") String newPath) throws IOException {
 		
-		// bron: http://www.coderanch.com/t/609848/java/java/sorting-csv-file-fixing-column
-		
-		CSVReader reader = new CSVReader(new FileReader(path));
-        String[] nextLine, sortedNextLine;
-        List<String> columns = new ArrayList<String>();
-        List<String> sortedColumns = new ArrayList<String>();
-        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
-         
-        if ((nextLine = reader.readNext()) != null) {
-            int i = nextLine.length;
-         
-            for(int j=0;j<i-1;j++){
-            columns.add(nextLine[j]);
-            sortedColumns.add(nextLine[j]);
-            }
-             
-            Collections.sort(sortedColumns);
-            
-            columns.add(nextLine[i-1]);
-            sortedColumns.add(nextLine[i-1]); // "label" kolom achteraan
-        }
-         
- 
-         
-        for(int i=0;i<columns.size();i++){
-            String str = columns.get(i);
-            map.put(i, sortedColumns.indexOf(str));
-        }
-         
-        CSVWriter writer = new CSVWriter(new FileWriter(newPath), ',',CSVWriter.NO_QUOTE_CHARACTER);
-         
-        sortedNextLine = new String[sortedColumns.size()];
-         
-        for(int k = 0; k < sortedColumns.size(); k++){
-            sortedNextLine[k] = sortedColumns.get(k);
-        }
- 
-        writer.writeNext(sortedNextLine);
-         
-        while ((nextLine = reader.readNext()) != null) {
-            for(int count=0;count < nextLine.length ; count++){
-                String str = nextLine[count];
-                sortedNextLine[map.get(count)] = str;
-            }
-            writer.writeNext(sortedNextLine);
-        }
-         
-        writer.close();
-        reader.close();
+		HelperFunctions.sortCsv(path, newPath);
 		
 		return "De kolommen van " + path + " werden gesorteerd en geschreven naar " + newPath;
 	}
 	
 	/**
-	 * Splits het opgegeven log-bestand op in tijdsvensters van een opgegeven lengte en overlapping
-	 * en bereken de features voor elk tijdsvenster.
-	 * Ook zal voor elk tijdsvenster het juiste label worden toegekend, die uit het csv-bestand bij het log-bestand hoort: [path]+".csv" // -> TODO !!!
-	 * 
-	 * @param 	path
-	 * 			Pad naar log-bestand
-	 * @param	settingsPath
-	 * 			Pad naar settings bestand om de features te berekenen
-	 * @param 	length
-	 * 			Lengte van tijdsvensters in seconden
-	 * @param 	overlap
-	 * 			Overlap van tijdsvensters (vb. 0.5)
+	 * Evalueer een sequentie met:
+	 * @param pathToModel			Pad naar gebruikt model
+	 * @param pathToLabelCsv		Pad naar csv-bestand met de echte labels
+	 * @param pathToLogFile			Pad naar log-bestand (=metingen)
+	 * @param windowSize			Lente van tijdsvensters in seconden
+	 * @param overlap				Relatieve overlap van tijdsvensters (vb: 0.5 => overlap in seconden = 0.5*windowSize)
+	 * @param pathToSettingsFile	Pad naar settings-bestand om de features te berekenen
+	 * @param noiseCutoff			Minimum kans van een label. Indien de kans < noiseCutoff voor elk mogelijk label => wordt als ruis beschoud
+	 * @throws Exception 
 	 */
 	@Command
-	public static String split(@Param(name="path", description="Pad naar log-bestand") String path,
-			@Param(name="path", description="Pad naar settings-bestand om de features te berekenen") String settingsPath,
-			@Param(name="length", description="Lengte van tijdsvensters in seconden") int length,
-			@Param(name="overlap", description="Overlap van tijdsvensters (vb. 0.5)") double overlap) {
-		
-		String logName = Files.file(path).substring(0, Files.file(path).indexOf(".log"));
-		
-		// lees het settings-bestand in
-		String s;
-		try {
-			s = new String(readAllBytes(get(settingsPath)));
-		} catch (IOException e) {
-			return "Settings-bestand niet gevonden";
-		}
-		// maak hiervan een JSON object in Java
-		JSONObject settings = (JSONObject) JSONValue.parse(s);
-		
-		// maak een nieuw settings-bestand met dezelfde instellingen, behalve de window_seconds
-		String settings2 = HelperFunctions.settings2(
-				-1, // we gaan het opsplitsen in tijdsvensters zelf doen
-				(int) settings.get("nb_fft_features"),
-				(double) settings.get("step_fft_features"),
-				(int) settings.get("nb_fft_peaks"),
-				(double) settings.get("window_fft_features"),
-				(String) settings.get("wavelet_type"),
-				(int) settings.get("nb_dwt_features"),
-				(int) settings.get("nb_wpd_features"),
-				(double) settings.get("peak_wss"),
-				(double) settings.get("peak_mindev"),
-				(boolean) settings.get("geo_correct"),
-				(boolean) settings.get("ignore_q"),
-				(double) settings.get("f_co"),
-				(int) settings.get("hmm_states"),
-				(int) settings.get("hmm_learn_iterations"),
-				(JSONArray) settings.get("hmm_files"));
-		
-		// maak een tijdelijk settings-bestand
-		Files.writeFile("Temp/"+logName+"/settings.json", settings2);
-		
-		// laat MotionFingerprint alle features berekenen voor elk tijdsvenster
-		// for (int i=0; i )
-
-		
-		return null;
+	public static String evaluateSequence(String pathToModel, String pathToLabelCsv, String pathToLogFile, double windowSize, double overlap, String pathToSettingsFile, double noiseCutoff) throws Exception {
+		SequenceEvaluator evaluator = new SequenceEvaluator(pathToModel, pathToLabelCsv, pathToLogFile, windowSize, overlap, pathToSettingsFile, noiseCutoff);
+		return evaluator.makePredictionsCsv2();
 		
 	}
+	
+	
 		
 }

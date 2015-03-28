@@ -1,0 +1,125 @@
+
+Options: -E weka.attributeSelection.InfoGainAttributeEval -S "weka.attributeSelection.Ranker -N 4" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 145 label):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+2.369    23 z_e_stddev
+2.306    19 t_freq_m_0.00
+2.306   115 t_mean
+2.232   134 z_hmm_model-Wandelen
+
+Selected attributes: 23,19,115,134 : 4
+
+
+Header of reduced data:
+@relation 'Training-set-weka.filters.unsupervised.attribute.Remove-V-R23,19,115,134,145'
+
+@attribute z_e_stddev numeric
+@attribute t_freq_m_0.00 numeric
+@attribute t_mean numeric
+@attribute z_hmm_model-Wandelen numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+z_e_stddev <= 0.059302
+|   z_hmm_model-Wandelen <= -0.7008
+|   |   z_e_stddev <= 0.021775: LiftAD (5.0)
+|   |   z_e_stddev > 0.021775: LiftAU (27.0/11.0)
+|   z_hmm_model-Wandelen > -0.7008
+|   |   t_freq_m_0.00 <= 0.127691: Nietsdoen (14.0)
+|   |   t_freq_m_0.00 > 0.127691: Tandenpoetsen (18.0/2.0)
+z_e_stddev > 0.059302
+|   z_e_stddev <= 28.121555
+|   |   t_freq_m_0.00 <= 8.425201
+|   |   |   z_hmm_model-Wandelen <= -1.844451
+|   |   |   |   t_freq_m_0.00 <= 8.055801: Fietsen (21.0/7.0)
+|   |   |   |   t_freq_m_0.00 > 8.055801: Trapaf (9.0/1.0)
+|   |   |   z_hmm_model-Wandelen > -1.844451: Trapop (16.0/3.0)
+|   |   t_freq_m_0.00 > 8.425201: Wandelen (18.0/2.0)
+|   z_e_stddev > 28.121555
+|   |   t_freq_m_0.00 <= 26.222052
+|   |   |   z_hmm_model-Wandelen <= -7.507803: Springen (14.0)
+|   |   |   z_hmm_model-Wandelen > -7.507803
+|   |   |   |   z_e_stddev <= 51.8532: Springen (2.0)
+|   |   |   |   z_e_stddev > 51.8532: Lopen (6.0)
+|   |   t_freq_m_0.00 > 26.222052: Lopen (10.0)
+
+Number of Leaves  : 	12
+
+Size of the tree : 	23
+
+
+Time taken to build model: 0.11 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         134               83.75   %
+Incorrectly Classified Instances        26               16.25   %
+Kappa statistic                          0.8194
+Mean absolute error                      0.0468
+Root mean squared error                  0.153 
+Relative absolute error                 26.0054 %
+Root relative squared error             50.9955 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+  8  0  2  0  0  5  1  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  0  0 13  0  0  2  1  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0  5  0  0 11  0  0 |  e = LiftAD
+  1  0  1  0  0 14  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  0  0  0 16  0  0 |  h = LiftAU
+  0  0  0  2  0  0  0  0 14  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         114               71.25   %
+Incorrectly Classified Instances        46               28.75   %
+Kappa statistic                          0.6806
+Mean absolute error                      0.0612
+Root mean squared error                  0.2119
+Relative absolute error                 33.9607 %
+Root relative squared error             70.5607 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 11  0  4  0  0  0  1  0  0  0 |  a = Trapaf
+  0 15  0  0  0  0  0  0  0  1 |  b = Lopen
+  2  0 11  0  0  2  1  0  0  0 |  c = Trapop
+  0  0  0 12  1  0  0  2  1  0 |  d = Tandenpoetsen
+  0  0  0  0  8  0  0  8  0  0 |  e = LiftAD
+  6  0  4  0  0  6  0  0  0  0 |  f = Fietsen
+  0  0  1  0  0  0 15  0  0  0 |  g = Wandelen
+  0  0  0  0  7  0  0  9  0  0 |  h = LiftAU
+  0  0  0  4  0  0  0  0 12  0 |  i = Nietsdoen
+  0  1  0  0  0  0  0  0  0 15 |  j = Springen
+

@@ -1,0 +1,168 @@
+
+Options: -E weka.attributeSelection.InfoGainAttributeEval -S "weka.attributeSelection.Ranker -T 2 -N -1" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+	Threshold for discarding attributes:   2     
+
+Attribute Evaluator (supervised, Class (nominal): 145 label):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+2.3695    23 z_e_stddev
+2.306     19 t_freq_m_0.00
+2.306    115 t_mean
+2.2319   134 z_hmm_model-Wandelen
+2.2267   119 xy_e_mean
+2.2267   133 xy_e_freq_m_0.00
+2.2229    52 z_e_mean
+2.2224   144 z_stddev
+2.207      2 xy_e_freq_m_1.25
+2.1963   143 z_hmm_model-Trapop
+2.1778    94 z_freq_m_0.83
+2.1731   116 t_stddev
+2.166     81 xy_e_freq_m_4.17
+2.166     86 z_hmm_model-Lopen
+2.1359    55 xy_e_freq_m_4.58
+2.1236    27 xy_e_stddev
+2.1192    51 z_hmm_model-Springen
+2.1086    45 z_hmm_model-Fietsen
+2.1072    36 z_peak_mean
+2.0893    47 xy_e_freq_m_2.50
+2.0874   122 z_hmm_model-Trapaf
+2.0777    25 xy_e_freq_m_1.67
+2.0773   123 z_freq_m_1.25
+2.0672   141 xy_e_freq_m_3.75
+2.0454   130 angle_mean
+
+Selected attributes: 23,19,115,134,119,133,52,144,2,143,94,116,81,86,55,27,51,45,36,47,122,25,123,141,130 : 25
+
+
+Header of reduced data:
+@relation 'Training-set-weka.filters.unsupervised.attribute.Remove-V-R23,19,115,134,119,133,52,144,2,143,94,116,81,86,55,27,51,45,36,47,122,25,123,141,130,145'
+
+@attribute z_e_stddev numeric
+@attribute t_freq_m_0.00 numeric
+@attribute t_mean numeric
+@attribute z_hmm_model-Wandelen numeric
+@attribute xy_e_mean numeric
+@attribute xy_e_freq_m_0.00 numeric
+@attribute z_e_mean numeric
+@attribute z_stddev numeric
+@attribute xy_e_freq_m_1.25 numeric
+@attribute z_hmm_model-Trapop numeric
+@attribute z_freq_m_0.83 numeric
+@attribute t_stddev numeric
+@attribute xy_e_freq_m_4.17 numeric
+@attribute z_hmm_model-Lopen numeric
+@attribute xy_e_freq_m_4.58 numeric
+@attribute xy_e_stddev numeric
+@attribute z_hmm_model-Springen numeric
+@attribute z_hmm_model-Fietsen numeric
+@attribute z_peak_mean numeric
+@attribute xy_e_freq_m_2.50 numeric
+@attribute z_hmm_model-Trapaf numeric
+@attribute xy_e_freq_m_1.67 numeric
+@attribute z_freq_m_1.25 numeric
+@attribute xy_e_freq_m_3.75 numeric
+@attribute angle_mean numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+angle_mean <= 0.010449
+|   z_e_mean <= 0.012374
+|   |   angle_mean <= 0.001268: Nietsdoen (15.0)
+|   |   angle_mean > 0.001268: Tandenpoetsen (17.0/1.0)
+|   z_e_mean > 0.012374
+|   |   z_hmm_model-Fietsen <= -0.80524: LiftAU (9.0)
+|   |   z_hmm_model-Fietsen > -0.80524
+|   |   |   z_hmm_model-Lopen <= -2.589736: LiftAD (13.0)
+|   |   |   z_hmm_model-Lopen > -2.589736
+|   |   |   |   z_e_stddev <= 0.021775: LiftAD (3.0)
+|   |   |   |   z_e_stddev > 0.021775: LiftAU (7.0)
+angle_mean > 0.010449
+|   z_e_stddev <= 28.121555
+|   |   xy_e_freq_m_2.50 <= 4.947889
+|   |   |   angle_mean <= 0.030661: Trapaf (15.0)
+|   |   |   angle_mean > 0.030661
+|   |   |   |   xy_e_freq_m_3.75 <= 1.166134: Fietsen (16.0)
+|   |   |   |   xy_e_freq_m_3.75 > 1.166134: Trapop (17.0/1.0)
+|   |   xy_e_freq_m_2.50 > 4.947889: Wandelen (16.0)
+|   z_e_stddev > 28.121555
+|   |   xy_e_mean <= 27.563269: Springen (16.0)
+|   |   xy_e_mean > 27.563269: Lopen (16.0)
+
+Number of Leaves  : 	12
+
+Size of the tree : 	23
+
+
+Time taken to build model: 0.19 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         158               98.75   %
+Incorrectly Classified Instances         2                1.25   %
+Kappa statistic                          0.9861
+Mean absolute error                      0.0047
+Root mean squared error                  0.0485
+Relative absolute error                  2.6144 %
+Root relative squared error             16.169  %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 15  0  1  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  0  0 16  0  0  0  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0 16  0  0  0  0  0 |  e = LiftAD
+  0  0  0  0  0 16  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  0  0  0 16  0  0 |  h = LiftAU
+  0  0  0  1  0  0  0  0 15  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         142               88.75   %
+Incorrectly Classified Instances        18               11.25   %
+Kappa statistic                          0.875 
+Mean absolute error                      0.0245
+Root mean squared error                  0.1466
+Relative absolute error                 13.5914 %
+Root relative squared error             48.8189 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 14  0  2  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  0  0 15  0  0  0  1  0  0  0 |  c = Trapop
+  0  0  1 13  0  0  0  1  1  0 |  d = Tandenpoetsen
+  1  0  0  0 13  0  0  2  0  0 |  e = LiftAD
+  0  0  3  0  0 13  0  0  0  0 |  f = Fietsen
+  1  0  0  0  0  0 15  0  0  0 |  g = Wandelen
+  0  0  0  0  2  0  0 14  0  0 |  h = LiftAU
+  0  0  1  1  0  0  0  0 14  0 |  i = Nietsdoen
+  0  1  0  0  0  0  0  0  0 15 |  j = Springen
+

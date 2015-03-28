@@ -1,0 +1,19 @@
+{
+  "window_seconds" : -1,
+  "nb_fft_features" : 20,
+  "step_fft_features" : 0.25,
+  "nb_fft_peaks" : 4,
+  "window_fft_features" : 0.5,
+  "wavelet_type" : "haar",
+  "nb_dwt_features" : 10,
+  "nb_wpd_features" : 10,
+  "peak_wss" : 0.5,
+  "peak_mindev" : 1,
+  "geo_correct" : true,
+  "ignore_q" : false,
+  "f_co" : 4,
+  "hmm_states" : 10,
+  "hmm_learn_iterations" : 100,
+  "hmm_files" : [ ],
+  "cli_args" : [ "--settings", "HMMs/10-100/settings-Lopen.json", "--hmm", "HMMs/10-100/model-Lopen.jahmm", "Data/Lopen/Validatie-set/lopen11_m_l_20150214174557.cut.log", "Data/Lopen/Validatie-set/lopen9_m_r_20150214174422.cut.log", "Data/Lopen/Validatie-set/lopen11_a_l_20150215155607.cut.log", "Data/Lopen/Validatie-set/lopen9_a_l_20150215155452.cut.log", "Data/Lopen/Validatie-set/lopen10_m_l_20150214174509.cut.log", "Data/Lopen/Validatie-set/lopen13_a_l_20150215155716.cut.log" ]
+}

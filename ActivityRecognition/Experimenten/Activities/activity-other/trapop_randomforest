@@ -1,0 +1,45 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.RandomForest -I 100 -K 0 -S 1 -num-slots 1
+Relation:     data-trapop
+Instances:    160
+Attributes:   135
+              [list of attributes omitted]
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Random forest of 100 trees, each constructed while considering 8 random features.
+Out of bag error: 0.0313
+
+
+
+Time taken to build model: 0.03 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         155               96.875  %
+Incorrectly Classified Instances         5                3.125  %
+Kappa statistic                          0.7984
+Mean absolute error                      0.0682
+Root mean squared error                  0.1439
+Relative absolute error                 36.9402 %
+Root relative squared error             47.8992 %
+Coverage of cases (0.95 level)         100      %
+Mean rel. region size (0.95 level)      62.5    %
+Total Number of Instances              160     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    0.313    0.966      1.000    0.983      0.815    1.000     1.000     anders
+                 0.688    0.000    1.000      0.688    0.815      0.815    1.000     1.000     Trapop
+Weighted Avg.    0.969    0.281    0.970      0.969    0.966      0.815    1.000     1.000     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 144   0 |   a = anders
+   5  11 |   b = Trapop
+

@@ -1,0 +1,130 @@
+
+Options: -E weka.attributeSelection.InfoGainAttributeEval -S "weka.attributeSelection.Ranker -T 2 -N -1" -W weka.classifiers.trees.RandomForest -- -I 10 -K 0 -S 1 
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+	Threshold for discarding attributes:   2     
+
+Attribute Evaluator (supervised, Class (nominal): 135 label):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+2.3695    23 z_e_stddev
+2.306    110 t_mean
+2.306     19 t_freq_m_0.00
+2.2267   125 xy_e_freq_m_0.00
+2.2267   113 xy_e_mean
+2.2229    49 z_e_mean
+2.2224   134 z_stddev
+2.207      2 xy_e_freq_m_1.25
+2.1778    89 z_freq_m_0.83
+2.1731   111 t_stddev
+2.166     77 xy_e_freq_m_4.17
+2.1359    51 xy_e_freq_m_4.58
+2.1236    26 xy_e_stddev
+2.1072    35 z_peak_mean
+2.0893    45 xy_e_freq_m_2.50
+2.0777    25 xy_e_freq_m_1.67
+2.0773   116 z_freq_m_1.25
+2.0672   132 xy_e_freq_m_3.75
+2.0454   122 angle_mean
+
+Selected attributes: 23,110,19,125,113,49,134,2,89,111,77,51,26,35,45,25,116,132,122 : 19
+
+
+Header of reduced data:
+@relation 'Training-set-weka.filters.unsupervised.attribute.Remove-V-R23,110,19,125,113,49,134,2,89,111,77,51,26,35,45,25,116,132,122,135'
+
+@attribute z_e_stddev numeric
+@attribute t_mean numeric
+@attribute t_freq_m_0.00 numeric
+@attribute xy_e_freq_m_0.00 numeric
+@attribute xy_e_mean numeric
+@attribute z_e_mean numeric
+@attribute z_stddev numeric
+@attribute xy_e_freq_m_1.25 numeric
+@attribute z_freq_m_0.83 numeric
+@attribute t_stddev numeric
+@attribute xy_e_freq_m_4.17 numeric
+@attribute xy_e_freq_m_4.58 numeric
+@attribute xy_e_stddev numeric
+@attribute z_peak_mean numeric
+@attribute xy_e_freq_m_2.50 numeric
+@attribute xy_e_freq_m_1.67 numeric
+@attribute z_freq_m_1.25 numeric
+@attribute xy_e_freq_m_3.75 numeric
+@attribute angle_mean numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+
+
+Classifier Model
+Random forest of 10 trees, each constructed while considering 5 random features.
+Out of bag error: 0.1813
+
+
+
+Time taken to build model: 0.17 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         160              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0151
+Root mean squared error                  0.0598
+Relative absolute error                  8.4028 %
+Root relative squared error             19.9304 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 16  0  0  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  0  0 16  0  0  0  0  0  0  0 |  c = Trapop
+  0  0  0 16  0  0  0  0  0  0 |  d = Tandenpoetsen
+  0  0  0  0 16  0  0  0  0  0 |  e = LiftAD
+  0  0  0  0  0 16  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  0  0  0 16  0  0 |  h = LiftAU
+  0  0  0  0  0  0  0  0 16  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         137               85.625  %
+Incorrectly Classified Instances        23               14.375  %
+Kappa statistic                          0.8403
+Mean absolute error                      0.0396
+Root mean squared error                  0.1451
+Relative absolute error                 21.9901 %
+Root relative squared error             48.3214 %
+Total Number of Instances              160     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j   <-- classified as
+ 14  0  2  0  0  0  0  0  0  0 |  a = Trapaf
+  0 16  0  0  0  0  0  0  0  0 |  b = Lopen
+  1  0 14  0  0  0  1  0  0  0 |  c = Trapop
+  0  0  0 14  1  0  0  1  0  0 |  d = Tandenpoetsen
+  0  0  0  0 11  0  0  5  0  0 |  e = LiftAD
+  0  0  3  0  0 13  0  0  0  0 |  f = Fietsen
+  0  0  0  0  0  0 16  0  0  0 |  g = Wandelen
+  0  0  0  0  7  0  0  9  0  0 |  h = LiftAU
+  0  0  0  2  0  0  0  0 14  0 |  i = Nietsdoen
+  0  0  0  0  0  0  0  0  0 16 |  j = Springen
+

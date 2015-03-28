@@ -1,0 +1,5 @@
+Experiment voor feature set gedaan
+Locatie van resultaten: ./Experimenten/FeatureSet/InfoGain/J48/
+Gebruikte dataset: ./Experimenten/FeatureSet/data-allfeatures.csv
+Gebruikte methode: weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Opties voor AttributeSelectedClassifier-x 2 -E "weka.attributeSelection.InfoGainAttributeEval" -S "weka.attributeSelection.Ranker
