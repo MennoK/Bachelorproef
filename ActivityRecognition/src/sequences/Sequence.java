@@ -71,19 +71,19 @@ public class Sequence {
 	 */
 	private List<Window> split(String pathToLogFile, double windowSeconds, double overlap, String pathToSettingsFile) throws Exception {
 		List<Window> windows = new ArrayList<>();
-		double startSeconds = HelperFunctions.getStartTimestamp(pathToLogFile);
-		double endSeconds = startSeconds + windowSeconds;
+		double startTime = HelperFunctions.getStartTime(pathToLogFile);
+		double endTime = startTime + windowSeconds;
 		// voeg alle windows tot en met de voorlaatste
-		while (endSeconds < HelperFunctions.getEndTimestamp(pathToLogFile)) {
+		while (endTime < HelperFunctions.getEndTime(pathToLogFile)) {
 			// voeg het window toe
-			windows.add(new Window(pathToLogFile, startSeconds, endSeconds, pathToSettingsFile));
+			windows.add(new Window(pathToLogFile, startTime, endTime, pathToSettingsFile));
 			// update startSeconds en endSeconds
-			startSeconds = endSeconds - overlap * windowSeconds;
-			endSeconds = startSeconds + windowSeconds;
+			startTime = endTime - overlap * windowSeconds;
+			endTime = startTime + windowSeconds;
 		}
 		// voeg laatste window toe, is waarschijnlijk korter
-		endSeconds = HelperFunctions.getEndTimestamp(pathToLogFile);
-		windows.add(new Window(pathToLogFile, startSeconds, endSeconds, pathToSettingsFile));
+		endTime = HelperFunctions.getEndTime(pathToLogFile);
+		windows.add(new Window(pathToLogFile, startTime, endTime, pathToSettingsFile));
 		return windows;
 	}
 

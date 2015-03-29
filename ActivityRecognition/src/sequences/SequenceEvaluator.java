@@ -30,11 +30,11 @@ public class SequenceEvaluator {
 	
 	private final static String FILE_HEADER = "Start,End,Label,Prediction";
 
-	/* public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 		SequenceEvaluator sequenceEvaluator = new SequenceEvaluator("./Sequenties/Models/RandomForest.all-features.model", "./sequentie1_a_l_label.csv", "./sequentie1_a_l_20150210131904.log",
 				4.0, 0.25, "./Settings/settingssettings_hmm_10_120.json", 0.1);
 		sequenceEvaluator.makePredictionsCsv2();
-	}*/
+	}
 	
 	public SequenceEvaluator(String pathToModel, String pathToLabelCsv, String pathToLogFile, double windowSize, double overlap, String pathToSettingsFile, double noiseCutoff) throws Exception {
 		this.classifier = (Classifier) weka.core.SerializationHelper.read(pathToModel);

@@ -40,10 +40,9 @@ public class Window {
 	 */
 	private String calculateFeatures(String pathToLogFile, double startSeconds, double endSeconds, String pathToSettingsFile) throws IOException {
 		String pathToShorterLogFile = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut.log";
-		String pathToCsv = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut.csv";
 		String pathToSortedCsv = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut-sorted.csv";
 		HelperFunctions.makeShorterLogFile(pathToLogFile, pathToShorterLogFile, startSeconds, endSeconds);
-		Features.settingsFeatures(pathToShorterLogFile, pathToSettingsFile);
+		String pathToCsv = Features.calculateFeaturesWithSettings(pathToShorterLogFile, pathToSettingsFile);
 		HelperFunctions.sortCsv(pathToCsv, pathToSortedCsv);
 		return pathToSortedCsv;
 	}

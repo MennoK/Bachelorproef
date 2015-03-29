@@ -26,6 +26,16 @@ public class Features {
 		MotionFingerprint.command("--settings " + pathSettings + " --features "+ csvPath + " " + pathLog);
 		return "Features van " + pathLog + " werden berekend met " + pathSettings;
 	}
+	
+	/**
+	 * Berekent de features van een log-bestand met settings.json bestand en geeft het pad naar het resulterende csv-bestand
+	 */
+	public static String calculateFeaturesWithSettings(String pathLog, String pathSettings){
+		String settingsname = pathSettings.substring(pathSettings.lastIndexOf("/")+1,pathSettings.lastIndexOf("."));
+		String csvPath = pathLog.substring(0,pathLog.lastIndexOf(".log")) + "." + settingsname + ".features.csv";
+		MotionFingerprint.command("--settings " + pathSettings + " --features "+ csvPath + " " + pathLog);
+		return csvPath;
+	}
 
 	/**
 	 * Berekent de features van logs files uit een folder adhv verschillende
