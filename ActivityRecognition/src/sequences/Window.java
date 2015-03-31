@@ -48,45 +48,51 @@ public class Window {
 	private String calculateFeatures(String pathToLogFile, double startSeconds, double endSeconds, String pathToSettingsFile, String pattern) throws IOException {
 		String pathToShorterLogFile = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut.log";
 		String pathToSortedCsv = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut-sorted.csv";
+		if (! pattern.isEmpty())
+			pathToSortedCsv = pathToLogFile.substring(0,pathToLogFile.indexOf(".log")) + "/" + startSeconds + "-" + endSeconds + "-cut-"+pattern+"-sorted.csv";
+			
+		if (! Files.exists(pathToSortedCsv)) {
+			
+			// knip tijdsvenster ==> korter log-bestand
+			HelperFunctions.makeShorterLogFile(pathToLogFile, pathToShorterLogFile, startSeconds, endSeconds);
+			
+			// verander label naar Nietsdoen
+			HelperFunctions.setLabel(pathToShorterLogFile, "Nietsdoen");
 		
-		// knip tijdsvenster ==> korter log-bestand
-		HelperFunctions.makeShorterLogFile(pathToLogFile, pathToShorterLogFile, startSeconds, endSeconds);
-		
-		// verander label naar Nietsdoen
-		HelperFunctions.setLabel(pathToShorterLogFile, "Nietsdoen");
-		
-		// bereken features ==> csv
-		String pathToCsv = Features.calculateFeaturesWithSettings(pathToShorterLogFile, pathToSettingsFile);
-		allActivities = new ArrayList<String>();
-		allActivities.add("Fietsen");
-		allActivities.add("LiftAD");
-		allActivities.add("LiftAU");
-		allActivities.add("Lopen");
-		allActivities.add("Nietsdoen");
-		allActivities.add("Springen");
-		allActivities.add("Tandenpoetsen");
-		allActivities.add("Trapaf");
-		allActivities.add("Trapop");
-		allActivities.add("Wandelen");
-		// verander alle NaN waarden door -1000 en voeg voor elke activiteit een dummy lijn toe
-		String csvContent = Files.readFile(pathToCsv);
-		csvContent = csvContent.replace("NaN", "-1000");
-		int nbFeatures = csvContent.split("\n")[0].split(",").length - 1;
-		for (int j=0; j < allActivities.size(); j++) {
-			String line = "";
-			for (int i=0; i < nbFeatures; i++) {
-				line += "0,";
+			// bereken features ==> csv
+			String pathToCsv = Features.calculateFeaturesWithSettings(pathToShorterLogFile, pathToSettingsFile);
+			allActivities = new ArrayList<String>();
+			allActivities.add("Fietsen");
+			allActivities.add("LiftAD");
+			allActivities.add("LiftAU");
+			allActivities.add("Lopen");
+			allActivities.add("Nietsdoen");
+			allActivities.add("Springen");
+			allActivities.add("Tandenpoetsen");
+			allActivities.add("Trapaf");
+			allActivities.add("Trapop");
+			allActivities.add("Wandelen");
+			// verander alle NaN waarden door -1000 en voeg voor elke activiteit een dummy lijn toe
+			String csvContent = Files.readFile(pathToCsv);
+			csvContent = csvContent.replace("NaN", "-1000");
+			int nbFeatures = csvContent.split("\n")[0].split(",").length - 1;
+			for (int j=0; j < allActivities.size(); j++) {
+				String line = "";
+				for (int i=0; i < nbFeatures; i++) {
+					line += "0,";
+				}
+				line += allActivities.get(j);
+				csvContent += line + "\n";
 			}
-			line += allActivities.get(j);
-			csvContent += line + "\n";
+			Files.writeFile(pathToCsv, csvContent);
+			
+			// select columns
+			HelperFunctions.selectColumns(pathToCsv, pathToCsv, pattern);
+			
+			// sorteer features alfabetisch
+			HelperFunctions.sortCsv(pathToCsv, pathToSortedCsv);
+			
 		}
-		Files.writeFile(pathToCsv, csvContent);
-		
-		// select columns
-		HelperFunctions.selectColumns(pathToCsv, pathToCsv, pattern);
-		
-		// sorteer features alfabetisch
-		HelperFunctions.sortCsv(pathToCsv, pathToSortedCsv);
 		
 		return pathToSortedCsv;
 	}
