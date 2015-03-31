@@ -126,7 +126,11 @@ public class ActivityRecognition {
 				System.out.println(print);
 			}
 			else if (args[0].equals("eval") && args.length == 8) {
-				String print = evaluateSequence(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]), args[6], Double.parseDouble(args[7]));
+				String print = evaluateSequence(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]), args[6], Double.parseDouble(args[7]), "");
+				System.out.println(print);
+			}
+			else if (args[0].equals("eval") && args.length == 9) {
+				String print = evaluateSequence(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]), args[6], Double.parseDouble(args[7]), args[8]);
 				System.out.println(print);
 			}
 			else {
@@ -673,54 +677,7 @@ public class ActivityRecognition {
 	@Command(description="Verander het label van het opgegeven log-bestand")
 	public static String setlabel(@Param(name="path", description="Pad naar log-bestand") String path,
 							@Param(name="label", description="Nieuw label") String label) {
-		File logFile = new File(path);
-		if (! logFile.exists()) {
-			String folder = Files.folder(path);
-			String start2 = Files.file(path);
-			File[] matches = Files.startsWith(folder, start2);
-			if (matches.length > 1)
-				return "Meerdere log-bestanden beginnen met '"+start2+"' in de map '"+folder+"'";
-			else if (matches.length == 1) {
-				logFile = matches[0];
-				path = logFile.getPath();
-			}
-			else
-				return "Log-bestand niet gevonden";
-		}
-		// zet de inhoud van het logbestand in een string
-		String s;
-		try {
-			s = new String(readAllBytes(get(path)));
-		} catch (IOException e) {
-			return "Log-bestand niet gevonden";
-		}
-		// maak hiervan een JSON object in Java
-		JSONObject obj = (JSONObject) JSONValue.parse(s);
-		JSONArray measurements = (JSONArray) obj.get("measurements");
-		// bouw het nieuwe json object op
-		Map preprocessed = new LinkedHashMap();
-		JSONArray measurementsPre = new JSONArray();
-		preprocessed.put("measurements", measurements);
-		preprocessed.put("has_gravity", obj.get("has_gravity"));
-		preprocessed.put("user", label);
-		preprocessed.put("notes", obj.get("notes"));
-		StringWriter out = new StringWriter();
-		try {
-			JSONValue.writeJSONString(preprocessed, out);
-		} catch (IOException e) {
-			return "Niet gelukt";
-		}
-		String jsonText = out.toString();
-		// schrijf weg naar bestand
-		PrintWriter writer;
-		try {
-			writer = new PrintWriter(path, "UTF-8");
-		} catch (Exception e) {
-			return "Niet gelukt";
-		}
-		writer.println(jsonText);
-		writer.close();
-		return "Label van "+path+" veranderd naar: "+label;
+		return HelperFunctions.setLabel(path, label);
 	}
 	
 	/**
@@ -797,8 +754,8 @@ public class ActivityRecognition {
 	 * @throws Exception 
 	 */
 	@Command
-	public static String evaluateSequence(String pathToModel, String pathToLabelCsv, String pathToLogFile, double windowSize, double overlap, String pathToSettingsFile, double noiseCutoff) throws Exception {
-		SequenceEvaluator evaluator = new SequenceEvaluator(pathToModel, pathToLabelCsv, pathToLogFile, windowSize, overlap, pathToSettingsFile, noiseCutoff);
+	public static String evaluateSequence(String pathToModel, String pathToLabelCsv, String pathToLogFile, double windowSize, double overlap, String pathToSettingsFile, double noiseCutoff, String pattern) throws Exception {
+		SequenceEvaluator evaluator = new SequenceEvaluator(pathToModel, pathToLabelCsv, pathToLogFile, windowSize, overlap, pathToSettingsFile, noiseCutoff, pattern);
 		return evaluator.makePredictionsCsv2();
 		
 	}

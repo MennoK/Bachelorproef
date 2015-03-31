@@ -1,0 +1,13 @@
+z_hmm_model-Fietsen,z_hmm_model-LiftAD,z_hmm_model-LiftAU,z_hmm_model-Lopen,z_hmm_model-Nietsdoen,z_hmm_model-Springen,z_hmm_model-Tandenpoetsen,z_hmm_model-Trapaf,z_hmm_model-Trapop,z_hmm_model-Wandelen,label
+-0.8338601186893496,-11.409211791688094,-8.88917710630818,-2.604497375395205,-7.335282675510044,-3.5523452933399455,-0.31357632897887733,-1.3107800104729064,-0.37118934264435066,-0.7471353897638092,Nietsdoen
+0,0,0,0,0,0,0,0,0,0,Fietsen
+0,0,0,0,0,0,0,0,0,0,LiftAD
+0,0,0,0,0,0,0,0,0,0,LiftAU
+0,0,0,0,0,0,0,0,0,0,Lopen
+0,0,0,0,0,0,0,0,0,0,Nietsdoen
+0,0,0,0,0,0,0,0,0,0,Springen
+0,0,0,0,0,0,0,0,0,0,Tandenpoetsen
+0,0,0,0,0,0,0,0,0,0,Trapaf
+0,0,0,0,0,0,0,0,0,0,Trapop
+0,0,0,0,0,0,0,0,0,0,Wandelen
+0,0,0,0,0,0,0,0,0,0,Wandelen
