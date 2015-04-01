@@ -1,19 +1,24 @@
 package sequences;
 
 import grizzled.sys;
+import helpers.Files;
 import helpers.HelperFunctions;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import play.api.libs.iteratee.internal;
 
 
+import au.com.bytecode.opencsv.CSVReader;
+
 import com.opencsv.CSVWriter;
 
 import weka.classifiers.Classifier;
 
+import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.CSVLoader;
 
@@ -57,8 +62,9 @@ public class SequenceEvaluator {
 	@Deprecated
 	public String makePredictionsCsv() throws IOException{
 		
+		String path = "./predictioncsv.csv";
 		//create csv file and writer with header
-		CSVWriter csvOutput = new CSVWriter(new FileWriter("./predictioncsv.csv"));
+		CSVWriter csvOutput = new CSVWriter(new FileWriter(path));
 		String[] record = FILE_HEADER.split(",");
 		csvOutput.writeNext(record);
 				
@@ -88,7 +94,29 @@ public class SequenceEvaluator {
 		
 		csvOutput.close();
 		
+		getAccuracy(path);
+		
 		return "Prediction csv made!";
+	}
+	
+	public String getAccuracy(String path) throws IOException{
+		CSVReader csvReader = new CSVReader(new FileReader(new File(path)));
+
+		String[] nextLine;
+		int totalCounter = 0;
+		int correctCounter = 0;
+		while((nextLine = csvReader.readNext()) != null){
+			totalCounter++;
+			if(nextLine[2].equalsIgnoreCase(nextLine[3])){
+				correctCounter++;
+			}
+		}
+		
+		double accuracy = (double) correctCounter/((double)totalCounter);
+		
+		Files.writeFile("./predictionAccuracy", "Accuracy: " + accuracy);
+		
+		return "accuracy calculated";
 	}
 	
 	/**
@@ -97,9 +125,11 @@ public class SequenceEvaluator {
 	 * @throws Exception 
 	 */
 	public String makePredictionsCsv2() throws Exception{
+		String path = "./predictioncsv.csv";
+
 		
 		//create csv file and writer with header
-		CSVWriter csvOutput = new CSVWriter(new FileWriter("./predictioncsv.csv"));
+		CSVWriter csvOutput = new CSVWriter(new FileWriter(path));
 		String[] record = FILE_HEADER.split(",");
 		csvOutput.writeNext(record);
 				
@@ -119,8 +149,13 @@ public class SequenceEvaluator {
 		
 		csvOutput.close();
 		
+		getAccuracy(path);
+
+		
 		return "Prediction csv made!";
 	}
+	
+	
 	
 	
 }
