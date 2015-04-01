@@ -1,0 +1,16 @@
+@relation data-hmm-sorted
+
+@attribute z_hmm_model-Fietsen numeric
+@attribute z_hmm_model-LiftAD numeric
+@attribute z_hmm_model-LiftAU numeric
+@attribute z_hmm_model-Lopen numeric
+@attribute z_hmm_model-Nietsdoen numeric
+@attribute z_hmm_model-Springen numeric
+@attribute z_hmm_model-Tandenpoetsen numeric
+@attribute z_hmm_model-Trapaf numeric
+@attribute z_hmm_model-Trapop numeric
+@attribute z_hmm_model-Wandelen numeric
+@attribute label {Trapaf,Lopen,Trapop,Tandenpoetsen,LiftAD,Fietsen,Wandelen,LiftAU,Nietsdoen,Springen}
+
+@data
+-1.1584554833297362,-1000,-1000,-2.886395688611129,-1000,-3.72344539262661,-111.2294363816108,-1.887494549848318,-1.0517412407181599,-1.3837892983413893,Nietsdoen
