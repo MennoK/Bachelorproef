@@ -84,8 +84,8 @@ public class ActivityRecognition {
 				String print = featuresAll(args[1], args[2]);
 				System.out.println(print);
 			}
-			else if (args[0].equals("combineTraining") && args.length == 2) {
-				String print = combineTraining(args[1]);
+			else if (args[0].equals("combineTraining") && args.length == 3) {
+				String print = combineTraining(args[1],args[2]);
 				System.out.println(print);
 			}
 	
@@ -359,13 +359,16 @@ public class ActivityRecognition {
 	 * 			Pad naar folder met trainingsets
 	 */
 	@Command(description="Combineer alle CSV files in een folder")
-	public static String combineTraining(@Param(name="path", description="Pad naar folder met trainingsets") String path) throws IOException{
+	public static String combineTraining(@Param(name="path", description="Pad naar folder met trainingsets") String path, @Param(name="path", description="Pad naar output") String output) throws IOException{
 	
 		//Haal alle csvs-bestanden op 
 		File csvfolder = new File(path);
 		File[] listOfCsv = Files.getCsvFromFolder(csvfolder);
 		
-		return Features.combineTrainingSets(listOfCsv);
+		
+		
+		
+		return Features.combineTrainingSets2(listOfCsv,output);
 	}
 
 	

@@ -4,6 +4,6 @@
 for dir in ./Data2/*/*/*.log
 do
 
-java -jar ./ActivityRecognition.jar shorterlog $dir
+java -jar ./ActivityRecognition.jar features $dir ./HMMs/settings.json
 
 done
