@@ -1,0 +1,19 @@
+{
+  "window_seconds" : -1,
+  "nb_fft_features" : 20,
+  "step_fft_features" : 0.25,
+  "nb_fft_peaks" : 4,
+  "window_fft_features" : 0.5,
+  "wavelet_type" : "haar",
+  "nb_dwt_features" : 10,
+  "nb_wpd_features" : 10,
+  "peak_wss" : 0.5,
+  "peak_mindev" : 1,
+  "geo_correct" : true,
+  "ignore_q" : false,
+  "f_co" : 4,
+  "hmm_states" : 10,
+  "hmm_learn_iterations" : 200,
+  "hmm_files" : [ ],
+  "cli_args" : [ "--settings", "HMMs/10-200/settings-LiftAU.json", "--hmm", "HMMs/10-200/model-LiftAU.jahmm", "Data/LiftAU/Validatie-set/liftau12_m_r_20150212145759.cut.log", "Data/LiftAU/Validatie-set/liftau9_m_r_20141204154654.cut.log", "Data/LiftAU/Validatie-set/liftau9_a_r_20141204154655.cut.log", "Data/LiftAU/Validatie-set/liftau12_a_l_20150212145755.cut.log", "Data/LiftAU/Validatie-set/liftau10_a_l_20141204153534.cut.log", "Data/LiftAU/Validatie-set/liftau11_m_r_20150212145608.cut.log" ]
+}

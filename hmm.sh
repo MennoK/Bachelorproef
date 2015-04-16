@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for it in 100 120 140 160 180 200 220 240 260 280 300 340 380 450
+for it in 100 # 120 140 160 180 200 220 240 260 280 300 340 380 450
 do
 
 # hmm's berekenen:
@@ -21,4 +21,4 @@ java -jar ActivityRecognition.jar makehmmsettings HMMs/10-$it 10 $it
 done
 
 # evaluatie
-java -jar ActivityRecognition.jar expsettingshmms
+# java -jar ActivityRecognition.jar expsettingshmms

@@ -1,0 +1,19 @@
+{
+  "window_seconds" : -1,
+  "nb_fft_features" : 12,
+  "step_fft_features" : 0.41666666666666663,
+  "nb_fft_peaks" : 4,
+  "window_fft_features" : 0.8333333333333333,
+  "wavelet_type" : "haar",
+  "nb_dwt_features" : 10,
+  "nb_wpd_features" : 10,
+  "peak_wss" : 0.5,
+  "peak_mindev" : 1.0,
+  "geo_correct" : true,
+  "ignore_q" : false,
+  "f_co" : 4.0,
+  "hmm_states" : 10,
+  "hmm_learn_iterations" : 120,
+  "hmm_files" : [ "HMMs/10-120/model-Wandelen.jahmm", "HMMs/10-120/model-Trapop.jahmm", "HMMs/10-120/model-Springen.jahmm", "HMMs/10-120/model-Lopen.jahmm", "HMMs/10-120/model-Fietsen.jahmm", "HMMs/10-120/model-Trapaf.jahmm", "HMMs/10-120/model-LiftAU.jahmm", "HMMs/10-120/model-Tandenpoetsen.jahmm", "HMMs/10-120/model-Nietsdoen.jahmm", "HMMs/10-120/model-LiftAD.jahmm" ],
+  "cli_args" : [ "--settings", "./Experimenten/Settings-HMMs/10-120/settings.json", "--features", "./Data/LiftAD/Training-set/liftad8_m_r_20141204154654.cut.settings.features.csv", "./Data/LiftAD/Training-set/liftad8_m_r_20141204154654.cut.log" ]
+}
