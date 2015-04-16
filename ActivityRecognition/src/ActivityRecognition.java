@@ -137,6 +137,10 @@ public class ActivityRecognition {
 				String print = accuracy(args[1], args[2]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("shorterlog") && args.length == 2) {
+				String print = shorterlog(args[1]);
+				System.out.println(print);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}
@@ -774,6 +778,53 @@ public class ActivityRecognition {
 	public static String accuracy(String pathToPredictionCsv, String pathToLabelCsv) throws Exception {
 		SequenceEvaluator evaluator = new SequenceEvaluator(pathToLabelCsv);
 		return evaluator.getAccuracy(pathToPredictionCsv);		
+	}
+	
+	@Command
+	public static String shorterlog(String path) throws IOException {
+		double startTime = HelperFunctions.getStartTime(path);
+		double endTime = HelperFunctions.getEndTime(path);
+		double newEndTime = startTime+5;
+		String pathNEW = path.replace("Data/","Data2/");
+		if (newEndTime < endTime) {
+			cut2(path,startTime,endTime);
+		}
+		else {
+			String content = Files.readFile(path);
+			Files.writeFile(pathNEW, content);
+		}
+		return "New (shorter) log file made in Data2 - yeeeey!";
+	}
+	
+	/**
+	 * met pathNEW = Data2/[zelfde pad]
+	 */
+	private static String cut2(@Param(name="path", description="Pad naar log-bestand") String path,
+						@Param(name="start", description="Starttijd in seconden") double start,
+						@Param(name="end", description="Eindtijd in seconden") double end) {
+		File logFile = new File(path);
+		if (! logFile.exists()) {
+			String folder = Files.folder(path);
+			String start2 = Files.file(path);
+			File[] matches = Files.startsWith(folder, start2);
+			if (matches.length > 1)
+				return "Meerdere log-bestanden beginnen met '"+start2+"' in de map '"+folder+"'";
+			else if (matches.length == 1) {
+				logFile = matches[0];
+				path = logFile.getPath();
+			}
+			else
+				return "Log-bestand niet gevonden";
+		}
+		String pathNEW = path.replace("Data/","Data2/");
+		System.out.println("Log-bestand knippen...");
+		try {
+			HelperFunctions.makeShorterLogFile(path, pathNEW, start, end);
+		} catch (IOException e) {
+			return "Fout met knippen";
+		}
+		plot(pathNEW);
+		return path+" werd geknipt en weggeschreven in ander log-bestand: "+pathNEW;
 	}
 	
 	
