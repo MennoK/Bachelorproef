@@ -133,6 +133,10 @@ public class ActivityRecognition {
 				String print = evaluateSequence(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]), args[6], Double.parseDouble(args[7]), args[8]);
 				System.out.println(print);
 			}
+			else if (args[0].equals("accuracy") && args.length == 3) {
+				String print = accuracy(args[1], args[2]);
+				System.out.println(print);
+			}
 			else {
 				System.out.println("Commando niet begrepen...");
 			}
@@ -758,6 +762,18 @@ public class ActivityRecognition {
 		SequenceEvaluator evaluator = new SequenceEvaluator(pathToModel, pathToLabelCsv, pathToLogFile, windowSize, overlap, pathToSettingsFile, noiseCutoff, pattern);
 		return evaluator.makePredictionsCsv2();
 		
+	}
+	
+	/**
+	 * Bereken het percentage van juiste labels van een prediction csv
+	 * @param pathToPredictionCsv   Pad naar prediction csv
+	 * @param pathToLabelCsv		Pad naar csv-bestand met de echte labels
+	 * @throws Exception 
+	 */
+	@Command
+	public static String accuracy(String pathToPredictionCsv, String pathToLabelCsv) throws Exception {
+		SequenceEvaluator evaluator = new SequenceEvaluator(pathToLabelCsv);
+		return evaluator.getAccuracy(pathToPredictionCsv);		
 	}
 	
 	

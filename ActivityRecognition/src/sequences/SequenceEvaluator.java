@@ -54,6 +54,13 @@ public class SequenceEvaluator {
 		this.noiseCutoff = noiseCutoff;
 		
 	}
+	
+	public SequenceEvaluator(String pathToLabelCsv) throws Exception {
+		this.pathToLabelCsv = pathToLabelCsv;
+		CSVLoader loader = new CSVLoader();
+		loader.setSource(new File(pathToLabelCsv));
+		this.instancesFromLabelCsv = loader.getDataSet();
+	}
 
 	/**
 	 * @throws IOException 
@@ -106,17 +113,50 @@ public class SequenceEvaluator {
 		int totalCounter = 0;
 		int correctCounter = 0;
 		while((nextLine = csvReader.readNext()) != null){
-			totalCounter++;
-			if(nextLine[2].equalsIgnoreCase(nextLine[3])){
-				correctCounter++;
+			if (! nextLine[0].equals("Start")) {
+				double start = Double.parseDouble(nextLine[0]);
+				double end = Double.parseDouble(nextLine[1]);
+				if (isInTransition(start + (end-start)/2)) {
+					// niet meetellen als midden van tijdsperiode (van 0.5sec) in overgang zit
+				}
+				else {
+					totalCounter++;
+					if(nextLine[2].equalsIgnoreCase(nextLine[3])){
+						correctCounter++;
+					}
+				}
 			}
 		}
 		
 		double accuracy = (double) correctCounter/((double)totalCounter);
 		
-		Files.writeFile("./predictionAccuracy", "Accuracy: " + accuracy);
+		String outputPath = path.substring(0, path.length() - 4) + "-accuracy.txt";
+		Files.writeFile(outputPath, "" + accuracy);
 		
 		return "accuracy calculated";
+	}
+	
+	/**
+	 * Controleert of een timeStamp binnen 1sec van een start- of eindtijd in het label-bestand valt.
+	 * @param timeStamp De te controleren time stamp
+	 * @return True als timeStamp binnen 1sec van een start- of eindtijd in het label-bestand valt.
+	 */
+	private boolean isInTransition(double timeStamp) {
+		for (double transitionTime : getStartAndEndTimes()) {
+			if (Math.abs(timeStamp-transitionTime) < 1) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private double[] getStartAndEndTimes() {
+		double[] result = new double[instancesFromLabelCsv.numInstances()*2];
+		for(int i = 0; i < instancesFromLabelCsv.numInstances(); i++){
+			result[2*i] = instancesFromLabelCsv.instance(i).value(0);
+			result[2*i+1] = instancesFromLabelCsv.instance(i).value(1);
+		}
+		return result;
 	}
 	
 	/**
