@@ -787,7 +787,7 @@ public class ActivityRecognition {
 		double newEndTime = startTime+5;
 		String pathNEW = path.replace("Data/","Data2/");
 		if (newEndTime < endTime) {
-			cut2(path,startTime,endTime);
+			cut2(path,startTime,newEndTime);
 		}
 		else {
 			String content = Files.readFile(path);
@@ -823,7 +823,6 @@ public class ActivityRecognition {
 		} catch (IOException e) {
 			return "Fout met knippen";
 		}
-		plot(pathNEW);
 		return path+" werd geknipt en weggeschreven in ander log-bestand: "+pathNEW;
 	}
 	

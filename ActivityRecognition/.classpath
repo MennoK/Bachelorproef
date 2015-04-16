@@ -2,13 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/opencsv-3.3.jar"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/asg.cliche-110413.jar"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/MotionFingerprint.jar"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/libsvm.jar"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/weka.jar"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/commons-lang3-3.3.2.jar"/>
-	<classpathentry kind="lib" path="/home/arnedebrabandere/GitHub/Bachelorproef/ActivityRecognition/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/asg.cliche-110413.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/libsvm.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/MotionFingerprint.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/opencsv-3.3.jar"/>
+	<classpathentry kind="lib" path="/home/menno/Documents/Bachelorproef/ActivityRecognition/weka.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
