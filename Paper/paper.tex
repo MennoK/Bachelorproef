@@ -37,21 +37,40 @@ Situering van het werk + bijdragen:
 \item waarom bewegingen herkennen? (extra bronnen gebruiken)
 \item waarom met smartphones?
 \item korte uitleg over onderzoek dat al gedaan is hierover voor afzonderlijke activiteiten (zie papers van literatuurstudie)
-\item uitleg over eigen bijdrage: van model om afzonderlijke activiteiten te herkennen naar algoritme om sequenties van activiteiten te herkennen
+\item uitleg over eigen bijdrage: (1) van model om afzonderlijke activiteiten te herkennen naar algoritme om sequenties van activiteiten te herkennen (+ duidelijk zeggen wat we met afzondelijke activiteiten en sequenties bedoelen)
 \end{itemize}
 }
 
-\section{Afzonderlijke activiteiten}
+\section{Herkenning van afzondelijke activiteiten}
+
+Het eerste probleem is om van een gegeven reeks samples van een accelerometer en een gyroscoop de activiteit te bepalen. We eisen hier dat telkens \'e\'en afzonderlijke activiteit gemeten wordt. We willen 10 verschillende activiteiten kunnen herkennen:
+\begin{itemize}
+\item wandelen,
+\item lopen,
+\item fietsen,
+\item een trap opwandelen,
+\item een trap afwandelen,
+\item een lift naar boven nemen,
+\item een lift naar beneden nemen,
+\item tanden poetsen,
+\item springen,
+\item niets doen (zitten, liggen, staan).
+\end{itemize}
+
+Met behulp van classificatiemethodes zoeken we naar een model met een zo groot mogelijke accuraatheid om de activiteit van een meting te bepalen. Hiervoor hebben we voor elke activiteit 22 metingen verzameld, opgemeten door 2 verschillende personen. De metingen gebeurden in vari\"erende omstandigheden zoals tijd en kledij. Voor elke meting werd gezorgd dat die slechts \'e\'en activiteit bevat.
 
 \textit{
 \begin{itemize}
 \item probleemstelling
-\item hoe? (classificatie methodes)
-\item waarom eerst dit voor sequenties? (al iets zeggen over tijdsvensters en dergelijke)
+\item hoe? (classificatie methodes) + motivatie
 \end{itemize}
 }
 
-\subsection{Classificatie methodes}
+\subsection{Features}
+
+Vooraleer we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen. \textbf{[TODO: uitleggen waarom we features berekenen]}
+
+\subsection{Classificatiemethodes}
 
 \textit{
 \begin{itemize}
