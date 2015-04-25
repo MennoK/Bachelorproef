@@ -19,29 +19,23 @@
 
 \begin{abstract}
 
-\textit{
-\begin{itemize}
-\item doel
-\item probleemstelling
-\item belangrijkste resultaten
-\end{itemize}
-}
+% TODO: doel + probleemstelling + belangrijkste resultaten
 
 \end{abstract}
 
 \section{Inleiding}
 
-\textit{
-Situering van het werk + bijdragen:
-\begin{itemize}
-\item waarom bewegingen herkennen? (extra bronnen gebruiken)
-\item waarom met smartphones?
-\item korte uitleg over onderzoek dat al gedaan is hierover voor afzonderlijke activiteiten (zie papers van literatuurstudie)
-\item uitleg over eigen bijdrage: (1) van model om afzonderlijke activiteiten te herkennen naar algoritme om sequenties van activiteiten te herkennen (+ duidelijk zeggen wat we met afzondelijke activiteiten en sequenties bedoelen)
-\end{itemize}
-}
+% TODO: situering van het werk + bijdragen:
+% - waarom bewegingen herkennen? (extra bronnen gebruiken
+% - waarom met smartphones?
+% - korte uitleg over onderzoek dat al gedaan is hierover voor afzonderlijke activiteiten (zie papers van literatuurstudie)
+% - uitleg over eigen bijdrage: (1) van model om afzonderlijke activiteiten te herkennen naar algoritme om sequenties van activiteiten te herkennen (+ duidelijk zeggen wat we met afzondelijke activiteiten en sequenties bedoelen)
 
-\section{Herkenning van afzondelijke activiteiten}
+
+
+% bij 2 secties telkens "data collectie" + "data verwerking" + leermethodes + experimenten  +resultaten + conclusie
+
+\section{Afzondelijke activiteiten}
 
 Het eerste probleem is om van een gegeven reeks samples van een accelerometer en een gyroscoop de activiteit te bepalen. We eisen hier dat telkens \'e\'en afzonderlijke activiteit gemeten wordt. We willen 10 verschillende activiteiten kunnen herkennen:
 \begin{itemize}
@@ -57,57 +51,66 @@ Het eerste probleem is om van een gegeven reeks samples van een accelerometer en
 \item niets doen (zitten, liggen, staan).
 \end{itemize}
 
-Met behulp van classificatiemethodes zoeken we naar een model met een zo groot mogelijke accuraatheid om de activiteit van een meting te bepalen. Hiervoor hebben we voor elke activiteit 22 metingen verzameld, opgemeten door 2 verschillende personen. De metingen gebeurden in vari\"erende omstandigheden zoals tijd en kledij. Voor elke meting werd gezorgd dat die slechts \'e\'en activiteit bevat.
+Met behulp van classificatiemethodes zoeken we naar een model met een zo groot mogelijke accuraatheid om de activiteit van een meting te bepalen.
 
-\textit{
-\begin{itemize}
-\item probleemstelling
-\item hoe? (classificatie methodes) + motivatie
-\end{itemize}
-}
+% TODO: ook motivatie (waarom classificatiemethodes)
 
-\subsection{Features}
+\subsection{Datacollectie}
 
-Vooraleer we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen. \textbf{[TODO: uitleggen waarom we features berekenen]}
+% probleemstelling:
+Hiervoor hebben we voor elke activiteit 22 metingen verzameld, opgemeten door 2 verschillende personen. De metingen gebeurden in vari\"erende omstandigheden zoals tijd en kledij. Voor elke meting werd gezorgd dat die slechts \'e\'en activiteit bevat.
+% ...
+
+\subsection{Dataverwerking: features berekenen}
+
+Vooraleer we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen. 
+
+% TODO: uitleggen waarom we features berekenen
 
 \subsection{Classificatiemethodes}
 
-\textit{
-\begin{itemize}
-\item uitleg van belangrijke (goed werkende) methodes (extra bronnen gebruiken),
-telkens samen met resultaten + bespreking waarom goed of niet
-\item besluit voor afzonderlijke activiteiten
-\end{itemize}
-}
+% TODO: korte uitleg van belangrijke (goed werkende) methodes (extra bronnen gebruiken)
+
+\subsection{Experimenten en resultaten}
+
+% TODO: experimenten + resultaten: opsplitsen?
 
 \section{Sequenties van activiteiten}
 
-\textit{probleemstelling}
+% TODO: probleemstelling
 
-\subsection{Oplossing}
+\subsection{Datacollectie}
 
-\textit{hoe? (terug over tijdsvensters, meer uitgebreid: verschillende groottes en overlappingen + hypothese (waarschijnlijk 4sec en 3/4 overlap, omwille van activiteit \textbf{lift versnelt omhoog/omlaag}) ...)}
+% TODO: hoe hebben we de data verzameld
 
-\subsection{Evaluatie}
+\subsection{Dataverwerking}
 
-\textit{
-\begin{itemize}
-\item hoe gebeurt de evaluatie: \textbf{nog eens bekijken! (overgangen niet meerekenen)}
-\item accuraatheid plotten in functie van grootte van tijdsvensters, overlap en gebruikte model
-\item bespreking van resultaten: komt dit overeen met de hypothese?
-\end{itemize}
-}
+% TODO: iets over het labelen + uitleg van tijdsvensters, overlappingen
 
-\section{Verder werk}
+\subsection{Algoritme}
 
-\textit{misschien wat er zou gebeuren als hetzelfde zou gedaan worden voor meer metingen?}
+% TODO: algoritme uitleggen + hierbij ook uitleg over ruis-cutoff
+
+\subsection{Experimenten en resultaten}
+
+% TODO:
+% - hoe gebeurt de evaluatie?
+% - accuraatheid plotten in functie van grootte van tijdsvensters en overlap + tijdsvensters vergelijken + iets over ruis cut-off
+%   ==> hypothese (waarschijnlijk 4sec en 3/4 overlap, omwille van activiteit lift versnelt omhoog/omlaag)
+% - bespreking van resultaten: komt dit overeen met de hypothese?
 
 \section{Conclusie}
 
+% TODO: voor afzonderlijke activiteiten EN (?) voor sequenties
 
-% wat er nog niet in staat: hoe we de metingen gedaan hebben (voor afzonderlijke activiteiten vooral, en ook voor sequenties)
+\section{Verder werk}
+
+% TODO: misschien wat er zou gebeuren als hetzelfde zou gedaan worden voor meer metingen? (bvb. wandelen, lopen, ... accurater)
 
 
+
+
+% TODO: bronvermelding!
 
 %% The file named.bst is a bibliography style file for BibTeX 0.99c
 % \bibliographystyle{named}
