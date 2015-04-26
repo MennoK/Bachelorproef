@@ -125,6 +125,17 @@ public class Files {
 		return listofCsv = folder.listFiles(csvFilter);
 	}
 	
+	
+	public static File[] getAccuracyFile(File folder){
+		File[] listOfAccuracyFiles;
+		FilenameFilter accuracyFilter = new FilenameFilter(){
+			public boolean accept(File dir, String name) {
+				return name.toLowerCase().contains("accuracy");
+			}
+		};
+		return listOfAccuracyFiles = folder.listFiles(accuracyFilter);
+		
+	}
 	public static String readFile(String path) throws IOException {
 		return new Scanner( new File(path) ).useDelimiter("\\A").next();
 	}
