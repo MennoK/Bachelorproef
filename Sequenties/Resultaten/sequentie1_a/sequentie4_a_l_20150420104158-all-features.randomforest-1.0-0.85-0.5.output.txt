@@ -1,0 +1,880 @@
+*** Voorspelling maken voor 46556.389271772 tot 46556.889271772 ***
+Voorspelling voor tijdsvenster van 46556.389271772 tot 46557.389271772: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46556.889271772 tot 46557.389271772 ***
+Voorspelling voor tijdsvenster van 46556.389271772 tot 46557.389271772: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46556.539271772 tot 46557.539271772: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46556.689271772004 tot 46557.689271772004: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46556.839271772005 tot 46557.839271772005: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46557.389271772 tot 46557.889271772 ***
+Voorspelling voor tijdsvenster van 46556.98927177201 tot 46557.98927177201: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46557.13927177201 tot 46558.13927177201: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46557.28927177201 tot 46558.28927177201: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46557.889271772 tot 46558.389271772 ***
+Voorspelling voor tijdsvenster van 46557.43927177201 tot 46558.43927177201: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46557.58927177201 tot 46558.58927177201: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46557.739271772014 tot 46558.739271772014: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46558.389271772 tot 46558.889271772 ***
+Voorspelling voor tijdsvenster van 46557.889271772015 tot 46558.889271772015: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46558.03927177202 tot 46559.03927177202: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46558.18927177202 tot 46559.18927177202: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46558.33927177202 tot 46559.33927177202: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46558.889271772 tot 46559.389271772 ***
+Voorspelling voor tijdsvenster van 46558.48927177202 tot 46559.48927177202: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46558.63927177202 tot 46559.63927177202: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46558.789271772024 tot 46559.789271772024: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46559.389271772 tot 46559.889271772 ***
+Voorspelling voor tijdsvenster van 46558.939271772026 tot 46559.939271772026: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46559.08927177203 tot 46560.08927177203: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46559.23927177203 tot 46560.23927177203: LiftAU (0.6)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46559.889271772 tot 46560.389271772 ***
+Voorspelling voor tijdsvenster van 46559.38927177203 tot 46560.38927177203: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46559.53927177203 tot 46560.53927177203: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46559.68927177203 tot 46560.68927177203: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46559.839271772034 tot 46560.839271772034: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46560.389271772 tot 46560.889271772 ***
+Voorspelling voor tijdsvenster van 46559.989271772036 tot 46560.989271772036: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46560.13927177204 tot 46561.13927177204: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46560.28927177204 tot 46561.28927177204: LiftAD (0.4)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46560.889271772 tot 46561.389271772 ***
+Voorspelling voor tijdsvenster van 46560.43927177204 tot 46561.43927177204: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46560.58927177204 tot 46561.58927177204: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46560.73927177204 tot 46561.73927177204: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46561.389271772 tot 46561.889271772 ***
+Voorspelling voor tijdsvenster van 46560.889271772045 tot 46561.889271772045: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46561.039271772046 tot 46562.039271772046: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46561.18927177205 tot 46562.18927177205: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46561.33927177205 tot 46562.33927177205: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Nietsdoen
+*** Voorspelling maken voor 46561.889271772 tot 46562.389271772 ***
+Voorspelling voor tijdsvenster van 46561.48927177205 tot 46562.48927177205: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46561.63927177205 tot 46562.63927177205: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46561.78927177205 tot 46562.78927177205: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46562.389271772 tot 46562.889271772 ***
+Voorspelling voor tijdsvenster van 46561.939271772055 tot 46562.939271772055: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46562.089271772056 tot 46563.089271772056: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46562.23927177206 tot 46563.23927177206: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46562.889271772 tot 46563.389271772 ***
+Voorspelling voor tijdsvenster van 46562.38927177206 tot 46563.38927177206: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46562.53927177206 tot 46563.53927177206: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46562.68927177206 tot 46563.68927177206: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46562.83927177206 tot 46563.83927177206: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46563.389271772 tot 46563.889271772 ***
+Voorspelling voor tijdsvenster van 46562.989271772065 tot 46563.989271772065: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46563.13927177207 tot 46564.13927177207: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46563.28927177207 tot 46564.28927177207: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46563.889271772 tot 46564.389271772 ***
+Voorspelling voor tijdsvenster van 46563.43927177207 tot 46564.43927177207: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46563.58927177207 tot 46564.58927177207: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46563.73927177207 tot 46564.73927177207: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46564.389271772 tot 46564.889271772 ***
+Voorspelling voor tijdsvenster van 46563.889271772074 tot 46564.889271772074: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46564.039271772075 tot 46565.039271772075: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46564.18927177208 tot 46565.18927177208: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46564.33927177208 tot 46565.33927177208: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46564.889271772 tot 46565.389271772 ***
+Voorspelling voor tijdsvenster van 46564.48927177208 tot 46565.48927177208: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46564.63927177208 tot 46565.63927177208: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46564.78927177208 tot 46565.78927177208: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46565.389271772 tot 46565.889271772 ***
+Voorspelling voor tijdsvenster van 46564.939271772084 tot 46565.939271772084: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46565.089271772085 tot 46566.089271772085: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46565.23927177209 tot 46566.23927177209: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46565.889271772 tot 46566.389271772 ***
+Voorspelling voor tijdsvenster van 46565.38927177209 tot 46566.38927177209: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46565.53927177209 tot 46566.53927177209: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46565.68927177209 tot 46566.68927177209: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46565.83927177209 tot 46566.83927177209: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46566.389271772 tot 46566.889271772 ***
+Voorspelling voor tijdsvenster van 46565.989271772094 tot 46566.989271772094: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46566.139271772096 tot 46567.139271772096: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46566.2892717721 tot 46567.2892717721: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46566.889271772 tot 46567.389271772 ***
+Voorspelling voor tijdsvenster van 46566.4392717721 tot 46567.4392717721: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46566.5892717721 tot 46567.5892717721: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46566.7392717721 tot 46567.7392717721: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46567.389271772 tot 46567.889271772 ***
+Voorspelling voor tijdsvenster van 46566.8892717721 tot 46567.8892717721: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46567.039271772104 tot 46568.039271772104: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46567.189271772106 tot 46568.189271772106: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46567.33927177211 tot 46568.33927177211: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46567.889271772 tot 46568.389271772 ***
+Voorspelling voor tijdsvenster van 46567.48927177211 tot 46568.48927177211: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46567.63927177211 tot 46568.63927177211: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46567.78927177211 tot 46568.78927177211: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46568.389271772 tot 46568.889271772 ***
+Voorspelling voor tijdsvenster van 46567.93927177211 tot 46568.93927177211: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46568.089271772114 tot 46569.089271772114: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46568.239271772116 tot 46569.239271772116: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46568.889271772 tot 46569.389271772 ***
+Voorspelling voor tijdsvenster van 46568.38927177212 tot 46569.38927177212: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46568.53927177212 tot 46569.53927177212: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46568.68927177212 tot 46569.68927177212: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46568.83927177212 tot 46569.83927177212: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46569.389271772 tot 46569.889271772 ***
+Voorspelling voor tijdsvenster van 46568.98927177212 tot 46569.98927177212: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46569.139271772125 tot 46570.139271772125: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46569.289271772126 tot 46570.289271772126: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46569.889271772 tot 46570.389271772 ***
+Voorspelling voor tijdsvenster van 46569.43927177213 tot 46570.43927177213: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46569.58927177213 tot 46570.58927177213: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46569.73927177213 tot 46570.73927177213: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46570.389271772 tot 46570.889271772 ***
+Voorspelling voor tijdsvenster van 46569.88927177213 tot 46570.88927177213: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46570.03927177213 tot 46571.03927177213: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46570.189271772135 tot 46571.189271772135: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46570.339271772136 tot 46571.339271772136: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46570.889271772 tot 46571.389271772 ***
+Voorspelling voor tijdsvenster van 46570.48927177214 tot 46571.48927177214: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46570.63927177214 tot 46571.63927177214: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46570.78927177214 tot 46571.78927177214: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46571.389271772 tot 46571.889271772 ***
+Voorspelling voor tijdsvenster van 46570.93927177214 tot 46571.93927177214: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46571.08927177214 tot 46572.08927177214: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46571.239271772145 tot 46572.239271772145: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46571.889271772 tot 46572.389271772 ***
+Voorspelling voor tijdsvenster van 46571.38927177215 tot 46572.38927177215: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46571.53927177215 tot 46572.53927177215: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46571.68927177215 tot 46572.68927177215: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46571.83927177215 tot 46572.83927177215: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46572.389271772 tot 46572.889271772 ***
+Voorspelling voor tijdsvenster van 46571.98927177215 tot 46572.98927177215: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46572.139271772154 tot 46573.139271772154: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46572.289271772155 tot 46573.289271772155: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46572.889271772 tot 46573.389271772 ***
+Voorspelling voor tijdsvenster van 46572.43927177216 tot 46573.43927177216: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46572.58927177216 tot 46573.58927177216: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46572.73927177216 tot 46573.73927177216: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46573.389271772 tot 46573.889271772 ***
+Voorspelling voor tijdsvenster van 46572.88927177216 tot 46573.88927177216: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46573.03927177216 tot 46574.03927177216: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46573.189271772164 tot 46574.189271772164: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46573.339271772165 tot 46574.339271772165: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46573.889271772 tot 46574.389271772 ***
+Voorspelling voor tijdsvenster van 46573.48927177217 tot 46574.48927177217: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46573.63927177217 tot 46574.63927177217: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46573.78927177217 tot 46574.78927177217: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46574.389271772 tot 46574.889271772 ***
+Voorspelling voor tijdsvenster van 46573.93927177217 tot 46574.93927177217: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46574.08927177217 tot 46575.08927177217: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46574.239271772174 tot 46575.239271772174: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46574.889271772 tot 46575.389271772 ***
+Voorspelling voor tijdsvenster van 46574.389271772176 tot 46575.389271772176: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46574.53927177218 tot 46575.53927177218: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46574.68927177218 tot 46575.68927177218: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46574.83927177218 tot 46575.83927177218: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46575.389271772 tot 46575.889271772 ***
+Voorspelling voor tijdsvenster van 46574.98927177218 tot 46575.98927177218: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46575.13927177218 tot 46576.13927177218: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46575.289271772184 tot 46576.289271772184: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46575.889271772 tot 46576.389271772 ***
+Voorspelling voor tijdsvenster van 46575.439271772186 tot 46576.439271772186: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46575.58927177219 tot 46576.58927177219: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46575.73927177219 tot 46576.73927177219: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46576.389271772 tot 46576.889271772 ***
+Voorspelling voor tijdsvenster van 46575.88927177219 tot 46576.88927177219: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46576.03927177219 tot 46577.03927177219: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46576.18927177219 tot 46577.18927177219: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46576.339271772194 tot 46577.339271772194: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Wandelen
+*** Voorspelling maken voor 46576.889271772 tot 46577.389271772 ***
+Voorspelling voor tijdsvenster van 46576.489271772196 tot 46577.489271772196: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46576.6392717722 tot 46577.6392717722: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46576.7892717722 tot 46577.7892717722: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46577.389271772 tot 46577.889271772 ***
+Voorspelling voor tijdsvenster van 46576.9392717722 tot 46577.9392717722: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46577.0892717722 tot 46578.0892717722: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46577.2392717722 tot 46578.2392717722: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46577.889271772 tot 46578.389271772 ***
+Voorspelling voor tijdsvenster van 46577.389271772205 tot 46578.389271772205: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46577.539271772206 tot 46578.539271772206: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46577.68927177221 tot 46578.68927177221: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46577.83927177221 tot 46578.83927177221: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46578.389271772 tot 46578.889271772 ***
+Voorspelling voor tijdsvenster van 46577.98927177221 tot 46578.98927177221: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46578.13927177221 tot 46579.13927177221: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46578.28927177221 tot 46579.28927177221: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46578.889271772 tot 46579.389271772 ***
+Voorspelling voor tijdsvenster van 46578.439271772215 tot 46579.439271772215: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46578.589271772216 tot 46579.589271772216: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46578.73927177222 tot 46579.73927177222: LiftAU (0.4)
+==> voorspelde label is: LiftAU
+    echte label is: Trapop
+*** Voorspelling maken voor 46579.389271772 tot 46579.889271772 ***
+Voorspelling voor tijdsvenster van 46578.88927177222 tot 46579.88927177222: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46579.03927177222 tot 46580.03927177222: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46579.18927177222 tot 46580.18927177222: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46579.33927177222 tot 46580.33927177222: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46579.889271772 tot 46580.389271772 ***
+Voorspelling voor tijdsvenster van 46579.489271772225 tot 46580.489271772225: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46579.63927177223 tot 46580.63927177223: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46579.78927177223 tot 46580.78927177223: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46580.389271772 tot 46580.889271772 ***
+Voorspelling voor tijdsvenster van 46579.93927177223 tot 46580.93927177223: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46580.08927177223 tot 46581.08927177223: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46580.23927177223 tot 46581.23927177223: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46580.889271772 tot 46581.389271772 ***
+Voorspelling voor tijdsvenster van 46580.389271772234 tot 46581.389271772234: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46580.539271772235 tot 46581.539271772235: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46580.68927177224 tot 46581.68927177224: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46580.83927177224 tot 46581.83927177224: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46581.389271772 tot 46581.889271772 ***
+Voorspelling voor tijdsvenster van 46580.98927177224 tot 46581.98927177224: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46581.13927177224 tot 46582.13927177224: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46581.28927177224 tot 46582.28927177224: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46581.889271772 tot 46582.389271772 ***
+Voorspelling voor tijdsvenster van 46581.439271772244 tot 46582.439271772244: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46581.589271772245 tot 46582.589271772245: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46581.73927177225 tot 46582.73927177225: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46582.389271772 tot 46582.889271772 ***
+Voorspelling voor tijdsvenster van 46581.88927177225 tot 46582.88927177225: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46582.03927177225 tot 46583.03927177225: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46582.18927177225 tot 46583.18927177225: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46582.33927177225 tot 46583.33927177225: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46582.889271772 tot 46583.389271772 ***
+Voorspelling voor tijdsvenster van 46582.489271772254 tot 46583.489271772254: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46582.639271772256 tot 46583.639271772256: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46582.78927177226 tot 46583.78927177226: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46583.389271772 tot 46583.889271772 ***
+Voorspelling voor tijdsvenster van 46582.93927177226 tot 46583.93927177226: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46583.08927177226 tot 46584.08927177226: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46583.23927177226 tot 46584.23927177226: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46583.889271772 tot 46584.389271772 ***
+Voorspelling voor tijdsvenster van 46583.38927177226 tot 46584.38927177226: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46583.539271772264 tot 46584.539271772264: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46583.689271772266 tot 46584.689271772266: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46583.83927177227 tot 46584.83927177227: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46584.389271772 tot 46584.889271772 ***
+Voorspelling voor tijdsvenster van 46583.98927177227 tot 46584.98927177227: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46584.13927177227 tot 46585.13927177227: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46584.28927177227 tot 46585.28927177227: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46584.889271772 tot 46585.389271772 ***
+Voorspelling voor tijdsvenster van 46584.43927177227 tot 46585.43927177227: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46584.589271772275 tot 46585.589271772275: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46584.739271772276 tot 46585.739271772276: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46585.389271772 tot 46585.889271772 ***
+Voorspelling voor tijdsvenster van 46584.88927177228 tot 46585.88927177228: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46585.03927177228 tot 46586.03927177228: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46585.18927177228 tot 46586.18927177228: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46585.33927177228 tot 46586.33927177228: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46585.889271772 tot 46586.389271772 ***
+Voorspelling voor tijdsvenster van 46585.48927177228 tot 46586.48927177228: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46585.639271772285 tot 46586.639271772285: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46585.789271772286 tot 46586.789271772286: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46586.389271772 tot 46586.889271772 ***
+Voorspelling voor tijdsvenster van 46585.93927177229 tot 46586.93927177229: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46586.08927177229 tot 46587.08927177229: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46586.23927177229 tot 46587.23927177229: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46586.889271772 tot 46587.389271772 ***
+Voorspelling voor tijdsvenster van 46586.38927177229 tot 46587.38927177229: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46586.53927177229 tot 46587.53927177229: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46586.689271772295 tot 46587.689271772295: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46586.839271772296 tot 46587.839271772296: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapop
+*** Voorspelling maken voor 46587.389271772 tot 46587.889271772 ***
+Voorspelling voor tijdsvenster van 46586.9892717723 tot 46587.9892717723: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46587.1392717723 tot 46588.1392717723: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46587.2892717723 tot 46588.2892717723: LiftAU (0.6)
+==> voorspelde label is: LiftAU
+    echte label is: Trapop
+*** Voorspelling maken voor 46587.889271772 tot 46588.389271772 ***
+Voorspelling voor tijdsvenster van 46587.4392717723 tot 46588.4392717723: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46587.5892717723 tot 46588.5892717723: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46587.739271772305 tot 46588.739271772305: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46588.389271772 tot 46588.889271772 ***
+Voorspelling voor tijdsvenster van 46587.88927177231 tot 46588.88927177231: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46588.03927177231 tot 46589.03927177231: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46588.18927177231 tot 46589.18927177231: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46588.33927177231 tot 46589.33927177231: LiftAD (0.4)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46588.889271772 tot 46589.389271772 ***
+Voorspelling voor tijdsvenster van 46588.48927177231 tot 46589.48927177231: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46588.639271772314 tot 46589.639271772314: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46588.789271772315 tot 46589.789271772315: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46589.389271772 tot 46589.889271772 ***
+Voorspelling voor tijdsvenster van 46588.93927177232 tot 46589.93927177232: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46589.08927177232 tot 46590.08927177232: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46589.23927177232 tot 46590.23927177232: LiftAU (0.5)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46589.889271772 tot 46590.389271772 ***
+Voorspelling voor tijdsvenster van 46589.38927177232 tot 46590.38927177232: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46589.53927177232 tot 46590.53927177232: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46589.689271772324 tot 46590.689271772324: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46589.839271772325 tot 46590.839271772325: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46590.389271772 tot 46590.889271772 ***
+Voorspelling voor tijdsvenster van 46589.98927177233 tot 46590.98927177233: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46590.13927177233 tot 46591.13927177233: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46590.28927177233 tot 46591.28927177233: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Nietsdoen
+*** Voorspelling maken voor 46590.889271772 tot 46591.389271772 ***
+Voorspelling voor tijdsvenster van 46590.43927177233 tot 46591.43927177233: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46590.58927177233 tot 46591.58927177233: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46590.739271772334 tot 46591.739271772334: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Nietsdoen
+*** Voorspelling maken voor 46591.389271772 tot 46591.889271772 ***
+Voorspelling voor tijdsvenster van 46590.889271772336 tot 46591.889271772336: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46591.03927177234 tot 46592.03927177234: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46591.18927177234 tot 46592.18927177234: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46591.33927177234 tot 46592.33927177234: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Nietsdoen
+*** Voorspelling maken voor 46591.889271772 tot 46592.389271772 ***
+Voorspelling voor tijdsvenster van 46591.48927177234 tot 46592.48927177234: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46591.63927177234 tot 46592.63927177234: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46591.789271772344 tot 46592.789271772344: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46592.389271772 tot 46592.889271772 ***
+Voorspelling voor tijdsvenster van 46591.939271772346 tot 46592.939271772346: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46592.08927177235 tot 46593.08927177235: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46592.23927177235 tot 46593.23927177235: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46592.889271772 tot 46593.389271772 ***
+Voorspelling voor tijdsvenster van 46592.38927177235 tot 46593.38927177235: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46592.53927177235 tot 46593.53927177235: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46592.68927177235 tot 46593.68927177235: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46592.839271772355 tot 46593.839271772355: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46593.389271772 tot 46593.889271772 ***
+Voorspelling voor tijdsvenster van 46592.989271772356 tot 46593.989271772356: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46593.13927177236 tot 46594.13927177236: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46593.28927177236 tot 46594.28927177236: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46593.889271772 tot 46594.389271772 ***
+Voorspelling voor tijdsvenster van 46593.43927177236 tot 46594.43927177236: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46593.58927177236 tot 46594.58927177236: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46593.73927177236 tot 46594.73927177236: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46594.389271772 tot 46594.889271772 ***
+Voorspelling voor tijdsvenster van 46593.889271772365 tot 46594.889271772365: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46594.039271772366 tot 46595.039271772366: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46594.18927177237 tot 46595.18927177237: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46594.33927177237 tot 46595.33927177237: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46594.889271772 tot 46595.389271772 ***
+Voorspelling voor tijdsvenster van 46594.48927177237 tot 46595.48927177237: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46594.63927177237 tot 46595.63927177237: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46594.78927177237 tot 46595.78927177237: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46595.389271772 tot 46595.889271772 ***
+Voorspelling voor tijdsvenster van 46594.939271772375 tot 46595.939271772375: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46595.08927177238 tot 46596.08927177238: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46595.23927177238 tot 46596.23927177238: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46595.889271772 tot 46596.389271772 ***
+Voorspelling voor tijdsvenster van 46595.38927177238 tot 46596.38927177238: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46595.53927177238 tot 46596.53927177238: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46595.68927177238 tot 46596.68927177238: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46595.839271772384 tot 46596.839271772384: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46596.389271772 tot 46596.889271772 ***
+Voorspelling voor tijdsvenster van 46595.989271772385 tot 46596.989271772385: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46596.13927177239 tot 46597.13927177239: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46596.28927177239 tot 46597.28927177239: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46596.889271772 tot 46597.389271772 ***
+Voorspelling voor tijdsvenster van 46596.43927177239 tot 46597.43927177239: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46596.58927177239 tot 46597.58927177239: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46596.73927177239 tot 46597.73927177239: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46597.389271772 tot 46597.889271772 ***
+Voorspelling voor tijdsvenster van 46596.889271772394 tot 46597.889271772394: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46597.039271772395 tot 46598.039271772395: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46597.1892717724 tot 46598.1892717724: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46597.3392717724 tot 46598.3392717724: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46597.889271772 tot 46598.389271772 ***
+Voorspelling voor tijdsvenster van 46597.4892717724 tot 46598.4892717724: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46597.6392717724 tot 46598.6392717724: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46597.7892717724 tot 46598.7892717724: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46598.389271772 tot 46598.889271772 ***
+Voorspelling voor tijdsvenster van 46597.939271772404 tot 46598.939271772404: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46598.089271772405 tot 46599.089271772405: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46598.23927177241 tot 46599.23927177241: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46598.889271772 tot 46599.389271772 ***
+Voorspelling voor tijdsvenster van 46598.38927177241 tot 46599.38927177241: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46598.53927177241 tot 46599.53927177241: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46598.68927177241 tot 46599.68927177241: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46598.83927177241 tot 46599.83927177241: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46599.389271772 tot 46599.889271772 ***
+Voorspelling voor tijdsvenster van 46598.989271772414 tot 46599.989271772414: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46599.139271772416 tot 46600.139271772416: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46599.28927177242 tot 46600.28927177242: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46599.889271772 tot 46600.389271772 ***
+Voorspelling voor tijdsvenster van 46599.43927177242 tot 46600.43927177242: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46599.58927177242 tot 46600.58927177242: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46599.73927177242 tot 46600.73927177242: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46600.389271772 tot 46600.889271772 ***
+Voorspelling voor tijdsvenster van 46599.88927177242 tot 46600.88927177242: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46600.039271772424 tot 46601.039271772424: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46600.189271772426 tot 46601.189271772426: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46600.33927177243 tot 46601.33927177243: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46600.889271772 tot 46601.389271772 ***
+Voorspelling voor tijdsvenster van 46600.48927177243 tot 46601.48927177243: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46600.63927177243 tot 46601.63927177243: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46600.78927177243 tot 46601.78927177243: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46601.389271772 tot 46601.889271772 ***
+Voorspelling voor tijdsvenster van 46600.93927177243 tot 46601.93927177243: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46601.089271772435 tot 46602.089271772435: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46601.239271772436 tot 46602.239271772436: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46601.889271772 tot 46602.389271772 ***
+Voorspelling voor tijdsvenster van 46601.38927177244 tot 46602.38927177244: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46601.53927177244 tot 46602.53927177244: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46601.68927177244 tot 46602.68927177244: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46601.83927177244 tot 46602.83927177244: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46602.389271772 tot 46602.889271772 ***
+Voorspelling voor tijdsvenster van 46601.98927177244 tot 46602.98927177244: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46602.139271772445 tot 46603.139271772445: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46602.289271772446 tot 46603.289271772446: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Trapaf
+*** Voorspelling maken voor 46602.889271772 tot 46603.389271772 ***
+Voorspelling voor tijdsvenster van 46602.43927177245 tot 46603.43927177245: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46602.58927177245 tot 46603.58927177245: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46602.73927177245 tot 46603.73927177245: LiftAU (0.6)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46603.389271772 tot 46603.889271772 ***
+Voorspelling voor tijdsvenster van 46602.88927177245 tot 46603.88927177245: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46603.03927177245 tot 46604.03927177245: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46603.189271772455 tot 46604.189271772455: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46603.33927177246 tot 46604.33927177246: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46603.889271772 tot 46604.389271772 ***
+Voorspelling voor tijdsvenster van 46603.48927177246 tot 46604.48927177246: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46603.63927177246 tot 46604.63927177246: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46603.78927177246 tot 46604.78927177246: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Nietsdoen
+*** Voorspelling maken voor 46604.389271772 tot 46604.889271772 ***
+Voorspelling voor tijdsvenster van 46603.93927177246 tot 46604.93927177246: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46604.089271772464 tot 46605.089271772464: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46604.239271772465 tot 46605.239271772465: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Nietsdoen
+*** Voorspelling maken voor 46604.889271772 tot 46605.389271772 ***
+Voorspelling voor tijdsvenster van 46604.38927177247 tot 46605.38927177247: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46604.53927177247 tot 46605.53927177247: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46604.68927177247 tot 46605.68927177247: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46604.83927177247 tot 46605.83927177247: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46605.389271772 tot 46605.889271772 ***
+Voorspelling voor tijdsvenster van 46604.98927177247 tot 46605.98927177247: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46605.139271772474 tot 46606.139271772474: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46605.289271772475 tot 46606.289271772475: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46605.889271772 tot 46606.389271772 ***
+Voorspelling voor tijdsvenster van 46605.43927177248 tot 46606.43927177248: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46605.58927177248 tot 46606.58927177248: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46605.73927177248 tot 46606.73927177248: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46606.389271772 tot 46606.889271772 ***
+Voorspelling voor tijdsvenster van 46605.88927177248 tot 46606.88927177248: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46606.03927177248 tot 46607.03927177248: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46606.189271772484 tot 46607.189271772484: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46606.339271772486 tot 46607.339271772486: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Springen
+*** Voorspelling maken voor 46606.889271772 tot 46607.389271772 ***
+Voorspelling voor tijdsvenster van 46606.48927177249 tot 46607.48927177249: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46606.63927177249 tot 46607.63927177249: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46606.78927177249 tot 46607.78927177249: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Springen
+*** Voorspelling maken voor 46607.389271772 tot 46607.889271772 ***
+Voorspelling voor tijdsvenster van 46606.93927177249 tot 46607.93927177249: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46607.08927177249 tot 46608.08927177249: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46607.239271772494 tot 46608.239271772494: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Springen
+*** Voorspelling maken voor 46607.889271772 tot 46608.389271772 ***
+Voorspelling voor tijdsvenster van 46607.389271772496 tot 46608.389271772496: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46607.5392717725 tot 46608.5392717725: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46607.6892717725 tot 46608.6892717725: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46607.8392717725 tot 46608.8392717725: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46608.389271772 tot 46608.889271772 ***
+Voorspelling voor tijdsvenster van 46607.9892717725 tot 46608.9892717725: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46608.1392717725 tot 46609.1392717725: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46608.289271772504 tot 46609.289271772504: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46608.889271772 tot 46609.389271772 ***
+Voorspelling voor tijdsvenster van 46608.439271772506 tot 46609.439271772506: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46608.58927177251 tot 46609.58927177251: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46608.73927177251 tot 46609.73927177251: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46609.389271772 tot 46609.889271772 ***
+Voorspelling voor tijdsvenster van 46608.88927177251 tot 46609.88927177251: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46609.03927177251 tot 46610.03927177251: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46609.18927177251 tot 46610.18927177251: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46609.339271772515 tot 46610.339271772515: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46609.889271772 tot 46610.389271772 ***
+Voorspelling voor tijdsvenster van 46609.489271772516 tot 46610.489271772516: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46609.63927177252 tot 46610.63927177252: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46609.78927177252 tot 46610.78927177252: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46610.389271772 tot 46610.889271772 ***
+Voorspelling voor tijdsvenster van 46609.93927177252 tot 46610.93927177252: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46610.08927177252 tot 46611.08927177252: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46610.23927177252 tot 46611.23927177252: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46610.889271772 tot 46611.389271772 ***
+Voorspelling voor tijdsvenster van 46610.389271772525 tot 46611.389271772525: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46610.539271772526 tot 46611.539271772526: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46610.68927177253 tot 46611.68927177253: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46610.83927177253 tot 46611.83927177253: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46611.389271772 tot 46611.889271772 ***
+Voorspelling voor tijdsvenster van 46610.98927177253 tot 46611.98927177253: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46611.13927177253 tot 46612.13927177253: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46611.28927177253 tot 46612.28927177253: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46611.889271772 tot 46612.389271772 ***
+Voorspelling voor tijdsvenster van 46611.439271772535 tot 46612.439271772535: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46611.58927177254 tot 46612.58927177254: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46611.73927177254 tot 46612.73927177254: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46612.389271772 tot 46612.889271772 ***
+Voorspelling voor tijdsvenster van 46611.88927177254 tot 46612.88927177254: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46612.03927177254 tot 46613.03927177254: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46612.18927177254 tot 46613.18927177254: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46612.339271772544 tot 46613.339271772544: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46612.889271772 tot 46613.389271772 ***
+Voorspelling voor tijdsvenster van 46612.489271772545 tot 46613.489271772545: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46612.63927177255 tot 46613.63927177255: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46612.78927177255 tot 46613.78927177255: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46613.389271772 tot 46613.889271772 ***
+Voorspelling voor tijdsvenster van 46612.93927177255 tot 46613.93927177255: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46613.08927177255 tot 46614.08927177255: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46613.23927177255 tot 46614.23927177255: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46613.889271772 tot 46614.389271772 ***
+Voorspelling voor tijdsvenster van 46613.389271772554 tot 46614.389271772554: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46613.539271772555 tot 46614.539271772555: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46613.68927177256 tot 46614.68927177256: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46613.83927177256 tot 46614.83927177256: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46614.389271772 tot 46614.889271772 ***
+Voorspelling voor tijdsvenster van 46613.98927177256 tot 46614.98927177256: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46614.13927177256 tot 46615.13927177256: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46614.28927177256 tot 46615.28927177256: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46614.889271772 tot 46615.389271772 ***
+Voorspelling voor tijdsvenster van 46614.439271772564 tot 46615.439271772564: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46614.589271772566 tot 46615.589271772566: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46614.73927177257 tot 46615.73927177257: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46615.389271772 tot 46615.889271772 ***
+Voorspelling voor tijdsvenster van 46614.88927177257 tot 46615.88927177257: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46615.03927177257 tot 46616.03927177257: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46615.18927177257 tot 46616.18927177257: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46615.33927177257 tot 46616.33927177257: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46615.889271772 tot 46616.389271772 ***
+Voorspelling voor tijdsvenster van 46615.489271772574 tot 46616.489271772574: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46615.639271772576 tot 46616.639271772576: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46615.78927177258 tot 46616.78927177258: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46616.389271772 tot 46616.889271772 ***
+Voorspelling voor tijdsvenster van 46615.93927177258 tot 46616.93927177258: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46616.08927177258 tot 46617.08927177258: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46616.23927177258 tot 46617.23927177258: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Lopen
+*** Voorspelling maken voor 46616.889271772 tot 46617.389271772 ***
+Voorspelling voor tijdsvenster van 46616.38927177258 tot 46617.38927177258: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46616.539271772584 tot 46617.539271772584: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46616.689271772586 tot 46617.689271772586: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46616.83927177259 tot 46617.83927177259: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46617.389271772 tot 46617.889271772 ***
+Voorspelling voor tijdsvenster van 46616.98927177259 tot 46617.98927177259: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46617.13927177259 tot 46618.13927177259: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46617.28927177259 tot 46618.28927177259: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46617.889271772 tot 46618.389271772 ***
+Voorspelling voor tijdsvenster van 46617.43927177259 tot 46618.43927177259: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46617.589271772595 tot 46618.589271772595: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46617.739271772596 tot 46618.739271772596: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46618.389271772 tot 46618.889271772 ***
+Voorspelling voor tijdsvenster van 46617.8892717726 tot 46618.8892717726: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46618.0392717726 tot 46619.0392717726: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46618.1892717726 tot 46619.1892717726: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46618.3392717726 tot 46619.3392717726: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46618.889271772 tot 46619.389271772 ***
+Voorspelling voor tijdsvenster van 46618.4892717726 tot 46619.4892717726: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46618.639271772605 tot 46619.639271772605: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46618.789271772606 tot 46619.789271772606: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46619.389271772 tot 46619.889271772 ***
+Voorspelling voor tijdsvenster van 46618.93927177261 tot 46619.93927177261: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46619.08927177261 tot 46620.08927177261: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46619.23927177261 tot 46620.23927177261: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46619.889271772 tot 46620.389271772 ***
+Voorspelling voor tijdsvenster van 46619.38927177261 tot 46620.38927177261: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46619.53927177261 tot 46620.53927177261: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46619.689271772615 tot 46620.689271772615: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46619.83927177262 tot 46620.83927177262: LiftAU (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46620.389271772 tot 46620.889271772 ***
+Voorspelling voor tijdsvenster van 46619.98927177262 tot 46620.98927177262: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46620.13927177262 tot 46621.13927177262: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46620.28927177262 tot 46621.28927177262: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46620.889271772 tot 46621.389271772 ***
+Voorspelling voor tijdsvenster van 46620.43927177262 tot 46621.43927177262: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46620.589271772624 tot 46621.589271772624: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46620.739271772625 tot 46621.739271772625: LiftAU (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46621.389271772 tot 46621.889271772 ***
+Voorspelling voor tijdsvenster van 46620.88927177263 tot 46621.88927177263: LiftAU (0.4)
+Voorspelling voor tijdsvenster van 46621.03927177263 tot 46622.03927177263: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46621.18927177263 tot 46622.18927177263: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46621.33927177263 tot 46622.33927177263: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46621.889271772 tot 46622.389271772 ***
+Voorspelling voor tijdsvenster van 46621.48927177263 tot 46622.48927177263: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46621.639271772634 tot 46622.639271772634: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46621.789271772635 tot 46622.789271772635: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46622.389271772 tot 46622.889271772 ***
+Voorspelling voor tijdsvenster van 46621.93927177264 tot 46622.93927177264: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46622.08927177264 tot 46623.08927177264: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46622.23927177264 tot 46623.23927177264: LiftAD (0.4)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46622.889271772 tot 46623.389271772 ***
+Voorspelling voor tijdsvenster van 46622.38927177264 tot 46623.38927177264: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46622.53927177264 tot 46623.53927177264: LiftAD (0.5)
+Voorspelling voor tijdsvenster van 46622.689271772644 tot 46623.689271772644: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46622.839271772646 tot 46623.839271772646: LiftAU (0.5)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46623.389271772 tot 46623.889271772 ***
+Voorspelling voor tijdsvenster van 46622.98927177265 tot 46623.98927177265: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46623.13927177265 tot 46624.13927177265: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46623.28927177265 tot 46624.28927177265: LiftAU (0.6)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46623.889271772 tot 46624.389271772 ***
+Voorspelling voor tijdsvenster van 46623.43927177265 tot 46624.43927177265: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46623.58927177265 tot 46624.58927177265: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46623.739271772654 tot 46624.739271772654: LiftAD (0.5)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46624.389271772 tot 46624.889271772 ***
+Voorspelling voor tijdsvenster van 46623.889271772656 tot 46624.889271772656: LiftAD (0.4)
+Voorspelling voor tijdsvenster van 46624.03927177266 tot 46625.03927177266: LiftAU (0.5)
+Voorspelling voor tijdsvenster van 46624.18927177266 tot 46625.18927177266: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46624.33927177266 tot 46625.33927177266: LiftAD (0.5)
+==> voorspelde label is: LiftAU
+    echte label is: Ruis
+*** Voorspelling maken voor 46624.889271772 tot 46625.389271772 ***
+Voorspelling voor tijdsvenster van 46624.48927177266 tot 46625.48927177266: LiftAD (0.6)
+Voorspelling voor tijdsvenster van 46624.63927177266 tot 46625.63927177266: LiftAU (0.6)
+Voorspelling voor tijdsvenster van 46624.789271772665 tot 46625.789271772665: LiftAU (0.5)
+==> voorspelde label is: LiftAD
+    echte label is: Ruis
+*** Voorspelling maken voor 46625.389271772 tot 46625.889271772 ***
+Voorspelling voor tijdsvenster van 46624.939271772666 tot 46625.937033284004: LiftAD (0.5)
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+*** Voorspelling maken voor 46625.889271772 tot 46626.389271772 ***
+==> voorspelde label is: Ruis
+    echte label is: Ruis
+Prediction csv made!

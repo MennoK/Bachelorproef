@@ -4,7 +4,6 @@ import asg.cliche.Command;
 import asg.cliche.Param;
 import asg.cliche.ShellFactory;
 import au.com.bytecode.opencsv.CSVReader;
-
 import helpers.Classify;
 import helpers.Features;
 import helpers.Files;
@@ -12,6 +11,7 @@ import helpers.HelperFunctions;
 import helpers.DataSet;
 import helpers.MotionFingerprint;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -139,6 +140,10 @@ public class ActivityRecognition {
 			}
 			else if (args[0].equals("shorterlog") && args.length == 2) {
 				String print = shorterlog(args[1]);
+				System.out.println(print);
+			}
+			else if (args[0].equals("generatedat") && args.length == 2) {
+				String print = generateDatFile((args[1]));
 				System.out.println(print);
 			}
 			else {
@@ -829,6 +834,30 @@ public class ActivityRecognition {
 		return path+" werd geknipt en weggeschreven in ander log-bestand: "+pathNEW;
 	}
 	
+	@Command
+	public static String generateDatFile(@Param(name="path", description = "pad naar folder") String path) throws IOException{
+		File folder = new File(path);
+		File[] listOfAccuracyFiles = Files.getAccuracyFile(folder);
+		File outputdatfile = new File(path + "plotfile.dat");
+		FileWriter writer = new FileWriter(outputdatfile);
+
+		
+		for(File file : listOfAccuracyFiles){
+			String[] split = file.toString().split("-");
+			String windowssize = split[3];
+			String overlapperc = split[4];
+			BufferedReader buffer = new BufferedReader(new FileReader(file));
+			String accuracy = buffer.readLine();
+			System.out.println("add: "+ windowssize + " " + overlapperc + " " + accuracy );
+			buffer.close();
+			writer.write(windowssize + " " + overlapperc + " " + accuracy + "\n");
+		}
+		
+		writer.close();
+	
+		return ".dat file generated";
+		
+	}
 	
 		
 }
