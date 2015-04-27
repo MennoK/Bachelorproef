@@ -39,7 +39,7 @@
 
 Het eerste probleem is om van een gegeven reeks samples van de accelerometer en gyroscoop van een smartphone de activiteit van een persoon te bepalen. We veronderstellen hier dat telkens \'e\'en afzonderlijke activiteit gemeten wordt.
 
-We willen 10 verschillende activiteiten kunnen herkennen:
+We willen tien verschillende activiteiten kunnen herkennen:
 \begin{itemize}
 \item wandelen,
 \item lopen,
@@ -53,32 +53,43 @@ We willen 10 verschillende activiteiten kunnen herkennen:
 \item tanden poetsen.
 \end{itemize}
 
-In bovenstaande lijst hebben we tanden poetsen als moeilijke activiteit toegevoegd. De beweging lijkt sterk op niets doen en zal waarschijnlijk minder goed te herkennen zijn. Hetzelfde geldt voor de lift naar boven/beneden nemen.
+In bovenstaande lijst hebben we tanden poetsen als moeilijke activiteit toegevoegd. De beweging lijkt sterk op niets doen en zal waarschijnlijk minder goed te herkennen zijn. Ook voor lift naar boven en trap opwandelen bestaan er gelijkaardige bewegingen, respectievelijk lift naar beneden en trap afwandelen.
 
-Met behulp van classificatiemethodes zoeken we naar een model met een zo groot mogelijke accuraatheid om de activiteit van een meting te bepalen.
+Het proces om een afzonderlijke activiteiten te herkennen verloopt in drie stappen. Ten eerste moeten er gegevens verzameld worden. Als tweede stap worden er features berekend op de verzamelde gegevens. Deze zijn nodig om tenslotte modellen te leren met behulp van classificatiemethodes. Als criterium om de verschillende modellen te vergelijken, gebruiken we de accuraatheid als percentage van het aantal juiste geclassificeerde samples ten op zichte van het totaal aantal samples met behulp van cross-validatie.
 
 %TODO ook motivatie (waarom classificatiemethodes)
 
-\subsection{Datacollectie}
+\subsection{Gegevensverzameling}
 
-We hebben voor elke activiteit 22 metingen verzameld, opgemeten door 2 verschillende personen. Om voldoende variatie te hebben, gebeurden de metingen op verschillende dagen. Ook hebben we ervoor gezorgd dat we niet telkens dezelfde broek droegen, aangezien de gemeten versnelling kan vari\"eren in verschillende broekzakken. Elke meting bevat bovendien exact \'e\'en activiteit.
+Alle gegevens werd opgemeten door MotionTracker tool %TODO verwijzing met voetnoot: geschreven door ... 
+. Dit is een Android-applicatie die de versnelling en rotatie (respectievelijk gemeten door de accelerometer en gyroscoop van de smartphone) aan 50 Hertz.  Als uitvoer geeft de applicatie een .log-bestand met de gemeten versnellingen (in de x-as, y-as en z-as met de z-as evenwijdig met de gravitatie) en rotaties (in quaternion notatie) met bijhorende timestamps.
 
-De metingen werden met de MotionTracker
-%TODO verwijzing met voetnoot: geschreven door ...
-tool gedaan. Dit is een Android-applicatie die de versnelling en rotatie (gemeten door de accelerometer en gyroscoop van de smartphone) aan 50 Hz samplet. Als uitvoer geeft de applicatie een logbestand met de gemeten versnellingen (in de x-as, y-as en z-as met de z-as evenwijdig met de gravitatie) en rotaties (in quaternion notatie) met bijhorende timestamps.
+Voor elke meting werd de applicatie gestart alvorens de smartphone in de broekzak gestopt werd en gestopt na het uithalen. Waardoor er bij het begin en einde van elke meting altijd enkele seconden niet-activiteit bevat. Om zo het fout labelen te vermijden, werd na elke meting een stuk van de start en het einde van het .log-bestand weggeknipt. Zodat elke meting exact \'e\'en activiteit bevat van vier \'a twintig seconden. 
+
+We hebben voor elke activiteit 22 metingen verzameld, opgemeten door twee verschillende personen. Om voldoende variatie te hebben, gebeurden de metingen op verschillende dagen. Ook hebben we ervoor gezorgd dat we niet telkens dezelfde broek droegen, aangezien de gemeten versnelling kan vari\"eren in verschillende broekzakken. Na elke meting werd het uitgevoerde .log-bestand geknipt en gelabeld met de juiste activiteit.
+
+%TODO figuur met verschillende activiteiten
 
 \subsection{Dataverwerking: features berekenen}
 
-Voor we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen.
+Voor we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen. Om de verschillende features te berekenen, maakten we gebruiken van MotionFingerPrint.jar tool %TODO verwijzing naar tool 
+
+
 %TODO uitleggen waarom we features berekenen
 
-We gebruiken 4 soorten features:
+MotionFingerPrint berekent in tool 134 features verdeeld onder vier soorten:
 \begin{itemize}
-\item Statistische features: gemiddelde, standaardafwijking van versnelling en vermogen
-\item Fourier-transformatie: amplitudes horende bij bepaalde frequenties
-\item Wavelet-transformatie: ... %TODO
-\item Hidden Markov models: log-likelihood voor het model van elke activiteit
+\item \textit{Statistische features:}
+ dit zijn gemiddelde, standaardafwijking van zowel z- als xy-versnellingen en vermogen. En correlatie tussen z- en xy-versnelling. In het algemeen kunnen deze tegen een lage kost berekend worden.
+ 
+\item \textit{Fourier-transformatie:} deze worden berekend in het frequentie domein van de metingen, zoals amplitudes volgens de verschillende assen.
+
+\item \textit{Wavelet-transformatie:} %TODO
+
+\item \textit{Hidden Markov models:} log-likelihood voor het model van elke activiteit
 \end{itemize}
+
+Het resultaat van de features berekening geeft een voor elke sample een set van parameters. Elke set vormt een instantie van de training set om een model te leren.
 
 \subsection{Classificatiemethodes}
 
