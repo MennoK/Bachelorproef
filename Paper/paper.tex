@@ -82,9 +82,21 @@ We gebruiken 4 soorten features:
 
 \subsection{Classificatiemethodes}
 
-%TODO korte uitleg van belangrijke (goed werkende) methodes (extra bronnen gebruiken)
+We gebruiken classificatiemethodes om een model te zoeken om afzonderlijke activiteiten te herkennen. We vergelijken enkele veel voorkomende methodes: beslissingsbomen, Random Forest, k-Nearest Neighbours, Naive Bayes en Support Vector Machines. De methodes leren telkens een model uit de instanties met de hierboven beschreven features voor de verschillende activiteiten. Hieronder wordt kort de werking van de vernoemde methodes beschreven:
+
+\begin{itemize}
+\item \textit{Beslissingsbomen} zijn bomen waarvan de interne knopen features voorstellen en de bladknopen \'e\'en (of meerdere) labels bevatten. Een tak in de boom stelt een test voor op de feature van de knoop waaruit de tak vertrekt. Om een instantie te classificeren worden de juiste takken gevolgd tot in een bepaalde bladknoop.
+\end{itemize}
+
+%TODO methodes uitleggen
 
 \subsection{Experimenten en resultaten}
+
+We evalueren de methodes met 10-fold cross-validatie. Hierbij worden de instanties op 10 verschillende manieren opgesplitst zodat telkens 90\% van de instanties als trainingset wordt gebruikt om een model uit te leren. Op de overige 10\% wordt het model ge\"evalueerd. De accuraatheid van elke methode wordt dan berekend als het gemiddelde percentage van correct geclassificeerde instanties in de verschillende testsets.
+
+In figuur X %TODO staafdiagram invoegen met vergelijking van methodes
+wordt de accuraatheid van de verschillende methodes vergeleken. We zien dat Random Forest de hoogste accuraatheid geeft voor onze metingen. Ook beslissingsbomen (J48) geeft een goede accuraatheid, net zoals Naive Bayes. De hogere accuraatheid van Random Forest ten opzichte van beslissingsbomen is waarschijnlijk te verklaren door het feit dat Random Forest minder kans op overfitting heeft. %TODO hier verwijzen naar paper (Bronnen/randomforest2001.pdf)
+
 
 %TODO experimenten + resultaten: opsplitsen?
 
