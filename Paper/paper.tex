@@ -77,10 +77,10 @@ Voor we classificatiemethodes kunnen gebruiken, moeten we eerst features bereken
 
 %TODO uitleggen waarom we features berekenen
 
-MotionFingerPrint berekent in tool 134 features verdeeld onder vier soorten:
+MotionFingerPrint berekent in totaal 134 features verdeeld onder vier soorten:
 \begin{itemize}
 \item \textit{Statistische features:}
- dit zijn gemiddelde, standaardafwijking van zowel z- als xy-versnellingen en vermogen. En correlatie tussen z- en xy-versnelling. In het algemeen kunnen deze tegen een lage kost berekend worden.
+ dit zijn gemiddelde, standaardafwijking van zowel z- als xy-versnellingen en vermogen. En correlatie tussen z- en xy-versnelling.
  
 \item \textit{Fourier-transformatie:} deze worden berekend in het frequentie domein van de metingen, zoals amplitudes volgens de verschillende assen.
 
@@ -91,15 +91,21 @@ MotionFingerPrint berekent in tool 134 features verdeeld onder vier soorten:
 
 Het resultaat van de features berekening geeft een voor elke sample een set van parameters. Elke set vormt een instantie van de training set om een model te leren.
 
+\subsubsection{Feature selectie}
+Tussen de verschillende soorten features is er verschil in berekeningstijd en hoeveelheid informatie. Zo kunnen statistische features in het algemeen tegen een lagere kost berekend worden ten op zichte van fourier transformatie features. Daarom kan het interessant zijn om slechts een deel van het totaal aantal features te berekenen.
+
 \subsection{Classificatiemethodes}
 
 We gebruiken classificatiemethodes om een model te zoeken om afzonderlijke activiteiten te herkennen. We vergelijken enkele veel voorkomende methodes: beslissingsbomen, Random Forest, k-Nearest Neighbours, Naive Bayes en Support Vector Machines. De methodes leren telkens een model uit de instanties met de hierboven beschreven features voor de verschillende activiteiten. Hieronder wordt kort de werking van de vernoemde methodes beschreven:
 
 \begin{itemize}
-\item \textit{Beslissingsbomen} zijn bomen waarvan de interne knopen features voorstellen en de bladknopen \'e\'en (of meerdere) labels bevatten. Een tak in de boom stelt een test voor op de feature van de knoop waaruit de tak vertrekt. Om een instantie te classificeren worden de juiste takken gevolgd tot in een bepaalde bladknoop.
+\item \textit{Beslissingsbomen} zijn bomen waarvan de interne knopen features voorstellen en de bladknopen \'e\'en (of meerdere) labels bevatten. Een tak in de boom stelt een test voor op de feature van de knoop waaruit de tak vertrekt. Om een nieuwe instantie te classificeren worden de juiste takken gevolgd tot in een bepaalde bladknoop. De instantie wordt dan geclassificeerd als het label in die bladknoop.
+\item \textit{Random Forests} zijn combinaties van beslissingsbomen met een willekeurig deel van de trainingset en een willekeurig deel van de features. Bij de classificatie van een nieuwe instantie `stemt' elke boom op een label. De instantie krijgt vervolgens het label met de meeste stemmen.
+\item \textit{k-Nearest Neighbours} classificeert nieuwe instanties door te zoeken naar de k dichtstbijzijnde instanties in de trainingset. Dit zijn de instanties waarvan de waarden voor de features het dichtst bij die van de te classificeren instantie ligt. Hieruit wordt het meest voorkomende label gekozen.
+\item \textit{Naive Bayes} is een probabilistische classifier die gebruik maakt van voorwaardelijke kansen. De kans op een label $C$ met gegeven waarden voor de features $\mathbf{F}=(F_1, ..., F_n)$ wordt berekend als $P(C|\mathbf{F}) = { P(\mathbf{F}|C) P(C) \over P(\mathbf{F}) }$ waarin $P(\mathbf{F}|C)$, $P(C)$ en $P(\mathbf{F})$ uit de trainingset kunnen berekend worden. Bij het classificeren wordt het label met de grootste kans gekozen.
+\item \textit{Support Vector Machines} beschouwt de features als een multidimensionele ruimte. De instanties zijn dan punten in de featureruimte. Bij het leren worden de instanties lineair van elkaar gescheiden door hypervlakken, zodat de instanties aan de ene kant van het vlak een ander label hebben dan die aan de andere kant. Wanneer de instanties niet lineair te scheiden zijn, worden ze getransformeerd met een \textit{kernel functie}. We gebruiken hier LibSVM, %TODO bron
+waarbij binaire (\'e\'en-tegen-\'e\'en) classificatie gedaan wordt: elk hypervlak scheidt de instanties van 2 verschillende labels. Een nieuwe instantie wordt geclassificeerd door elke binaire classificatie als een stem voor een label te beschouwen. Het label met het grootste aantal stemmen wordt gekozen.
 \end{itemize}
-
-%TODO methodes uitleggen
 
 \subsection{Experimenten en resultaten}
 
