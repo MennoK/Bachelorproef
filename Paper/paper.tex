@@ -4,6 +4,10 @@
 \usepackage[dutch]{babel}
 \usepackage{ijcai11}
 \usepackage{times}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+\usepackage{subcaption}
 %\usepackage{latexsym}  %optional
 
 \title{Bewegingsherkenning met een smartphone}
@@ -12,6 +16,15 @@
     \And
     Menno Keustermans\\
     menno.keustermans@student.kuleuven.be}
+    
+\tikzset{
+    vertex/.style = {
+        circle,
+        fill            = black,
+        outer sep = 2pt,
+        inner sep = 1pt,
+    }
+}
 
 \begin{document}
 
@@ -70,7 +83,7 @@ We hebben voor elke activiteit 22 metingen verzameld, opgemeten door twee versch
 
 %TODO figuur met verschillende activiteiten
 
-\subsection{Dataverwerking: features berekenen}
+\subsection{Gegevensverwerking: features berekenen}
 
 Voor we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen. Om de verschillende features te berekenen, maakten we gebruiken van MotionFingerPrint.jar tool %TODO verwijzing naar tool 
 
@@ -92,7 +105,51 @@ MotionFingerPrint berekent in totaal 134 features verdeeld onder vier soorten:
 Het resultaat van de features berekening geeft een voor elke sample een set van parameters. Elke set vormt een instantie van de training set om een model te leren.
 
 \subsubsection{Feature selectie}
-Tussen de verschillende soorten features is er verschil in berekeningstijd en hoeveelheid informatie. Zo kunnen statistische features in het algemeen tegen een lagere kost berekend worden ten op zichte van fourier transformatie features. Daarom kan het interessant zijn om slechts een deel van het totaal aantal features te berekenen.
+%Waarom
+Tussen de verschillende soorten features is er verschil in berekeningstijd en hoeveelheid informatie. Zo kunnen statistische features in het algemeen tegen een lagere kost berekend worden ten op zichte van fourier transformatie features. In sommige toepassingen kan het daarom interessant zijn om slechts een deel van het totaal aantal features te berekenen en juist degene die het meeste informatie bevatten.
+
+%Voorgestelde Oplossing
+Met behulp van feature selectie hebben we onderzocht hoeveel features van het totaal aantal features van elke soort nodig zijn om een redelijke accuraatheid te behalen. Om de features met het meeste informatie te vinden, maakten we gebruik van weka's: \emph{InfoGainAttributeEval} klasse. %TODO voetnoot naar weka informatie gain
+ Deze klasse evalueert de waarde van elke features met behulp van information gain. Hierbij werd er steeds de entropie waarde berekend.
+
+%Evaluatie
+Vervolgens om de geselecteerde features te evalueren maakten we gebruik van dubbele cross-validatie. Bij de eerste cross-validatie (10-fold) werd de gegevensset verdeeld in een training- en testset. Daarna gebruikten we de gegeneerde training-set om de beste features te selecteren met het proces dat hierboven werd beschreven gebruik makend van de tweede cross-validatie (2-fold). Met de geselecteerde features werd een model opgesteld met behulp van de randomForest classificatiemethode. En dit model werd uiteindelijk getest om de testset die bij de eerste cross-validatie gemaakt werd.
+	
+%Resultaten
+In figuur X worden de resulaten voor de verschillende soorten features getoond. We zien dat we met enkel de statistische features al een accuraatheid van 90\% behalen. Zelfs met de helft kan het model al vrij zeker de juiste activiteit voorspellen. We stellen vast dat van het grote aantal fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. In het algemeen kunnen we kunnen concluderen dat wavelet transformatie functie minder goed werken (slechts 70\% accuraatheid). Tenslotte in de laatste grafiek merken we op dat de Hidden Markov Models enkel degelijk werken als alle features gebruikt worden.
+
+%TODO figuur toevoegen
+
+\begin{figure}[htb]
+\centering
+
+  \begin{subfigure}[b]{.49\linewidth}
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/StatisticFeatures}
+    \caption{Statistische features}\label{fig:1a}
+  \end{subfigure}% 
+  \begin{subfigure}[b]{.49\linewidth}
+    \centering
+    \includegraphics[width=.99\textwidth]{figures/FFTFeatures}
+    \caption{FFT features}\label{fig:1b}
+  \end{subfigure} \\
+  \begin{subfigure}[b]{.49\linewidth}
+    \centering
+    \includegraphics[width=.99\textwidth]{figures/DWTFeatures}
+    \caption{Wavelet features}\label{fig:1c}
+  \end{subfigure}
+  \begin{subfigure}[b]{.49\linewidth}
+    \centering
+    \includegraphics[width=.99\textwidth]{figures/HMMFeatures}
+    \caption{HMM features}\label{fig:1e}
+  \end{subfigure} \\
+  
+
+  \caption{Resultaten van het feature selectie experiment. Op de x-as wordt steeds het aantal features van de soort features geplot en op de y-as de accuraatheid in procenten.}\label{fig:1}
+\end{figure}
+Voor de rest van het onderzoek werd gebruik gemaakt van de volledige set features.
+
+
 
 \subsection{Classificatiemethodes}
 

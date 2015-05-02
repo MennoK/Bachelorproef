@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.10)  1 MAR 2015 15:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.10)  2 MAY 2015 14:58
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **Grafieken.tex
 (./Grafieken.tex
@@ -576,7 +576,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.9}).
 
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {AllFeatures/InfoGain/RandomForest/results.dat}
@@ -601,25 +601,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 32.
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {Statistic/InfoGain/J48/results.dat}
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {DWT/InfoGain/J48/results.dat}
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {FFT/InfoGain/J48/results.dat}
 \openout3 = `Grafieken.pgf-plot.gnuplot'.
 
-runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...disabled (restricted).
+runsystem(gnuplot Grafieken.pgf-plot.gnuplot)...executed.
 
 PGFPlots: reading {Grafieken.pgf-plot.table}
 PGFPlots: reading {HMM/InfoGain/RandomForest/results.dat}
@@ -629,7 +629,7 @@ PGFPlots: reading {HMM/InfoGain/RandomForest/results.dat}
 Here is how much of TeX's memory you used:
  18170 strings out of 493304
  445162 string characters out of 6139870
- 707293 words of memory out of 5000000
+ 707443 words of memory out of 5000000
  21257 multiletter control sequences out of 15000+600000
  14775 words of font info for 37 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -637,7 +637,7 @@ Here is how much of TeX's memory you used:
 {/usr/s
 hare/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-d
 ist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Grafieken.pdf (1 page, 39803 bytes).
+Output written on Grafieken.pdf (1 page, 39570 bytes).
 PDF statistics:
  16 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream
