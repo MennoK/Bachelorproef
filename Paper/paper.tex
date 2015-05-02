@@ -171,6 +171,7 @@ waarbij binaire (\'e\'en-tegen-\'e\'en) classificatie gedaan wordt: elk hypervla
 \end{itemize}
 
 \subsection{Experimenten en resultaten}
+\label{afzonderlijk:experimenten}
 
 Om de methodes te evalueren, maken we gebruik van de Weka Machine Learning Toolkit. %TODO bronvermelding
 Die bevat classifiers die de hierboven vermelde methodes implementeren. Voor beslissingsbomen maken we gebruik van de J48 classifier, een implementatie van het C4.5 algoritme. %TODO bronvermelding
@@ -242,9 +243,11 @@ Voor het model dat door Random Forest geleerd wordt, hebben we in figuur \ref{fi
 
 Bij het herkennen van afzonderlijke activiteiten bevat elke meting exact \'e\'en activiteit. De classificatiemethodes die we hiervoor gebruiken zijn dus niet rechtstreeks toepasbaar op metingen waarin verschillende activiteiten na elkaar gebeuren. Daarom gaan we op zoek naar een methode om voor een sequentie van activiteiten te bepalen welke activiteiten daarin gedaan worden en wanneer.
 
-%TODO nog niet af
+%TODO misschien nog iets meer uitleggen
 
 \subsection{Gegevensverzameling}
+
+Met behulp van de MotionTracker applicatie werd opnieuw de versnelling en rotatie gemeten, maar nu van meerdere activiteiten na elkaar. In totaal zijn vier sequenties van elk ongeveer drie minuten lang opgemeten: twee verschillende combinaties van activiteiten, telkens door twee personen opgemeten. De ene combinatie bevat de activiteiten wandelen, trap op en af, niets doen, lopen en springen. De andere bevat wandelen, trap op en af, niets doen en lift omhoog en omlaag. Omdat lift versnellingen moeilijk van elkaar te onderscheiden zijn door het model voor afzonderlijke activiteiten (zie sectie~\ref{afzonderlijk:experimenten}), is de tweede combinatie moeilijker te herkennen dan de eerste.
 
 %TODO hoe hebben we de data verzameld
 % ook iets zeggen over makkelijke en moeilijke sequenties (2 makkelijke en 2 moeilijk ==> verwijzen naar confusion matrix)
