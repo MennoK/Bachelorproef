@@ -170,9 +170,34 @@ waarbij binaire (\'e\'en-tegen-\'e\'en) classificatie gedaan wordt: elk hypervla
 
 We evalueren de methodes met 10-fold cross-validatie. Hierbij worden de instanties op 10 verschillende manieren opgesplitst zodat telkens 90\% van de instanties als trainingset wordt gebruikt om een model uit te leren. Op de overige 10\% wordt het model ge\"evalueerd. De accuraatheid van elke methode wordt dan berekend als het gemiddelde percentage van correct geclassificeerde instanties in de verschillende testsets.
 
-In figuur X %TODO staafdiagram invoegen met vergelijking van methodes
-wordt de accuraatheid van de verschillende methodes vergeleken. We zien dat Random Forest de hoogste accuraatheid geeft voor onze metingen. Ook beslissingsbomen (J48) geeft een goede accuraatheid, net zoals Naive Bayes. De hogere accuraatheid van Random Forest ten opzichte van beslissingsbomen is waarschijnlijk te verklaren door het feit dat Random Forest minder kans op overfitting heeft. %TODO hier verwijzen naar paper (Bronnen/randomforest2001.pdf)
+In figuur \ref{methodes}
+wordt de accuraatheid van de verschillende methodes vergeleken. We zien dat Random Forest de hoogste accuraatheid geeft voor onze metingen. Ook beslissingsbomen (J48) geeft een goede accuraatheid. De hogere accuraatheid van Random Forest ten opzichte van beslissingsbomen is te verklaren door het feit dat Random Forest minder kans op overfitting heeft.~\cite{breiman:randomforests}
 
+\begin{figure}
+\label{methodes}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    xtick=data,
+    ymin=0,
+    xticklabels from table={Data/methodes.dat}{methode},
+    xticklabel style={align=center},
+    nodes near coords,
+    ylabel={Accuraatheid (\%)}
+]
+
+\addplot table [
+    x=xpos,
+    y=accuraatheid
+] {Data/methodes.dat};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Accuraatheid van classificatiemethodes}
+\end{figure}
+
+%TODO vermelden dat Random Forest het meest accurate model geeft in vergelijking met de modellen van de andere vier methodes
 
 %TODO experimenten + resultaten: opsplitsen?
 
