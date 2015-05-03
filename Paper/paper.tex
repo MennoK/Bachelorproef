@@ -57,6 +57,7 @@ Bewegingsherkenning is een belangrijke doelstelling van "context aware computing
 % bij 2 secties telkens "data collectie" + "data verwerking" + leermethodes + experimenten  +resultaten + conclusie
 
 \section{Afzondelijke activiteiten}
+\label{afzonderlijk}
 
 Het eerste probleem is om van een gegeven reeks samples van de accelerometer en gyroscoop van een smartphone de activiteit van een persoon te bepalen. We veronderstellen hier dat telkens \'e\'en afzonderlijke activiteit gemeten wordt.
 
@@ -260,6 +261,8 @@ Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .cs
 
 \subsection{Gegevensverwerking}
 
+Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen toegepast worden op sequenties, moeten de sequenties geknipt worden in delen die wel \'e\'en activiteit bevatten. We doen dit door de sequenties in tijdsvensters op te splitsen. De vensters hebben een lengte van enkele seconden en kunnen overlappen opdat er meer kans is dat een venster \'e\'en activiteit bevat. We defini\"eren een overlapping als het percentage van de lengte van een tijdsvenster dat ook tot het eerst volgende tijdsvenster hoort. In figuur \ref{fig:overlap} wordt ge\"illustreerd wat een overlapping van bijvoorbeeld 75\% betekent.
+
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}
@@ -271,13 +274,18 @@ Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .cs
 \draw [dotted] (2,1) -- (2,0.2);
 \end{tikzpicture}
 \end{center}
-\caption{Tijdsvensters met 75\% overlapping}
+\caption{Tijdsvensters met een overlapping van 75\%}
 \label{fig:overlap}
 \end{figure}
 
-Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen toegepast worden op sequenties, moeten de sequenties geknipt worden in delen die wel \'e\'en activiteit bevatten. We doen dit door de sequenties in tijdsvensters op te splitsen. De vensters hebben een lengte van enkele seconden en kunnen overlappen. We defini\"eren een overlapping als het percentage van de lengte van een tijdsvenster dat ook tot het eerst volgende tijdsvenster hoort. In figuur \ref{fig:overlap} wordt ge\"illustreerd wat bedoeld wordt met een overlapping van 75\%.
-
 \subsection{Algoritme}
+
+Bij het voorspellen van de activiteiten van een sequentie maken we gebruik van de tijdsvensters. We beschrijven een algoritme waarmee voor elke halve seconde van een sequentie een voorspelling kan gemaakt worden voor de activiteit die daarin gebeurde.
+
+Het algoritme heeft drie parameters nodig: de lengte van de tijdsvensters in seconden, de overlapping ervan ials een percentage en een ruis cutoff kans. De laatste parameter wordt verder verduidelijkt. In sectie~\ref{sequenties:experimenten} worden experimenten uitgevoerd om de waarden voor deze parameters te kiezen zodat de voorspellingen van het algoritme zo correct mogelijk zijn.
+
+Voor de pseudo-code van het algoritme verwijzen we naar Algoritme~\ref{alg:sequentie}. De eerste stap bestaat uit het splitsen van de sequentie in tijdsvensters met de gegeven lengte en overlapping. Vervolgens wordt voor elk deel van een halve seconde lang van de sequentie gecontroleerd welke tijdsvensters dat deel bevatten. Deze vensters zijn samen met de ruis cutoff kans de parameters van Algoritme~\ref{alg:deel} om de activiteit van het deel van de sequentie te bepalen. Hierbij wordt voor elk venster een voorspelling gemaakt met behulp van een model om afzonderlijke activiteiten te classificeren. In sectie~\ref{afzonderlijk} bleek Random Forest het best te werken. Daarom gebruiken we hier het model dat door deze methode geleerd werd. Voor elk venster laten we ook de kans berekenen dat het voorspelde label correct is. Bij Random Forest wordt deze kans bepaald als het percentage van de bomen die dat label voorspellen. %TODO klopt dit? want ik vind er niet onmiddellijk iets over...
+Als minstens twee vensters met het deel van de sequentie overlappen, houdt het algoritme geen rekening met de kansen wanneer de voorspelde labels van de vensters gelijk zijn. In dat geval wordt als voorspelling het label van de tijdsvensters voorspeld. Anders controleert het algoritme of er een label is met een kans groter dan de ruis cutoff kans. Indien dat zo is, wordt voor het deel van de sequentie het label met de grootste kans als activiteit voorspeld. Wanneer alle kansen onder de ruis cutoff kans liggen, zal de voorspelling `Ruis' zijn.
 
 \begin{algorithm}
   \caption{Activiteiten van een sequentie (met start en eind timestamp in seconden) voorspellen door als uitvoer een lijst terug te geven met voor elke halve seconde de voorspelde activiteit}
@@ -292,26 +300,26 @@ Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen t
       \State $vensters$ = tijdsvensters die $t$ en $t+0.5s$ bevatten
       \State $voorspellingen$[$t$] = \textsc{activiteit}($vensters,cutoff$) \\
       \Comment{zie algoritme \ref{alg:deel}}
-    \EndFor
+    \EndFor \\
     \State \textbf{return} $voorspellingen$
   \end{algorithmic}
 \end{algorithm}
 
 \begin{algorithm}
-  \caption{Activiteit van een deel van een sequentie bepalen, met een gegeven lijst van overlappende tijdsvensters en een ruis cutoff percentage}
+  \caption{Activiteit van een deel van een sequentie bepalen, met een gegeven lijst van tijdsvensters en een ruis cutoff kans}
   \label{alg:deel}
   \begin{algorithmic}[0]
     \Procedure{activiteit}{$vensters, cutoff$}
       \State $labels$ = voorspelde activiteiten voor $vensters$ 
       \State $kansen$ = kansen voor de $labels$ \\
-      \Comment{berekend door model van Random Forest}
+      \Comment{berekend door model van Random Forest} \\
       \If{aantal $vensters$ $\ge$ 2 \textbf{and} alle $labels$ gelijk}
         \State \textbf{return} $labels$[$0$]
       \Else
-        \If{$kansen$[$i$] $\le$ $cutoff$ voor alle $i$}
-        	  \State \textbf{return} `Ruis'
-        \Else
+        \If{$kansen$[$i$] $>$ $cutoff$ voor een $i$}
           \State \textbf{return} $labels$[$i$] met $kansen$[$i$] maximaal
+        \Else
+          \State \textbf{return} `Ruis'
         \EndIf
       \EndIf
     \EndProcedure
@@ -321,6 +329,7 @@ Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen t
 %TODO algoritme uitleggen + hierbij ook uitleg over ruis-cutoff
 
 \subsection{Experimenten en resultaten}
+\label{sequenties:experimenten}
 
 %TODO
 % - hoe gebeurt de evaluatie?
