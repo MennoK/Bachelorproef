@@ -9,6 +9,10 @@
 \usepackage{pgfplots}
 \usepackage{rotating}
 
+% voor deze packages: sudo apt-get install texlive-science
+\usepackage[Algoritme]{algorithm}
+\usepackage{algpseudocode}
+
 \usepackage{subcaption}
 %\usepackage{latexsym}  %optional
 
@@ -259,12 +263,12 @@ Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .cs
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}
-\draw (0.5,-0.8) -- (2.5,-0.8) -- (2.5,1.2) -- (0.5,1.2) -- (0.5,-0.8);
-\draw (0,2) -- (2,2) -- (2,4) -- (0,4) -- (0,2);
+\draw (0.5,-0.8) -- (2.5,-0.8) -- (2.5,0.2) -- (0.5,0.2) -- (0.5,-0.8);
+\draw (0,1) -- (2,1) -- (2,2) -- (0,2) -- (0,1);
 
-\draw [<->] (0.5,1.8) -- node[below] {75\%} (2,1.8);
-\draw [dotted] (0.5,2) -- (0.5,1.2);
-\draw [dotted] (2,2) -- (2,1.2);
+\draw [<->] (0.5,0.8) -- node[below] {75\%} (2,0.8);
+\draw [dotted] (0.5,1) -- (0.5,0.2);
+\draw [dotted] (2,1) -- (2,0.2);
 \end{tikzpicture}
 \end{center}
 \caption{Tijdsvensters met 75\% overlapping}
@@ -274,6 +278,45 @@ Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .cs
 Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen toegepast worden op sequenties, moeten de sequenties geknipt worden in delen die wel \'e\'en activiteit bevatten. We doen dit door de sequenties in tijdsvensters op te splitsen. De vensters hebben een lengte van enkele seconden en kunnen overlappen. We defini\"eren een overlapping als het percentage van de lengte van een tijdsvenster dat ook tot het eerst volgende tijdsvenster hoort. In figuur \ref{fig:overlap} wordt ge\"illustreerd wat bedoeld wordt met een overlapping van 75\%.
 
 \subsection{Algoritme}
+
+\begin{algorithm}
+  \caption{Activiteiten van een sequentie (met start en eind timestamp in seconden) voorspellen door als uitvoer een lijst terug te geven met voor elke halve seconde de voorspelde activiteit}
+  \label{alg:sequentie}
+  \begin{algorithmic}[0]
+    \State \textbf{Parameters:}\\
+    $lengte$ van de tijdsvensters (in seconden) \\
+    $overlapping$ van de tijdsvensters (percentage) \\
+    $cutoff$ voor ruis (kans) \\
+    \State Splits de sequentie op in tijdsvensters met gegeven $lengte$ en $overlapping$ \\
+    \For{$t$ = $start$; $t$ $\le$ $einde$; $t$ += $0.5s$}
+      \State $vensters$ = tijdsvensters die $t$ en $t+0.5s$ bevatten
+      \State $voorspellingen$[$t$] = \textsc{activiteit}($vensters,cutoff$) \\
+      \Comment{zie algoritme \ref{alg:deel}}
+    \EndFor
+    \State \textbf{return} $voorspellingen$
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+  \caption{Activiteit van een deel van een sequentie bepalen, met een gegeven lijst van overlappende tijdsvensters en een ruis cutoff percentage}
+  \label{alg:deel}
+  \begin{algorithmic}[0]
+    \Procedure{activiteit}{$vensters, cutoff$}
+      \State $labels$ = voorspelde activiteiten voor $vensters$ 
+      \State $kansen$ = kansen voor de $labels$ \\
+      \Comment{berekend door model van Random Forest}
+      \If{aantal $vensters$ $\ge$ 2 \textbf{and} alle $labels$ gelijk}
+        \State \textbf{return} $labels$[$0$]
+      \Else
+        \If{$kansen$[$i$] $\le$ $cutoff$ voor alle $i$}
+        	  \State \textbf{return} `Ruis'
+        \Else
+          \State \textbf{return} $labels$[$i$] met $kansen$[$i$] maximaal
+        \EndIf
+      \EndIf
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
 
 %TODO algoritme uitleggen + hierbij ook uitleg over ruis-cutoff
 
