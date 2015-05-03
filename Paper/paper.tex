@@ -239,22 +239,39 @@ wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We 
 \end{figure*}
 
 Voor het model dat door Random Forest geleerd wordt, hebben we in figuur \ref{fig:confusionmatrix} een confusion-matrix geplot. Het valt op dat activiteiten met grote versnellingen -- wandelen, lopen, fietsen en springen -- goed te herkennen zijn. Alle metingen voor deze activiteiten worden immers correct geclassificeerd door het model. Niets doen, lift omhoog/omlaag en tanden poetsen hebben kleinere versnellingen dan de andere activiteiten. We zien dat 2 metingen van niets doen als tanden poetsen worden geclassificeerd. Ook lift omhoog en omlaag worden gemakkelijk met elkaar verward. Omwille van de kleine versnellingen zijn de verschillen tussen de activiteiten subtieler, wat een verklaring kan zijn waarom deze activiteiten moeilijker te herkennen zijn.
+
+
+
+
+
 \section{Sequenties van activiteiten}
 
 Bij het herkennen van afzonderlijke activiteiten bevat elke meting exact \'e\'en activiteit. De classificatiemethodes die we hiervoor gebruiken zijn dus niet rechtstreeks toepasbaar op metingen waarin verschillende activiteiten na elkaar gebeuren. Daarom gaan we op zoek naar een methode om voor een sequentie van activiteiten te bepalen welke activiteiten daarin gedaan worden en wanneer.
-
-%TODO misschien nog iets meer uitleggen
 
 \subsection{Gegevensverzameling}
 
 Met behulp van de MotionTracker applicatie werd opnieuw de versnelling en rotatie gemeten, maar nu van meerdere activiteiten na elkaar. In totaal zijn vier sequenties van elk ongeveer drie minuten lang opgemeten: twee verschillende combinaties van activiteiten, telkens door twee personen opgemeten. De ene combinatie bevat de activiteiten wandelen, trap op en af, niets doen, lopen en springen. De andere bevat wandelen, trap op en af, niets doen en lift omhoog en omlaag. Omdat lift versnellingen moeilijk van elkaar te onderscheiden zijn door het model voor afzonderlijke activiteiten (zie sectie~\ref{afzonderlijk:experimenten}), is de tweede combinatie moeilijker te herkennen dan de eerste.
 
-%TODO hoe hebben we de data verzameld
-% ook iets zeggen over makkelijke en moeilijke sequenties (2 makkelijke en 2 moeilijk ==> verwijzen naar confusion matrix)
+Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .csv-bestand. Dit bestand bevat de start- en eindtijden van de verschillende activiteiten in de bijhorende meting. De delen die niet gelabeld werden, beschouwen we als ruis. Het gaat om periodes met activiteiten die niet tot de tien activiteiten behoren die we kunnen herkennen. De smartphone in de broekzak stoppen is hier een voorbeeld van.
 
 \subsection{Gegevensverwerking}
 
-%TODO iets over het labelen + uitleg van tijdsvensters, overlappingen
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\draw (0.5,-0.8) -- (2.5,-0.8) -- (2.5,1.2) -- (0.5,1.2) -- (0.5,-0.8);
+\draw (0,2) -- (2,2) -- (2,4) -- (0,4) -- (0,2);
+
+\draw [<->] (0.5,1.8) -- node[below] {75\%} (2,1.8);
+\draw [dotted] (0.5,2) -- (0.5,1.2);
+\draw [dotted] (2,2) -- (2,1.2);
+\end{tikzpicture}
+\end{center}
+\caption{Tijdsvensters met 75\% overlapping}
+\label{fig:overlap}
+\end{figure}
+
+Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen toegepast worden op sequenties, moeten de sequenties geknipt worden in delen die wel \'e\'en activiteit bevatten. We doen dit door de sequenties in tijdsvensters op te splitsen. De vensters hebben een lengte van enkele seconden en kunnen overlappen. We defini\"eren een overlapping als het percentage van de lengte van een tijdsvenster dat ook tot het eerst volgende tijdsvenster hoort. In figuur \ref{fig:overlap} wordt ge\"illustreerd wat bedoeld wordt met een overlapping van 75\%.
 
 \subsection{Algoritme}
 
