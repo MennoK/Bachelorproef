@@ -6,6 +6,8 @@
 \usepackage{times}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{rotating}
 
 \usepackage{subcaption}
 %\usepackage{latexsym}  %optional
@@ -104,6 +106,8 @@ MotionFingerPrint berekent in totaal 134 features verdeeld onder vier soorten:
 \item \textit{Hidden Markov models:} log-likelihood voor het model van elke activiteit
 \end{itemize}
 
+%TODO uitleggen dat we verder voor de classificatiemethodes telkens 16 metingen gebruiken en dat we de andere 8 apart houden om HMM modellen te leren!
+
 Het resultaat van de features berekening geeft een voor elke sample een set van parameters. Elke set vormt een instantie van de training set om een model te leren.
 
 \subsubsection{Feature selectie}
@@ -167,26 +171,107 @@ waarbij binaire (\'e\'en-tegen-\'e\'en) classificatie gedaan wordt: elk hypervla
 \end{itemize}
 
 \subsection{Experimenten en resultaten}
+\label{afzonderlijk:experimenten}
 
-We evalueren de methodes met 10-fold cross-validatie. Hierbij worden de instanties op 10 verschillende manieren opgesplitst zodat telkens 90\% van de instanties als trainingset wordt gebruikt om een model uit te leren. Op de overige 10\% wordt het model ge\"evalueerd. De accuraatheid van elke methode wordt dan berekend als het gemiddelde percentage van correct geclassificeerde instanties in de verschillende testsets.
+Om de methodes te evalueren, maken we gebruik van de Weka Machine Learning Toolkit. %TODO bronvermelding
+Die bevat classifiers die de hierboven vermelde methodes implementeren. Voor beslissingsbomen maken we gebruik van de J48 classifier, een implementatie van het C4.5 algoritme. %TODO bronvermelding
+Verder gebruiken we IBk voor k-Nearest Neighbours en LibSVM voor Support Vector Machines.
 
-In figuur X %TODO staafdiagram invoegen met vergelijking van methodes
-wordt de accuraatheid van de verschillende methodes vergeleken. We zien dat Random Forest de hoogste accuraatheid geeft voor onze metingen. Ook beslissingsbomen (J48) geeft een goede accuraatheid, net zoals Naive Bayes. De hogere accuraatheid van Random Forest ten opzichte van beslissingsbomen is waarschijnlijk te verklaren door het feit dat Random Forest minder kans op overfitting heeft. %TODO hier verwijzen naar paper (Bronnen/randomforest2001.pdf)
+De evaluatie gebeurt met 10-fold cross-validatie. Hierbij worden de instanties op 10 verschillende manieren opgesplitst zodat telkens 90\% van de instanties als trainingset wordt gebruikt om een model uit te leren. Op de overige 10\% wordt het model ge\"evalueerd. De accuraatheid van elke methode wordt dan berekend als het gemiddelde percentage van correct geclassificeerde instanties in de verschillende testsets.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    xtick=data,
+    ymin=0,
+    xticklabels from table={Data/methodes.dat}{methode},
+    xticklabel style={align=center},
+    nodes near coords,
+    ylabel={Accuraatheid (\%)}
+]
+
+\addplot table [
+    x=xpos,
+    y=accuraatheid
+] {Data/methodes.dat};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Accuraatheid van classificatiemethodes}
+\label{fig:methodes}
+\end{figure}
+
+In figuur \ref{fig:methodes}
+wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We zien dat Random Forest de hoogste accuraatheid geeft voor de metingen. Ook J48 geeft een goede accuraatheid. De hogere accuraatheid van Random Forest ten opzichte van beslissingsbomen is te verklaren door het feit dat Random Forest minder kans op overfitting heeft.~\cite{breiman:randomforests} Naive Bayes lijkt ook goed te werken, terwijl met IBk en vooral LibSVM een lagere accuraatheid bereikt wordt. De accuraatheid van de methodes kan echter wel verbeterd worden door de parameters de optimaliseren.
+
+\begin{figure*}
+\begin{center}
+{ \footnotesize
+\begin{tabular}{ c | c | c | c | c | c | c | c | c | c | l }
+     \begin{sideways} Wandelen       \end{sideways}
+  &  \begin{sideways} Lopen          \end{sideways} 
+  &  \begin{sideways} Fietsen        \end{sideways} 
+  &  \begin{sideways} Trap op        \end{sideways} 
+  &  \begin{sideways} Trap af        \end{sideways} 
+  &  \begin{sideways} Springen       \end{sideways} 
+  &  \begin{sideways} Niets doen     \end{sideways} 
+  &  \begin{sideways} Lift omhoog    \end{sideways} 
+  &  \begin{sideways} Lift omlaag    \end{sideways} 
+  &  \begin{sideways} Tanden poetsen \end{sideways} 
+  &  $\leftarrow$ \parbox[b]{1.8cm}{geclassificeerd\\als} \\   \hline
+ 16 &    &    &    &    &    &    &    &    &    & Wandelen           \\   \hline
+    & 16 &    &    &    &    &    &    &    &    & Lopen              \\   \hline
+    &    & 16 &    &    &    &    &    &    &    & Fietsen            \\   \hline
+    &    &    & 15 &  1 &    &    &    &    &    & Trap op            \\   \hline
+    &    &    &    & 16 &    &    &    &    &    & Trap af            \\   \hline
+    &    &    &    &    & 16 &    &    &    &    & Springen           \\   \hline
+    &    &    &    &    &    & 14 &    &    &  2 & Niets doen         \\   \hline
+    &    &    &    &    &    &    & 10 &  6 &    & Lift omhoog        \\   \hline
+    &    &    &    &    &    &    &  1 & 15 &    & Lift omlaag        \\   \hline
+    &    &    &    &    &    &    &    &    & 16 & Tanden poetsen
+\end{tabular}
+}
+\end{center}
+\caption{Confusion matrix voor Random Forest}
+\label{fig:confusionmatrix}
+\end{figure*}
+
+Voor het model dat door Random Forest geleerd wordt, hebben we in figuur \ref{fig:confusionmatrix} een confusion-matrix geplot. Het valt op dat activiteiten met grote versnellingen -- wandelen, lopen, fietsen en springen -- goed te herkennen zijn. Alle metingen voor deze activiteiten worden immers correct geclassificeerd door het model. Niets doen, lift omhoog/omlaag en tanden poetsen hebben kleinere versnellingen dan de andere activiteiten. We zien dat 2 metingen van niets doen als tanden poetsen worden geclassificeerd. Ook lift omhoog en omlaag worden gemakkelijk met elkaar verward. Omwille van de kleine versnellingen zijn de verschillen tussen de activiteiten subtieler, wat een verklaring kan zijn waarom deze activiteiten moeilijker te herkennen zijn.
 
 
-%TODO experimenten + resultaten: opsplitsen?
+
+
 
 \section{Sequenties van activiteiten}
 
-%TODO probleemstelling
+Bij het herkennen van afzonderlijke activiteiten bevat elke meting exact \'e\'en activiteit. De classificatiemethodes die we hiervoor gebruiken zijn dus niet rechtstreeks toepasbaar op metingen waarin verschillende activiteiten na elkaar gebeuren. Daarom gaan we op zoek naar een methode om voor een sequentie van activiteiten te bepalen welke activiteiten daarin gedaan worden en wanneer.
 
-\subsection{Datacollectie}
+\subsection{Gegevensverzameling}
 
-%TODO hoe hebben we de data verzameld
+Met behulp van de MotionTracker applicatie werd opnieuw de versnelling en rotatie gemeten, maar nu van meerdere activiteiten na elkaar. In totaal zijn vier sequenties van elk ongeveer drie minuten lang opgemeten: twee verschillende combinaties van activiteiten, telkens door twee personen opgemeten. De ene combinatie bevat de activiteiten wandelen, trap op en af, niets doen, lopen en springen. De andere bevat wandelen, trap op en af, niets doen en lift omhoog en omlaag. Omdat lift versnellingen moeilijk van elkaar te onderscheiden zijn door het model voor afzonderlijke activiteiten (zie sectie~\ref{afzonderlijk:experimenten}), is de tweede combinatie moeilijker te herkennen dan de eerste.
 
-\subsection{Dataverwerking}
+Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .csv-bestand. Dit bestand bevat de start- en eindtijden van de verschillende activiteiten in de bijhorende meting. De delen die niet gelabeld werden, beschouwen we als ruis. Het gaat om periodes met activiteiten die niet tot de tien activiteiten behoren die we kunnen herkennen. De smartphone in de broekzak stoppen is hier een voorbeeld van.
 
-%TODO iets over het labelen + uitleg van tijdsvensters, overlappingen
+\subsection{Gegevensverwerking}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\draw (0.5,-0.8) -- (2.5,-0.8) -- (2.5,1.2) -- (0.5,1.2) -- (0.5,-0.8);
+\draw (0,2) -- (2,2) -- (2,4) -- (0,4) -- (0,2);
+
+\draw [<->] (0.5,1.8) -- node[below] {75\%} (2,1.8);
+\draw [dotted] (0.5,2) -- (0.5,1.2);
+\draw [dotted] (2,2) -- (2,1.2);
+\end{tikzpicture}
+\end{center}
+\caption{Tijdsvensters met 75\% overlapping}
+\label{fig:overlap}
+\end{figure}
+
+Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen toegepast worden op sequenties, moeten de sequenties geknipt worden in delen die wel \'e\'en activiteit bevatten. We doen dit door de sequenties in tijdsvensters op te splitsen. De vensters hebben een lengte van enkele seconden en kunnen overlappen. We defini\"eren een overlapping als het percentage van de lengte van een tijdsvenster dat ook tot het eerst volgende tijdsvenster hoort. In figuur \ref{fig:overlap} wordt ge\"illustreerd wat bedoeld wordt met een overlapping van 75\%.
 
 \subsection{Algoritme}
 
@@ -214,8 +299,8 @@ wordt de accuraatheid van de verschillende methodes vergeleken. We zien dat Rand
 %TODO bronvermelding!
 
 %% The file named.bst is a bibliography style file for BibTeX 0.99c
-% \bibliographystyle{named}
-% \bibliography{paper}
+\bibliographystyle{named}
+\bibliography{paper}
 
 \end{document}
 

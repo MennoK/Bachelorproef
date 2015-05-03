@@ -1,0 +1,8 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Breiman}{2001}]{breiman:randomforests}
+Leo Breiman.
+\newblock Random Forests.
+\newblock {\em Machine Learning}, 45(1):5--32, Oktober 2001.
+
+\end{thebibliography}
