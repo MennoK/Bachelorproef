@@ -38,19 +38,22 @@
 
 \begin{abstract}
 
-Bewegingsherkenning is een belangrijke doelstelling van "context aware computing". Het gebruik van accelerometer gegevens geleverd door een smartphone zorgt ervoor dat een gegevensset snel geleverd kunnen worden. In het eerste deel van ons onderzoek hebben we gezocht naar een model om afzonderlijke activiteiten te herkennen. Het nauwkeurigste model werd gevonden met de classificatiemethode: RandomForest met 93\%. Vervolgens hebben we dit model gebruikt om een sequentie van verschillende bewegingen te evalueren. Het algoritme dat we hiervoor ontwikkeld hebben, knipt de sequentie in opeenvolgende tijdsvensters van x aantal seconden die ook met een bepaald percentage kunnen overlappingen. Uit experimenten bleek dat hiervoor een tijdsvenstergrootte van vier seconden met overlapping van 75\% het nauwkeurigst bleek te werken.
+Bewegingsherkenning is een belangrijke doelstelling van `context aware computing'. Uit de metingen van de accelerometer en gyroscoop van een smartphone kan de activiteit van de gebruiker bepaald worden. In het eerste deel van ons onderzoek hebben we gezocht naar een model om afzonderlijke activiteiten te herkennen. Het nauwkeurigste model werd gevonden met de classificatiemethode Random Forest met een accuraatheid van 93\%. Vervolgens hebben we dit model gebruikt om een sequentie van verschillende bewegingen te evalueren. Het algoritme dat we hiervoor ontwikkeld hebben, knipt de sequentie in opeenvolgende tijdsvensters van x aantal seconden die ook met een bepaald percentage kunnen overlappen. Uit experimenten bleek dat hiervoor een tijdsvenstergrootte van vier tot zes seconden met een overlapping van 75\% het nauwkeurigst is.
 
 \end{abstract}
 
 \section{Introductie}
 
+%TODO 
+\textit{TODO situering van het werk + bijdragen:
+ - waarom bewegingen herkennen? (extra bronnen gebruiken
+ - waarom met smartphones?
+ - korte uitleg over onderzoek dat al gedaan is hierover voor afzonderlijke activiteiten (zie papers van literatuurstudie)
+ - uitleg over eigen bijdrage: (1) van model om afzonderlijke activiteiten te herkennen naar algoritme om sequenties van activiteiten te herkennen (+ duidelijk zeggen wat we met afzondelijke activiteiten en sequenties bedoelen)}
 
-\subsubsection{Geralateerd werk}
-%TODO situering van het werk + bijdragen:
-% - waarom bewegingen herkennen? (extra bronnen gebruiken
-% - waarom met smartphones?
-% - korte uitleg over onderzoek dat al gedaan is hierover voor afzonderlijke activiteiten (zie papers van literatuurstudie)
-% - uitleg over eigen bijdrage: (1) van model om afzonderlijke activiteiten te herkennen naar algoritme om sequenties van activiteiten te herkennen (+ duidelijk zeggen wat we met afzondelijke activiteiten en sequenties bedoelen)
+
+\subsubsection{Gerelateerd werk}
+
 
 
 
@@ -70,66 +73,66 @@ We willen tien verschillende activiteiten kunnen herkennen:
 \item een trap afwandelen,
 \item springen,
 \item niets doen (zitten, liggen, staan),
-\item een lift naar boven nemen, %TODO anders verwoorden? (want eigenlijk is het alleen de versnelling van een lift naar boven, en lift naar boven = versnelling naarboven + versnelling naar beneden)
-\item een lift naar beneden nemen,
+\item een lift versnelt omhoog,
+\item een lift versnelt omlaag,
 \item tanden poetsen.
 \end{itemize}
 
-In bovenstaande lijst hebben we tanden poetsen als moeilijke activiteit toegevoegd. De beweging lijkt sterk op niets doen en zal waarschijnlijk minder goed te herkennen zijn. Ook voor lift naar boven en trap opwandelen bestaan er gelijkaardige bewegingen, respectievelijk lift naar beneden en trap afwandelen.
+In bovenstaande lijst hebben we tanden poetsen als moeilijke activiteit toegevoegd. De beweging lijkt sterk op niets doen en zal waarschijnlijk minder goed te herkennen zijn.
 
-Het proces om een afzonderlijke activiteiten te herkennen verloopt in drie stappen. Ten eerste moeten er gegevens verzameld worden. Als tweede stap worden er features berekend op de verzamelde gegevens. Deze zijn nodig om tenslotte modellen te leren met behulp van classificatiemethodes. Als criterium om de verschillende modellen te vergelijken, gebruiken we de accuraatheid als percentage van het aantal juiste geclassificeerde samples ten op zichte van het totaal aantal samples met behulp van cross-validatie.
+Merk op dat we in plaats van de activeiten `lift naar boven of beneden nemen' enkel de versnelling van een lift naar boven of beneden in de lijst opnemen. Een lift naar boven nemen bevat dus de volgende activiteiten: lift versnelt omhoog~--~niets doen~--~lift versnelt omlaag. Het feit dat deze activiteiten ook `niets doen' bevatten, is de verklaring waarom we alleen de versnelling van een lift herkennen.
+\\~\\
+Het proces om de afzonderlijke activiteiten te herkennen verloopt in drie stappen. De eerste stap bestaat uit het verzamelen van de gegevens. Hiervoor meten we de versnellingen van de verschillende activiteiten. Als tweede stap worden features berekend uit de verzamelde gegevens. Deze zijn nodig om in de laatste stap modellen te leren met behulp van classificatiemethodes. Als criterium om de verschillende modellen te vergelijken, gebruiken we de accuraatheid als percentage van het aantal juiste geclassificeerde samples ten op zichte van het totaal aantal samples met behulp van cross-validatie.
 
 %TODO ook motivatie (waarom classificatiemethodes)
 
 \subsection{Gegevensverzameling}
 
-Alle gegevens werd opgemeten door MotionTracker tool %TODO verwijzing met voetnoot: geschreven door ... 
-. Dit is een Android-applicatie die de versnelling en rotatie (respectievelijk gemeten door de accelerometer en gyroscoop van de smartphone) aan 50 Hertz.  Als uitvoer geeft de applicatie een .log-bestand met de gemeten versnellingen (in de x-as, y-as en z-as met de z-as evenwijdig met de gravitatie) en rotaties (in quaternion notatie) met bijhorende timestamps.
+Alle gegevens werden opgemeten door de MotionTracker tool. %TODO verwijzing met voetnoot: geschreven door ...
+Dit is een Android-applicatie die de versnelling en rotatie (respectievelijk gemeten door de accelerometer en gyroscoop van de smartphone) samplet aan 50Hz.  Als uitvoer geeft de applicatie een .log-bestand met de gemeten versnellingen (in de x-as, y-as en z-as; de z-as is evenwijdig met de gravitatie) en rotaties (in quaternion notatie) met bijhorende timestamps.
 
-Voor elke meting werd de applicatie gestart alvorens de smartphone in de broekzak gestopt werd en gestopt na het uithalen. Waardoor er bij het begin en einde van elke meting altijd enkele seconden niet-activiteit bevat. Om zo het fout labelen te vermijden, werd na elke meting een stuk van de start en het einde van het .log-bestand weggeknipt. Zodat elke meting exact \'e\'en activiteit bevat van vier \'a twintig seconden. 
+Voor elke meting werd de applicatie gestart alvorens de smartphone in de broekzak gestopt werd en gestopt na het uithalen. Daarom bevat het begin en einde van elke meting enkele seconden die niet tot de gemeten activiteit horen. Om het fout labelen te vermijden, werd na elke meting een stuk van de start en het einde van het .log-bestand weggeknipt, zodat elke meting exact \'e\'en activiteit bevat van vier tot twintig seconden lang. 
 
-We hebben voor elke activiteit 22 metingen verzameld, opgemeten door twee verschillende personen. Om voldoende variatie te hebben, gebeurden de metingen op verschillende dagen. Ook hebben we ervoor gezorgd dat we niet telkens dezelfde broek droegen, aangezien de gemeten versnelling kan vari\"eren in verschillende broekzakken. Na elke meting werd het uitgevoerde .log-bestand geknipt en gelabeld met de juiste activiteit.
+Op deze manier hebben we voor elke activiteit 22 metingen verzameld, opgemeten door twee verschillende personen. Om voldoende variatie te hebben, gebeurden de metingen op verschillende dagen. Ook hebben we ervoor gezorgd dat we niet telkens dezelfde broek droegen, aangezien de gemeten versnelling kan vari\"eren in verschillende broekzakken. Na elke meting werd het resulterende .log-bestand geknipt en gelabeld met de juiste activiteit.
 
 %TODO figuur met verschillende activiteiten
 
 \subsection{Gegevensverwerking: features berekenen}
 
-Voor we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen. Om de verschillende features te berekenen, maakten we gebruiken van MotionFingerPrint.jar tool %TODO verwijzing naar tool 
+Voor we classificatiemethodes kunnen gebruiken, moeten we eerst features berekenen. Dit zijn parameters die we uit de samples van de accelerometer en gyroscoop kunnen halen. Om de verschillende features te berekenen, maken we gebruik van de MotionFingerprint tool. %TODO verwijzing naar tool 
 
 
 %TODO uitleggen waarom we features berekenen
 
-MotionFingerPrint berekent in totaal 134 features verdeeld onder vier soorten:
+MotionFingerprint berekent in totaal 134 features\footnote{Het aantal features is afhankelijk van de instellingen van de tool.} verdeeld onder vier soorten:
 \begin{itemize}
 \item \textit{Statistische features:}
- dit zijn gemiddelde, standaardafwijking van zowel z- als xy-versnellingen en vermogen. En correlatie tussen z- en xy-versnelling.
+ dit zijn gemiddelde, standaardafwijking van zowel z- als xy-versnellingen en vermogen. En correlatie tussen z- en xy-versnelling,
  
-\item \textit{Fourier-transformatie:} deze worden berekend in het frequentie domein van de metingen, zoals amplitudes volgens de verschillende assen.
+\item \textit{Fourier transformatie:} deze worden berekend in het frequentie domein van de metingen, zoals amplitudes volgens de verschillende assen,
 
-\item \textit{Wavelet-transformatie:} %TODO
+\item \textit{Wavelet transformatie:} \textbf{TODO}, %TODO
 
-\item \textit{Hidden Markov models:} log-likelihood voor het model van elke activiteit
+\item \textit{Hidden Markov models:} log-likelihood voor het model van elke activiteit.
 \end{itemize}
 
 %TODO uitleggen dat we verder voor de classificatiemethodes telkens 16 metingen gebruiken en dat we de andere 8 apart houden om HMM modellen te leren!
 
-Het resultaat van de features berekening geeft een voor elke sample een set van parameters. Elke set vormt een instantie van de training set om een model te leren.
+Na het berekenen van de features hebben we voor elke meting een set van parameters. Elke set vormt een instantie van de training set om een model te leren.
 
 \subsubsection{Feature selectie}
 %Waarom
-Tussen de verschillende soorten features is er verschil in berekeningstijd en hoeveelheid informatie. Zo kunnen statistische features in het algemeen tegen een lagere kost berekend worden ten op zichte van fourier transformatie features. In sommige toepassingen kan het daarom interessant zijn om slechts een deel van het totaal aantal features te berekenen en juist degene die het meeste informatie bevatten.
+Tussen de verschillende soorten features is er verschil in berekeningstijd en hoeveelheid informatie. Zo kunnen statistische features in het algemeen tegen een lagere kost berekend worden ten op zichte van Fourier transformatie features. In sommige toepassingen (zoals smartphone applicaties) kan het daarom interessant zijn om slechts een deel van het totaal aantal features te berekenen en juist diegene die de meeste informatie bevatten.
 
 %Voorgestelde Oplossing
-Met behulp van feature selectie hebben we onderzocht hoeveel features van het totaal aantal features van elke soort nodig zijn om een redelijke accuraatheid te behalen. Om de features met het meeste informatie te vinden, maakten we gebruik van weka's: \emph{InfoGainAttributeEval} klasse. %TODO voetnoot naar weka informatie gain
- Deze klasse evalueert de waarde van elke features met behulp van information gain. Hierbij werd er steeds de entropie waarde berekend.
+Met behulp van feature selectie onderzoeken we hoeveel features van het totaal aantal features van elke soort nodig zijn om een redelijke accuraatheid te behalen. Om de features met de meeste informatie te vinden, maken we gebruik van Weka's \emph{InfoGainAttributeEval} klasse. %TODO voetnoot naar weka informatie gain
+ Deze klasse evalueert de waarde van elke feature met behulp van information gain.
 
 %Evaluatie
-Vervolgens om de geselecteerde features te evalueren maakten we gebruik van dubbele cross-validatie. Bij de eerste cross-validatie (10-fold) werd de gegevensset verdeeld in een training- en testset. Daarna gebruikten we de gegeneerde training-set om de beste features te selecteren met het proces dat hierboven werd beschreven gebruik makend van de tweede cross-validatie (2-fold). Met de geselecteerde features werd een model opgesteld met behulp van de randomForest classificatiemethode. En dit model werd uiteindelijk getest om de testset die bij de eerste cross-validatie gemaakt werd.
+Om vervolgens de geselecteerde features te evalueren maken we gebruik van dubbele cross-validatie. Bij de eerste cross-validatie (10-fold) wordt de gegevensset telkens verdeeld in een training en test set. Voor elke training set selecteren we de beste features met het proces dat hierboven werd beschreven, gebruik makend van een tweede cross-validatie (2-fold). Met de geselecteerde features wordt een model opgesteld met behulp van de Random Forest classificatiemethode in Weka. Het gevonden model wordt uiteindelijk ge\"evalueerd op de test set van de eerste cross-validatie.
 	
 %Resultaten
-In figuur X worden de resulaten voor de verschillende soorten features getoond. We zien dat we met enkel de statistische features al een accuraatheid van 90\% behalen. Zelfs met de helft kan het model al vrij zeker de juiste activiteit voorspellen. We stellen vast dat van het grote aantal fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. In het algemeen kunnen we kunnen concluderen dat wavelet transformatie functie minder goed werken (slechts 70\% accuraatheid). Tenslotte in de laatste grafiek merken we op dat de Hidden Markov Models enkel degelijk werken als alle features gebruikt worden.
-
-%TODO figuur toevoegen
+In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features getoond. We zien dat we met enkel de statistische features al een accuraatheid van 90\% behalen. Zelfs met de helft van de features kan het model al met een accuraatheid van 80\% activiteit voorspellen. We stellen vast dat van het grote aantal Fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. Wavelet transformatie features lijken minder goed te werken met slechts 70\% accuraatheid. Tenslotte merken we in de laatste grafiek op dat de Hidden Markov Models enkel degelijk werken wanneer alle features gebruikt worden.
 
 \begin{figure}[htb]
 \centering
@@ -156,9 +159,10 @@ In figuur X worden de resulaten voor de verschillende soorten features getoond. 
   \end{subfigure} \\
   
 
-  \caption{Resultaten van het feature selectie experiment. Op de x-as wordt steeds het aantal features van de soort features geplot en op de y-as de accuraatheid in procenten.}\label{fig:1}
+  \caption{Resultaten van het feature selectie experiment: op de x-as wordt steeds het aantal features van elke soort features geplot en op de y-as de accuraatheid (in percentages) van het model dat door Random Forest geleerd werd.}\label{fig:1}
 \end{figure}
-Voor de rest van het onderzoek werd gebruik gemaakt van de volledige set features.
+
+Voor de rest van het onderzoek wordt gebruik gemaakt van de volledige set features.
 
 
 
@@ -182,7 +186,7 @@ Om de methodes te evalueren, maken we gebruik van de Weka Machine Learning Toolk
 Die bevat classifiers die de hierboven vermelde methodes implementeren. Voor beslissingsbomen maken we gebruik van de J48 classifier, een implementatie van het C4.5 algoritme. %TODO bronvermelding
 Verder gebruiken we IBk voor k-Nearest Neighbours en LibSVM voor Support Vector Machines.
 
-De evaluatie gebeurt met 10-fold cross-validatie. Hierbij worden de instanties op 10 verschillende manieren opgesplitst zodat telkens 90\% van de instanties als trainingset wordt gebruikt om een model uit te leren. Op de overige 10\% wordt het model ge\"evalueerd. De accuraatheid van elke methode wordt dan berekend als het gemiddelde percentage van correct geclassificeerde instanties in de verschillende testsets.
+De evaluatie gebeurt met 10-fold cross-validatie. Hierbij worden de instanties op tien verschillende manieren opgesplitst zodat telkens 90\% van de instanties als trainingset wordt gebruikt om een model uit te leren. Op de overige 10\% wordt het model ge\"evalueerd. De accuraatheid van elke methode wordt dan berekend als het gemiddelde percentage van correct geclassificeerde instanties in de verschillende testsets.
 
 \begin{figure}
 \centering
@@ -209,7 +213,7 @@ De evaluatie gebeurt met 10-fold cross-validatie. Hierbij worden de instanties o
 \end{figure}
 
 In figuur \ref{fig:methodes}
-wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We zien dat Random Forest de hoogste accuraatheid geeft voor de metingen. Ook J48 geeft een goede accuraatheid. De hogere accuraatheid van Random Forest ten opzichte van beslissingsbomen is te verklaren door het feit dat Random Forest minder kans op overfitting heeft.~\cite{breiman:randomforests} Naive Bayes lijkt ook goed te werken, terwijl met IBk en vooral LibSVM een lagere accuraatheid bereikt wordt. De accuraatheid van de methodes kan echter wel verbeterd worden door de parameters de optimaliseren.
+wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We zien dat Random Forest de hoogste accuraatheid (93,75\%) geeft voor de metingen. Ook J48 geeft een goede accuraatheid (87.5\%). De hogere accuraatheid van Random Forest ten opzichte van beslissingsbomen is te verklaren door het feit dat Random Forest minder kans op overfitting heeft.~\cite{breiman:randomforests} Naive Bayes lijkt ook goed te werken, terwijl met IBk en vooral LibSVM een lagere accuraatheid bereikt wordt. De accuraatheid van de methodes kan echter wel verbeterd worden door de parameters de optimaliseren.
 
 \begin{figure*}
 \begin{center}
@@ -243,7 +247,7 @@ wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We 
 \label{fig:confusionmatrix}
 \end{figure*}
 
-Voor het model dat door Random Forest geleerd wordt, hebben we in figuur \ref{fig:confusionmatrix} een confusion-matrix geplot. Het valt op dat activiteiten met grote versnellingen -- wandelen, lopen, fietsen en springen -- goed te herkennen zijn. Alle metingen voor deze activiteiten worden immers correct geclassificeerd door het model. Niets doen, lift omhoog/omlaag en tanden poetsen hebben kleinere versnellingen dan de andere activiteiten. We zien dat 2 metingen van niets doen als tanden poetsen worden geclassificeerd. Ook lift omhoog en omlaag worden gemakkelijk met elkaar verward. Omwille van de kleine versnellingen zijn de verschillen tussen de activiteiten subtieler, wat een verklaring kan zijn waarom deze activiteiten moeilijker te herkennen zijn.
+Voor het model dat door Random Forest geleerd werd, hebben we in figuur \ref{fig:confusionmatrix} een confusion-matrix geplot. Het valt op dat activiteiten met grote versnellingen -- wandelen, lopen, fietsen en springen -- goed te herkennen zijn. Alle metingen voor deze activiteiten worden immers correct geclassificeerd door het model. Niets doen, lift versnelt omhoog/omlaag en tanden poetsen hebben kleinere versnellingen dan de andere activiteiten. We zien dat twee metingen van niets doen als tanden poetsen worden geclassificeerd. Ook lift omhoog en omlaag worden gemakkelijk met elkaar verward. Omwille van de kleine versnellingen zijn de verschillen tussen de activiteiten subtieler, wat een verklaring kan zijn waarom deze activiteiten moeilijker te herkennen zijn.
 
 
 
@@ -255,15 +259,15 @@ Bij het herkennen van afzonderlijke activiteiten bevat elke meting exact \'e\'en
 
 \subsection{Gegevensverzameling}
 
-Met behulp van de MotionTracker applicatie werd opnieuw de versnelling en rotatie gemeten, maar nu van meerdere activiteiten na elkaar. In totaal zijn vier sequenties van elk ongeveer drie minuten lang opgemeten: twee verschillende combinaties van activiteiten, telkens door twee personen opgemeten. De ene combinatie bevat de activiteiten wandelen, trap op en af, niets doen, lopen en springen. De andere bevat wandelen, trap op en af, niets doen en lift omhoog en omlaag. Omdat lift versnellingen moeilijk van elkaar te onderscheiden zijn door het model voor afzonderlijke activiteiten (zie sectie~\ref{afzonderlijk:experimenten}), is de tweede combinatie moeilijker te herkennen dan de eerste.
+Met behulp van de MotionTracker applicatie werd opnieuw de versnelling en rotatie gemeten, maar nu van meerdere activiteiten na elkaar. In totaal zijn vier sequenties van elk ongeveer drie minuten lang opgemeten: twee verschillende combinaties van activiteiten, telkens door twee personen opgemeten. De ene combinatie bevat de activiteiten wandelen, trap op en af, niets doen, lopen en springen. De andere bevat wandelen, trap op en af, niets doen en lift omhoog en omlaag. Omdat lift versnellingen moeilijk van elkaar te onderscheiden zijn door het model voor afzonderlijke activiteiten (zie sectie~\ref{afzonderlijk:experimenten}), verwachten we dat de tweede combinatie moeilijker te herkennen is dan de eerste.
 
-Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .csv-bestand. Dit bestand bevat de start- en eindtijden van de verschillende activiteiten in de bijhorende meting. De delen die niet gelabeld werden, beschouwen we als ruis. Het gaat om periodes met activiteiten die niet tot de tien activiteiten behoren die we kunnen herkennen. De smartphone in de broekzak stoppen is hier een voorbeeld van.
+Om de metingen te evalueren, werd elke sequentie gelabeld met behulp van een .csv-bestand. Dit bestand bevat de start- en eindtijden van de verschillende activiteiten in de bijhorende meting. De delen die niet gelabeld werden, beschouwen we als ruis. Ruis defini\"eren we als niet-herkenbare activiteit. Het gaat om periodes met activiteiten die niet tot de tien activiteiten behoren die we kunnen herkennen. De smartphone in de broekzak stoppen is hier een voorbeeld van.
 
 \subsection{Gegevensverwerking}
 
 Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen toegepast worden op sequenties, moeten de sequenties geknipt worden in delen die wel \'e\'en activiteit bevatten. We doen dit door de sequenties in tijdsvensters op te splitsen. De vensters hebben een lengte van enkele seconden en kunnen overlappen opdat er meer kans is dat een venster \'e\'en activiteit bevat. We defini\"eren een overlapping als het percentage van de lengte van een tijdsvenster dat ook tot het eerst volgende tijdsvenster hoort. In figuur \ref{fig:overlap} wordt ge\"illustreerd wat een overlapping van bijvoorbeeld 75\% betekent.
 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}
 \draw (0.5,-0.8) -- (2.5,-0.8) -- (2.5,0.2) -- (0.5,0.2) -- (0.5,-0.8);
@@ -329,23 +333,75 @@ Als minstens twee vensters met het deel van de sequentie overlappen, houdt het a
 %TODO algoritme uitleggen + hierbij ook uitleg over ruis-cutoff
 
 \subsection{Experimenten en resultaten}
-\label{sequenties:experimenten}
+
+
 
 %TODO
-% - hoe gebeurt de evaluatie?
-% - accuraatheid plotten in functie van grootte van tijdsvensters en overlap + tijdsvensters vergelijken + iets over ruis cut-off
-%   ==> hypothese (waarschijnlijk 4sec en 3/4 overlap, omwille van activiteit lift versnelt omhoog/omlaag)
+\textit{TODO:
+ - hoe het experiment wordt gedaan
+ - hoe gebeurt de evaluatie?
+ - accuraatheid plotten in functie van grootte van tijdsvensters en overlap + tijdsvensters vergelijken + iets over ruis cut-off
+   + hypothese (waarschijnlijk 4sec en 3/4 overlap, omwille van activiteit lift versnelt omhoog/omlaag)}
 % - bespreking van resultaten: komt dit overeen met de hypothese?
 
+
+
+
+
+%TODO verwijzing naar juist activiteit
+
+In figuur X worden de verschillende combinaties van de tijdvenster- en overlappingsgrootte getoond met de behaalde accuraatheid. Indien we de x-as volgen (door de overlapping constant te houden), zien we dat naarmate de tijdsvenstergrootte stijgt, ook de accuuraatheid stijgt. Er wordt een maximum gehaald rond de vier tot zes seconden, daarna daalt de accuuraatheid terug. Bij het volgen van de y-as (met een constante tijdsvenstergrootte), constateren we dat hoe groter het overlappingspercentage wordt, hoe nauwkeurigere voorspellingen gemaakt kunnen worden.
+
+Deze resultaten komen overeen met de hypothese die eerder gemaakt werd. De meeste activiteiten duren enkele seconden lang. Liftversnellingen bijvoorbeeld duren ongeveer vier seconden. Hierdoor is te verklaren waarom de tijdsvensters langer dan vier seconden moeten zijn. Tijdvensters van \'e\'en of twee seconden zijn niet altijd lang genoeg om een hele periode van een activiteit te bevatten. Grotere tijdsvensters leveren een lagere accuuraatheid op omdat de kans dat \'e\'enzelfde venster meerdere activiteiten bevat groter is. Daardoor is het moeilijker om de juiste activiteit te herkennen. De stijgende nauwkeurigheid voor toenemende overlappingsgrootte was ook te verwachten. Hoe groter de overlapping, hoe meer voorspellingen gemaakt kunnen worden per halve seconde van de sequentie. Hierbij moet wel een trade-off gemaakt worden: meer voorspellingen maken vraagt immers meer tijd.
+
+Uit het vorige experiment kunnen we concluderen dat de optimale venstergrootte vier tot zes seconden is in combinatie met een overlappingspercentage van 75\%. Deze waarden samen met 50\% ruis cut-off leveren een gemiddelde nauwkeurigheid van [TODO]\% voor de opgemeten sequenties. %TODO juiste percentage zoeken
+
+
+
+	
+
 \section{Conclusie}
+
+Het doel van dit onderzoek was om een model te vinden om afzonderlijke bewegingen te herkennen. Vervolgens gebruikten we dit model om een sequentie van verschillende activiteiten te evalueren.
+
+	In sectie 2 werden twee experimenten uitgevoerd in verband met afzonderlijke activiteiten. Het eerste experiment betreft de feature selectie. Hierbij werd onderzocht hoeveel features nodig zijn om een een voldoende nauwkeurig model te vinden. Het resultaat was dat enkel statistische features een model opleveren met 90\% nauwkeurigheid. We kunnen bij hetzelfde experiment ook concluderen dat van de 80 Fourier transformatie features slechts een tiental nodig zijn.
+	In het tweede experiment werden verschillende classificatiemethodes met elkaar vergeleken. We maakten gebruik van vijf veel voorkomende machine learning technieken: beslissingsbomen, Random Forest, k-Nearest Neighbours, Naive Bayes en Support Vector Machines. Van deze methodes kwam Random Forest als beste naar boven met een nauwkeurigheid van 93,75\%.
+	
+	In sectie 3 werden sequenties van activiteiten ge\"evalueerd. Hiervoor hebben we een algoritme ontwikkeld waarvan de pseudocode besproken werd in [TODO]. 
+	%TODO verwijzen naar algoritme 
+Het algoritme vereist drie parameters: een tijdsvenstergrootte in seconden, een overlappingspercentage en een een ruis cutoff kans. Uit het experiment in sectie [TODO] %TODO
+bleek dat de optimale waarde voor de tijdsvenstergrootte vier tot zes seconden is en 75\% overlappingen een goede accuraatheid geven. De waarden werden getest op sequenties van ongeveer 3 minuten lang met steeds 4 \'a 5 verschillende activiteiten. Met behulp van het model van Random Forest (dit is het model dat gevonden werd in sectie [TODO] %TODO 
+) werd er een gemiddelde nauwkeurigheid van 80\% gevonden.
+
 
 %TODO voor afzonderlijke activiteiten EN (?) voor sequenties
 
 \section{Verder werk}
 
-%TODO misschien wat er zou gebeuren als hetzelfde zou gedaan worden voor meer metingen? (bvb. wandelen, lopen, ... accurater)
+Ondanks het feit dat tijdens dit onderzoek een redelijk model werd gevonden, kan dit altijd verder verbeterd worden.
 
+\subsection{Afzonderlijke activiteiten}
 
+Het model van de afzonderlijke activiteiten kan verbeterd worden door de gegevensverzameling te vergroten. Dit betekent dat meer gegevens verzameld moeten worden door meerdere proefpersonen. Hierdoor kan een algemener model berekend worden voor de verschillende afzonderlijke activiteiten, waardoor het model nauwkeurigere voorspellingen kan maken bij de sequenties van activiteiten.
+
+Bovendien kunnen er modellen gegenereerd worden voor nieuwe activiteiten. Het toevoegen van extra activiteiten zal zoals eerder vermeld ook meer gegevens vragen.
+
+\subsection{Sequenties van activiteiten}
+
+Het algoritme voor sequenties van activiteiten te evalueren kan ook nog verder geoptimaliseerd worden. 
+	Zo zijn bepaalde overgangen van activiteiten totaal onmogelijk. Het herkennen van fietsen na een liftversnelling is bijvoorbeeld onwaarschijnlijk. Zulke overgangen kunnen gefilterd worden door het gebruik van Hidden Markov Models. Verder hebben we tijdens het onderzoek gemerkt dat soms enkele seconden als tanden poetsen herkend worden tijdens niets doen. Ook dit is onwaarschijnlijk en zou gefilterd kunnen worden met behulp van HMMs.
+
+Tijdens het onderzoek werd geen rekening gehouden met de performantie (noch snelheid, noch geheugengebruik). Deze kan verder onderzocht en eventueel verbeterd worden.
+
+	
+
+%TODO gebruik van hmm vermelden?
+
+Tenslotte is het nog mogelijk om het algoritme te implementeren in een smartphone-applicatie.
+
+\section{Dankwoord}
+
+Hierbij willen we graag Wannes Meert en Leander Schietgat bedanken. Eerst en vooral voor hun raad en ondersteuning. Ten tweede voor het ter beschikking stellen van de tools: MotionTracker en MotionFingerPrint.
 
 
 %TODO bronvermelding!
