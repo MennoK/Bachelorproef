@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.7)  5 MAY 2015 22:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.10)  16 MAY 2015 15:41
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 28 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 Bewegingsherkenning met een smartphone
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
@@ -821,14 +821,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 383--400
 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-<figures/3dplot.png, id=42, 1204.5pt x 1003.75pt>
+[5] <figures/3dplot.png, id=39, 1204.5pt x 1003.75pt>
 File: figures/3dplot.png Graphic file (type png)
  <use figures/3dplot.png>
 Package pdftex.def Info: figures/3dplot.png used on input line 489.
@@ -839,6 +832,9 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 489--490
  []
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6]
 Underfull \hbox (badness 1902) in paragraph at lines 496--498
 \OT1/ptm/m/n/10 de op-ti-male ven-ster-grootte vier tot zes se-con-den is in
  []
@@ -853,12 +849,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 496--498
 
  []
 
-[7 <./figures/3dplot.png>]
+
 Underfull \hbox (badness 1112) in paragraph at lines 535--536
 \OT1/ptm/m/n/10 de per-for-man-tie (noch snel-heid, noch ge-heu-gen-ge-bruik).
  []
 
-(./paper.bbl
+[7 <./figures/3dplot.png>] (./paper.bbl
 Underfull \hbox (badness 1377) in paragraph at lines 17--19
 \OT1/ptm/m/n/10 Juang \OT1/ptm/m/it/10 Hu-man Ac-ti-vity Re-cog-ni-tion fro-m-A
 c-ce-le-ro-me-ter
@@ -870,73 +866,70 @@ c-ce-le-ro-me-ter
 File: figures/wandelen.pdf Graphic file (type pdf)
 
 <use figures/wandelen.pdf>
-Package pdftex.def Info: figures/wandelen.pdf used on input line 562.
-(pdftex.def)             Requested size: 245.41133pt x 98.55946pt.
+Package pdftex.def Info: figures/wandelen.pdf used on input line 563.
+(pdftex.def)             Requested size: 173.52144pt x 69.68471pt.
  <figures/lopen.pdf, id=53, 602.25pt x 246.4407pt>
 File: figures/lopen.pdf Graphic file (type pdf)
 
 <use figures/lopen.pdf>
-Package pdftex.def Info: figures/lopen.pdf used on input line 567.
-(pdftex.def)             Requested size: 245.41133pt x 100.42464pt.
+Package pdftex.def Info: figures/lopen.pdf used on input line 568.
+(pdftex.def)             Requested size: 173.52144pt x 71.00343pt.
  <figures/springen.pdf, id=54, 602.25pt x 245.9589pt>
 File: figures/springen.pdf Graphic file (type pdf)
 
 <use figures/springen.pdf>
-Package pdftex.def Info: figures/springen.pdf used on input line 572.
-(pdftex.def)             Requested size: 245.41133pt x 100.22829pt.
+Package pdftex.def Info: figures/springen.pdf used on input line 573.
+(pdftex.def)             Requested size: 173.52144pt x 70.86462pt.
  <figures/fietsen.pdf, id=55, 602.25pt x 246.6816pt>
 File: figures/fietsen.pdf Graphic file (type pdf)
 
 <use figures/fietsen.pdf>
-Package pdftex.def Info: figures/fietsen.pdf used on input line 577.
-(pdftex.def)             Requested size: 245.41133pt x 100.5228pt.
+Package pdftex.def Info: figures/fietsen.pdf used on input line 578.
+(pdftex.def)             Requested size: 173.52144pt x 71.07285pt.
  <figures/trapop.pdf, id=56, 602.25pt x 247.6452pt>
 File: figures/trapop.pdf Graphic file (type pdf)
 
 <use figures/trapop.pdf>
-Package pdftex.def Info: figures/trapop.pdf used on input line 582.
-(pdftex.def)             Requested size: 245.41133pt x 100.91547pt.
+Package pdftex.def Info: figures/trapop.pdf used on input line 583.
+(pdftex.def)             Requested size: 173.52144pt x 71.35046pt.
  <figures/trapaf.pdf, id=57, 602.25pt x 247.1634pt>
 File: figures/trapaf.pdf Graphic file (type pdf)
 
 <use figures/trapaf.pdf>
-Package pdftex.def Info: figures/trapaf.pdf used on input line 587.
-(pdftex.def)             Requested size: 245.41133pt x 100.71913pt.
+Package pdftex.def Info: figures/trapaf.pdf used on input line 588.
+(pdftex.def)             Requested size: 173.52144pt x 71.21165pt.
  <figures/liftau.pdf, id=58, 602.25pt x 246.4407pt>
 File: figures/liftau.pdf Graphic file (type pdf)
 
 <use figures/liftau.pdf>
-Package pdftex.def Info: figures/liftau.pdf used on input line 592.
-(pdftex.def)             Requested size: 245.41133pt x 100.42464pt.
+Package pdftex.def Info: figures/liftau.pdf used on input line 593.
+(pdftex.def)             Requested size: 173.52144pt x 71.00343pt.
  <figures/liftad.pdf, id=59, 602.25pt x 246.1998pt>
 File: figures/liftad.pdf Graphic file (type pdf)
 
 <use figures/liftad.pdf>
-Package pdftex.def Info: figures/liftad.pdf used on input line 597.
-(pdftex.def)             Requested size: 245.41133pt x 100.32646pt.
+Package pdftex.def Info: figures/liftad.pdf used on input line 598.
+(pdftex.def)             Requested size: 173.52144pt x 70.93404pt.
 
 <figures/tandenpoetsen.pdf, id=60, 602.25pt x 247.1634pt>
 File: figures/tandenpoetsen.pdf Graphic file (type pdf)
 
 <use figures/tandenpoetsen.pdf>
-Package pdftex.def Info: figures/tandenpoetsen.pdf used on input line 602.
-(pdftex.def)             Requested size: 245.41133pt x 100.71913pt.
+Package pdftex.def Info: figures/tandenpoetsen.pdf used on input line 603.
+(pdftex.def)             Requested size: 173.52144pt x 71.21165pt.
 
 <figures/nietsdoen.pdf, id=61, 602.25pt x 247.4043pt>
 File: figures/nietsdoen.pdf Graphic file (type pdf)
 
 <use figures/nietsdoen.pdf>
-Package pdftex.def Info: figures/nietsdoen.pdf used on input line 607.
-(pdftex.def)             Requested size: 245.41133pt x 100.81729pt.
+Package pdftex.def Info: figures/nietsdoen.pdf used on input line 608.
+(pdftex.def)             Requested size: 173.52144pt x 71.28107pt.
 
 <figures/legend.pdf, id=62, 108.88681pt x 30.1125pt>
 File: figures/legend.pdf Graphic file (type pdf)
  <use figures/legend.pdf>
-Package pdftex.def Info: figures/legend.pdf used on input line 612.
+Package pdftex.def Info: figures/legend.pdf used on input line 613.
 (pdftex.def)             Requested size: 61.97221pt x 17.13855pt.
-
-
-LaTeX Warning: Float too large for page by 30.81339pt on input line 618.
 
 [9
 
@@ -983,12 +976,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20658 strings out of 494424
- 490683 string characters out of 6165346
- 607373 words of memory out of 5000000
- 23457 multiletter control sequences out of 15000+600000
+ 20658 strings out of 493304
+ 490683 string characters out of 6139870
+ 605241 words of memory out of 5000000
+ 23665 multiletter control sequences out of 15000+600000
  27686 words of font info for 55 fonts, out of 8000000 for 9000
- 372 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  63i,11n,84p,1027b,2064s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
@@ -1000,7 +993,7 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (10 pages, 16366366 bytes).
+Output written on paper.pdf (10 pages, 16366388 bytes).
 PDF statistics:
  297 PDF objects out of 1000 (max. 8388607)
  136 compressed objects within 2 object streams
