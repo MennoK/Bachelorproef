@@ -369,7 +369,7 @@ Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen t
 
 \begin{subfigure}[b]{.90\linewidth}
 \centering
-\begin{tikzpicture}[width=0.8\textwidth]
+\begin{tikzpicture}%[width=0.8\textwidth]
 \draw [d] (-3.5,2) node (v1) {} rectangle (0,1);
 \draw [o] (v1) rectangle (-6.5,1);
 \node at (-6.5,0.8) {0};
@@ -561,14 +561,15 @@ Hierbij willen we graag Wannes Meert en Leander Schietgat bedanken. Eerst en voo
 \bibliographystyle{named}
 \bibliography{paper}
 
-
-
 \newpage
-\clearpage
+\onecolumn
 
 \section{Bijlage}
-\begin{figure*}[hb!]
+
+\begin{figure}[h!]
 \centering
+
+\caption{De tien verschillende activiteiten die afzonderlijk opgemeten werden voor dit onderzoek. Hierbij moet opgemerkt worden dat versnelling (y-as) niet op elke figuur dezelfde stap heeft. Zo hebben de activiteiten die getoond worden op figuur (g) t.e.m. (j) een versnelling kleiner dan \'e\'en.}
 
   \begin{subfigure}[b]{.49\linewidth}
     \centering
@@ -625,11 +626,9 @@ Hierbij willen we graag Wannes Meert en Leander Schietgat bedanken. Eerst en voo
     \includegraphics[width=.25\textwidth]{figures/legend}
   \end{subfigure}
   
-
-  \caption{De tien verschillende activiteiten die afzonderlijk opgemeten werden voor dit onderzoek. Hierbij moet opgemerkt worden dat versnelling (y-as) niet op elke figuur dezelfde stap heeft. Zo hebben de activiteiten die getoond worden op figuur (g) t.e.m. (j) een versnelling kleiner dan \'e\'en.}
   \label{fig:8}
   
-\end{figure*}
+\end{figure}
 
 \end{document}
 
