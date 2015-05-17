@@ -10,6 +10,7 @@
 \usepackage{tikz}
 \usetikzlibrary{fit,arrows,calc,positioning,backgrounds}
 \usetikzlibrary{patterns}
+\usepackage[bottom]{footmisc} 
 
 
 \tikzset{every fit/.append style=text badly centered}
@@ -47,7 +48,7 @@
 \begin{document}
 
 \maketitle
-
+\raggedbottom
 \begin{abstract}
 
 Het herkennen van menselijke bewegingen is een belangrijk onderdeel van `context aware computing'. Uit de metingen van de accelerometer en gyroscoop van een smartphone kan de activiteit van de gebruiker bepaald worden. In het eerste deel van ons onderzoek zoeken we naar modellen om afzonderlijke activiteiten te herkennen. Het nauwkeurigste model wordt gevonden met de classificatiemethode Random Forests met een accuraatheid van 93\%. Vervolgens gebruiken we dit model om een sequentie van verschillende bewegingen te evalueren. We ontwikkelen hiervoor een algoritme dat de sequentie in opeenvolgende tijdsvensters van een aantal seconden knipt, die ook met een bepaald percentage kunnen overlappen. Uit experimenten blijkt dat hiervoor een tijdsvenstergrootte van vier tot zes seconden met een overlapping van 75\% het nauwkeurigst is met 84\% accuraatheid.
@@ -274,37 +275,7 @@ wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We 
 \label{fig:methodes}
 \end{figure}
 
-\begin{figure*}
-\begin{center}
-{ \footnotesize
-\begin{tabular}{ c | c | c | c | c | c | c | c | c | c | l }
-     \begin{sideways} Wandelen       \end{sideways}
-  &  \begin{sideways} Lopen          \end{sideways} 
-  &  \begin{sideways} Fietsen        \end{sideways} 
-  &  \begin{sideways} Trap op        \end{sideways} 
-  &  \begin{sideways} Trap af        \end{sideways} 
-  &  \begin{sideways} Springen       \end{sideways} 
-  &  \begin{sideways} Niets doen     \end{sideways} 
-  &  \begin{sideways} Lift omhoog    \end{sideways} 
-  &  \begin{sideways} Lift omlaag    \end{sideways} 
-  &  \begin{sideways} Tanden poetsen \end{sideways} 
-  &  $\leftarrow$ \parbox[b]{1.8cm}{geclassificeerd\\als} \\   \hline
- 16 &    &    &    &    &    &    &    &    &    & Wandelen           \\   \hline
-    & 16 &    &    &    &    &    &    &    &    & Lopen              \\   \hline
-    &    & 16 &    &    &    &    &    &    &    & Fietsen            \\   \hline
-    &    &    & 15 &  1 &    &    &    &    &    & Trap op            \\   \hline
-    &    &    &    & 16 &    &    &    &    &    & Trap af            \\   \hline
-    &    &    &    &    & 16 &    &    &    &    & Springen           \\   \hline
-    &    &    &    &    &    & 14 &    &    &  2 & Niets doen         \\   \hline
-    &    &    &    &    &    &    & 10 &  6 &    & Lift omhoog        \\   \hline
-    &    &    &    &    &    &    &  1 & 15 &    & Lift omlaag        \\   \hline
-    &    &    &    &    &    &    &    &    & 16 & Tanden poetsen
-\end{tabular}
-}
-\end{center}
-\caption{Confusion matrix voor Random Forests}
-\label{fig:confusionmatrix}
-\end{figure*}
+
 
 Voor het model dat door Random Forests geleerd werd, hebben we in figuur \ref{fig:confusionmatrix} een confusion-matrix geplot. Het valt op dat activiteiten met grote versnellingen -- wandelen, lopen, fietsen en springen -- goed te herkennen zijn. Alle metingen voor deze activiteiten worden immers correct geclassificeerd door het model. Niets doen, lift versnelt omhoog/omlaag en tanden poetsen hebben kleinere versnellingen dan de andere activiteiten. We zien dat twee metingen van niets doen als tanden poetsen worden geclassificeerd. Ook lift omhoog en omlaag worden gemakkelijk met elkaar verward. Omwille van de kleine versnellingen zijn de verschillen tussen de activiteiten subtieler, wat een verklaring kan zijn waarom deze activiteiten moeilijker te herkennen zijn.
 \\~\\
@@ -315,7 +286,7 @@ We kunnen voor de afzonderlijke activiteiten besluiten dat door Random Forests h
 \section{Sequenties van activiteiten}
 
 \tikzstyle{d} = [rectangle, draw, fill=blue!20, node distance=0.5cm, text width=6em, text centered, minimum height=4em, thick]
-\begin{figure}
+\begin{figure}[H]
 \begin{center}
 \begin{tikzpicture}
 
@@ -350,6 +321,37 @@ We kunnen voor de afzonderlijke activiteiten besluiten dat door Random Forests h
 \label{fig:proces:sequenties}
 \end{figure}
 
+\begin{figure*}
+\begin{center}
+{ \footnotesize
+\begin{tabular}{ c | c | c | c | c | c | c | c | c | c | l }
+     \begin{sideways} Wandelen       \end{sideways}
+  &  \begin{sideways} Lopen          \end{sideways} 
+  &  \begin{sideways} Fietsen        \end{sideways} 
+  &  \begin{sideways} Trap op        \end{sideways} 
+  &  \begin{sideways} Trap af        \end{sideways} 
+  &  \begin{sideways} Springen       \end{sideways} 
+  &  \begin{sideways} Niets doen     \end{sideways} 
+  &  \begin{sideways} Lift omhoog    \end{sideways} 
+  &  \begin{sideways} Lift omlaag    \end{sideways} 
+  &  \begin{sideways} Tanden poetsen \end{sideways} 
+  &  $\leftarrow$ \parbox[b]{1.8cm}{geclassificeerd\\als} \\   \hline
+ 16 &    &    &    &    &    &    &    &    &    & Wandelen           \\   \hline
+    & 16 &    &    &    &    &    &    &    &    & Lopen              \\   \hline
+    &    & 16 &    &    &    &    &    &    &    & Fietsen            \\   \hline
+    &    &    & 15 &  1 &    &    &    &    &    & Trap op            \\   \hline
+    &    &    &    & 16 &    &    &    &    &    & Trap af            \\   \hline
+    &    &    &    &    & 16 &    &    &    &    & Springen           \\   \hline
+    &    &    &    &    &    & 14 &    &    &  2 & Niets doen         \\   \hline
+    &    &    &    &    &    &    & 10 &  6 &    & Lift omhoog        \\   \hline
+    &    &    &    &    &    &    &  1 & 15 &    & Lift omlaag        \\   \hline
+    &    &    &    &    &    &    &    &    & 16 & Tanden poetsen
+\end{tabular}
+}
+\end{center}
+\caption{Confusion matrix voor Random Forests}
+\label{fig:confusionmatrix}
+\end{figure*}
 Bij het herkennen van afzonderlijke activiteiten bevat elke meting exact \'e\'en activiteit. De classificatiemethodes die we hiervoor gebruiken zijn dus niet rechtstreeks toepasbaar op metingen waarin verschillende activiteiten na elkaar gebeuren. Daarom gaan we op zoek naar een methode om voor een sequentie van activiteiten te bepalen welke activiteiten daarin gedaan worden en wanneer.
 
 In figuur~\ref{fig:proces:sequenties} wordt het proces beschreven om sequenties van activiteiten te herkennen. We beginnen met het opmeten van de versnelling en rotatie van verschillende sequenties. In het algoritme dat we zullen bespreken, worden de sequenties vervolgens in overlappende tijdsvensters geknipt. De activiteiten van de tijdsvensters worden bepaald met behulp van een model om afzonderlijke activiteiten te herkennen. Ten slotte worden hiermee predicties gemaakt voor de sequenties.
@@ -495,7 +497,6 @@ Deze resultaten komen overeen met de hypothese die eerder gemaakt werd. De meest
 
 Uit het vorige experiment kunnen we concluderen dat de optimale venstergrootte vier tot zes seconden is in combinatie met een overlappingspercentage van 75\%. Deze waarden samen met 50\% ruis cut-off leveren een gemiddelde nauwkeurigheid van 84\% voor de opgemeten sequenties.
 \\~\\
-
 %Korte conclusie
 Voor de sequentie van activiteiten kunnen we concluderen dat voor ons algoritme de optimale venstergrootte vier tot zes seconden is in combinatie met 75\% overlapping. Er wordt een gemiddelde accuraatheid behaald van 84\%
 
