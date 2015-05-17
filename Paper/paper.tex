@@ -481,14 +481,26 @@ Om de accuraatheid van de voorspellingen van het algoritme te kunnen evalueren, 
 
 \subsection{Resultaten}
 
-In figuur~\ref{fig:3d} worden de verschillende combinaties van de tijdvenster- en overlappingsgrootte getoond met de behaalde accuraatheid. Indien we de x-as volgen (door de overlapping constant te houden), zien we dat naarmate de tijdsvenstergrootte stijgt, ook de accuuraatheid stijgt. Er wordt een maximum gehaald rond de vier tot zes seconden, daarna daalt de accuuraatheid terug. Bij het volgen van de y-as (met een constante tijdsvenstergrootte), constateren we dat hoe groter het overlappingspercentage wordt, hoe nauwkeurigere voorspellingen gemaakt kunnen worden.
+In figuur~\ref{fig:3d} worden de verschillende combinaties van de tijdsvenstergrootte en overlappingspercentage getoond met de behaalde accuraatheid. Indien we de de overlapping constant te houden in figuur~\ref{fig:seq2d}, zien we dat naarmate de tijdsvenstergrootte stijgt, ook de accuuraatheid stijgt. Er wordt een maximum gehaald rond de vier tot zes seconden, daarna daalt de accuuraatheid terug. Bij een vaste tijdsvenstergrootte constateren we dat hoe groter het overlappingspercentage wordt, hoe nauwkeurigere voorspellingen gemaakt kunnen worden.
 
-%TODO 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{figures/3dplot}
-\caption{3D-plot dat de resultaten toont van het experiment (besproken in sectie 3.4). Op de x-as wordt de venstergrootte geplot in seconden. Op y-as zijn de overlappingen te zien in procenten. Uitvoering van het algoritme met de combinatie van deze parameters resulteert in een accuraatheid (geplot op de z-as)}
-\label{fig:3d}
+
+  \begin{subfigure}[b]{.99\linewidth}
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/3dplot}
+    \caption{Accuraatheid voor verschillende combinaties van tijdvenstergrootte en overlapping}\label{fig:3d}
+  \end{subfigure}
+
+  \begin{subfigure}[b]{.99\linewidth}
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/constantoverlap}
+    \caption{Met een constante overlapping (van 75\% op deze figuur) wordt de hoogste accuraatheid bereikt bij een tijdsvenstergroote van ongeveer vier tot zes seconden.}\label{fig:seq2d}
+  \end{subfigure}
+  
+  \caption{Resultaten van het experiment voor de parameters van Algoritme~\ref{alg:sequentie}}
+  \label{fig:expsequenties}
+  
 \end{figure}
 
 Deze resultaten komen overeen met de hypothese die eerder gemaakt werd. De meeste activiteiten duren enkele seconden lang. Liftversnellingen bijvoorbeeld duren ongeveer vier seconden. Hierdoor is te verklaren waarom de tijdsvensters langer dan vier seconden moeten zijn. Tijdvensters van \'e\'en of twee seconden zijn niet altijd lang genoeg om een hele periode van een activiteit te bevatten. Grotere tijdsvensters leveren een lagere accuuraatheid op omdat de kans dat \'e\'enzelfde venster meerdere activiteiten bevat groter is. Daardoor is het moeilijker om de juiste activiteit te herkennen. De stijgende nauwkeurigheid voor toenemende overlappingsgrootte was ook te verwachten. Hoe groter de overlapping, hoe meer voorspellingen gemaakt kunnen worden per halve seconde van de sequentie. Hierbij moet wel een trade-off gemaakt worden: meer voorspellingen maken, vraagt immers meer tijd.
