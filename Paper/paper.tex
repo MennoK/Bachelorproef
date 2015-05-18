@@ -51,7 +51,9 @@
 \raggedbottom
 \begin{abstract}
 
-Het herkennen van menselijke bewegingen is een belangrijk onderdeel van `context aware computing'. Uit de metingen van de accelerometer en gyroscoop van een smartphone kan de activiteit van de gebruiker bepaald worden. In het eerste deel van het onderzoek wordt er gezocht naar modellen om afzonderlijke activiteiten te herkennen. Het nauwkeurigste model wordt gevonden met de classificatiemethode Random Forests met een accuraatheid van 93\%. Vervolgens wordt dit model gebruikt om een sequentie van verschillende bewegingen te evalueren. Hiervoor wordt er een algoritme ontwikkeld dat de sequentie in opeenvolgende tijdsvensters van een aantal seconden knipt, die ook met een bepaald percentage kunnen overlappen. Uit experimenten blijkt dat hiervoor een tijdsvenstergrootte van vier tot zes seconden met een overlapping van 75\% het nauwkeurigst is met 84\% accuraatheid.
+Het herkennen van menselijke bewegingen is een belangrijk onderdeel van `context aware computing'. Uit de metingen van de accelerometer en gyroscoop van een smartphone kan de activiteit van de gebruiker bepaald worden. In het eerste deel van het onderzoek wordt er gezocht naar modellen om afzonderlijke activiteiten te herkennen. Het nauwkeurigste model wordt gevonden met de classificatiemethode Random Forests met een accuraatheid van 93\%. Vervolgens wordt dit model gebruikt om een sequentie van verschillende bewegingen te evalueren. Hiervoor wordt er een algoritme ontwikkeld dat de sequentie in opeenvolgende tijdsvensters van een aantal seconden knipt, die ook met een bepaald percentage kunnen overlappen. Uit experimenten blijkt dat hiervoor een tijdsvenstergrootte van vier tot zes seconden
+% met een overlapping van 75\%    --> dit misschien beter niet zeggen, want meer overlapping = nauwkeuriger...
+het nauwkeurigst is met 84\% accuraatheid.
 
 \end{abstract}
 
@@ -59,25 +61,25 @@ Het herkennen van menselijke bewegingen is een belangrijk onderdeel van `context
 
 Door de versnellingen en rotaties van menselijke bewegingen te meten, is het mogelijk om automatisch te herkennen welke activiteiten uitgevoerd worden. We maken hier een onderscheid tussen metingen van afzonderlijke activiteiten (\'e\'en activiteit per meting) en sequenties van activiteiten (verschillende activiteiten na elkaar in een meting). Voor beide soorten metingen wordt er gezocht naar een methode om de activiteiten te herkennen.
 
-Het nauwkeurig detecteren van menselijke bewegingen is een belangrijke doelstelling van `context aware computing'. Hierbij wordt software gekoppeld aan de gebruiker, zodat die bewust is van de omgeving en toestand van de gebruiker. Toepassingen hiervan bevinden zich bijvoorbeeld in e-health applicaties. Voor dit onderzoek werd gebruik gemaakt van een smartphone als bewegingssensor. Dit levert verschillende voordelen op. Het zijn namelijk populaire apparaten de dag van vandaag, die bovendien bruikbare ingebouwde sensoren (accelerometer en gyroscoop) hebben.
+Het nauwkeurig detecteren van menselijke bewegingen is een belangrijke doelstelling van `context aware computing'. Hierbij wordt software gekoppeld aan de gebruiker, zodat die bewust is van zijn toestand en omgeving. Toepassingen hiervan bevinden zich bijvoorbeeld in e-health applicaties. Voor dit onderzoek werd gebruik gemaakt van een smartphone als bewegingssensor. Dit levert verschillende voordelen op. Het zijn namelijk populaire apparaten de dag van vandaag, die bovendien bruikbare ingebouwde sensoren (accelerometer en gyroscoop) hebben.
 
 In deze paper wordt een oplossing gezocht voor twee probleemstellingen: (1) Welke classificatiemethode levert het nauwkeurigst model op om afzonderlijke activiteiten te herkennen? (2) Kunnen we dit model gebruiken om sequenties van verschillende activiteiten nauwkeurig te voorspellen?
 
-De eerste probleemstelling wordt besproken in sectie 2. De oplossing verloopt in drie stappen (zie figuur 1 voor een overzicht). In de eerste stap worden gegevens verzameld (sectie 2.1). Vervolgens worden uit de gegevens features berekend (sectie 2.2). Die gebruiken we ten slotte om modellen te leren met behulp van classificatiemethodes (sectie 2.3).
+De eerste probleemstelling wordt besproken in sectie 2. De oplossing verloopt in drie stappen (zie figuur 1 voor een overzicht). In de eerste stap worden gegevens verzameld (sectie 2.1). Vervolgens worden uit die gegevens features berekend (sectie 2.2). Die gebruiken we ten slotte om modellen te leren met behulp van classificatiemethodes (sectie 2.3).
 
-Om een oplossing te vinden voor de tweede probleemstelling wordt het beste model van het eerste deel van het onderzoek gebruikt. De stappen van het proces om sequenties van activiteiten te herkennen verloopt in gelijkaardige stappen als die van het proces voor afzonderlijke activiteiten (zie figuur 5 voor een overzicht). Ten eerste moeten opnieuw gegevens verzameld worden (sectie 3.1). Vervolgens worden deze gegevens verwerkt (sectie 3.2). Om tenslotte de activiteiten van de sequenties te voorspellen, wordt gebruik gemaakt van een algoritme met drie parameters (sectie 3.3).
+Om een oplossing te vinden voor de tweede probleemstelling, wordt het beste model van het eerste deel van het onderzoek gebruikt. De stappen van het proces om sequenties van activiteiten te herkennen verloopt in gelijkaardige stappen als die van het proces voor afzonderlijke activiteiten (zie figuur 5 voor een overzicht). Ten eerste moeten opnieuw gegevens verzameld worden (sectie 3.1). Vervolgens worden deze gegevens verwerkt (sectie 3.2). Om tenslotte de activiteiten van de sequenties te voorspellen, wordt gebruik gemaakt van een algoritme met drie parameters (sectie 3.3).
 
 \subsubsection{Gerelateerd werk}
 
-Zoals eerder vermeld, is bewegingsherkenning een belangrijk concept in 'context aware computing'. Hierdoor is er al veel onderzoek naar gedaan.
+Zoals eerder vermeld, is bewegingsherkenning een belangrijk concept in `context aware computing'. Hierdoor is er al veel onderzoek naar gedaan.
 
-Zo werd er in de paper van Ravi, Dandekar, Mysore en Littman onderzocht naar herkenning van afzonderlijke activiteiten met behulp van gegevens opgemeten door een externe accelerometer~\cite{Ravi and others:act.recogn.}.  Zij maakten gebruik van meta-level classifiers om modellen te genereren.
+Zo werd er in de paper van Ravi, Dandekar, Mysore en Littman onderzoek gedaan naar herkenning van afzonderlijke activiteiten met behulp van gegevens opgemeten door een externe accelerometer~\cite{Ravi and others:act.recogn.}.  Zij maakten gebruik van meta-level classifiers om modellen te genereren.
 
 Ook in andere papers werd er gebruik gemaakt van externe accelerometers, maar zij verschillen dan in het gebruik van classifiers. Zo hebben Chen, Alregib en Juang HMM classifiers onderzocht~\cite{6dmotion}.
 
-In ons onderzoek worden gegevens opgemeten waarbij de meetapparatuur zich bevindt rondom het bekken. Casale, Pujol en Radeva deden gegevensopmetingen met een accelerometer rondom de borstzone en vonden een nauwkeurig model met behulp van Random Forests~\cite{act.rec.}.
+In ons onderzoek worden gegevens opgemeten met meetapparatuur die zich rondom het bekken bevindt. Casale, Pujol en Radeva deden gegevensopmetingen met een accelerometer rondom de borstzone en vonden een nauwkeurig model met behulp van Random Forests~\cite{act.rec.}.
 
-De meeste van deze papers hebben zich gefocust op het herkennen van afzonderlijke activiteiten. Deze paper focust zich naast de afzonderlijke activiteiten ook op het herkennen van sequenties van activiteiten.
+In deze papers lag de focus vooral op het herkennen van afzonderlijke activiteiten. Deze paper focust zich naast de afzonderlijke activiteiten ook op het herkennen van sequenties van activiteiten.
 
 
 
