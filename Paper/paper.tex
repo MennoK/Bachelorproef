@@ -126,7 +126,7 @@ In deze papers lag de focus vooral op het herkennen van afzonderlijke activiteit
 \label{fig:proces:afzonderlijk}
 \end{figure*}
 
-Het eerste probleem is om van een gegeven reeks samples van de accelerometer en gyroscoop van een smartphone de activiteit van een persoon te bepalen. Elke sample bestaat uit een reeks opeenvolgende tijdstippen met bijhorende x-, y- en z-versnellingen en rotatiesnelheden die werden opgemeten. Er wordt hier verondersteld dat telkens \'e\'en afzonderlijke activiteit gemeten wordt.
+Het eerste probleem is om uit een gegeven reeks samples van de accelerometer en gyroscoop van een smartphone de activiteit van een persoon te bepalen. Elke sample bestaat uit een reeks opeenvolgende tijdstippen met bijhorende x-, y- en z-versnellingen en rotatiesnelheden die werden opgemeten. Er wordt hier verondersteld dat telkens \'e\'en afzonderlijke activiteit gemeten wordt.
 
 We willen tien verschillende activiteiten kunnen herkennen:
 \begin{itemize}
@@ -145,7 +145,7 @@ We willen tien verschillende activiteiten kunnen herkennen:
 In bovenstaande lijst hebben we tanden poetsen als moeilijke activiteit toegevoegd. De beweging lijkt sterk op niets doen en zal waarschijnlijk minder goed te herkennen zijn. De x-, y- en z-versnellingen van de verschillende activiteiten worden weergeven in figuur 8 (zie bijlage).
 
 Merk op dat voor de activiteiten `lift naar boven of beneden nemen' enkel de versnelling van een lift naar boven of beneden in de lijst worden opgenomen. Een lift naar boven nemen bevat dus de volgende activiteiten: lift versnelt omhoog~--~niets doen~--~lift versnelt omlaag. Het feit dat deze activiteiten ook `niets doen' bevatten, is de verklaring waarom we alleen de versnelling van een lift herkennen.
-\\~\\
+
 Het proces om de afzonderlijke activiteiten te herkennen verloopt in drie stappen (zie figuur~\ref{fig:proces:afzonderlijk}). De eerste stap bestaat uit het verzamelen van de gegevens. Hiervoor meten we de versnellingen en rotaties van de verschillende activiteiten. Als tweede stap worden features berekend uit de verzamelde gegevens. Deze zijn nodig om in de laatste stap modellen te leren met behulp van classificatiemethodes. Als criterium om de verschillende modellen te vergelijken, gebruiken we de accuraatheid als percentage van het aantal juist geclassificeerde samples ten op zichte van het totaal aantal metingen met behulp van cross-validatie.
 
 \subsection{Gegevensverzameling}
@@ -157,14 +157,9 @@ Voor elke meting werd de applicatie gestart alvorens de smartphone in de broekza
 
 Op deze manier hebben we voor elke activiteit 22 metingen verzameld, opgemeten door twee verschillende personen. Om voldoende variatie te hebben, gebeurden de metingen op verschillende dagen. Ook hebben we ervoor gezorgd dat we niet telkens dezelfde broek droegen, aangezien de gemeten versnelling kan vari\"eren in verschillende broekzakken. Na elke meting werd het resulterende logbestand geknipt en gelabeld met de juiste activiteit.
 
-%TODO figuur met verschillende activiteiten
-
 \subsection{Gegevensverwerking: features berekenen}
 
-Voor er classificatiemethodes kunnen gebruikt worden, moeten er eerst features berekenen. Dit zijn parameters die uit de samples van de accelerometer en gyroscoop gehaald kunnen worden. Om de verschillende features te berekenen, maken we gebruik van de MotionFingerprint tool~\cite{meert and schietgat:motionfingerprint}. %TODO verwijzing naar tool 
-
-
-%TODO uitleggen waarom we features berekenen
+Voor er classificatiemethodes kunnen gebruikt worden, moeten er eerst features berekenen. Dit zijn parameters die uit de samples van de accelerometer en gyroscoop gehaald kunnen worden. Om de verschillende features te berekenen, maken we gebruik van de MotionFingerprint tool~\cite{meert and schietgat:motionfingerprint}.
 
 MotionFingerprint berekent in totaal 134 features\footnote{Het aantal features is afhankelijk van de instellingen van de tool.} verdeeld onder vier soorten:
 \begin{itemize}
