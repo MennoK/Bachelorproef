@@ -11,6 +11,7 @@
 \usetikzlibrary{fit,arrows,calc,positioning,backgrounds}
 \usetikzlibrary{patterns}
 \usepackage[bottom]{footmisc} 
+\usepackage{hyperref}
 
 
 \tikzset{every fit/.append style=text badly centered}
@@ -181,15 +182,14 @@ Na het berekenen van de features heeft elke meting een set van parameters. Elke 
 Tussen de verschillende soorten features is er verschil in berekeningstijd en hoeveelheid informatie. Zo kunnen statistische features in het algemeen tegen een lagere kost berekend worden ten op zichte van Fourier transformatie features. In sommige toepassingen (zoals smartphone applicaties) kan het daarom interessant zijn om slechts een deel van het totaal aantal features te berekenen en juist diegene die de meeste informatie bevatten.
 
 %Voorgestelde Oplossing
-Met behulp van feature selectie onderzoeken we hoeveel features van het totaal aantal features van elke soort nodig zijn om een redelijke accuraatheid te behalen. Om de features met de meeste informatie te vinden, maken we gebruik van Weka's \emph{InfoGainAttributeEval} klasse\footnote{Meer informatie over deze klasse is te vinden op: http://weka.sourceforge.net/doc.dev/weka/attributeSelection/
-InfoGainAttributeEval.html}.
- Deze klasse evalueert de waarde van elke feature met behulp van information gain.
+Met behulp van feature selectie onderzoeken we hoeveel features van het totaal aantal features van elke soort nodig zijn om een redelijke accuraatheid te behalen. Om de features met de meeste informatie te vinden, maken we gebruik van Weka's \emph{InfoGainAttributeEval} klasse\footnote{Meer informatie over deze klasse is te vinden op: \url{http://weka.sourceforge.net/doc.dev/weka/attributeSelection/InfoGainAttributeEval.html}}.
+Deze klasse evalueert de waarde van elke feature met behulp van information gain.
 
 %Evaluatie
-Om vervolgens de geselecteerde features te evalueren maken we gebruik van dubbele cross-validatie. Bij de eerste cross-validatie (10-fold) wordt de gegevensset telkens verdeeld in een training en test set. Voor elke training set worden de beste features geselecteerd met de methode die hierboven werd beschreven, gebruik makend van een tweede cross-validatie (2-fold). Met de geselecteerde features wordt een model opgesteld met behulp van de Random Forests classificatiemethode in Weka. Het gevonden model wordt uiteindelijk ge\"evalueerd op de test set van de eerste cross-validatie.
+Om vervolgens de geselecteerde features te evalueren, maken we gebruik van dubbele cross-validatie. Bij de eerste cross-validatie (10-fold) wordt de gegevensset telkens verdeeld in een training en test set. Voor elke training set worden de beste features geselecteerd met de methode die hierboven werd beschreven, gebruik makend van een tweede cross-validatie (2-fold). Met de geselecteerde features wordt een model opgesteld met behulp van de Random Forests classificatiemethode in Weka. Het gevonden model wordt uiteindelijk ge\"evalueerd op de test set van de eerste cross-validatie.
 	
 %Resultaten
-In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features getoond. We zien dat met enkel de statistische features al een accuraatheid van 90\% behalen. Zelfs met de helft van de features kan het model al met een accuraatheid van 80\% activiteiten voorspellen. We stellen vast dat van het grote aantal Fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. De features die hierbij geselecteerd worden zijn voornamelijk die voor lagere frequenties ($<2.5$ Hz) volgens het xy-vlak. Wavelet transformatie features lijken minder goed te werken met slechts 70\% accuraatheid. Tenslotte merken we in de laatste grafiek op dat de Hidden Markov Models enkel degelijk werken wanneer alle features gebruikt worden.
+In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features getoond. Met enkel de statistische features wordt al een accuraatheid van 90\% behaald. Zelfs met de helft van de features kan het model al met een accuraatheid van 80\% activiteiten voorspellen. We stellen vast dat van het grote aantal Fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. De features die hier geselecteerd worden, zijn voornamelijk de de amplitudes van de versnelling en energie voor frequenties kleiner dan 2.5 Hz. In figuur~\ref{fig:8} zien we dat de versnellingen van de activiteiten niet meer dan twee grote pieken per seconde bevatten. Dat is een mogelijke verklaring voor het feit dat de amplitudes voor lagere frequenties de meeste informatie geven.  In tegenstelling tot de Fourier transformatie features, lijken de Wavelet transformatie features minder goed te werken met slechts 70\% accuraatheid. Tenslotte merken we in de laatste grafiek op dat de Hidden Markov Models enkel degelijk werken wanneer alle features gebruikt worden. De features zijn de log-likelihoods voor het Hidden Markov Model van elke activiteit. Om de activiteit van een meting te bepalen, wordt voor de gemeten versnellingen best de likelihood voor elk model berekend om de meting met elke activiteit te vergelijken. Het is echter wel belangrijk om op te merken dat de information gain van de HMM features voor de activiteiten niets doen, tanden poetsen en lift versnelt omhoog/omlaag lager ($<$ 0.6) is dan voor de andere activiteiten ($>$ 1.8). Zie figuur~\ref{fig:infogain} voor een overzicht van de information gain van de verschillende soorten features.
 
 \begin{figure}[htb]
 \centering
@@ -538,8 +538,8 @@ Bovendien kunnen er modellen gegenereerd worden voor nieuwe activiteiten. Het to
 
 \subsection{Sequenties van activiteiten}
 
-Het algoritme voor sequenties van activiteiten te evalueren kan ook nog verder geoptimaliseerd worden. 
-	Zo zijn bepaalde overgangen van activiteiten totaal onmogelijk. Het herkennen van fietsen na een liftversnelling is bijvoorbeeld onwaarschijnlijk. Zulke overgangen kunnen gefilterd worden door het gebruik van Markov ketens. Verder hebben we tijdens het onderzoek gemerkt dat soms enkele seconden als tanden poetsen herkend worden tijdens niets doen. Ook dit is onwaarschijnlijk en zou ook gefilterd kunnen worden met behulp van Markoven ketens.
+Het algoritme om sequenties van activiteiten te evalueren kan ook nog verder geoptimaliseerd worden. 
+Zo zijn bepaalde overgangen van activiteiten totaal onmogelijk. Het herkennen van fietsen na een liftversnelling is bijvoorbeeld onwaarschijnlijk. Zulke overgangen kunnen gefilterd worden door het gebruik van Markov ketens. Verder hebben we tijdens het onderzoek gemerkt dat soms enkele seconden als tanden poetsen herkend worden tijdens niets doen. Ook dit is onwaarschijnlijk en zou ook gefilterd kunnen worden met behulp van Markoven ketens.
 
 Tijdens het onderzoek werd geen rekening gehouden met de performantie (noch snelheid, noch geheugengebruik). Deze kan verder onderzocht en eventueel verbeterd worden.
 
