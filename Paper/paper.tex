@@ -189,7 +189,7 @@ Deze klasse evalueert de waarde van elke feature met behulp van information gain
 Om vervolgens de geselecteerde features te evalueren, maken we gebruik van dubbele cross-validatie. Bij de eerste cross-validatie (10-fold) wordt de gegevensset telkens verdeeld in een training en test set. Voor elke training set worden de beste features geselecteerd met de methode die hierboven werd beschreven, gebruik makend van een tweede cross-validatie (2-fold). Met de geselecteerde features wordt een model opgesteld met behulp van de Random Forests classificatiemethode in Weka. Het gevonden model wordt uiteindelijk ge\"evalueerd op de test set van de eerste cross-validatie.
 	
 %Resultaten
-In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features getoond. Met enkel de statistische features wordt al een accuraatheid van 90\% behaald. Zelfs met de helft van de features kan het model al met een accuraatheid van 80\% activiteiten voorspellen. We stellen vast dat van het grote aantal Fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. De features die hier geselecteerd worden, zijn voornamelijk de de amplitudes van de versnelling en energie voor frequenties kleiner dan 2.5 Hz. In figuur~\ref{fig:8} zien we dat de versnellingen van de activiteiten niet meer dan twee grote pieken per seconde bevatten. Dat is een mogelijke verklaring voor het feit dat de amplitudes voor lagere frequenties de meeste informatie geven.  In tegenstelling tot de Fourier transformatie features, lijken de Wavelet transformatie features minder goed te werken met slechts 70\% accuraatheid. Tenslotte merken we in de laatste grafiek op dat de Hidden Markov Models enkel degelijk werken wanneer alle features gebruikt worden. De features zijn de log-likelihoods voor het Hidden Markov Model van elke activiteit. Om de activiteit van een meting te bepalen, wordt voor de gemeten versnellingen best de likelihood voor elk model berekend om de meting met elke activiteit te vergelijken. Het is echter wel belangrijk om op te merken dat de information gain van de HMM features voor de activiteiten niets doen, tanden poetsen en lift versnelt omhoog/omlaag lager ($<$ 0.6) is dan voor de andere activiteiten ($>$ 1.8). Zie figuur~\ref{fig:infogain} voor een overzicht van de information gain van de verschillende soorten features.
+In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features getoond. Met enkel de statistische features wordt al een accuraatheid van 90\% behaald. Zelfs met de helft van de features kan het model al met een accuraatheid van 80\% activiteiten voorspellen. We stellen vast dat van het grote aantal Fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. De features die hier geselecteerd worden, zijn voornamelijk de de amplitudes van de versnelling en energie voor frequenties kleiner dan 2.5 Hz. In figuur~\ref{fig:8} zien we dat de versnellingen van de activiteiten niet meer dan twee grote pieken per seconde bevatten. Dat is een mogelijke verklaring voor het feit dat de amplitudes voor lagere frequenties de meeste informatie geven.  In tegenstelling tot de Fourier transformatie features, lijken de Wavelet transformatie features minder goed te werken met slechts 70\% accuraatheid. Tenslotte merken we in de laatste grafiek op dat de Hidden Markov Models enkel degelijk werken wanneer alle features gebruikt worden. De features zijn de log-likelihoods voor het Hidden Markov Model van elke activiteit. Om de activiteit van een meting te bepalen, wordt voor de gemeten versnellingen best de likelihood voor elk model berekend om de meting met elke activiteit te vergelijken. Het is echter wel belangrijk om op te merken dat de information gain van de HMM features voor de activiteiten niets doen, tanden poetsen en lift versnelt omhoog/omlaag lager ($<$ 0.6) is dan voor de andere activiteiten ($>$ 1.8). Deze vier activiteiten hebben kleine versnellingen en kunnen daardoor gemakkelijk met elkaar verward worden. Zo hebben metingen voor niets doen en tanden poetsen een hoge likelihood voor de modellen van deze vier activiteiten. Bij metingen voor lift omhoog en omlaag zijn de likelihoods steeds voor beide activiteiten hoog. Dat heeft als gevolg dat de features voor deze vier activiteiten minder informatie geven dan de andere features.
 
 \begin{figure}[htb]
 \centering
@@ -272,14 +272,49 @@ wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We 
 \label{fig:methodes}
 \end{figure}
 
+\begin{figure*}
+\begin{center}
+{ \footnotesize
+\begin{tabular}{ c | c | c | c | c | c | c | c | c | c | l }
+     \begin{sideways} Wandelen       \end{sideways}
+  &  \begin{sideways} Lopen          \end{sideways} 
+  &  \begin{sideways} Fietsen        \end{sideways} 
+  &  \begin{sideways} Trap op        \end{sideways} 
+  &  \begin{sideways} Trap af        \end{sideways} 
+  &  \begin{sideways} Springen       \end{sideways} 
+  &  \begin{sideways} Niets doen     \end{sideways} 
+  &  \begin{sideways} Lift omhoog    \end{sideways} 
+  &  \begin{sideways} Lift omlaag    \end{sideways} 
+  &  \begin{sideways} Tanden poetsen \end{sideways} 
+  &  $\leftarrow$ \parbox[b]{1.8cm}{geclassificeerd\\als} \\   \hline
+ 16 &    &    &    &    &    &    &    &    &    & Wandelen           \\   \hline
+    & 16 &    &    &    &    &    &    &    &    & Lopen              \\   \hline
+    &    & 16 &    &    &    &    &    &    &    & Fietsen            \\   \hline
+    &    &    & 15 &  1 &    &    &    &    &    & Trap op            \\   \hline
+    &    &    &    & 16 &    &    &    &    &    & Trap af            \\   \hline
+    &    &    &    &    & 16 &    &    &    &    & Springen           \\   \hline
+    &    &    &    &    &    & 14 &    &    &  2 & Niets doen         \\   \hline
+    &    &    &    &    &    &    & 10 &  6 &    & Lift omhoog        \\   \hline
+    &    &    &    &    &    &    &  1 & 15 &    & Lift omlaag        \\   \hline
+    &    &    &    &    &    &    &    &    & 16 & Tanden poetsen
+\end{tabular}
+}
+\end{center}
+\caption{Confusion matrix voor Random Forests}
+\label{fig:confusionmatrix}
+\end{figure*}
 
 Figuur \ref{fig:confusionmatrix} toont een confusion-matrix voor het model dat geleerd werd door Random Forests. Het valt op dat activiteiten met grote versnellingen -- wandelen, lopen, fietsen en springen -- goed te herkennen zijn. Alle metingen voor deze activiteiten worden immers correct geclassificeerd door het model. Niets doen, lift versnelt omhoog/omlaag en tanden poetsen hebben kleinere versnellingen dan de andere activiteiten. We zien dat twee metingen van niets doen als tanden poetsen worden geclassificeerd. Ook lift omhoog en omlaag worden gemakkelijk met elkaar verward. Omwille van de kleine versnellingen zijn de verschillen tussen de activiteiten subtieler, wat een verklaring kan zijn waarom deze activiteiten moeilijker te herkennen zijn.
 \\~\\
 %korte conclusie
 We kunnen voor de afzonderlijke activiteiten besluiten dat door Random Forests het nauwkeurigste (93,75\%) model geleerd wordt.
 
-
+\newpage
 \section{Sequenties van activiteiten}
+
+Bij het herkennen van afzonderlijke activiteiten bevat elke meting exact \'e\'en activiteit. De classificatiemethodes die hiervoor gebruikt worden, zijn dus niet rechtstreeks toepasbaar op metingen waarin verschillende activiteiten na elkaar gebeuren. Daarom gaan we op zoek naar een methode om voor een sequentie van activiteiten te bepalen welke activiteiten daarin gedaan worden en wanneer.
+
+In figuur~\ref{fig:proces:sequenties} wordt het proces beschreven om sequenties van activiteiten te herkennen. We beginnen met het opmeten van de versnelling en rotatie van verschillende sequenties. In het algoritme dat we zullen bespreken, worden de sequenties vervolgens in overlappende tijdsvensters geknipt. De activiteiten van de tijdsvensters worden bepaald met behulp van een model om afzonderlijke activiteiten te herkennen. Ten slotte worden hiermee predicties gemaakt voor de sequenties.
 
 \tikzstyle{d} = [rectangle, draw, fill=blue!20, node distance=0.5cm, text width=6em, text centered, minimum height=4em, thick]
 \begin{figure}[H]
@@ -317,41 +352,6 @@ We kunnen voor de afzonderlijke activiteiten besluiten dat door Random Forests h
 \label{fig:proces:sequenties}
 \end{figure}
 
-\begin{figure*}
-\begin{center}
-{ \footnotesize
-\begin{tabular}{ c | c | c | c | c | c | c | c | c | c | l }
-     \begin{sideways} Wandelen       \end{sideways}
-  &  \begin{sideways} Lopen          \end{sideways} 
-  &  \begin{sideways} Fietsen        \end{sideways} 
-  &  \begin{sideways} Trap op        \end{sideways} 
-  &  \begin{sideways} Trap af        \end{sideways} 
-  &  \begin{sideways} Springen       \end{sideways} 
-  &  \begin{sideways} Niets doen     \end{sideways} 
-  &  \begin{sideways} Lift omhoog    \end{sideways} 
-  &  \begin{sideways} Lift omlaag    \end{sideways} 
-  &  \begin{sideways} Tanden poetsen \end{sideways} 
-  &  $\leftarrow$ \parbox[b]{1.8cm}{geclassificeerd\\als} \\   \hline
- 16 &    &    &    &    &    &    &    &    &    & Wandelen           \\   \hline
-    & 16 &    &    &    &    &    &    &    &    & Lopen              \\   \hline
-    &    & 16 &    &    &    &    &    &    &    & Fietsen            \\   \hline
-    &    &    & 15 &  1 &    &    &    &    &    & Trap op            \\   \hline
-    &    &    &    & 16 &    &    &    &    &    & Trap af            \\   \hline
-    &    &    &    &    & 16 &    &    &    &    & Springen           \\   \hline
-    &    &    &    &    &    & 14 &    &    &  2 & Niets doen         \\   \hline
-    &    &    &    &    &    &    & 10 &  6 &    & Lift omhoog        \\   \hline
-    &    &    &    &    &    &    &  1 & 15 &    & Lift omlaag        \\   \hline
-    &    &    &    &    &    &    &    &    & 16 & Tanden poetsen
-\end{tabular}
-}
-\end{center}
-\caption{Confusion matrix voor Random Forests}
-\label{fig:confusionmatrix}
-\end{figure*}
-Bij het herkennen van afzonderlijke activiteiten bevat elke meting exact \'e\'en activiteit. De classificatiemethodes die hiervoor gebruikt worden, zijn dus niet rechtstreeks toepasbaar op metingen waarin verschillende activiteiten na elkaar gebeuren. Daarom gaan we op zoek naar een methode om voor een sequentie van activiteiten te bepalen welke activiteiten daarin gedaan worden en wanneer.
-
-In figuur~\ref{fig:proces:sequenties} wordt het proces beschreven om sequenties van activiteiten te herkennen. We beginnen met het opmeten van de versnelling en rotatie van verschillende sequenties. In het algoritme dat we zullen bespreken, worden de sequenties vervolgens in overlappende tijdsvensters geknipt. De activiteiten van de tijdsvensters worden bepaald met behulp van een model om afzonderlijke activiteiten te herkennen. Ten slotte worden hiermee predicties gemaakt voor de sequenties.
-
 \subsection{Gegevensverzameling}
 \label{seq:gegevens}
 
@@ -363,7 +363,16 @@ Om de metingen te evalueren, werd elke sequentie gelabeld. Elke label bevat de s
 
 Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen toegepast worden op sequenties, moeten de sequenties geknipt worden in delen die wel \'e\'en activiteit bevatten. We doen dit door de sequenties in tijdsvensters op te splitsen. De vensters hebben een lengte van enkele seconden en kunnen overlappen opdat er meer kans is dat een venster \'e\'en activiteit bevat. We defini\"eren een overlapping als het percentage van de lengte van een tijdsvenster dat ook tot het eerst volgende tijdsvenster hoort. In figuur \ref{fig:overlap} wordt ge\"illustreerd wat een overlapping van bijvoorbeeld 75\% betekent.
 
-\begin{figure}
+\subsection{Algoritme}
+
+Bij het voorspellen van de activiteiten van een sequentie maken we gebruik van de tijdsvensters. We beschrijven een algoritme waarmee voor elke halve seconde van een sequentie een voorspelling kan gemaakt worden voor de activiteit die daarin gebeurde.
+
+Het algoritme heeft drie parameters nodig: de lengte van de tijdsvensters in seconden, de overlapping ervan als een percentage en een ruis cutoff kans. De laatste parameter wordt verder verduidelijkt. In sectie 3.4 worden experimenten uitgevoerd om de waarden voor deze parameters te kiezen zodat de voorspellingen van het algoritme zo nauwkeurig mogelijk zijn.
+
+Voor de pseudo-code van het algoritme verwijzen we naar Algoritme~\ref{alg:sequentie}. De eerste stap bestaat uit het splitsen van de sequentie in tijdsvensters met de gegeven lengte en overlapping. Vervolgens wordt voor elk deel van een halve seconde lang van de sequentie gecontroleerd welke tijdsvensters dat deel bevatten. Deze vensters zijn samen met de ruis cutoff kans de parameters van Algoritme~\ref{alg:deel} om de activiteit van het deel van de sequentie te bepalen. Hierbij wordt voor elk venster een voorspelling gemaakt met behulp van een model om afzonderlijke activiteiten te classificeren. In sectie~\ref{afzonderlijk} bleek Random Forests het best te werken. Daarom gebruiken we hier het model dat door deze methode geleerd werd. Voor elk venster wordt ook de kans berekend dat het voorspelde label correct is. Bij Random Forests wordt deze kans bepaald als het percentage van de bomen die dat label voorspellen.
+Als minstens twee vensters met het deel van de sequentie overlappen, houdt het algoritme geen rekening met de kansen wanneer de voorspelde labels van de vensters gelijk zijn. In dat geval wordt als voorspelling het label van de tijdsvensters voorspeld. Anders controleert het algoritme of er een label is met een kans groter dan de ruis cutoff kans. Indien dat zo is, wordt voor het deel van de sequentie het label met de grootste kans als activiteit voorspeld. Wanneer alle kansen onder de ruis cutoff kans liggen, zal de voorspelling `Ruis' zijn.
+
+\begin{figure}[h]
 
 \begin{subfigure}[b]{.90\linewidth}
 \centering
@@ -422,14 +431,6 @@ Aangezien de modellen voor afzonderlijke activiteiten niet rechtstreeks kunnen t
 
 \end{figure}
 
-\subsection{Algoritme}
-
-Bij het voorspellen van de activiteiten van een sequentie maken we gebruik van de tijdsvensters. We beschrijven een algoritme waarmee voor elke halve seconde van een sequentie een voorspelling kan gemaakt worden voor de activiteit die daarin gebeurde. Een algemeen overzicht van het algoritme is te vinden in figuur 6.
-
-Het algoritme heeft drie parameters nodig: de lengte van de tijdsvensters in seconden, de overlapping ervan als een percentage en een ruis cutoff kans. De laatste parameter wordt verder verduidelijkt. In sectie 3.4 worden experimenten uitgevoerd om de waarden voor deze parameters te kiezen zodat de voorspellingen van het algoritme zo nauwkeurig mogelijk zijn.
-
-Voor de pseudo-code van het algoritme verwijzen we naar Algoritme~\ref{alg:sequentie}. De eerste stap bestaat uit het splitsen van de sequentie in tijdsvensters met de gegeven lengte en overlapping. Vervolgens wordt voor elk deel van een halve seconde lang van de sequentie gecontroleerd welke tijdsvensters dat deel bevatten. Deze vensters zijn samen met de ruis cutoff kans de parameters van Algoritme~\ref{alg:deel} om de activiteit van het deel van de sequentie te bepalen. Hierbij wordt voor elk venster een voorspelling gemaakt met behulp van een model om afzonderlijke activiteiten te classificeren. In sectie~\ref{afzonderlijk} bleek Random Forests het best te werken. Daarom gebruiken we hier het model dat door deze methode geleerd werd. Voor elk venster wordt ook de kans berekend dat het voorspelde label correct is. Bij Random Forests wordt deze kans bepaald als het percentage van de bomen die dat label voorspellen. %TODO klopt dit? want ik vind er niet onmiddellijk iets over...
-Als minstens twee vensters met het deel van de sequentie overlappen, houdt het algoritme geen rekening met de kansen wanneer de voorspelde labels van de vensters gelijk zijn. In dat geval wordt als voorspelling het label van de tijdsvensters voorspeld. Anders controleert het algoritme of er een label is met een kans groter dan de ruis cutoff kans. Indien dat zo is, wordt voor het deel van de sequentie het label met de grootste kans als activiteit voorspeld. Wanneer alle kansen onder de ruis cutoff kans liggen, zal de voorspelling `Ruis' zijn.
 
 \begin{algorithm}
   \caption{Activiteiten van een sequentie (met start en eind timestamp in seconden) voorspellen door als uitvoer een lijst terug te geven met voor elke halve seconde de voorspelde activiteit}
