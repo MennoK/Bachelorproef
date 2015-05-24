@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.7)  24 MAY 2015 12:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.10)  24 MAY 2015 17:07
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 28 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 Bewegingsherkenning met een smartphone
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
@@ -874,19 +874,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--185
 []$\OT1/pcr/m/n/9 http : / / weka . sourceforge . net / doc . dev / weka /
  []
 
+
+LaTeX Warning: Reference `fig:infogain' on page 3 undefined on input line 192.
+
 Package epstopdf Info: Source file: <figures/StatisticFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:37:54
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 20262 bytes
 (epstopdf)             Output file: <figures/StatisticFeatures-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2015-05-18 21:42:33
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 6337 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/StatisticFeatures-e
 ps-converted-to.pdf figures/StatisticFeatures.eps>
 (epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/StatisticFeatures-eps-converted-to.pdf, id=112, 180.675pt x 144.54pt>
+<figures/StatisticFeatures-eps-converted-to.pdf, id=111, 180.675pt x 144.54pt>
 File: figures/StatisticFeatures-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/StatisticFeatures-eps-converted-to.pdf>
@@ -894,17 +897,17 @@ Package pdftex.def Info: figures/StatisticFeatures-eps-converted-to.pdf used on
  input line 199.
 (pdftex.def)             Requested size: 118.32332pt x 94.66003pt.
 Package epstopdf Info: Source file: <figures/FFTFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:41:09
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 21417 bytes
 (epstopdf)             Output file: <figures/FFTFeatures-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-18 21:42:34
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 9267 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/FFTFeatures-eps-con
 verted-to.pdf figures/FFTFeatures.eps>
 (epstopdf)             \includegraphics on input line 204.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/FFTFeatures-eps-converted-to.pdf, id=113, 180.675pt x 144.54pt>
+<figures/FFTFeatures-eps-converted-to.pdf, id=112, 180.675pt x 144.54pt>
 File: figures/FFTFeatures-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/FFTFeatures-eps-converted-to.pdf>
@@ -912,17 +915,17 @@ Package pdftex.def Info: figures/FFTFeatures-eps-converted-to.pdf used on input
  line 204.
 (pdftex.def)             Requested size: 118.32332pt x 94.66003pt.
 Package epstopdf Info: Source file: <figures/DWTFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:41:23
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 20459 bytes
 (epstopdf)             Output file: <figures/DWTFeatures-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-18 21:42:34
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 6696 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/DWTFeatures-eps-con
 verted-to.pdf figures/DWTFeatures.eps>
 (epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/DWTFeatures-eps-converted-to.pdf, id=114, 180.675pt x 144.54pt>
+<figures/DWTFeatures-eps-converted-to.pdf, id=113, 180.675pt x 144.54pt>
 File: figures/DWTFeatures-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/DWTFeatures-eps-converted-to.pdf>
@@ -930,17 +933,17 @@ Package pdftex.def Info: figures/DWTFeatures-eps-converted-to.pdf used on input
  line 209.
 (pdftex.def)             Requested size: 118.32332pt x 94.66003pt.
 Package epstopdf Info: Source file: <figures/HMMFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:39:19
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 20227 bytes
 (epstopdf)             Output file: <figures/HMMFeatures-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-18 21:42:34
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 5658 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/HMMFeatures-eps-con
 verted-to.pdf figures/HMMFeatures.eps>
 (epstopdf)             \includegraphics on input line 214.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/HMMFeatures-eps-converted-to.pdf, id=115, 180.675pt x 144.54pt>
+<figures/HMMFeatures-eps-converted-to.pdf, id=114, 180.675pt x 144.54pt>
 File: figures/HMMFeatures-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/HMMFeatures-eps-converted-to.pdf>
@@ -1069,16 +1072,16 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 480.
 Package epstopdf Info: Source file: <figures/3dplot.eps>
-(epstopdf)                    date: 2015-05-17 14:57:42
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 39851 bytes
 (epstopdf)             Output file: <figures/3dplot-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-17 14:58:00
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 28085 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/3dplot-eps-converte
 d-to.pdf figures/3dplot.eps>
 (epstopdf)             \includegraphics on input line 489.
 Package epstopdf Info: Output file is already uptodate.
- <figures/3dplot-eps-converted-to.pdf, id=189, 361.35pt x 361.35pt>
+ <figures/3dplot-eps-converted-to.pdf, id=187, 361.35pt x 361.35pt>
 File: figures/3dplot-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/3dplot-eps-converted-to.pdf>
@@ -1086,18 +1089,18 @@ Package pdftex.def Info: figures/3dplot-eps-converted-to.pdf used on input line
  489.
 (pdftex.def)             Requested size: 239.06006pt x 239.05965pt.
 Package epstopdf Info: Source file: <figures/constantoverlap.eps>
-(epstopdf)                    date: 2015-05-17 15:23:14
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 21295 bytes
 (epstopdf)             Output file: <figures/constantoverlap-eps-converted-to.p
 df>
-(epstopdf)                    date: 2015-05-17 15:23:45
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 8944 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/constantoverlap-eps
 -converted-to.pdf figures/constantoverlap.eps>
 (epstopdf)             \includegraphics on input line 495.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/constantoverlap-eps-converted-to.pdf, id=190, 361.35pt x 180.675pt>
+<figures/constantoverlap-eps-converted-to.pdf, id=188, 361.35pt x 180.675pt>
 File: figures/constantoverlap-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/constantoverlap-eps-converted-to.pdf>
@@ -1173,70 +1176,70 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 564.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 564.
- <figures/wandelen.pdf, id=214, 602.25pt x 241.8636pt>
+ <figures/wandelen.pdf, id=212, 602.25pt x 241.8636pt>
 File: figures/wandelen.pdf Graphic file (type pdf)
 
 <use figures/wandelen.pdf>
 Package pdftex.def Info: figures/wandelen.pdf used on input line 573.
-(pdftex.def)             Requested size: 173.52144pt x 69.68471pt.
- <figures/lopen.pdf, id=215, 602.25pt x 246.4407pt>
+(pdftex.def)             Requested size: 198.31184pt x 79.64177pt.
+ <figures/lopen.pdf, id=213, 602.25pt x 246.4407pt>
 File: figures/lopen.pdf Graphic file (type pdf)
 
 <use figures/lopen.pdf>
 Package pdftex.def Info: figures/lopen.pdf used on input line 578.
-(pdftex.def)             Requested size: 173.52144pt x 71.00343pt.
- <figures/springen.pdf, id=216, 602.25pt x 245.9589pt>
+(pdftex.def)             Requested size: 198.31184pt x 81.14894pt.
+ <figures/springen.pdf, id=214, 602.25pt x 245.9589pt>
 File: figures/springen.pdf Graphic file (type pdf)
 
 <use figures/springen.pdf>
 Package pdftex.def Info: figures/springen.pdf used on input line 583.
-(pdftex.def)             Requested size: 173.52144pt x 70.86462pt.
+(pdftex.def)             Requested size: 198.31184pt x 80.99028pt.
 
-<figures/fietsen.pdf, id=217, 602.25pt x 246.6816pt>
+<figures/fietsen.pdf, id=215, 602.25pt x 246.6816pt>
 File: figures/fietsen.pdf Graphic file (type pdf)
  <use figures/fietsen.pdf>
 Package pdftex.def Info: figures/fietsen.pdf used on input line 588.
-(pdftex.def)             Requested size: 173.52144pt x 71.07285pt.
+(pdftex.def)             Requested size: 198.31184pt x 81.22826pt.
 
-<figures/trapop.pdf, id=218, 602.25pt x 247.6452pt>
+<figures/trapop.pdf, id=216, 602.25pt x 247.6452pt>
 File: figures/trapop.pdf Graphic file (type pdf)
  <use figures/trapop.pdf>
 Package pdftex.def Info: figures/trapop.pdf used on input line 593.
-(pdftex.def)             Requested size: 173.52144pt x 71.35046pt.
+(pdftex.def)             Requested size: 198.31184pt x 81.54555pt.
 
-<figures/trapaf.pdf, id=219, 602.25pt x 247.1634pt>
+<figures/trapaf.pdf, id=217, 602.25pt x 247.1634pt>
 File: figures/trapaf.pdf Graphic file (type pdf)
  <use figures/trapaf.pdf>
 Package pdftex.def Info: figures/trapaf.pdf used on input line 598.
-(pdftex.def)             Requested size: 173.52144pt x 71.21165pt.
+(pdftex.def)             Requested size: 198.31184pt x 81.3869pt.
 
-<figures/liftau.pdf, id=220, 602.25pt x 246.4407pt>
+<figures/liftau.pdf, id=218, 602.25pt x 246.4407pt>
 File: figures/liftau.pdf Graphic file (type pdf)
  <use figures/liftau.pdf>
 Package pdftex.def Info: figures/liftau.pdf used on input line 603.
-(pdftex.def)             Requested size: 173.52144pt x 71.00343pt.
+(pdftex.def)             Requested size: 198.31184pt x 81.14894pt.
 
-<figures/liftad.pdf, id=221, 602.25pt x 246.1998pt>
+<figures/liftad.pdf, id=219, 602.25pt x 246.1998pt>
 File: figures/liftad.pdf Graphic file (type pdf)
  <use figures/liftad.pdf>
 Package pdftex.def Info: figures/liftad.pdf used on input line 608.
-(pdftex.def)             Requested size: 173.52144pt x 70.93404pt.
+(pdftex.def)             Requested size: 198.31184pt x 81.06961pt.
 
-<figures/tandenpoetsen.pdf, id=222, 602.25pt x 247.1634pt>
+<figures/tandenpoetsen.pdf, id=220, 602.25pt x 247.1634pt>
 File: figures/tandenpoetsen.pdf Graphic file (type pdf)
 
 <use figures/tandenpoetsen.pdf>
 Package pdftex.def Info: figures/tandenpoetsen.pdf used on input line 613.
-(pdftex.def)             Requested size: 173.52144pt x 71.21165pt.
+(pdftex.def)             Requested size: 198.31184pt x 81.3869pt.
 
-<figures/nietsdoen.pdf, id=223, 602.25pt x 247.4043pt>
+<figures/nietsdoen.pdf, id=221, 602.25pt x 247.4043pt>
 File: figures/nietsdoen.pdf Graphic file (type pdf)
 
 <use figures/nietsdoen.pdf>
 Package pdftex.def Info: figures/nietsdoen.pdf used on input line 618.
-(pdftex.def)             Requested size: 173.52144pt x 71.28107pt.
+(pdftex.def)             Requested size: 198.31184pt x 81.46623pt.
 
-<figures/legend.pdf, id=224, 108.88681pt x 30.1125pt>
+<figures/legend.pdf, id=222, 108.88681pt x 30.1125pt>
 File: figures/legend.pdf Graphic file (type pdf)
  <use figures/legend.pdf>
 Package pdftex.def Info: figures/legend.pdf used on input line 623.
@@ -1298,36 +1301,36 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: C0C7F0697A1118A22CB4F82B73EB2A80;1117.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 630.
  ) 
 Here is how much of TeX's memory you used:
- 24369 strings out of 494424
- 547533 string characters out of 6165346
- 682194 words of memory out of 5000000
- 27071 multiletter control sequences out of 15000+600000
+ 24368 strings out of 493304
+ 547516 string characters out of 6139870
+ 684082 words of memory out of 5000000
+ 27279 multiletter control sequences out of 15000+600000
  28201 words of font info for 57 fonts, out of 8000000 for 9000
- 372 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  63i,11n,84p,1722b,2078s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{figure.caption.12} has been referenced but does n
-ot exist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (9 pages, 16317331 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (9 pages, 16317858 bytes).
 PDF statistics:
- 475 PDF objects out of 1000 (max. 8388607)
- 309 compressed objects within 4 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 473 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
+ 50 named destinations out of 1000 (max. 500000)
  242 words of extra memory for PDF output out of 10000 (max. 10000000)
 
