@@ -11,7 +11,6 @@
 \usetikzlibrary{fit,arrows,calc,positioning,backgrounds}
 \usetikzlibrary{patterns}
 \usepackage[bottom]{footmisc} 
-\usepackage{hyperref}
 
 
 \tikzset{every fit/.append style=text badly centered}
@@ -52,7 +51,7 @@
 \raggedbottom
 \begin{abstract}
 
-Het herkennen van menselijke bewegingen is een belangrijk onderdeel van `context aware computing'. Uit de metingen van de accelerometer en gyroscoop van een smartphone kan de activiteit van de gebruiker bepaald worden. In het eerste deel van het onderzoek wordt er gezocht naar modellen om afzonderlijke activiteiten te herkennen. Het nauwkeurigste model wordt gevonden met de classificatiemethode Random Forests met een accuraatheid van 93\%. Vervolgens wordt dit model gebruikt om een sequentie van verschillende bewegingen te evalueren. Hiervoor wordt er een algoritme ontwikkeld dat de sequentie in opeenvolgende tijdsvensters van een aantal seconden knipt, die ook met een bepaald percentage kunnen overlappen. Uit experimenten blijkt dat hiervoor een tijdsvenstergrootte van vier tot zes seconden
+Het herkennen van menselijke bewegingen is een belangrijk onderdeel van `context aware computing'. Uit de metingen van de accelerometer en gyroscoop van een smartphone kan de activiteit van de gebruiker bepaald worden. In het eerste deel van het onderzoek wordt gezocht naar modellen om afzonderlijke activiteiten te herkennen. Het nauwkeurigste model wordt gevonden met de classificatiemethode Random Forests met een accuraatheid van 93\%. Vervolgens wordt dit model gebruikt om een sequentie van verschillende bewegingen te evalueren. Hiervoor wordt een algoritme ontwikkeld dat de sequentie in opeenvolgende tijdsvensters van een aantal seconden knipt, die ook met een bepaald percentage kunnen overlappen. Uit experimenten blijkt dat hiervoor een tijdsvenstergrootte van vier tot zes seconden
 % met een overlapping van 75\%    --> dit misschien beter niet zeggen, want meer overlapping = nauwkeuriger...
 het nauwkeurigst is met 84\% accuraatheid.
 
@@ -74,7 +73,7 @@ Om een oplossing te vinden voor de tweede probleemstelling, wordt het beste mode
 
 Zoals eerder vermeld, is bewegingsherkenning een belangrijk concept in `context aware computing'. Hierdoor is er al veel onderzoek naar gedaan.
 
-Zo werd er in de paper van Ravi, Dandekar, Mysore en Littman onderzoek gedaan naar herkenning van afzonderlijke activiteiten met behulp van gegevens opgemeten door een externe accelerometer~\cite{Ravi and others:act.recogn.}.  Zij maakten gebruik van meta-level classifiers om modellen te genereren.
+Zo werd in de paper van Ravi, Dandekar, Mysore en Littman onderzoek gedaan naar herkenning van afzonderlijke activiteiten met behulp van gegevens opgemeten door een externe accelerometer~\cite{Ravi and others:act.recogn.}.  Zij maakten gebruik van meta-level classifiers om modellen te genereren.
 
 Ook in andere papers werd er gebruik gemaakt van externe accelerometers, maar zij verschillen dan in het gebruik van classifiers. Zo hebben Chen, Alregib en Juang HMM classifiers onderzocht~\cite{6dmotion}.
 
@@ -145,7 +144,7 @@ We willen tien verschillende activiteiten kunnen herkennen:
 
 In bovenstaande lijst hebben we tanden poetsen als moeilijke activiteit toegevoegd. De beweging lijkt sterk op niets doen en zal waarschijnlijk minder goed te herkennen zijn. De x-, y- en z-versnellingen van de verschillende activiteiten worden weergeven in figuur 8 (zie bijlage).
 
-Merk op dat voor de activiteiten `lift naar boven of beneden nemen' enkel de versnelling van een lift naar boven of beneden in de lijst worden opgenomen. Een lift naar boven nemen bevat dus de volgende activiteiten: lift versnelt omhoog~--~niets doen~--~lift versnelt omlaag. Het feit dat deze activiteiten ook `niets doen' bevatten, is de verklaring waarom we alleen de versnelling van een lift herkennen.
+Merk op dat voor de activiteiten `lift naar boven of beneden nemen' enkel de versnelling van een lift naar boven of beneden in de lijst wordt opgenomen. Een lift naar boven nemen bevat dus de volgende activiteiten: lift versnelt omhoog~--~niets doen~--~lift versnelt omlaag. Het feit dat deze activiteiten ook `niets doen' bevatten, is de verklaring waarom we alleen de versnelling van een lift herkennen.
 
 Het proces om de afzonderlijke activiteiten te herkennen verloopt in drie stappen (zie figuur~\ref{fig:proces:afzonderlijk}). De eerste stap bestaat uit het verzamelen van de gegevens. Hiervoor meten we de versnellingen en rotaties van de verschillende activiteiten. Als tweede stap worden features berekend uit de verzamelde gegevens. Deze zijn nodig om in de laatste stap modellen te leren met behulp van classificatiemethodes. Als criterium om de verschillende modellen te vergelijken, gebruiken we de accuraatheid als percentage van het aantal juist geclassificeerde samples ten op zichte van het totaal aantal metingen met behulp van cross-validatie.
 
@@ -154,13 +153,13 @@ Het proces om de afzonderlijke activiteiten te herkennen verloopt in drie stappe
 Alle gegevens werden opgemeten door de MotionTracker tool~\cite{meert and schietgat:motiontracker}.
 Dit is een Android-applicatie die de versnelling en rotatie (respectievelijk gemeten door de accelerometer en gyroscoop van de smartphone) meet aan 50Hz.  Als uitvoer geeft de applicatie een logbestand met de gemeten versnellingen (in de x-as, y-as en z-as; de z-as is evenwijdig met de gravitatie) en rotaties (in quaternion notatie) met bijhorende timestamps.
 
-Voor elke meting werd de applicatie gestart alvorens de smartphone in de broekzak gestoken werd en gestopt na het uithalen. Daarom bevat het begin en einde van elke meting enkele seconden die niet tot de gemeten activiteit horen. Om het fout labelen te vermijden, werd na elke meting een stuk van de start en het einde van het logbestand weggeknipt, zodat elke meting exact \'e\'en activiteit bevat van vier tot twintig seconden lang. 
+Voor elke meting werd de applicatie gestart alvorens de smartphone in de broekzak gestoken werd en gestopt na het uithalen. Daarom bevat het begin en einde van elke meting enkele seconden die niet tot de gemeten activiteit horen. Om het fout labelen te vermijden, werd na elke meting een stuk van het begin en einde van het logbestand weggeknipt, zodat elke meting exact \'e\'en activiteit bevat van vier tot twintig seconden lang. 
 
 Op deze manier hebben we voor elke activiteit 22 metingen verzameld, opgemeten door twee verschillende personen. Om voldoende variatie te hebben, gebeurden de metingen op verschillende dagen. Ook hebben we ervoor gezorgd dat we niet telkens dezelfde broek droegen, aangezien de gemeten versnelling kan vari\"eren in verschillende broekzakken. Na elke meting werd het resulterende logbestand geknipt en gelabeld met de juiste activiteit.
 
 \subsection{Gegevensverwerking: features berekenen}
 
-Voor er classificatiemethodes kunnen gebruikt worden, moeten er eerst features berekenen. Dit zijn parameters die uit de samples van de accelerometer en gyroscoop gehaald kunnen worden. Om de verschillende features te berekenen, maken we gebruik van de MotionFingerprint tool~\cite{meert and schietgat:motionfingerprint}.
+Voor er classificatiemethodes kunnen gebruikt worden, moeten eerst features berekend worden. Dit zijn parameters die uit de samples van de accelerometer en gyroscoop gehaald kunnen worden. Om de verschillende features te berekenen, maken we gebruik van de MotionFingerprint tool~\cite{meert and schietgat:motionfingerprint}.
 
 MotionFingerprint berekent in totaal 134 features\footnote{Het aantal features is afhankelijk van de instellingen van de tool.} verdeeld onder vier soorten:
 \begin{itemize}
@@ -182,14 +181,14 @@ Na het berekenen van de features heeft elke meting een set van parameters. Elke 
 Tussen de verschillende soorten features is er verschil in berekeningstijd en hoeveelheid informatie. Zo kunnen statistische features in het algemeen tegen een lagere kost berekend worden ten op zichte van Fourier transformatie features. In sommige toepassingen (zoals smartphone applicaties) kan het daarom interessant zijn om slechts een deel van het totaal aantal features te berekenen en juist diegene die de meeste informatie bevatten.
 
 %Voorgestelde Oplossing
-Met behulp van feature selectie onderzoeken we hoeveel features van het totaal aantal features van elke soort nodig zijn om een redelijke accuraatheid te behalen. Om de features met de meeste informatie te vinden, maken we gebruik van Weka's \emph{InfoGainAttributeEval} klasse\footnote{Meer informatie over deze klasse is te vinden op: \url{http://weka.sourceforge.net/doc.dev/weka/attributeSelection/InfoGainAttributeEval.html}}.
+Met behulp van feature selectie onderzoeken we hoeveel features van het totaal aantal features van elke soort nodig zijn om een redelijke accuraatheid te behalen. Om de features met de meeste informatie te vinden, maken we gebruik van Weka's \emph{InfoGainAttributeEval} klasse\footnote{Meer informatie over deze klasse is te vinden op: \texttt{http://weka.sourceforge.net/doc.dev/weka/\\attributeSelection/InfoGainAttributeEval.html}}.
 Deze klasse evalueert de waarde van elke feature met behulp van information gain.
 
 %Evaluatie
 Om vervolgens de geselecteerde features te evalueren, maken we gebruik van dubbele cross-validatie. Bij de eerste cross-validatie (10-fold) wordt de gegevensset telkens verdeeld in een training en test set. Voor elke training set worden de beste features geselecteerd met de methode die hierboven werd beschreven, gebruik makend van een tweede cross-validatie (2-fold). Met de geselecteerde features wordt een model opgesteld met behulp van de Random Forests classificatiemethode in Weka. Het gevonden model wordt uiteindelijk ge\"evalueerd op de test set van de eerste cross-validatie.
 	
 %Resultaten
-In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features getoond. Met enkel de statistische features wordt al een accuraatheid van 90\% behaald. Zelfs met de helft van de features kan het model al met een accuraatheid van 80\% activiteiten voorspellen. We stellen vast dat van het grote aantal Fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. De features die hier geselecteerd worden, zijn voornamelijk de de amplitudes van de versnelling en energie voor frequenties kleiner dan 2.5 Hz. In figuur~\ref{fig:8} zien we dat de versnellingen van de activiteiten niet meer dan twee grote pieken per seconde bevatten. Dat is een mogelijke verklaring voor het feit dat de amplitudes voor lagere frequenties de meeste informatie geven.  In tegenstelling tot de Fourier transformatie features, lijken de Wavelet transformatie features minder goed te werken met slechts 70\% accuraatheid. Tenslotte merken we in de laatste grafiek op dat de Hidden Markov Models enkel degelijk werken wanneer alle features gebruikt worden. De features zijn de log-likelihoods voor het Hidden Markov Model van elke activiteit. Om de activiteit van een meting te bepalen, wordt voor de gemeten versnellingen best de likelihood voor elk model berekend om de meting met elke activiteit te vergelijken. Het is echter wel belangrijk om op te merken dat de information gain van de HMM features voor de activiteiten niets doen, tanden poetsen en lift versnelt omhoog/omlaag lager ($<$ 0.6) is dan voor de andere activiteiten ($>$ 1.8). Deze vier activiteiten hebben kleine versnellingen en kunnen daardoor gemakkelijk met elkaar verward worden. Zo hebben metingen voor niets doen en tanden poetsen een hoge likelihood voor de modellen van deze vier activiteiten. Bij metingen voor lift omhoog en omlaag zijn de likelihoods steeds voor beide activiteiten hoog. Dat heeft als gevolg dat de features voor deze vier activiteiten minder informatie geven dan de andere features.
+In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features getoond. Met enkel de statistische features wordt een accuraatheid van 90\% behaald. Zelfs met de helft van de features kan het model al met een accuraatheid van 80\% activiteiten voorspellen. We stellen vast dat van het grote aantal Fourier tranformatie features slechts een tiental nodig zijn om een nauwkeurigheid van 80\% te bekomen. De features die hier geselecteerd worden, zijn voornamelijk de de amplitudes van de versnelling en energie voor frequenties kleiner dan 2.5 Hz. In figuur~\ref{fig:8} zien we dat de versnellingen van de activiteiten niet meer dan twee grote pieken per seconde bevatten. Dat is een mogelijke verklaring voor het feit dat de amplitudes voor lagere frequenties de meeste informatie geven.  In tegenstelling tot de Fourier transformatie features, lijken de Wavelet transformatie features minder goed te werken met slechts 70\% accuraatheid. Tenslotte merken we in de laatste grafiek op dat de Hidden Markov Models enkel degelijk werken wanneer alle features gebruikt worden. De features zijn immers de log-likelihoods voor het Hidden Markov Model van elke activiteit. Om de activiteit van een meting te bepalen, wordt voor de gemeten versnellingen best de likelihood voor elk model berekend om de meting met elke activiteit te vergelijken. Het is echter wel belangrijk om op te merken dat de information gain van de HMM features voor niets doen, tanden poetsen en lift versnelt omhoog/omlaag lager ($<$ 0.6) is dan voor de andere activiteiten ($>$ 1.8). Deze vier activiteiten hebben kleine versnellingen en kunnen daardoor gemakkelijk met elkaar verward worden. Zo hebben metingen voor niets doen en tanden poetsen een hoge likelihood voor de modellen van deze vier activiteiten. Bij metingen voor lift omhoog en omlaag zijn de likelihoods steeds voor beide activiteiten hoog. Dat heeft als gevolg dat de features voor deze vier activiteiten minder informatie geven dan de andere features.
 
 \begin{figure}[htb]
 \centering
@@ -216,7 +215,7 @@ In figuur~\ref{fig:1} worden de resulaten voor de verschillende soorten features
   \end{subfigure} \\
   
 
-  \caption{Resultaten van het feature selectie experiment: op de x-as wordt steeds het aantal features van elke soort features geplot en op de y-as de accuraatheid (in percentages) van het model dat door Random Forests geleerd werd.}\label{fig:1}
+  \caption{Resultaten van het feature selectie experiment: op de x-as wordt steeds het aantal features geplot en op de y-as de accuraatheid (in percentages) van het model dat door Random Forests geleerd werd.}\label{fig:1}
 \end{figure}
 
 Voor de rest van het onderzoek wordt gebruik gemaakt van de volledige set features.
@@ -232,7 +231,7 @@ We gebruiken classificatiemethodes om een model te zoeken om afzonderlijke activ
 \item \textit{Random Forests} zijn combinaties van beslissingsbomen met een willekeurig deel van de trainingset en een willekeurig deel van de features. Bij de classificatie van een nieuwe instantie `stemt' elke boom op een label. De instantie krijgt vervolgens het label met de meeste stemmen.
 \item \textit{k-Nearest Neighbours} classificeert nieuwe instanties door te zoeken naar de k dichtstbijzijnde instanties in de trainingset. Dit zijn de instanties waarvan de waarden voor de features het dichtst bij die van de te classificeren instantie ligt. Hieruit wordt het meest voorkomende label gekozen.
 \item \textit{Naive Bayes} is een probabilistische classifier die gebruik maakt van voorwaardelijke kansen. De features van een te classificeren instantie worden hier als een vector $\mathbf{F} = (F_1, ..., F_n)$ voorgesteld. Een label $C_1$ is waarschijnlijker dan een label $C_2$ wanneer $P(\mathbf{F}|C_1) P(C_1) > P(\mathbf{F}|C_2) P(C_2)$. Hierin kunnen de kansen $P(\mathbf{F}|C_i)$ en $P(C_i)$ voor alle labels $C_i$ uit de trainingset berekend worden. Bij het classificeren wordt het meest waarschijnlijke label gekozen.
-\item \textit{Support Vector Machines} beschouwt de features als een multidimensionele ruimte. De instanties zijn dan punten in de featureruimte. Bij het leren worden de instanties lineair van elkaar gescheiden door een hypervlak, zodat de instanties aan de ene kant van het vlak een ander label hebben dan die aan de andere kant. Wanneer de instanties niet lineair te scheiden zijn, worden ze getransformeerd met een \textit{kernel functie}. We gebruiken hier LibSVM, %TODO bron
+\item \textit{Support Vector Machines} beschouwt de features als een multidimensionele ruimte. De instanties zijn dan punten in de featureruimte. Bij het leren worden de instanties lineair van elkaar gescheiden door een hypervlak, zodat de instanties aan de ene kant van het vlak een ander label hebben dan die aan de andere kant. Wanneer de instanties niet lineair te scheiden zijn, worden ze getransformeerd met een \textit{kernel functie}. We gebruiken in dit onderzoek LibSVM,
 waarbij binaire (\'e\'en-tegen-\'e\'en) classificatie gedaan wordt: elk hypervlak scheidt de instanties van 2 verschillende labels. Een nieuwe instantie wordt geclassificeerd door elke binaire classificatie als een stem voor een label te beschouwen. Het label met het grootste aantal stemmen wordt gekozen.
 \end{itemize}
 
@@ -246,31 +245,7 @@ Verder wordt IBk gebruikt voor k-Nearest Neighbours en LibSVM voor Support Vecto
 De evaluatie gebeurt met 10-fold cross-validatie. Hierbij worden de instanties op tien verschillende manieren opgesplitst zodat telkens 90\% van de instanties als trainingset wordt gebruikt om een model uit te leren. Op de overige 10\% wordt het model ge\"evalueerd. De accuraatheid van elke methode wordt dan berekend als het gemiddelde percentage van correct geclassificeerde instanties in de verschillende test sets.
 
 In figuur \ref{fig:methodes}
-wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We zien dat RandomForest de hoogste accuraatheid (93,75\%) geeft voor de metingen. Ook J48 geeft een goede accuraatheid (87.5\%). De hogere accuraatheid van Random Forests ten opzichte van beslissingsbomen is te verklaren door het feit dat Random Forests minder kans op overfitting heeft.~\cite{breiman:randomforests} Naive Bayes lijkt ook goed te werken, terwijl met IBk en vooral LibSVM een lagere accuraatheid bereikt wordt. De accuraatheid van de methodes kan echter wel verbeterd worden door de parameters te optimaliseren.
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    ybar,
-    xtick=data,
-    ymin=0,
-    xticklabels from table={Data/methodes.dat}{methode},
-    xticklabel style={align=center},
-    nodes near coords,
-    ylabel={Accuraatheid (\%)}
-]
-
-\addplot table [
-    x=xpos,
-    y=accuraatheid
-] {Data/methodes.dat};
-
-\end{axis}
-\end{tikzpicture}
-\caption{Accuraatheid van classificatiemethodes}
-\label{fig:methodes}
-\end{figure}
+wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We zien dat RandomForest de hoogste accuraatheid (93.75\%) geeft voor de metingen. Ook J48 geeft een goede accuraatheid (87.5\%). De hogere accuraatheid van Random Forests ten opzichte van beslissingsbomen is te verklaren door het feit dat Random Forests minder kans op overfitting heeft~\cite{breiman:randomforests}. Naive Bayes lijkt ook goed te werken, terwijl met IBk en vooral LibSVM een lagere accuraatheid bereikt wordt. De accuraatheid van de methodes kan echter wel verbeterd worden door de parameters te optimaliseren.
 
 \begin{figure*}
 \begin{center}
@@ -307,7 +282,31 @@ wordt de accuraatheid van de verschillende classificatiemethodes vergeleken. We 
 Figuur \ref{fig:confusionmatrix} toont een confusion-matrix voor het model dat geleerd werd door Random Forests. Het valt op dat activiteiten met grote versnellingen -- wandelen, lopen, fietsen en springen -- goed te herkennen zijn. Alle metingen voor deze activiteiten worden immers correct geclassificeerd door het model. Niets doen, lift versnelt omhoog/omlaag en tanden poetsen hebben kleinere versnellingen dan de andere activiteiten. We zien dat twee metingen van niets doen als tanden poetsen worden geclassificeerd. Ook lift omhoog en omlaag worden gemakkelijk met elkaar verward. Omwille van de kleine versnellingen zijn de verschillen tussen de activiteiten subtieler, wat een verklaring kan zijn waarom deze activiteiten moeilijker te herkennen zijn.
 \\~\\
 %korte conclusie
-We kunnen voor de afzonderlijke activiteiten besluiten dat door Random Forests het nauwkeurigste (93,75\%) model geleerd wordt.
+We kunnen voor de afzonderlijke activiteiten besluiten dat door Random Forests het nauwkeurigste (93.75\%) model geleerd wordt.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    xtick=data,
+    ymin=0,
+    xticklabels from table={Data/methodes.dat}{methode},
+    xticklabel style={align=center},
+    nodes near coords,
+    ylabel={Accuraatheid (\%)}
+]
+
+\addplot table [
+    x=xpos,
+    y=accuraatheid
+] {Data/methodes.dat};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Accuraatheid van classificatiemethodes}
+\label{fig:methodes}
+\end{figure}
 
 \newpage
 \section{Sequenties van activiteiten}
@@ -357,7 +356,7 @@ In figuur~\ref{fig:proces:sequenties} wordt het proces beschreven om sequenties 
 
 Met behulp van de MotionTracker~\cite{meert and schietgat:motiontracker} applicatie werd opnieuw de versnelling en rotatie gemeten, maar nu van meerdere activiteiten na elkaar. In totaal zijn vier sequenties van elk ongeveer drie minuten lang opgemeten: twee verschillende combinaties van activiteiten, telkens door twee personen opgemeten. De ene combinatie bevat de activiteiten wandelen, trap op en af, niets doen, lopen en springen. De andere bevat wandelen, trap op en af, niets doen en lift omhoog en omlaag. Omdat lift versnellingen moeilijk van elkaar te onderscheiden zijn door het model voor afzonderlijke activiteiten (zie sectie~\ref{afzonderlijk:experimenten}), verwachten we dat de tweede combinatie moeilijker te herkennen is dan de eerste.
 
-Om de metingen te evalueren, werd elke sequentie gelabeld. Elke label bevat de start- en eindtijden van de verschillende activiteiten in de bijhorende meting. De delen die niet gelabeld werden, worden beschouwd als "ruis". Ruis defini\"eren we als niet-herkenbare activiteit. Het gaat om periodes met activiteiten die niet tot de tien activiteiten. De smartphone in de broekzak stoppen is hier een voorbeeld van.
+Om de metingen te evalueren, werd elke sequentie gelabeld. De labels bevatten de start- en eindtijden van de verschillende activiteiten in de bijhorende meting. De delen die niet gelabeld werden, worden beschouwd als `ruis'. Ruis defini\"eren we als niet-herkenbare activiteit. Het gaat om periodes met activiteiten die niet tot de tien activiteiten behoren. De smartphone in de broekzak stoppen is hier een voorbeeld van.
 
 \subsection{Gegevensverwerking}
 
@@ -384,7 +383,7 @@ Als minstens twee vensters met het deel van de sequentie overlappen, houdt het a
 \node at (-4.4,0.8) {4};
 \node at (-2.5,0.8) {8};
 \end{tikzpicture}
-\caption{Sequentie van twee activiteiten: De linkerbalk is activiteit 1 en de rechterbalk is activiteit 2}
+\caption{Sequentie van twee activiteiten: de linkerbalk is activiteit 1 en de rechterbalk is activiteit 2.}
 \end{subfigure}\\
 
 \begin{subfigure}[b]{.90\linewidth}
@@ -424,7 +423,7 @@ Als minstens twee vensters met het deel van de sequentie overlappen, houdt het a
 \node at (-1,-3.2) {2};
 \node at (1.2,-3.2) {2.5};
 \end{tikzpicture}
-\caption{Voorspelling maken: het eerste tijdsvenster beslist voor 60\% dat het de eerste activiteit bevat. Het tweede tijdsvenster besluit voor slechts 35\% dat hij de tweede activiteit bevat. Hierdoor besluit het algoritme dat voor tijstip 2s t.e.m. 2.5s activiteit 1 uitgevoerd wordt}
+\caption{Voorspelling maken: het eerste tijdsvenster beslist voor 60\% dat het de eerste activiteit bevat. Het tweede tijdsvenster besluit voor slechts 35\% dat hij de tweede activiteit bevat. Hierdoor besluit het algoritme dat voor tijstip 2s t.e.m. 2.5s activiteit 1 uitgevoerd wordt.}
 
 \end{subfigure}
   \caption{Voorstelling van het algoritme om sequenties van activiteiten te classificeren. In figuur (a) wordt een sequentie van twee activiteiten getoond over 12 seconden. Vervolgens worden er tijdsvensters met overlapping van 75\% geknipt in figuur (b). Tenslotte wordt een voorspelling gemaakt in figuur (c).}\label{fig:algoritme}
@@ -474,13 +473,13 @@ Als minstens twee vensters met het deel van de sequentie overlappen, houdt het a
 \subsection{Experimenten}
 \label{experimenten}
 
-Het algoritme wordt ge\"evalueerd door het toe te passen op de vier verschillende sequenties die we opgemeten hebben (zie sectie~\ref{seq:gegevens}). Op die manier gaan we op zoek naar optimale waarden voor de parameters. De parameters moeten zodanig gekozen worden dat de voorspellingen van het algoritme zo nauwkeurig mogelijk zijn. We verwachten dat de tijdsvensters vier seconden lang moeten zijn om lift omhoog en omlaag te kunnen herkennen, aangezien deze activiteiten ongeveer vier seconden duren. Wanneer we daarbij een overlappingspercentage van 75\% kiezen, zullen de tijdsvensters steeds 1s verschuiven. Op die manier zullen de tijdsvensters waarschijnlijk vaker \'e\'en activiteit bevatten. Verder verwachten we dat voor de ruis cutoff een kans van 50\% een redelijke waarde zal zijn. Zo worden voorspellingen steeds met minstens 50 \% zekerheid gemaakt. 
+Het algoritme wordt ge\"evalueerd door het toe te passen op de vier verschillende sequenties die we opgemeten hebben (zie sectie~\ref{seq:gegevens}). Op die manier gaan we op zoek naar optimale waarden voor de parameters. De parameters moeten zodanig gekozen worden dat de voorspellingen van het algoritme zo nauwkeurig mogelijk zijn. We verwachten dat de tijdsvensters vier seconden lang moeten zijn om lift omhoog en omlaag te kunnen herkennen, aangezien deze activiteiten ongeveer vier seconden duren. Wanneer we daarbij een overlappingspercentage van 75\% kiezen, zullen de tijdsvensters steeds 1s verschuiven. Op die manier zullen de tijdsvensters waarschijnlijk vaker \'e\'en activiteit bevatten. Verder verwachten we dat voor de ruis cutoff een kans van 50\% een redelijke waarde zal zijn. Zo worden voorspellingen steeds met minstens 50\% zekerheid gemaakt. 
 
 Om de accuraatheid van de voorspellingen van het algoritme te kunnen evalueren, defini\"eren we eerst hoe we die berekenen. Zoals eerder vermeld, werden de opgemeten sequenties gelabeld zodat gekend is wanneer de verschillende activiteiten in elke meting starten en eindigen. Voor delen die niet gelabeld werden, veronderstellen we dat die `Ruis' als label hebben. We zullen de voorspellingen van het algoritme vergelijken met deze labels. Dit doen we door per halve seconde van de sequentie te controleren of de voorspelling overeenkomt met het label. Deze controle wordt echter niet gedaan voor overgangen in de sequentie: dat zijn delen van de sequentie die op maximaal 1 seconde van een start- of eindtijd van een gelabelde activiteit liggen. De accuraatheid wordt dan berekend door van alle gecontroleerde voorspellingen het percentage correcte voorspellingen te bepalen.
 
 \subsection{Resultaten}
 
-In figuur~\ref{fig:3d} worden de verschillende combinaties van de tijdsvenstergrootte en overlappingspercentage getoond met de behaalde accuraatheid. Indien de overlapping constant wordt gehouden (figuur~\ref{fig:seq2d}), zien we dat naarmate de tijdsvenstergrootte stijgt, ook de accuuraatheid stijgt. Er wordt een maximum gehaald rond de vier tot zes seconden, daarna daalt de accuuraatheid terug. Bij een vaste tijdsvenstergrootte constateren we dat hoe groter het overlappingspercentage wordt, hoe nauwkeurigere voorspellingen gemaakt kunnen worden.
+In figuur~\ref{fig:3d} worden de verschillende combinaties van de tijdsvenstergrootte en het overlappingspercentage getoond met de behaalde accuraatheid. Indien de overlapping constant wordt gehouden (figuur~\ref{fig:seq2d}), zien we dat naarmate de tijdsvenstergrootte stijgt, ook de accuuraatheid stijgt. Er wordt een maximum gehaald rond de vier tot zes seconden, daarna daalt de accuuraatheid terug. Bij een vaste tijdsvenstergrootte constateren we dat hoe groter het overlappingspercentage wordt, hoe nauwkeurigere voorspellingen gemaakt kunnen worden.
 
 \begin{figure}[h]
 \centering
@@ -503,11 +502,8 @@ In figuur~\ref{fig:3d} worden de verschillende combinaties van de tijdsvenstergr
 \end{figure}
 
 Deze resultaten komen overeen met de hypothese die eerder gemaakt werd. De meeste activiteiten duren enkele seconden lang. Liftversnellingen bijvoorbeeld duren ongeveer vier seconden. Hierdoor is te verklaren waarom de tijdsvensters langer dan vier seconden moeten zijn. Tijdvensters van \'e\'en of twee seconden zijn niet altijd lang genoeg om een hele periode van een activiteit te bevatten. Grotere tijdsvensters leveren een lagere accuuraatheid op omdat de kans dat \'e\'enzelfde venster meerdere activiteiten bevat groter is. Daardoor is het moeilijker om de juiste activiteit te herkennen. De stijgende nauwkeurigheid voor toenemende overlappingsgrootte was ook te verwachten. Hoe groter de overlapping, hoe meer voorspellingen gemaakt kunnen worden per halve seconde van de sequentie. Hierbij moet wel een trade-off gemaakt worden: meer voorspellingen maken, vraagt immers meer tijd.
-
-Uit het vorige experiment kunnen we concluderen dat de optimale venstergrootte vier tot zes seconden is in combinatie met een overlappingspercentage van 75\%. Deze waarden samen met 50\% ruis cut-off leveren een gemiddelde nauwkeurigheid van 84\% voor de opgemeten sequenties.
 \\~\\
-%Korte conclusie
-Voor de sequentie van activiteiten kunnen we concluderen dat voor ons algoritme de optimale venstergrootte vier tot zes seconden is in combinatie met 75\% overlapping. Er wordt een gemiddelde accuraatheid behaald van 84\%
+We kunnen concluderen dat voor het algoritme de optimale venstergrootte vier tot zes seconden is, in combinatie met een overlappingspercentage van 75\%. Deze waarden samen met 50\% ruis cut-off leveren een gemiddelde nauwkeurigheid van 84\% voor de opgemeten sequenties.
 
 	
 
@@ -515,14 +511,11 @@ Voor de sequentie van activiteiten kunnen we concluderen dat voor ons algoritme 
 
 Het doel van dit onderzoek was om een model te vinden om afzonderlijke bewegingen te herkennen. Vervolgens gebruikten we dit model om een sequentie van verschillende activiteiten te evalueren.
 
-	In sectie 2 werden twee experimenten uitgevoerd in verband met afzonderlijke activiteiten. Het eerste experiment betreft de feature selectie. Hierbij werd onderzocht hoeveel features nodig zijn om een een voldoende nauwkeurig model te vinden. Het resultaat was dat enkel statistische features een model opleveren met 90\% nauwkeurigheid. We kunnen bij hetzelfde experiment ook concluderen dat van de 80 Fourier transformatie features slechts een tiental nodig zijn.
-	In het tweede experiment werden verschillende classificatiemethodes met elkaar vergeleken. We maakten gebruik van vijf veel voorkomende machine learning technieken: beslissingsbomen, Random Forests, k-Nearest Neighbours, Naive Bayes en Support Vector Machines. Van deze methodes kwam Random Forests als beste naar boven met een nauwkeurigheid van 93,75\%.
+	In sectie 2 werden twee experimenten uitgevoerd in verband met afzonderlijke activiteiten. Het eerste experiment betreft de feature selectie. Hierbij werd onderzocht hoeveel features nodig zijn om een een voldoende nauwkeurig model te vinden. Het resultaat was dat enkel statistische features een model opleveren met 90\% nauwkeurigheid. We kunnen bij hetzelfde experiment ook concluderen dat van de 84 Fourier transformatie features slechts een tiental nodig zijn.
+	In het tweede experiment werden verschillende classificatiemethodes met elkaar vergeleken. We maakten gebruik van vijf veel voorkomende machine learning technieken: beslissingsbomen, Random Forests, k-Nearest Neighbours, Naive Bayes en Support Vector Machines. Van deze methodes kwam Random Forests als beste naar boven met een nauwkeurigheid van 93.75\%.
 	
-	In sectie 3 werden sequenties van activiteiten ge\"evalueerd. Hiervoor hebben we een algoritme ontwikkeld waarvan de pseudocode besproken werd in sectie 3.3. 
-
-Het algoritme vereist drie parameters: een tijdsvenstergrootte in seconden, een overlappingspercentage en een een ruis cutoff kans. Uit het experiment in sectie 3.4
-bleek dat de optimale waarde voor de tijdsvenstergrootte vier tot zes seconden is en 75\% overlappingen een goede accuraatheid geven. De waarden werden getest op sequenties van ongeveer 3 minuten lang met steeds 4 \'a 5 verschillende activiteiten. Met behulp van het model van Random Forests (dit is het model dat gevonden werd in sectie 2.4
-) werd er een gemiddelde nauwkeurigheid van 84\% gevonden.
+	In sectie 3 werden sequenties van activiteiten ge\"evalueerd. Hiervoor hebben we een algoritme ontwikkeld waarvan de pseudocode besproken werd in sectie 3.3. Het algoritme vereist drie parameters: een tijdsvenstergrootte in seconden, een overlappingspercentage en een een ruis cutoff kans. Uit het experiment in sectie 3.4
+bleek dat de optimale waarde voor de tijdsvenstergrootte vier tot zes seconden is en 75\% overlappingen een goede accuraatheid geven. De waarden werden getest op sequenties van ongeveer 3 minuten lang met steeds 4 \'a 5 verschillende activiteiten. Met behulp van het model van Random Forests (dit is het model dat gevonden werd in sectie 2.4) werd er een gemiddelde nauwkeurigheid van 84\% gevonden.
 
 
 %TODO voor afzonderlijke activiteiten EN (?) voor sequenties
@@ -540,7 +533,7 @@ Bovendien kunnen er modellen gegenereerd worden voor nieuwe activiteiten. Het to
 \subsection{Sequenties van activiteiten}
 
 Het algoritme om sequenties van activiteiten te evalueren kan ook nog verder geoptimaliseerd worden. 
-Zo zijn bepaalde overgangen van activiteiten totaal onmogelijk. Het herkennen van fietsen na een liftversnelling is bijvoorbeeld onwaarschijnlijk. Zulke overgangen kunnen gefilterd worden door het gebruik van Markov ketens. Verder hebben we tijdens het onderzoek gemerkt dat soms enkele seconden als tanden poetsen herkend worden tijdens niets doen. Ook dit is onwaarschijnlijk en zou ook gefilterd kunnen worden met behulp van Markoven ketens.
+Zo zijn bepaalde overgangen van activiteiten totaal onmogelijk. Het herkennen van fietsen na een liftversnelling is bijvoorbeeld onwaarschijnlijk. Zulke overgangen kunnen gefilterd worden door het gebruik van Markov ketens. Verder hebben we tijdens het onderzoek gemerkt dat soms enkele seconden als tanden poetsen herkend worden tijdens niets doen. Ook dit is onwaarschijnlijk en zou ook gefilterd kunnen worden met behulp van Markov ketens.
 
 Tijdens het onderzoek werd geen rekening gehouden met de performantie (noch snelheid, noch geheugengebruik). Deze kan verder onderzocht en eventueel verbeterd worden.
 
