@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.7)  29 MAY 2015 09:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.10)  29 MAY 2015 14:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 28 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 Bewegingsherkenning met een smartphone
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
@@ -735,11 +735,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--184
  []
 
 Package epstopdf Info: Source file: <figures/StatisticFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:37:54
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 20262 bytes
 (epstopdf)             Output file: <figures/StatisticFeatures-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2015-05-18 21:42:33
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 6337 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/StatisticFeatures-e
 ps-converted-to.pdf figures/StatisticFeatures.eps>
@@ -753,10 +753,10 @@ Package pdftex.def Info: figures/StatisticFeatures-eps-converted-to.pdf used on
  input line 198.
 (pdftex.def)             Requested size: 118.32332pt x 94.66003pt.
 Package epstopdf Info: Source file: <figures/FFTFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:41:09
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 21417 bytes
 (epstopdf)             Output file: <figures/FFTFeatures-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-18 21:42:34
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 9267 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/FFTFeatures-eps-con
 verted-to.pdf figures/FFTFeatures.eps>
@@ -771,10 +771,10 @@ Package pdftex.def Info: figures/FFTFeatures-eps-converted-to.pdf used on input
  line 203.
 (pdftex.def)             Requested size: 118.32332pt x 94.66003pt.
 Package epstopdf Info: Source file: <figures/DWTFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:41:23
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 20459 bytes
 (epstopdf)             Output file: <figures/DWTFeatures-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-18 21:42:34
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 6696 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/DWTFeatures-eps-con
 verted-to.pdf figures/DWTFeatures.eps>
@@ -789,10 +789,10 @@ Package pdftex.def Info: figures/DWTFeatures-eps-converted-to.pdf used on input
  line 208.
 (pdftex.def)             Requested size: 118.32332pt x 94.66003pt.
 Package epstopdf Info: Source file: <figures/HMMFeatures.eps>
-(epstopdf)                    date: 2015-05-18 21:39:19
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 20227 bytes
 (epstopdf)             Output file: <figures/HMMFeatures-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-18 21:42:34
+(epstopdf)                    date: 2015-05-24 16:11:36
 (epstopdf)                    size: 5658 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/HMMFeatures-eps-con
 verted-to.pdf figures/HMMFeatures.eps>
@@ -858,10 +858,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6]
 Package epstopdf Info: Source file: <figures/3dplot.eps>
-(epstopdf)                    date: 2015-05-17 14:57:42
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 39851 bytes
 (epstopdf)             Output file: <figures/3dplot-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-17 14:58:00
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 28085 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/3dplot-eps-converte
 d-to.pdf figures/3dplot.eps>
@@ -875,11 +875,11 @@ Package pdftex.def Info: figures/3dplot-eps-converted-to.pdf used on input line
  489.
 (pdftex.def)             Requested size: 239.06006pt x 239.05965pt.
 Package epstopdf Info: Source file: <figures/constantoverlap.eps>
-(epstopdf)                    date: 2015-05-17 15:23:14
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 21295 bytes
 (epstopdf)             Output file: <figures/constantoverlap-eps-converted-to.p
 df>
-(epstopdf)                    date: 2015-05-17 15:23:45
+(epstopdf)                    date: 2015-05-18 13:01:16
 (epstopdf)                    size: 8944 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/constantoverlap-eps
 -converted-to.pdf figures/constantoverlap.eps>
@@ -1032,12 +1032,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20815 strings out of 494424
- 493450 string characters out of 6165346
- 599173 words of memory out of 5000000
- 23592 multiletter control sequences out of 15000+600000
+ 20815 strings out of 493304
+ 493450 string characters out of 6139870
+ 602041 words of memory out of 5000000
+ 23800 multiletter control sequences out of 15000+600000
  28201 words of font info for 57 fonts, out of 8000000 for 9000
- 372 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  63i,11n,84p,2033b,2064s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
